@@ -77,6 +77,7 @@ src/main.js              Interfaz, entrada y coordinación del juego
 src/style.css            Dirección visual y diseño adaptable
 test/                    Pruebas deterministas de la simulación
 scripts/browser-smoke.mjs Validación de WebGL e interacción real
+scripts/blender/          Generador de base chibi y materiales toon para Blender
 ```
 
 La simulación no depende del DOM ni de Three.js. La escena agrupa geometría estática por material y reutiliza enemigos y efectos visuales. Los modelos actuales son una base low-poly; aún no son personajes finales con rig y animaciones de producción.
@@ -85,6 +86,6 @@ La simulación no depende del DOM ni de Three.js. La escena agrupa geometría es
 
 Esta alpha es para un jugador, con un mapa y seis héroes. Todavía no incluye lobby explorable, gacha, inventario persistente de unidades, evolución, equipamiento, más mapas ni multijugador. La partida en curso no se guarda; al recargar comienza una misión nueva.
 
-Ver [decisiones de diseño y referencias](docs/DESIGN.md) y [roadmap](docs/ROADMAP.md).
+Ver [decisiones de diseño y referencias](docs/DESIGN.md), [roadmap](docs/ROADMAP.md) y [guía de la base chibi en Blender](docs/BLENDER.md).
 
 El repositorio de trabajo es [UltimateMarvelTD_3D](https://github.com/aaloiamircovich/UltimateMarvelTD_3D). Los cambios terminados se entregan con commit y push, según la preferencia del usuario registrada en `AGENTS.md`.
