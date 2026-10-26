@@ -1,0 +1,20 @@
+const paths = {
+  shield: '<path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6z"/><path d="m8 12 3 3 5-6"/>',
+  bolt: '<path d="m14 2-9 12h6l-1 8 9-13h-6z"/>',
+  coin: '<circle cx="12" cy="12" r="8"/><path d="M15 8H9v4h6v4H9m3-10v12"/>',
+  skull: '<path d="M7 17H5v-6a7 7 0 0 1 14 0v6h-2v4H7z"/><circle cx="9" cy="11" r="1"/><circle cx="15" cy="11" r="1"/><path d="m10 16 2-2 2 2m-4 2v3m4-3v3"/>',
+  play: '<path d="m8 4 12 8-12 8z"/>',
+  pause: '<path d="M8 4v16M16 4v16"/>',
+  sound: '<path d="M11 4 5 9H2v6h3l6 5zM15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>',
+  mute: '<path d="M11 4 5 9H2v6h3l6 5zM16 9l6 6m0-6-6 6"/>',
+  cross: '<path d="m6 6 12 12M18 6 6 18"/>',
+  target: '<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v4m0 14v4M1 12h4m14 0h4"/>',
+  box: '<path d="m3 7 9-5 9 5v10l-9 5-9-5zM3 7l9 5 9-5m-9 5v10"/>',
+  settings: '<path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/>',
+  arrow: '<path d="M5 12h14m-5-5 5 5-5 5"/>',
+  up: '<path d="m5 14 7-7 7 7m-14 6 7-7 7 7"/>',
+  reset: '<path d="M3 11a9 9 0 1 1 2 7M3 4v7h7"/>',
+  help: '<circle cx="12" cy="12" r="9"/><path d="M9 8a3 3 0 1 1 4 3c-1 1-1 1-1 3m0 3h.01"/>',
+  trophy: '<path d="M7 3h10v7a5 5 0 0 1-10 0zM7 5H3v4a4 4 0 0 0 5 4m9-8h4v4a4 4 0 0 1-5 4m-4 2v6m-4 0h8"/>',
+};
+export const icon = (name, cls = '') => `<svg class="icon ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.bolt}</svg>`;
