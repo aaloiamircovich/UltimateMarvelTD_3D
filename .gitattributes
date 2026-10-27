@@ -7,3 +7,7 @@
 *.md text eol=lf
 *.yml text eol=lf
 *.cmd text eol=crlf
+
+# Preserve the upstream blob bytes for the migration provenance checks.
+src/legacy/** -text
+public/legacy/** -text

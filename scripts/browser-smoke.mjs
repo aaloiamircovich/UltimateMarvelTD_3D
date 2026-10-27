@@ -30,6 +30,56 @@ try {
   );
   await page.evaluate(() => document.fonts.ready);
   await page.waitForFunction(() => window.__TD?.hub && window.__TD.inHub);
+  const missingLegacyAssets = [];
+  page.on("response", response => {
+    if (response.url().includes("/legacy/") && response.status() >= 400) missingLegacyAssets.push(response.url());
+  });
+  await page.locator("#hub-archive").click();
+  await page.locator("#legacy-search").waitFor();
+  assert.equal(await page.locator("#legacy-results").textContent(), "105 resultados");
+  await page.locator("#legacy-more").click();
+  assert.equal(await page.locator(".legacy-card").count(), 48);
+  await page.locator("#legacy-team-toggle").click();
+  await page.locator("#legacy-search").fill("capitan america");
+  await page.locator('[data-entry="capitan_america"]').click();
+  await page.locator("#legacy-team-toggle").click();
+  await page.locator('[data-tab="synergies"]').click();
+  assert.ok(await page.locator(".legacy-active").count() > 0);
+  await page.locator('[data-tab="heroes"]').click();
+  await page.locator("#legacy-search").fill("spiderman");
+  await page.locator('[data-entry="spiderman"]').click();
+  await page.locator("#legacy-level").evaluate(input => { input.value = "50"; input.dispatchEvent(new Event("change", { bubbles: true })); });
+  assert.equal(await page.locator(".legacy-detail-heading h3").textContent(), "Iron Spider");
+  await page.locator("#legacy-item").selectOption("simbionte");
+  assert.equal(await page.locator(".legacy-detail-heading h3").textContent(), "Spider-Man Black Suit");
+  assert.ok((await page.locator(".legacy-detail-heading img").getAttribute("src")).includes("spiderman_black_suit"));
+  await page.locator(".legacy-detail-heading img").evaluate(img => img.decode());
+  assert.ok(await page.locator(".legacy-detail-heading img").evaluate(img => img.naturalWidth > 0));
+  await page.screenshot({ path: "artifacts/legacy-catalog-desktop.png" });
+  await page.locator('[data-tab="items"]').click();
+  assert.equal(await page.locator("#legacy-results").textContent(), "82 resultados");
+  await page.locator('[data-tab="enemies"]').click();
+  assert.equal(await page.locator("#legacy-results").textContent(), "49 resultados");
+  await page.locator('[data-tab="levels"]').click();
+  assert.equal(await page.locator("#legacy-results").textContent(), "11 resultados");
+  await page.locator('[data-tab="heroes"]').click();
+  await page.locator("#legacy-rarity").selectOption("Common");
+  assert.ok(await page.locator(".legacy-card").count() > 0);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.locator("#legacy-search").fill("black_widow");
+  await page.locator('[data-entry="black_widow"]').click();
+  await page.locator(".legacy-detail-heading img").evaluate(img => img.decode());
+  await page.screenshot({ path: "artifacts/legacy-catalog-mobile.png" });
+  assert.ok(await page.locator("#hub-dialog").evaluate(d => d.scrollWidth <= d.clientWidth));
+  const closeBox = await page.locator("#hub-close").boundingBox();
+  assert.ok(closeBox.y >= 0 && closeBox.y + closeBox.height <= 844);
+  await page.locator("#hub-close").click();
+  await page.locator("#hub-archive").click();
+  await page.locator("#legacy-search").waitFor();
+  await page.keyboard.press("Escape");
+  assert.equal(await page.locator("#hub-dialog").isVisible(), false);
+  await page.setViewportSize({ width: 1600, height: 1000 });
+  assert.deepEqual(missingLegacyAssets, []);
   await page.screenshot({ path: "artifacts/hub-desktop.png" });
   const startZ = await page.evaluate(() => window.__TD.hub.world.player.position.z);
   await page.locator("#hub-world canvas").focus();
@@ -196,7 +246,7 @@ try {
   assert.equal(await page.evaluate(() => window.__TD.game.phase), "preparing");
   assert.deepEqual(errors, []);
   console.log(
-    "Browser smoke passed: WebGL, deployment, collision, upgrade, targeting, combat, pause, speed, wave completion, collection, restart, laptop/mobile layouts, dialogs, victory, defeat and profile persistence.",
+    "Browser smoke passed: original catalogue, search, rarity, level/equipment previews, evolution portraits, synergies, maps/enemies/items, desktop/mobile dialogs; WebGL, HUB, deployment, combat, victory, defeat and persistence.",
   );
 } finally {
   await browser.close();

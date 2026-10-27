@@ -4,7 +4,9 @@ Tower defense 3D independiente de Roblox, desarrollado con Three.js y JavaScript
 
 La experiencia comienza en Avengers Campus: controlás a tu agente, recorrés la plaza y accedés a las actividades desde sus estaciones. Historia e infinito ya se pueden jugar; invocaciones, traits y grades tienen espacios reservados pero aún no implementan sus sistemas. Las reglas de traits y grades están pendientes de la descripción del usuario: no asumir pasivas aleatorias, rangos C–S ni rerolls.
 
-El punto de partida de diseño es [TowerDefense_Marvel](https://github.com/aaloiamircovich/TowerDefense_Marvel). Se toman sus roles de héroes, el soporte de Capitán América, las prioridades de ataque y las sinergias, adaptados a un campo de batalla tridimensional. No es una migración completa de los 78 héroes del juego 2D.
+La prioridad es migrar [TowerDefense_Marvel](https://github.com/aaloiamircovich/TowerDefense_Marvel) antes de añadir nuevas funciones exclusivas del 3D. Ya se incorporó su catálogo completo: **105 héroes, 82 objetos, 30 enemigos normales, 19 jefes y 11 mapas**, más el núcleo de reglas y sus pruebas. El botón **ARCHIVO 2D** del HUB permite buscar contenido, probar niveles y objetos en las fichas y consultar evoluciones y sinergias con el cálculo original.
+
+**Esto todavía no es una migración completa del combate.** Los datos y reglas están conservados y el catálogo está integrado; las partidas 3D siguen usando los seis héroes y la misión del prototipo. El estado de cada sistema y el orden de integración están en [MIGRACION_2D.md](docs/MIGRACION_2D.md).
 
 ## Jugar en tu computadora
 
@@ -65,7 +67,7 @@ npx playwright install chromium
 npm run test:browser
 ```
 
-`check` ejecuta las pruebas de simulación y genera `dist/`. Las pruebas de navegador inician su propio servidor en el puerto 5174 y guardan capturas locales en `artifacts/` (fuera de Git). En Linux, usar `npx playwright install --with-deps chromium`.
+`check` ejecuta las pruebas de simulación, integridad del snapshot y adaptadores, las 2.526 pruebas originales seleccionadas y genera `dist/`. `npm run test:legacy` ejecuta sólo las pruebas heredadas. Las pruebas de navegador revisan el catálogo y el flujo de juego, inician su propio servidor en el puerto 5174 y guardan capturas locales en `artifacts/` (fuera de Git). En Linux, usar `npx playwright install --with-deps chromium`.
 
 ```sh
 npm run build

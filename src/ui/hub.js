@@ -27,6 +27,16 @@ export class Hub {
     this.dialog.addEventListener("close", () => { this.world.blocked = false; this.world.releaseInput(); });
     this.dialog.addEventListener("click", e => { if (e.target === this.dialog) this.dialog.close(); });
     this.element.querySelector("#hub-squad").onclick = () => this.open("squad");
+    const archiveButton = document.createElement("button");
+    archiveButton.id = "hub-archive";
+    archiveButton.className = "hub-button";
+    archiveButton.textContent = "ARCHIVO 2D";
+    archiveButton.onclick = () => this.openArchive();
+    const actions = document.createElement("div");
+    actions.className = "hub-header-actions";
+    const squadButton = this.element.querySelector("#hub-squad");
+    squadButton.replaceWith(actions);
+    actions.append(archiveButton, squadButton);
     this.element.querySelector("#hub-interact-button").onclick = () => {
       if (this.world.nearby) this.open(this.world.nearby.id);
     };
@@ -68,6 +78,25 @@ export class Hub {
     this.world.blocked = true;
     this.world.releaseInput();
     this.dialog.showModal();
+  }
+  async openArchive() {
+    const panel = this.element.querySelector("#hub-panel");
+    panel.innerHTML = '<p role="status">Cargando el archivo del juego original…</p>';
+    this.world.blocked = true;
+    this.world.releaseInput();
+    this.dialog.showModal();
+    const request = Symbol();
+    this.archiveRequest = request;
+    try {
+      const { LegacyCatalog } = await import("./legacy-catalog.js");
+      if (!this.dialog.open || this.archiveRequest !== request || !panel.querySelector('[role="status"]')) return;
+      if (this.catalog) this.catalog.render();
+      else this.catalog = new LegacyCatalog(panel);
+    } catch (error) {
+      console.error(error);
+      if (this.dialog.open && this.archiveRequest === request)
+        panel.innerHTML = '<h2>No se pudo abrir el archivo.</h2><p>Cerrá este panel y volvé a intentarlo.</p>';
+    }
   }
   render(dt) {
     this.world.render(dt);

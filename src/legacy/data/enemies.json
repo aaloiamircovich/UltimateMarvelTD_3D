@@ -1,0 +1,3040 @@
+{
+  "normal": {
+    "hydra_soldier": {
+      "id": "hydra_soldier",
+      "name": "Soldado de Hydra",
+      "category": "Urbano",
+      "hp": 115,
+      "speed": 50,
+      "reward": 11,
+      "armor": 0,
+      "stealth": false,
+      "faction": "Hydra",
+      "archetype": "shield",
+      "barrierRatio": 0.26,
+      "threat": 2,
+      "statusResistances": {
+        "slow": 0.1
+      },
+      "sprite": "assets/images/enemies/hydra_soldier/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/hydra_soldier/walk/north/0.png",
+              "assets/images/enemies/hydra_soldier/walk/north/1.png",
+              "assets/images/enemies/hydra_soldier/walk/north/2.png",
+              "assets/images/enemies/hydra_soldier/walk/north/3.png",
+              "assets/images/enemies/hydra_soldier/walk/north/4.png",
+              "assets/images/enemies/hydra_soldier/walk/north/5.png"
+            ],
+            "south": [
+              "assets/images/enemies/hydra_soldier/walk/south/0.png",
+              "assets/images/enemies/hydra_soldier/walk/south/1.png",
+              "assets/images/enemies/hydra_soldier/walk/south/2.png",
+              "assets/images/enemies/hydra_soldier/walk/south/3.png",
+              "assets/images/enemies/hydra_soldier/walk/south/4.png",
+              "assets/images/enemies/hydra_soldier/walk/south/5.png"
+            ],
+            "west": [
+              "assets/images/enemies/hydra_soldier/walk/west/0.png",
+              "assets/images/enemies/hydra_soldier/walk/west/1.png",
+              "assets/images/enemies/hydra_soldier/walk/west/2.png",
+              "assets/images/enemies/hydra_soldier/walk/west/3.png",
+              "assets/images/enemies/hydra_soldier/walk/west/4.png",
+              "assets/images/enemies/hydra_soldier/walk/west/5.png"
+            ],
+            "east": [
+              "assets/images/enemies/hydra_soldier/walk/east/0.png",
+              "assets/images/enemies/hydra_soldier/walk/east/1.png",
+              "assets/images/enemies/hydra_soldier/walk/east/2.png",
+              "assets/images/enemies/hydra_soldier/walk/east/3.png",
+              "assets/images/enemies/hydra_soldier/walk/east/4.png",
+              "assets/images/enemies/hydra_soldier/walk/east/5.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/hydra_soldier/idle/south.png",
+          "north-west": "assets/images/enemies/hydra_soldier/idle/north-west.png",
+          "north": "assets/images/enemies/hydra_soldier/idle/north.png",
+          "south-west": "assets/images/enemies/hydra_soldier/idle/south-west.png",
+          "west": "assets/images/enemies/hydra_soldier/idle/west.png",
+          "north-east": "assets/images/enemies/hydra_soldier/idle/north-east.png",
+          "east": "assets/images/enemies/hydra_soldier/idle/east.png",
+          "south-east": "assets/images/enemies/hydra_soldier/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/hydra_soldier/portrait.png",
+        "size": 96
+      }
+    },
+    "aim_scientist": {
+      "id": "aim_scientist",
+      "name": "Científico A.I.M.",
+      "category": "Tecnológico",
+      "hp": 95,
+      "speed": 55,
+      "reward": 14,
+      "armor": 0,
+      "stealth": false,
+      "faction": "A.I.M.",
+      "archetype": "support",
+      "healPower": 0.07,
+      "behaviorCooldown": 4,
+      "threat": 2,
+      "sprite": "assets/images/enemies/aim_scientist/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/aim_scientist/walk/north/0.png",
+              "assets/images/enemies/aim_scientist/walk/north/1.png",
+              "assets/images/enemies/aim_scientist/walk/north/2.png",
+              "assets/images/enemies/aim_scientist/walk/north/3.png"
+            ],
+            "south": [
+              "assets/images/enemies/aim_scientist/walk/south/0.png",
+              "assets/images/enemies/aim_scientist/walk/south/1.png",
+              "assets/images/enemies/aim_scientist/walk/south/2.png",
+              "assets/images/enemies/aim_scientist/walk/south/3.png"
+            ],
+            "west": [
+              "assets/images/enemies/aim_scientist/walk/west/0.png",
+              "assets/images/enemies/aim_scientist/walk/west/1.png",
+              "assets/images/enemies/aim_scientist/walk/west/2.png",
+              "assets/images/enemies/aim_scientist/walk/west/3.png"
+            ],
+            "east": [
+              "assets/images/enemies/aim_scientist/walk/east/0.png",
+              "assets/images/enemies/aim_scientist/walk/east/1.png",
+              "assets/images/enemies/aim_scientist/walk/east/2.png",
+              "assets/images/enemies/aim_scientist/walk/east/3.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/aim_scientist/idle/south.png",
+          "north-west": "assets/images/enemies/aim_scientist/idle/north-west.png",
+          "north": "assets/images/enemies/aim_scientist/idle/north.png",
+          "south-west": "assets/images/enemies/aim_scientist/idle/south-west.png",
+          "west": "assets/images/enemies/aim_scientist/idle/west.png",
+          "north-east": "assets/images/enemies/aim_scientist/idle/north-east.png",
+          "east": "assets/images/enemies/aim_scientist/idle/east.png",
+          "south-east": "assets/images/enemies/aim_scientist/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/aim_scientist/portrait.png",
+        "size": 96
+      },
+      "statusResistances": {
+        "poison": 0.15
+      }
+    },
+    "sentinel": {
+      "id": "sentinel",
+      "name": "Centinela",
+      "category": "Tecnológico",
+      "hp": 560,
+      "speed": 35,
+      "reward": 58,
+      "armor": 0.6,
+      "stealth": false,
+      "faction": "Legión de Ultrón",
+      "archetype": "tank",
+      "statusResistance": 0.4,
+      "resistances": {
+        "Tecnológico": 0.2
+      },
+      "threat": 5,
+      "statusResistances": {
+        "stun": 0.25,
+        "poison": 0.35
+      },
+      "sprite": "assets/images/enemies/sentinel/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/sentinel/walk/north/0.png",
+              "assets/images/enemies/sentinel/walk/north/1.png",
+              "assets/images/enemies/sentinel/walk/north/2.png",
+              "assets/images/enemies/sentinel/walk/north/3.png",
+              "assets/images/enemies/sentinel/walk/north/4.png",
+              "assets/images/enemies/sentinel/walk/north/5.png"
+            ],
+            "south": [
+              "assets/images/enemies/sentinel/walk/south/0.png",
+              "assets/images/enemies/sentinel/walk/south/1.png",
+              "assets/images/enemies/sentinel/walk/south/2.png",
+              "assets/images/enemies/sentinel/walk/south/3.png",
+              "assets/images/enemies/sentinel/walk/south/4.png",
+              "assets/images/enemies/sentinel/walk/south/5.png"
+            ],
+            "west": [
+              "assets/images/enemies/sentinel/walk/west/0.png",
+              "assets/images/enemies/sentinel/walk/west/1.png",
+              "assets/images/enemies/sentinel/walk/west/2.png",
+              "assets/images/enemies/sentinel/walk/west/3.png",
+              "assets/images/enemies/sentinel/walk/west/4.png",
+              "assets/images/enemies/sentinel/walk/west/5.png"
+            ],
+            "east": [
+              "assets/images/enemies/sentinel/walk/east/0.png",
+              "assets/images/enemies/sentinel/walk/east/1.png",
+              "assets/images/enemies/sentinel/walk/east/2.png",
+              "assets/images/enemies/sentinel/walk/east/3.png",
+              "assets/images/enemies/sentinel/walk/east/4.png",
+              "assets/images/enemies/sentinel/walk/east/5.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/sentinel/idle/south.png",
+          "north-west": "assets/images/enemies/sentinel/idle/north-west.png",
+          "north": "assets/images/enemies/sentinel/idle/north.png",
+          "south-west": "assets/images/enemies/sentinel/idle/south-west.png",
+          "west": "assets/images/enemies/sentinel/idle/west.png",
+          "north-east": "assets/images/enemies/sentinel/idle/north-east.png",
+          "east": "assets/images/enemies/sentinel/idle/east.png",
+          "south-east": "assets/images/enemies/sentinel/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/sentinel/portrait.png",
+        "size": 96
+      }
+    },
+    "outrider": {
+      "id": "outrider",
+      "name": "Outrider",
+      "category": "Cósmico",
+      "hp": 105,
+      "speed": 88,
+      "reward": 17,
+      "armor": 0.1,
+      "stealth": false,
+      "faction": "Outriders",
+      "archetype": "runner",
+      "threat": 2,
+      "statusResistances": {
+        "stun": 0.15
+      },
+      "sprite": "assets/images/enemies/outrider/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/outrider/walk/north/0.png",
+              "assets/images/enemies/outrider/walk/north/1.png",
+              "assets/images/enemies/outrider/walk/north/2.png",
+              "assets/images/enemies/outrider/walk/north/3.png",
+              "assets/images/enemies/outrider/walk/north/4.png",
+              "assets/images/enemies/outrider/walk/north/5.png"
+            ],
+            "south": [
+              "assets/images/enemies/outrider/walk/south/0.png",
+              "assets/images/enemies/outrider/walk/south/1.png",
+              "assets/images/enemies/outrider/walk/south/2.png",
+              "assets/images/enemies/outrider/walk/south/3.png",
+              "assets/images/enemies/outrider/walk/south/4.png",
+              "assets/images/enemies/outrider/walk/south/5.png"
+            ],
+            "west": [
+              "assets/images/enemies/outrider/walk/west/0.png",
+              "assets/images/enemies/outrider/walk/west/1.png",
+              "assets/images/enemies/outrider/walk/west/2.png",
+              "assets/images/enemies/outrider/walk/west/3.png",
+              "assets/images/enemies/outrider/walk/west/4.png",
+              "assets/images/enemies/outrider/walk/west/5.png"
+            ],
+            "east": [
+              "assets/images/enemies/outrider/walk/east/0.png",
+              "assets/images/enemies/outrider/walk/east/1.png",
+              "assets/images/enemies/outrider/walk/east/2.png",
+              "assets/images/enemies/outrider/walk/east/3.png",
+              "assets/images/enemies/outrider/walk/east/4.png",
+              "assets/images/enemies/outrider/walk/east/5.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/outrider/idle/south.png",
+          "north-west": "assets/images/enemies/outrider/idle/north-west.png",
+          "north": "assets/images/enemies/outrider/idle/north.png",
+          "south-west": "assets/images/enemies/outrider/idle/south-west.png",
+          "west": "assets/images/enemies/outrider/idle/west.png",
+          "north-east": "assets/images/enemies/outrider/idle/north-east.png",
+          "east": "assets/images/enemies/outrider/idle/east.png",
+          "south-east": "assets/images/enemies/outrider/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/outrider/portrait.png",
+        "size": 96
+      }
+    },
+    "chitauri_warrior": {
+      "id": "chitauri_warrior",
+      "name": "Guerrero Chitauri",
+      "category": "Cósmico",
+      "hp": 150,
+      "speed": 50,
+      "reward": 18,
+      "armor": 0.2,
+      "stealth": false,
+      "faction": "Chitauri",
+      "archetype": "shield",
+      "barrierRatio": 0.18,
+      "threat": 3,
+      "sprite": "assets/images/enemies/chitauri_warrior/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/chitauri_warrior/walk/north/0.png",
+              "assets/images/enemies/chitauri_warrior/walk/north/1.png",
+              "assets/images/enemies/chitauri_warrior/walk/north/2.png",
+              "assets/images/enemies/chitauri_warrior/walk/north/3.png"
+            ],
+            "south": [
+              "assets/images/enemies/chitauri_warrior/walk/south/0.png",
+              "assets/images/enemies/chitauri_warrior/walk/south/1.png",
+              "assets/images/enemies/chitauri_warrior/walk/south/2.png",
+              "assets/images/enemies/chitauri_warrior/walk/south/3.png"
+            ],
+            "west": [
+              "assets/images/enemies/chitauri_warrior/walk/west/0.png",
+              "assets/images/enemies/chitauri_warrior/walk/west/1.png",
+              "assets/images/enemies/chitauri_warrior/walk/west/2.png",
+              "assets/images/enemies/chitauri_warrior/walk/west/3.png"
+            ],
+            "east": [
+              "assets/images/enemies/chitauri_warrior/walk/east/0.png",
+              "assets/images/enemies/chitauri_warrior/walk/east/1.png",
+              "assets/images/enemies/chitauri_warrior/walk/east/2.png",
+              "assets/images/enemies/chitauri_warrior/walk/east/3.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/chitauri_warrior/idle/south.png",
+          "north-west": "assets/images/enemies/chitauri_warrior/idle/north-west.png",
+          "north": "assets/images/enemies/chitauri_warrior/idle/north.png",
+          "south-west": "assets/images/enemies/chitauri_warrior/idle/south-west.png",
+          "west": "assets/images/enemies/chitauri_warrior/idle/west.png",
+          "north-east": "assets/images/enemies/chitauri_warrior/idle/north-east.png",
+          "east": "assets/images/enemies/chitauri_warrior/idle/east.png",
+          "south-east": "assets/images/enemies/chitauri_warrior/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/chitauri_warrior/portrait.png",
+        "size": 96
+      }
+    },
+    "dark_elf": {
+      "id": "dark_elf",
+      "name": "Elfo Oscuro",
+      "category": "Místico",
+      "hp": 130,
+      "speed": 60,
+      "reward": 20,
+      "armor": 0,
+      "stealth": true,
+      "faction": "Asgardianos Oscuros",
+      "archetype": "stealth",
+      "resistances": {
+        "Místico": 0.2
+      },
+      "threat": 3,
+      "sprite": "assets/images/enemies/dark_elf/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/dark_elf/walk/north/0.png",
+              "assets/images/enemies/dark_elf/walk/north/1.png",
+              "assets/images/enemies/dark_elf/walk/north/2.png",
+              "assets/images/enemies/dark_elf/walk/north/3.png"
+            ],
+            "south": [
+              "assets/images/enemies/dark_elf/walk/south/0.png",
+              "assets/images/enemies/dark_elf/walk/south/1.png",
+              "assets/images/enemies/dark_elf/walk/south/2.png",
+              "assets/images/enemies/dark_elf/walk/south/3.png"
+            ],
+            "west": [
+              "assets/images/enemies/dark_elf/walk/west/0.png",
+              "assets/images/enemies/dark_elf/walk/west/1.png",
+              "assets/images/enemies/dark_elf/walk/west/2.png",
+              "assets/images/enemies/dark_elf/walk/west/3.png"
+            ],
+            "east": [
+              "assets/images/enemies/dark_elf/walk/east/0.png",
+              "assets/images/enemies/dark_elf/walk/east/1.png",
+              "assets/images/enemies/dark_elf/walk/east/2.png",
+              "assets/images/enemies/dark_elf/walk/east/3.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/dark_elf/idle/south.png",
+          "north-west": "assets/images/enemies/dark_elf/idle/north-west.png",
+          "north": "assets/images/enemies/dark_elf/idle/north.png",
+          "south-west": "assets/images/enemies/dark_elf/idle/south-west.png",
+          "west": "assets/images/enemies/dark_elf/idle/west.png",
+          "north-east": "assets/images/enemies/dark_elf/idle/north-east.png",
+          "east": "assets/images/enemies/dark_elf/idle/east.png",
+          "south-east": "assets/images/enemies/dark_elf/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/dark_elf/portrait.png",
+        "size": 96
+      }
+    },
+    "skrull_infiltrator": {
+      "id": "skrull_infiltrator",
+      "name": "Infiltrado Skrull",
+      "category": "Cósmico",
+      "hp": 110,
+      "speed": 65,
+      "reward": 25,
+      "armor": 0,
+      "stealth": true,
+      "faction": "Skrulls",
+      "archetype": "stealth",
+      "threat": 3,
+      "sprite": "assets/images/enemies/skrull_infiltrator/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/skrull_infiltrator/walk/north/0.png",
+              "assets/images/enemies/skrull_infiltrator/walk/north/1.png",
+              "assets/images/enemies/skrull_infiltrator/walk/north/2.png",
+              "assets/images/enemies/skrull_infiltrator/walk/north/3.png"
+            ],
+            "south": [
+              "assets/images/enemies/skrull_infiltrator/walk/south/0.png",
+              "assets/images/enemies/skrull_infiltrator/walk/south/1.png",
+              "assets/images/enemies/skrull_infiltrator/walk/south/2.png",
+              "assets/images/enemies/skrull_infiltrator/walk/south/3.png"
+            ],
+            "west": [
+              "assets/images/enemies/skrull_infiltrator/walk/west/0.png",
+              "assets/images/enemies/skrull_infiltrator/walk/west/1.png",
+              "assets/images/enemies/skrull_infiltrator/walk/west/2.png",
+              "assets/images/enemies/skrull_infiltrator/walk/west/3.png"
+            ],
+            "east": [
+              "assets/images/enemies/skrull_infiltrator/walk/east/0.png",
+              "assets/images/enemies/skrull_infiltrator/walk/east/1.png",
+              "assets/images/enemies/skrull_infiltrator/walk/east/2.png",
+              "assets/images/enemies/skrull_infiltrator/walk/east/3.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/skrull_infiltrator/idle/south.png",
+          "north-west": "assets/images/enemies/skrull_infiltrator/idle/north-west.png",
+          "north": "assets/images/enemies/skrull_infiltrator/idle/north.png",
+          "south-west": "assets/images/enemies/skrull_infiltrator/idle/south-west.png",
+          "west": "assets/images/enemies/skrull_infiltrator/idle/west.png",
+          "north-east": "assets/images/enemies/skrull_infiltrator/idle/north-east.png",
+          "east": "assets/images/enemies/skrull_infiltrator/idle/east.png",
+          "south-east": "assets/images/enemies/skrull_infiltrator/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/skrull_infiltrator/portrait.png",
+        "size": 96
+      }
+    },
+    "hand_ninja": {
+      "id": "hand_ninja",
+      "name": "Ninja de La Mano",
+      "category": "Urbano",
+      "hp": 75,
+      "speed": 104,
+      "reward": 24,
+      "armor": 0,
+      "stealth": true,
+      "faction": "Hydra",
+      "archetype": "runner",
+      "threat": 3,
+      "sprite": "assets/images/enemies/hand_ninja/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/hand_ninja/walk/north/0.png",
+              "assets/images/enemies/hand_ninja/walk/north/1.png",
+              "assets/images/enemies/hand_ninja/walk/north/2.png",
+              "assets/images/enemies/hand_ninja/walk/north/3.png"
+            ],
+            "south": [
+              "assets/images/enemies/hand_ninja/walk/south/0.png",
+              "assets/images/enemies/hand_ninja/walk/south/1.png",
+              "assets/images/enemies/hand_ninja/walk/south/2.png",
+              "assets/images/enemies/hand_ninja/walk/south/3.png"
+            ],
+            "west": [
+              "assets/images/enemies/hand_ninja/walk/west/0.png",
+              "assets/images/enemies/hand_ninja/walk/west/1.png",
+              "assets/images/enemies/hand_ninja/walk/west/2.png",
+              "assets/images/enemies/hand_ninja/walk/west/3.png"
+            ],
+            "east": [
+              "assets/images/enemies/hand_ninja/walk/east/0.png",
+              "assets/images/enemies/hand_ninja/walk/east/1.png",
+              "assets/images/enemies/hand_ninja/walk/east/2.png",
+              "assets/images/enemies/hand_ninja/walk/east/3.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/hand_ninja/idle/south.png",
+          "north-west": "assets/images/enemies/hand_ninja/idle/north-west.png",
+          "north": "assets/images/enemies/hand_ninja/idle/north.png",
+          "south-west": "assets/images/enemies/hand_ninja/idle/south-west.png",
+          "west": "assets/images/enemies/hand_ninja/idle/west.png",
+          "north-east": "assets/images/enemies/hand_ninja/idle/north-east.png",
+          "east": "assets/images/enemies/hand_ninja/idle/east.png",
+          "south-east": "assets/images/enemies/hand_ninja/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/hand_ninja/portrait.png",
+        "size": 96
+      },
+      "statusResistances": {
+        "slow": 0.3
+      }
+    },
+    "symbiote_spawn": {
+      "id": "symbiote_spawn",
+      "name": "Simbionte",
+      "category": "Cósmico",
+      "hp": 180,
+      "speed": 80,
+      "reward": 30,
+      "armor": 0.3,
+      "stealth": false,
+      "faction": "Simbiontes",
+      "archetype": "tank",
+      "statusResistance": 0.25,
+      "threat": 4,
+      "sprite": "assets/images/enemies/symbiote_spawn/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/symbiote_spawn/idle/north.png",
+              "assets/images/enemies/symbiote_spawn/idle/north.png",
+              "assets/images/enemies/symbiote_spawn/idle/north.png",
+              "assets/images/enemies/symbiote_spawn/idle/north.png"
+            ],
+            "south": [
+              "assets/images/enemies/symbiote_spawn/idle/south.png",
+              "assets/images/enemies/symbiote_spawn/idle/south.png",
+              "assets/images/enemies/symbiote_spawn/idle/south.png",
+              "assets/images/enemies/symbiote_spawn/idle/south.png"
+            ],
+            "west": [
+              "assets/images/enemies/symbiote_spawn/idle/west.png",
+              "assets/images/enemies/symbiote_spawn/idle/west.png",
+              "assets/images/enemies/symbiote_spawn/idle/west.png",
+              "assets/images/enemies/symbiote_spawn/idle/west.png"
+            ],
+            "east": [
+              "assets/images/enemies/symbiote_spawn/idle/east.png",
+              "assets/images/enemies/symbiote_spawn/idle/east.png",
+              "assets/images/enemies/symbiote_spawn/idle/east.png",
+              "assets/images/enemies/symbiote_spawn/idle/east.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/symbiote_spawn/idle/south.png",
+          "north-west": "assets/images/enemies/symbiote_spawn/idle/north-west.png",
+          "north": "assets/images/enemies/symbiote_spawn/idle/north.png",
+          "south-west": "assets/images/enemies/symbiote_spawn/idle/south-west.png",
+          "west": "assets/images/enemies/symbiote_spawn/idle/west.png",
+          "north-east": "assets/images/enemies/symbiote_spawn/idle/north-east.png",
+          "east": "assets/images/enemies/symbiote_spawn/idle/east.png",
+          "south-east": "assets/images/enemies/symbiote_spawn/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/symbiote_spawn/attack/0.png",
+            "assets/images/enemies/symbiote_spawn/attack/1.png",
+            "assets/images/enemies/symbiote_spawn/attack/2.png",
+            "assets/images/enemies/symbiote_spawn/attack/3.png",
+            "assets/images/enemies/symbiote_spawn/attack/4.png",
+            "assets/images/enemies/symbiote_spawn/attack/5.png",
+            "assets/images/enemies/symbiote_spawn/attack/6.png",
+            "assets/images/enemies/symbiote_spawn/attack/7.png",
+            "assets/images/enemies/symbiote_spawn/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/symbiote_spawn/portrait.png",
+        "size": 96
+      }
+    },
+    "doombot": {
+      "id": "doombot",
+      "name": "Doombot",
+      "category": "Tecnológico",
+      "hp": 200,
+      "speed": 45,
+      "reward": 20,
+      "armor": 0.35,
+      "stealth": false,
+      "faction": "Legión de Ultrón",
+      "archetype": "summoner",
+      "summonId": "ultron_drone",
+      "summonLimit": 2,
+      "behaviorCooldown": 7,
+      "threat": 4,
+      "sprite": "assets/images/enemies/doombot/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/doombot/walk/north/0.png",
+              "assets/images/enemies/doombot/walk/north/1.png",
+              "assets/images/enemies/doombot/walk/north/2.png",
+              "assets/images/enemies/doombot/walk/north/3.png",
+              "assets/images/enemies/doombot/walk/north/4.png",
+              "assets/images/enemies/doombot/walk/north/5.png",
+              "assets/images/enemies/doombot/walk/north/6.png",
+              "assets/images/enemies/doombot/walk/north/7.png"
+            ],
+            "south": [
+              "assets/images/enemies/doombot/walk/south/0.png",
+              "assets/images/enemies/doombot/walk/south/1.png",
+              "assets/images/enemies/doombot/walk/south/2.png",
+              "assets/images/enemies/doombot/walk/south/3.png",
+              "assets/images/enemies/doombot/walk/south/4.png",
+              "assets/images/enemies/doombot/walk/south/5.png",
+              "assets/images/enemies/doombot/walk/south/6.png",
+              "assets/images/enemies/doombot/walk/south/7.png"
+            ],
+            "west": [
+              "assets/images/enemies/doombot/walk/west/0.png",
+              "assets/images/enemies/doombot/walk/west/1.png",
+              "assets/images/enemies/doombot/walk/west/2.png",
+              "assets/images/enemies/doombot/walk/west/3.png",
+              "assets/images/enemies/doombot/walk/west/4.png",
+              "assets/images/enemies/doombot/walk/west/5.png",
+              "assets/images/enemies/doombot/walk/west/6.png",
+              "assets/images/enemies/doombot/walk/west/7.png"
+            ],
+            "east": [
+              "assets/images/enemies/doombot/walk/east/0.png",
+              "assets/images/enemies/doombot/walk/east/1.png",
+              "assets/images/enemies/doombot/walk/east/2.png",
+              "assets/images/enemies/doombot/walk/east/3.png",
+              "assets/images/enemies/doombot/walk/east/4.png",
+              "assets/images/enemies/doombot/walk/east/5.png",
+              "assets/images/enemies/doombot/walk/east/6.png",
+              "assets/images/enemies/doombot/walk/east/7.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/doombot/idle/south.png",
+          "north-west": "assets/images/enemies/doombot/idle/north-west.png",
+          "north": "assets/images/enemies/doombot/idle/north.png",
+          "south-west": "assets/images/enemies/doombot/idle/south-west.png",
+          "west": "assets/images/enemies/doombot/idle/west.png",
+          "north-east": "assets/images/enemies/doombot/idle/north-east.png",
+          "east": "assets/images/enemies/doombot/idle/east.png",
+          "south-east": "assets/images/enemies/doombot/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/doombot/portrait.png",
+        "size": 96
+      }
+    },
+    "hellfire_guard": {
+      "id": "hellfire_guard",
+      "name": "Guardia Hellfire",
+      "category": "Mutante",
+      "hp": 160,
+      "speed": 50,
+      "reward": 20,
+      "armor": 0.15,
+      "stealth": false,
+      "faction": "Mercenarios",
+      "archetype": "support",
+      "healPower": 0.08,
+      "behaviorCooldown": 4,
+      "threat": 3,
+      "sprite": "assets/images/enemies/hellfire_guard/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/hellfire_guard/walk/north/0.png",
+              "assets/images/enemies/hellfire_guard/walk/north/1.png",
+              "assets/images/enemies/hellfire_guard/walk/north/2.png",
+              "assets/images/enemies/hellfire_guard/walk/north/3.png",
+              "assets/images/enemies/hellfire_guard/walk/north/4.png",
+              "assets/images/enemies/hellfire_guard/walk/north/5.png",
+              "assets/images/enemies/hellfire_guard/walk/north/6.png",
+              "assets/images/enemies/hellfire_guard/walk/north/7.png",
+              "assets/images/enemies/hellfire_guard/walk/north/8.png"
+            ],
+            "south": [
+              "assets/images/enemies/hellfire_guard/walk/south/0.png",
+              "assets/images/enemies/hellfire_guard/walk/south/1.png",
+              "assets/images/enemies/hellfire_guard/walk/south/2.png",
+              "assets/images/enemies/hellfire_guard/walk/south/3.png",
+              "assets/images/enemies/hellfire_guard/walk/south/4.png",
+              "assets/images/enemies/hellfire_guard/walk/south/5.png",
+              "assets/images/enemies/hellfire_guard/walk/south/6.png",
+              "assets/images/enemies/hellfire_guard/walk/south/7.png",
+              "assets/images/enemies/hellfire_guard/walk/south/8.png"
+            ],
+            "west": [
+              "assets/images/enemies/hellfire_guard/walk/west/0.png",
+              "assets/images/enemies/hellfire_guard/walk/west/1.png",
+              "assets/images/enemies/hellfire_guard/walk/west/2.png",
+              "assets/images/enemies/hellfire_guard/walk/west/3.png",
+              "assets/images/enemies/hellfire_guard/walk/west/4.png",
+              "assets/images/enemies/hellfire_guard/walk/west/5.png",
+              "assets/images/enemies/hellfire_guard/walk/west/6.png",
+              "assets/images/enemies/hellfire_guard/walk/west/7.png",
+              "assets/images/enemies/hellfire_guard/walk/west/8.png"
+            ],
+            "east": [
+              "assets/images/enemies/hellfire_guard/walk/east/0.png",
+              "assets/images/enemies/hellfire_guard/walk/east/1.png",
+              "assets/images/enemies/hellfire_guard/walk/east/2.png",
+              "assets/images/enemies/hellfire_guard/walk/east/3.png",
+              "assets/images/enemies/hellfire_guard/walk/east/4.png",
+              "assets/images/enemies/hellfire_guard/walk/east/5.png",
+              "assets/images/enemies/hellfire_guard/walk/east/6.png",
+              "assets/images/enemies/hellfire_guard/walk/east/7.png",
+              "assets/images/enemies/hellfire_guard/walk/east/8.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/hellfire_guard/idle/south.png",
+          "north-west": "assets/images/enemies/hellfire_guard/idle/north-west.png",
+          "north": "assets/images/enemies/hellfire_guard/idle/north.png",
+          "south-west": "assets/images/enemies/hellfire_guard/idle/south-west.png",
+          "west": "assets/images/enemies/hellfire_guard/idle/west.png",
+          "north-east": "assets/images/enemies/hellfire_guard/idle/north-east.png",
+          "east": "assets/images/enemies/hellfire_guard/idle/east.png",
+          "south-east": "assets/images/enemies/hellfire_guard/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/hellfire_guard/portrait.png",
+        "size": 96
+      }
+    },
+    "frost_giant_scout": {
+      "id": "frost_giant_scout",
+      "name": "Gigante de Hielo",
+      "category": "Místico",
+      "hp": 680,
+      "speed": 30,
+      "reward": 62,
+      "armor": 0.28,
+      "stealth": false,
+      "faction": "Jotunheim",
+      "archetype": "tank",
+      "statusResistance": 0.45,
+      "threat": 5,
+      "sprite": "assets/images/enemies/frost_giant_scout/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/frost_giant_scout/walk/north/0.png",
+              "assets/images/enemies/frost_giant_scout/walk/north/1.png",
+              "assets/images/enemies/frost_giant_scout/walk/north/2.png",
+              "assets/images/enemies/frost_giant_scout/walk/north/3.png"
+            ],
+            "south": [
+              "assets/images/enemies/frost_giant_scout/walk/south/0.png",
+              "assets/images/enemies/frost_giant_scout/walk/south/1.png",
+              "assets/images/enemies/frost_giant_scout/walk/south/2.png",
+              "assets/images/enemies/frost_giant_scout/walk/south/3.png"
+            ],
+            "west": [
+              "assets/images/enemies/frost_giant_scout/walk/west/0.png",
+              "assets/images/enemies/frost_giant_scout/walk/west/1.png",
+              "assets/images/enemies/frost_giant_scout/walk/west/2.png",
+              "assets/images/enemies/frost_giant_scout/walk/west/3.png"
+            ],
+            "east": [
+              "assets/images/enemies/frost_giant_scout/walk/east/0.png",
+              "assets/images/enemies/frost_giant_scout/walk/east/1.png",
+              "assets/images/enemies/frost_giant_scout/walk/east/2.png",
+              "assets/images/enemies/frost_giant_scout/walk/east/3.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/frost_giant_scout/idle/south.png",
+          "north-west": "assets/images/enemies/frost_giant_scout/idle/north-west.png",
+          "north": "assets/images/enemies/frost_giant_scout/idle/north.png",
+          "south-west": "assets/images/enemies/frost_giant_scout/idle/south-west.png",
+          "west": "assets/images/enemies/frost_giant_scout/idle/west.png",
+          "north-east": "assets/images/enemies/frost_giant_scout/idle/north-east.png",
+          "east": "assets/images/enemies/frost_giant_scout/idle/east.png",
+          "south-east": "assets/images/enemies/frost_giant_scout/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/frost_giant_scout/portrait.png",
+        "size": 96
+      },
+      "statusResistances": {
+        "slow": 0.25,
+        "stun": 0.2
+      }
+    },
+    "sakaaran_soldier": {
+      "id": "sakaaran_soldier",
+      "name": "Soldado Sakaarano",
+      "category": "Cósmico",
+      "hp": 140,
+      "speed": 55,
+      "reward": 15,
+      "armor": 0.25,
+      "stealth": false,
+      "faction": "Mercenarios",
+      "archetype": "flying",
+      "flying": true,
+      "statusResistances": {
+        "slow": 0.35
+      },
+      "threat": 3,
+      "sprite": "assets/images/enemies/sakaaran_soldier/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/sakaaran_soldier/walk/north/0.png",
+              "assets/images/enemies/sakaaran_soldier/walk/north/1.png",
+              "assets/images/enemies/sakaaran_soldier/walk/north/2.png",
+              "assets/images/enemies/sakaaran_soldier/walk/north/3.png"
+            ],
+            "south": [
+              "assets/images/enemies/sakaaran_soldier/walk/south/0.png",
+              "assets/images/enemies/sakaaran_soldier/walk/south/1.png",
+              "assets/images/enemies/sakaaran_soldier/walk/south/2.png",
+              "assets/images/enemies/sakaaran_soldier/walk/south/3.png"
+            ],
+            "west": [
+              "assets/images/enemies/sakaaran_soldier/walk/west/0.png",
+              "assets/images/enemies/sakaaran_soldier/walk/west/1.png",
+              "assets/images/enemies/sakaaran_soldier/walk/west/2.png",
+              "assets/images/enemies/sakaaran_soldier/walk/west/3.png"
+            ],
+            "east": [
+              "assets/images/enemies/sakaaran_soldier/walk/east/0.png",
+              "assets/images/enemies/sakaaran_soldier/walk/east/1.png",
+              "assets/images/enemies/sakaaran_soldier/walk/east/2.png",
+              "assets/images/enemies/sakaaran_soldier/walk/east/3.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/sakaaran_soldier/idle/south.png",
+          "north-west": "assets/images/enemies/sakaaran_soldier/idle/north-west.png",
+          "north": "assets/images/enemies/sakaaran_soldier/idle/north.png",
+          "south-west": "assets/images/enemies/sakaaran_soldier/idle/south-west.png",
+          "west": "assets/images/enemies/sakaaran_soldier/idle/west.png",
+          "north-east": "assets/images/enemies/sakaaran_soldier/idle/north-east.png",
+          "east": "assets/images/enemies/sakaaran_soldier/idle/east.png",
+          "south-east": "assets/images/enemies/sakaaran_soldier/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/sakaaran_soldier/portrait.png",
+        "size": 96
+      }
+    },
+    "brotherhood_mutant": {
+      "id": "brotherhood_mutant",
+      "name": "Mutante de la Hermandad",
+      "category": "Mutante",
+      "hp": 170,
+      "speed": 60,
+      "reward": 25,
+      "armor": 0,
+      "stealth": false,
+      "faction": "Hermandad Mutante",
+      "archetype": "support",
+      "healPower": 0.05,
+      "threat": 3,
+      "sprite": "assets/images/enemies/brotherhood_mutant/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/brotherhood_mutant/walk/north/0.png",
+              "assets/images/enemies/brotherhood_mutant/walk/north/1.png",
+              "assets/images/enemies/brotherhood_mutant/walk/north/2.png",
+              "assets/images/enemies/brotherhood_mutant/walk/north/3.png",
+              "assets/images/enemies/brotherhood_mutant/walk/north/4.png",
+              "assets/images/enemies/brotherhood_mutant/walk/north/5.png",
+              "assets/images/enemies/brotherhood_mutant/walk/north/6.png",
+              "assets/images/enemies/brotherhood_mutant/walk/north/7.png",
+              "assets/images/enemies/brotherhood_mutant/walk/north/8.png"
+            ],
+            "south": [
+              "assets/images/enemies/brotherhood_mutant/walk/south/0.png",
+              "assets/images/enemies/brotherhood_mutant/walk/south/1.png",
+              "assets/images/enemies/brotherhood_mutant/walk/south/2.png",
+              "assets/images/enemies/brotherhood_mutant/walk/south/3.png",
+              "assets/images/enemies/brotherhood_mutant/walk/south/4.png",
+              "assets/images/enemies/brotherhood_mutant/walk/south/5.png",
+              "assets/images/enemies/brotherhood_mutant/walk/south/6.png",
+              "assets/images/enemies/brotherhood_mutant/walk/south/7.png",
+              "assets/images/enemies/brotherhood_mutant/walk/south/8.png"
+            ],
+            "west": [
+              "assets/images/enemies/brotherhood_mutant/walk/west/0.png",
+              "assets/images/enemies/brotherhood_mutant/walk/west/1.png",
+              "assets/images/enemies/brotherhood_mutant/walk/west/2.png",
+              "assets/images/enemies/brotherhood_mutant/walk/west/3.png",
+              "assets/images/enemies/brotherhood_mutant/walk/west/4.png",
+              "assets/images/enemies/brotherhood_mutant/walk/west/5.png",
+              "assets/images/enemies/brotherhood_mutant/walk/west/6.png",
+              "assets/images/enemies/brotherhood_mutant/walk/west/7.png",
+              "assets/images/enemies/brotherhood_mutant/walk/west/8.png"
+            ],
+            "east": [
+              "assets/images/enemies/brotherhood_mutant/walk/east/0.png",
+              "assets/images/enemies/brotherhood_mutant/walk/east/1.png",
+              "assets/images/enemies/brotherhood_mutant/walk/east/2.png",
+              "assets/images/enemies/brotherhood_mutant/walk/east/3.png",
+              "assets/images/enemies/brotherhood_mutant/walk/east/4.png",
+              "assets/images/enemies/brotherhood_mutant/walk/east/5.png",
+              "assets/images/enemies/brotherhood_mutant/walk/east/6.png",
+              "assets/images/enemies/brotherhood_mutant/walk/east/7.png",
+              "assets/images/enemies/brotherhood_mutant/walk/east/8.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/brotherhood_mutant/idle/south.png",
+          "north-west": "assets/images/enemies/brotherhood_mutant/idle/north-west.png",
+          "north": "assets/images/enemies/brotherhood_mutant/idle/north.png",
+          "south-west": "assets/images/enemies/brotherhood_mutant/idle/south-west.png",
+          "west": "assets/images/enemies/brotherhood_mutant/idle/west.png",
+          "north-east": "assets/images/enemies/brotherhood_mutant/idle/north-east.png",
+          "east": "assets/images/enemies/brotherhood_mutant/idle/east.png",
+          "south-east": "assets/images/enemies/brotherhood_mutant/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/brotherhood_mutant/portrait.png",
+        "size": 96
+      }
+    },
+    "ultron_drone": {
+      "id": "ultron_drone",
+      "name": "Dron de Ultrón",
+      "category": "Tecnológico",
+      "hp": 110,
+      "speed": 82,
+      "reward": 17,
+      "armor": 0.2,
+      "stealth": false,
+      "faction": "Legión de Ultrón",
+      "archetype": "flying",
+      "flying": true,
+      "statusResistances": {
+        "slow": 0.3
+      },
+      "threat": 2,
+      "resistances": {
+        "Tecnol?gico": 0.15
+      },
+      "sprite": "assets/images/enemies/ultron_drone/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/ultron_drone/walk/north/0.png",
+              "assets/images/enemies/ultron_drone/walk/north/1.png",
+              "assets/images/enemies/ultron_drone/walk/north/2.png",
+              "assets/images/enemies/ultron_drone/walk/north/3.png",
+              "assets/images/enemies/ultron_drone/walk/north/4.png",
+              "assets/images/enemies/ultron_drone/walk/north/5.png"
+            ],
+            "south": [
+              "assets/images/enemies/ultron_drone/walk/south/0.png",
+              "assets/images/enemies/ultron_drone/walk/south/1.png",
+              "assets/images/enemies/ultron_drone/walk/south/2.png",
+              "assets/images/enemies/ultron_drone/walk/south/3.png",
+              "assets/images/enemies/ultron_drone/walk/south/4.png",
+              "assets/images/enemies/ultron_drone/walk/south/5.png"
+            ],
+            "west": [
+              "assets/images/enemies/ultron_drone/walk/west/0.png",
+              "assets/images/enemies/ultron_drone/walk/west/1.png",
+              "assets/images/enemies/ultron_drone/walk/west/2.png",
+              "assets/images/enemies/ultron_drone/walk/west/3.png",
+              "assets/images/enemies/ultron_drone/walk/west/4.png",
+              "assets/images/enemies/ultron_drone/walk/west/5.png"
+            ],
+            "east": [
+              "assets/images/enemies/ultron_drone/walk/east/0.png",
+              "assets/images/enemies/ultron_drone/walk/east/1.png",
+              "assets/images/enemies/ultron_drone/walk/east/2.png",
+              "assets/images/enemies/ultron_drone/walk/east/3.png",
+              "assets/images/enemies/ultron_drone/walk/east/4.png",
+              "assets/images/enemies/ultron_drone/walk/east/5.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/ultron_drone/idle/south.png",
+          "north-west": "assets/images/enemies/ultron_drone/idle/north-west.png",
+          "north": "assets/images/enemies/ultron_drone/idle/north.png",
+          "south-west": "assets/images/enemies/ultron_drone/idle/south-west.png",
+          "west": "assets/images/enemies/ultron_drone/idle/west.png",
+          "north-east": "assets/images/enemies/ultron_drone/idle/north-east.png",
+          "east": "assets/images/enemies/ultron_drone/idle/east.png",
+          "south-east": "assets/images/enemies/ultron_drone/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/ultron_drone/portrait.png",
+        "size": 96
+      }
+    },
+    "mercenary_raider": {
+      "id": "mercenary_raider",
+      "name": "Saqueador de Vibranium",
+      "category": "Urbano",
+      "hp": 125,
+      "speed": 82,
+      "reward": 18,
+      "armor": 0.12,
+      "stealth": false,
+      "faction": "Mercenarios",
+      "archetype": "runner",
+      "threat": 2,
+      "sprite": "assets/images/enemies/mercenary_raider/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/mercenary_raider/walk/north/0.png",
+              "assets/images/enemies/mercenary_raider/walk/north/1.png",
+              "assets/images/enemies/mercenary_raider/walk/north/2.png",
+              "assets/images/enemies/mercenary_raider/walk/north/3.png",
+              "assets/images/enemies/mercenary_raider/walk/north/4.png",
+              "assets/images/enemies/mercenary_raider/walk/north/5.png",
+              "assets/images/enemies/mercenary_raider/walk/north/6.png",
+              "assets/images/enemies/mercenary_raider/walk/north/7.png",
+              "assets/images/enemies/mercenary_raider/walk/north/8.png"
+            ],
+            "south": [
+              "assets/images/enemies/mercenary_raider/walk/south/0.png",
+              "assets/images/enemies/mercenary_raider/walk/south/1.png",
+              "assets/images/enemies/mercenary_raider/walk/south/2.png",
+              "assets/images/enemies/mercenary_raider/walk/south/3.png",
+              "assets/images/enemies/mercenary_raider/walk/south/4.png",
+              "assets/images/enemies/mercenary_raider/walk/south/5.png",
+              "assets/images/enemies/mercenary_raider/walk/south/6.png",
+              "assets/images/enemies/mercenary_raider/walk/south/7.png",
+              "assets/images/enemies/mercenary_raider/walk/south/8.png"
+            ],
+            "west": [
+              "assets/images/enemies/mercenary_raider/walk/west/0.png",
+              "assets/images/enemies/mercenary_raider/walk/west/1.png",
+              "assets/images/enemies/mercenary_raider/walk/west/2.png",
+              "assets/images/enemies/mercenary_raider/walk/west/3.png",
+              "assets/images/enemies/mercenary_raider/walk/west/4.png",
+              "assets/images/enemies/mercenary_raider/walk/west/5.png",
+              "assets/images/enemies/mercenary_raider/walk/west/6.png",
+              "assets/images/enemies/mercenary_raider/walk/west/7.png",
+              "assets/images/enemies/mercenary_raider/walk/west/8.png"
+            ],
+            "east": [
+              "assets/images/enemies/mercenary_raider/walk/east/0.png",
+              "assets/images/enemies/mercenary_raider/walk/east/1.png",
+              "assets/images/enemies/mercenary_raider/walk/east/2.png",
+              "assets/images/enemies/mercenary_raider/walk/east/3.png",
+              "assets/images/enemies/mercenary_raider/walk/east/4.png",
+              "assets/images/enemies/mercenary_raider/walk/east/5.png",
+              "assets/images/enemies/mercenary_raider/walk/east/6.png",
+              "assets/images/enemies/mercenary_raider/walk/east/7.png",
+              "assets/images/enemies/mercenary_raider/walk/east/8.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/mercenary_raider/idle/south.png",
+          "north-west": "assets/images/enemies/mercenary_raider/idle/north-west.png",
+          "north": "assets/images/enemies/mercenary_raider/idle/north.png",
+          "south-west": "assets/images/enemies/mercenary_raider/idle/south-west.png",
+          "west": "assets/images/enemies/mercenary_raider/idle/west.png",
+          "north-east": "assets/images/enemies/mercenary_raider/idle/north-east.png",
+          "east": "assets/images/enemies/mercenary_raider/idle/east.png",
+          "south-east": "assets/images/enemies/mercenary_raider/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/mercenary_raider/portrait.png",
+        "size": 96
+      }
+    },
+    "kree_commander": {
+      "id": "kree_commander",
+      "name": "Comandante Kree",
+      "category": "Cósmico",
+      "hp": 300,
+      "speed": 44,
+      "reward": 45,
+      "armor": 0.32,
+      "stealth": false,
+      "faction": "Imperio Kree",
+      "archetype": "commander",
+      "behaviorCooldown": 5,
+      "commandPower": 0.22,
+      "threat": 4,
+      "statusResistance": 0.2,
+      "resistances": {
+        "C?smico": 0.15
+      }
+    },
+    "kree_sentry": {
+      "id": "kree_sentry",
+      "name": "Centinela Kree",
+      "category": "Cósmico",
+      "hp": 230,
+      "speed": 48,
+      "reward": 26,
+      "armor": 0.28,
+      "stealth": false,
+      "faction": "Imperio Kree",
+      "archetype": "shield",
+      "barrierRatio": 0.24,
+      "threat": 4
+    },
+    "chitauri_phaser": {
+      "id": "chitauri_phaser",
+      "name": "Faseador Chitauri",
+      "category": "Cósmico",
+      "hp": 145,
+      "speed": 72,
+      "reward": 32,
+      "armor": 0.08,
+      "stealth": true,
+      "faction": "Chitauri",
+      "archetype": "phaser",
+      "behaviorCooldown": 6,
+      "threat": 4,
+      "statusResistances": {
+        "slow": 0.25,
+        "stun": 0.15
+      }
+    },
+    "chitauri_skimmer": {
+      "id": "chitauri_skimmer",
+      "name": "Deslizador Chitauri",
+      "category": "Cósmico",
+      "hp": 165,
+      "speed": 78,
+      "reward": 24,
+      "armor": 0.12,
+      "stealth": false,
+      "flying": true,
+      "faction": "Chitauri",
+      "archetype": "flying",
+      "threat": 3
+    },
+    "black_order_hunter": {
+      "id": "black_order_hunter",
+      "name": "Cazador de la Orden",
+      "category": "Cósmico",
+      "hp": 210,
+      "speed": 86,
+      "reward": 36,
+      "armor": 0.18,
+      "stealth": true,
+      "faction": "Orden Negra",
+      "archetype": "runner",
+      "threat": 4,
+      "sprite": "assets/images/enemies/black_order_hunter/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/black_order_hunter/walk/north/0.png",
+              "assets/images/enemies/black_order_hunter/walk/north/1.png",
+              "assets/images/enemies/black_order_hunter/walk/north/2.png",
+              "assets/images/enemies/black_order_hunter/walk/north/3.png"
+            ],
+            "south": [
+              "assets/images/enemies/black_order_hunter/walk/south/0.png",
+              "assets/images/enemies/black_order_hunter/walk/south/1.png",
+              "assets/images/enemies/black_order_hunter/walk/south/2.png",
+              "assets/images/enemies/black_order_hunter/walk/south/3.png"
+            ],
+            "west": [
+              "assets/images/enemies/black_order_hunter/walk/west/0.png",
+              "assets/images/enemies/black_order_hunter/walk/west/1.png",
+              "assets/images/enemies/black_order_hunter/walk/west/2.png",
+              "assets/images/enemies/black_order_hunter/walk/west/3.png"
+            ],
+            "east": [
+              "assets/images/enemies/black_order_hunter/walk/east/0.png",
+              "assets/images/enemies/black_order_hunter/walk/east/1.png",
+              "assets/images/enemies/black_order_hunter/walk/east/2.png",
+              "assets/images/enemies/black_order_hunter/walk/east/3.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/black_order_hunter/idle/south.png",
+          "north-west": "assets/images/enemies/black_order_hunter/idle/north-west.png",
+          "north": "assets/images/enemies/black_order_hunter/idle/north.png",
+          "south-west": "assets/images/enemies/black_order_hunter/idle/south-west.png",
+          "west": "assets/images/enemies/black_order_hunter/idle/west.png",
+          "north-east": "assets/images/enemies/black_order_hunter/idle/north-east.png",
+          "east": "assets/images/enemies/black_order_hunter/idle/east.png",
+          "south-east": "assets/images/enemies/black_order_hunter/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/black_order_hunter/portrait.png",
+        "size": 96
+      }
+    },
+    "black_order_magus": {
+      "id": "black_order_magus",
+      "name": "Magus de la Orden",
+      "category": "Místico",
+      "hp": 280,
+      "speed": 42,
+      "reward": 42,
+      "armor": 0.2,
+      "stealth": false,
+      "faction": "Orden Negra",
+      "archetype": "summoner",
+      "summonId": "outrider",
+      "summonLimit": 3,
+      "behaviorCooldown": 6,
+      "threat": 5
+    },
+    "asgardian_traitor": {
+      "id": "asgardian_traitor",
+      "name": "Traidor Asgardiano",
+      "category": "Místico",
+      "hp": 240,
+      "speed": 58,
+      "reward": 34,
+      "armor": 0.25,
+      "stealth": false,
+      "faction": "Ejército de Malekith",
+      "archetype": "soldier",
+      "threat": 4,
+      "sprite": "assets/images/enemies/asgardian_traitor/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/asgardian_traitor/walk/north/0.png",
+              "assets/images/enemies/asgardian_traitor/walk/north/1.png",
+              "assets/images/enemies/asgardian_traitor/walk/north/2.png",
+              "assets/images/enemies/asgardian_traitor/walk/north/3.png",
+              "assets/images/enemies/asgardian_traitor/walk/north/4.png",
+              "assets/images/enemies/asgardian_traitor/walk/north/5.png",
+              "assets/images/enemies/asgardian_traitor/walk/north/6.png",
+              "assets/images/enemies/asgardian_traitor/walk/north/7.png",
+              "assets/images/enemies/asgardian_traitor/walk/north/8.png"
+            ],
+            "south": [
+              "assets/images/enemies/asgardian_traitor/walk/south/0.png",
+              "assets/images/enemies/asgardian_traitor/walk/south/1.png",
+              "assets/images/enemies/asgardian_traitor/walk/south/2.png",
+              "assets/images/enemies/asgardian_traitor/walk/south/3.png",
+              "assets/images/enemies/asgardian_traitor/walk/south/4.png",
+              "assets/images/enemies/asgardian_traitor/walk/south/5.png",
+              "assets/images/enemies/asgardian_traitor/walk/south/6.png",
+              "assets/images/enemies/asgardian_traitor/walk/south/7.png",
+              "assets/images/enemies/asgardian_traitor/walk/south/8.png"
+            ],
+            "west": [
+              "assets/images/enemies/asgardian_traitor/walk/west/0.png",
+              "assets/images/enemies/asgardian_traitor/walk/west/1.png",
+              "assets/images/enemies/asgardian_traitor/walk/west/2.png",
+              "assets/images/enemies/asgardian_traitor/walk/west/3.png",
+              "assets/images/enemies/asgardian_traitor/walk/west/4.png",
+              "assets/images/enemies/asgardian_traitor/walk/west/5.png",
+              "assets/images/enemies/asgardian_traitor/walk/west/6.png",
+              "assets/images/enemies/asgardian_traitor/walk/west/7.png",
+              "assets/images/enemies/asgardian_traitor/walk/west/8.png"
+            ],
+            "east": [
+              "assets/images/enemies/asgardian_traitor/walk/east/0.png",
+              "assets/images/enemies/asgardian_traitor/walk/east/1.png",
+              "assets/images/enemies/asgardian_traitor/walk/east/2.png",
+              "assets/images/enemies/asgardian_traitor/walk/east/3.png",
+              "assets/images/enemies/asgardian_traitor/walk/east/4.png",
+              "assets/images/enemies/asgardian_traitor/walk/east/5.png",
+              "assets/images/enemies/asgardian_traitor/walk/east/6.png",
+              "assets/images/enemies/asgardian_traitor/walk/east/7.png",
+              "assets/images/enemies/asgardian_traitor/walk/east/8.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/asgardian_traitor/idle/south.png",
+          "north-west": "assets/images/enemies/asgardian_traitor/idle/north-west.png",
+          "north": "assets/images/enemies/asgardian_traitor/idle/north.png",
+          "south-west": "assets/images/enemies/asgardian_traitor/idle/south-west.png",
+          "west": "assets/images/enemies/asgardian_traitor/idle/west.png",
+          "north-east": "assets/images/enemies/asgardian_traitor/idle/north-east.png",
+          "east": "assets/images/enemies/asgardian_traitor/idle/east.png",
+          "south-east": "assets/images/enemies/asgardian_traitor/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/asgardian_traitor/portrait.png",
+        "size": 96
+      }
+    },
+    "dark_elf_skirmisher": {
+      "id": "dark_elf_skirmisher",
+      "name": "Hostigador Elfo Oscuro",
+      "category": "Místico",
+      "hp": 175,
+      "speed": 86,
+      "reward": 31,
+      "armor": 0.12,
+      "stealth": true,
+      "faction": "Ejército de Malekith",
+      "archetype": "runner",
+      "threat": 4
+    },
+    "mindless_one": {
+      "id": "mindless_one",
+      "name": "Sin Mente",
+      "category": "Místico",
+      "hp": 460,
+      "speed": 38,
+      "reward": 58,
+      "armor": 0.36,
+      "stealth": false,
+      "faction": "Dimensión Oscura",
+      "archetype": "tank",
+      "threat": 5,
+      "statusResistance": 0.32,
+      "immuneToSlow": false,
+      "statusResistances": {
+        "slow": 0.35,
+        "stun": 0.15
+      }
+    },
+    "dark_zealot": {
+      "id": "dark_zealot",
+      "name": "Fanático Oscuro",
+      "category": "Místico",
+      "hp": 210,
+      "speed": 64,
+      "reward": 37,
+      "armor": 0.16,
+      "stealth": false,
+      "faction": "Dimensión Oscura",
+      "archetype": "support",
+      "healPower": 0.05,
+      "behaviorCooldown": 5,
+      "threat": 4,
+      "sprite": "assets/images/enemies/dark_zealot/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/dark_zealot/walk/north/0.png",
+              "assets/images/enemies/dark_zealot/walk/north/1.png",
+              "assets/images/enemies/dark_zealot/walk/north/2.png",
+              "assets/images/enemies/dark_zealot/walk/north/3.png",
+              "assets/images/enemies/dark_zealot/walk/north/4.png",
+              "assets/images/enemies/dark_zealot/walk/north/5.png",
+              "assets/images/enemies/dark_zealot/walk/north/6.png",
+              "assets/images/enemies/dark_zealot/walk/north/7.png",
+              "assets/images/enemies/dark_zealot/walk/north/8.png"
+            ],
+            "south": [
+              "assets/images/enemies/dark_zealot/walk/south/0.png",
+              "assets/images/enemies/dark_zealot/walk/south/1.png",
+              "assets/images/enemies/dark_zealot/walk/south/2.png",
+              "assets/images/enemies/dark_zealot/walk/south/3.png",
+              "assets/images/enemies/dark_zealot/walk/south/4.png",
+              "assets/images/enemies/dark_zealot/walk/south/5.png",
+              "assets/images/enemies/dark_zealot/walk/south/6.png",
+              "assets/images/enemies/dark_zealot/walk/south/7.png",
+              "assets/images/enemies/dark_zealot/walk/south/8.png"
+            ],
+            "west": [
+              "assets/images/enemies/dark_zealot/walk/west/0.png",
+              "assets/images/enemies/dark_zealot/walk/west/1.png",
+              "assets/images/enemies/dark_zealot/walk/west/2.png",
+              "assets/images/enemies/dark_zealot/walk/west/3.png",
+              "assets/images/enemies/dark_zealot/walk/west/4.png",
+              "assets/images/enemies/dark_zealot/walk/west/5.png",
+              "assets/images/enemies/dark_zealot/walk/west/6.png",
+              "assets/images/enemies/dark_zealot/walk/west/7.png",
+              "assets/images/enemies/dark_zealot/walk/west/8.png"
+            ],
+            "east": [
+              "assets/images/enemies/dark_zealot/walk/east/0.png",
+              "assets/images/enemies/dark_zealot/walk/east/1.png",
+              "assets/images/enemies/dark_zealot/walk/east/2.png",
+              "assets/images/enemies/dark_zealot/walk/east/3.png",
+              "assets/images/enemies/dark_zealot/walk/east/4.png",
+              "assets/images/enemies/dark_zealot/walk/east/5.png",
+              "assets/images/enemies/dark_zealot/walk/east/6.png",
+              "assets/images/enemies/dark_zealot/walk/east/7.png",
+              "assets/images/enemies/dark_zealot/walk/east/8.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/dark_zealot/idle/south.png",
+          "north-west": "assets/images/enemies/dark_zealot/idle/north-west.png",
+          "north": "assets/images/enemies/dark_zealot/idle/north.png",
+          "south-west": "assets/images/enemies/dark_zealot/idle/south-west.png",
+          "west": "assets/images/enemies/dark_zealot/idle/west.png",
+          "north-east": "assets/images/enemies/dark_zealot/idle/north-east.png",
+          "east": "assets/images/enemies/dark_zealot/idle/east.png",
+          "south-east": "assets/images/enemies/dark_zealot/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/dark_zealot/portrait.png",
+        "size": 96
+      }
+    },
+    "savage_raptor": {
+      "id": "savage_raptor",
+      "name": "Raptor Salvaje",
+      "category": "Mutante",
+      "hp": 150,
+      "speed": 102,
+      "reward": 29,
+      "armor": 0.06,
+      "stealth": false,
+      "faction": "Savage Land",
+      "archetype": "runner",
+      "threat": 4
+    },
+    "savage_brute": {
+      "id": "savage_brute",
+      "name": "Bruto Mutado",
+      "category": "Mutante",
+      "hp": 440,
+      "speed": 34,
+      "reward": 52,
+      "armor": 0.34,
+      "stealth": false,
+      "faction": "Savage Land",
+      "archetype": "tank",
+      "threat": 5
+    },
+    "raft_escapee": {
+      "id": "raft_escapee",
+      "name": "Fugitivo de The Raft",
+      "category": "Urbano",
+      "hp": 235,
+      "speed": 72,
+      "reward": 35,
+      "armor": 0.18,
+      "stealth": false,
+      "faction": "Prisioneros de The Raft",
+      "archetype": "soldier",
+      "threat": 4,
+      "sprite": "assets/images/enemies/raft_escapee/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/raft_escapee/walk/north/0.png",
+              "assets/images/enemies/raft_escapee/walk/north/1.png",
+              "assets/images/enemies/raft_escapee/walk/north/2.png",
+              "assets/images/enemies/raft_escapee/walk/north/3.png"
+            ],
+            "south": [
+              "assets/images/enemies/raft_escapee/walk/south/0.png",
+              "assets/images/enemies/raft_escapee/walk/south/1.png",
+              "assets/images/enemies/raft_escapee/walk/south/2.png",
+              "assets/images/enemies/raft_escapee/walk/south/3.png"
+            ],
+            "west": [
+              "assets/images/enemies/raft_escapee/walk/west/0.png",
+              "assets/images/enemies/raft_escapee/walk/west/1.png",
+              "assets/images/enemies/raft_escapee/walk/west/2.png",
+              "assets/images/enemies/raft_escapee/walk/west/3.png"
+            ],
+            "east": [
+              "assets/images/enemies/raft_escapee/walk/east/0.png",
+              "assets/images/enemies/raft_escapee/walk/east/1.png",
+              "assets/images/enemies/raft_escapee/walk/east/2.png",
+              "assets/images/enemies/raft_escapee/walk/east/3.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/raft_escapee/idle/south.png",
+          "north-west": "assets/images/enemies/raft_escapee/idle/north-west.png",
+          "north": "assets/images/enemies/raft_escapee/idle/north.png",
+          "south-west": "assets/images/enemies/raft_escapee/idle/south-west.png",
+          "west": "assets/images/enemies/raft_escapee/idle/west.png",
+          "north-east": "assets/images/enemies/raft_escapee/idle/north-east.png",
+          "east": "assets/images/enemies/raft_escapee/idle/east.png",
+          "south-east": "assets/images/enemies/raft_escapee/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/raft_escapee/portrait.png",
+        "size": 96
+      }
+    },
+    "raft_saboteur": {
+      "id": "raft_saboteur",
+      "name": "Saboteador de Celdas",
+      "category": "Tecnológico",
+      "hp": 190,
+      "speed": 78,
+      "reward": 42,
+      "armor": 0.14,
+      "stealth": true,
+      "faction": "Prisioneros de The Raft",
+      "archetype": "stealth",
+      "threat": 5
+    }
+  },
+  "bosses": {
+    "loki": {
+      "id": "loki",
+      "name": "Loki",
+      "category": "Místico",
+      "isBoss": true,
+      "hp": 4500,
+      "speed": 70,
+      "reward": 1200,
+      "armor": 0.1,
+      "stealth": true,
+      "immuneToStun": false,
+      "faction": "Asgardianos Oscuros",
+      "archetype": "boss",
+      "threat": 5,
+      "resistances": {
+        "Místico": 0.25
+      },
+      "sprite": "assets/images/enemies/loki/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/loki/idle/north.png",
+              "assets/images/enemies/loki/idle/north.png",
+              "assets/images/enemies/loki/idle/north.png",
+              "assets/images/enemies/loki/idle/north.png"
+            ],
+            "south": [
+              "assets/images/enemies/loki/idle/south.png",
+              "assets/images/enemies/loki/idle/south.png",
+              "assets/images/enemies/loki/idle/south.png",
+              "assets/images/enemies/loki/idle/south.png"
+            ],
+            "west": [
+              "assets/images/enemies/loki/idle/west.png",
+              "assets/images/enemies/loki/idle/west.png",
+              "assets/images/enemies/loki/idle/west.png",
+              "assets/images/enemies/loki/idle/west.png"
+            ],
+            "east": [
+              "assets/images/enemies/loki/idle/east.png",
+              "assets/images/enemies/loki/idle/east.png",
+              "assets/images/enemies/loki/idle/east.png",
+              "assets/images/enemies/loki/idle/east.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/loki/idle/south.png",
+          "north-west": "assets/images/enemies/loki/idle/north-west.png",
+          "north": "assets/images/enemies/loki/idle/north.png",
+          "south-west": "assets/images/enemies/loki/idle/south-west.png",
+          "west": "assets/images/enemies/loki/idle/west.png",
+          "north-east": "assets/images/enemies/loki/idle/north-east.png",
+          "east": "assets/images/enemies/loki/idle/east.png",
+          "south-east": "assets/images/enemies/loki/idle/south-east.png"
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/loki/portrait.png",
+        "size": 96
+      },
+      "phases": [
+        {
+          "threshold": 0.7,
+          "name": "Ejército de Ilusiones",
+          "telegraph": 1.3,
+          "summonId": "dark_elf",
+          "summonCount": 2,
+          "stealth": 3,
+          "color": "#69e58c"
+        },
+        {
+          "threshold": 0.35,
+          "name": "Maestro del Engaño",
+          "telegraph": 1.1,
+          "barrier": 0.14,
+          "speed": 1.3,
+          "color": "#d86cff"
+        }
+      ],
+      "statusResistance": 0.25,
+      "statusResistances": {
+        "curse": 0.25,
+        "stun": 0.15
+      }
+    },
+    "doctor_doom": {
+      "id": "doctor_doom",
+      "name": "Doctor Doom",
+      "category": "Tecnológico",
+      "isBoss": true,
+      "hp": 6000,
+      "speed": 40,
+      "reward": 1500,
+      "armor": 0.5,
+      "stealth": false,
+      "immuneToStun": true,
+      "sprite": "assets/images/enemies/doctor_doom/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/doctor_doom/walk/north/0.png",
+              "assets/images/enemies/doctor_doom/walk/north/1.png",
+              "assets/images/enemies/doctor_doom/walk/north/2.png",
+              "assets/images/enemies/doctor_doom/walk/north/3.png",
+              "assets/images/enemies/doctor_doom/walk/north/4.png",
+              "assets/images/enemies/doctor_doom/walk/north/5.png"
+            ],
+            "south": [
+              "assets/images/enemies/doctor_doom/walk/south/0.png",
+              "assets/images/enemies/doctor_doom/walk/south/1.png",
+              "assets/images/enemies/doctor_doom/walk/south/2.png",
+              "assets/images/enemies/doctor_doom/walk/south/3.png",
+              "assets/images/enemies/doctor_doom/walk/south/4.png",
+              "assets/images/enemies/doctor_doom/walk/south/5.png"
+            ],
+            "west": [
+              "assets/images/enemies/doctor_doom/walk/west/0.png",
+              "assets/images/enemies/doctor_doom/walk/west/1.png",
+              "assets/images/enemies/doctor_doom/walk/west/2.png",
+              "assets/images/enemies/doctor_doom/walk/west/3.png",
+              "assets/images/enemies/doctor_doom/walk/west/4.png",
+              "assets/images/enemies/doctor_doom/walk/west/5.png"
+            ],
+            "east": [
+              "assets/images/enemies/doctor_doom/walk/east/0.png",
+              "assets/images/enemies/doctor_doom/walk/east/1.png",
+              "assets/images/enemies/doctor_doom/walk/east/2.png",
+              "assets/images/enemies/doctor_doom/walk/east/3.png",
+              "assets/images/enemies/doctor_doom/walk/east/4.png",
+              "assets/images/enemies/doctor_doom/walk/east/5.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/doctor_doom/idle/south.png",
+          "north-west": "assets/images/enemies/doctor_doom/idle/north-west.png",
+          "north": "assets/images/enemies/doctor_doom/idle/north.png",
+          "south-west": "assets/images/enemies/doctor_doom/idle/south-west.png",
+          "west": "assets/images/enemies/doctor_doom/idle/west.png",
+          "north-east": "assets/images/enemies/doctor_doom/idle/north-east.png",
+          "east": "assets/images/enemies/doctor_doom/idle/east.png",
+          "south-east": "assets/images/enemies/doctor_doom/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/doctor_doom/attack/0.png",
+            "assets/images/enemies/doctor_doom/attack/1.png",
+            "assets/images/enemies/doctor_doom/attack/2.png",
+            "assets/images/enemies/doctor_doom/attack/3.png",
+            "assets/images/enemies/doctor_doom/attack/4.png",
+            "assets/images/enemies/doctor_doom/attack/5.png",
+            "assets/images/enemies/doctor_doom/attack/6.png",
+            "assets/images/enemies/doctor_doom/attack/7.png",
+            "assets/images/enemies/doctor_doom/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/doctor_doom/portrait.png",
+        "size": 96
+      }
+    },
+    "magneto": {
+      "id": "magneto",
+      "name": "Magneto",
+      "category": "Mutante",
+      "isBoss": true,
+      "hp": 6200,
+      "speed": 45,
+      "reward": 1400,
+      "armor": 0.4,
+      "stealth": false,
+      "immuneToSlow": true,
+      "faction": "Hermandad Mutante",
+      "archetype": "boss",
+      "threat": 5,
+      "resistances": {
+        "Tecnológico": 0.35
+      },
+      "sprite": "assets/images/enemies/magneto/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/magneto/idle/north.png",
+              "assets/images/enemies/magneto/idle/north.png",
+              "assets/images/enemies/magneto/idle/north.png",
+              "assets/images/enemies/magneto/idle/north.png"
+            ],
+            "south": [
+              "assets/images/enemies/magneto/idle/south.png",
+              "assets/images/enemies/magneto/idle/south.png",
+              "assets/images/enemies/magneto/idle/south.png",
+              "assets/images/enemies/magneto/idle/south.png"
+            ],
+            "west": [
+              "assets/images/enemies/magneto/idle/west.png",
+              "assets/images/enemies/magneto/idle/west.png",
+              "assets/images/enemies/magneto/idle/west.png",
+              "assets/images/enemies/magneto/idle/west.png"
+            ],
+            "east": [
+              "assets/images/enemies/magneto/idle/east.png",
+              "assets/images/enemies/magneto/idle/east.png",
+              "assets/images/enemies/magneto/idle/east.png",
+              "assets/images/enemies/magneto/idle/east.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/magneto/idle/south.png",
+          "north-west": "assets/images/enemies/magneto/idle/north-west.png",
+          "north": "assets/images/enemies/magneto/idle/north.png",
+          "south-west": "assets/images/enemies/magneto/idle/south-west.png",
+          "west": "assets/images/enemies/magneto/idle/west.png",
+          "north-east": "assets/images/enemies/magneto/idle/north-east.png",
+          "east": "assets/images/enemies/magneto/idle/east.png",
+          "south-east": "assets/images/enemies/magneto/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/magneto/attack/0.png",
+            "assets/images/enemies/magneto/attack/1.png",
+            "assets/images/enemies/magneto/attack/2.png",
+            "assets/images/enemies/magneto/attack/3.png",
+            "assets/images/enemies/magneto/attack/4.png",
+            "assets/images/enemies/magneto/attack/5.png",
+            "assets/images/enemies/magneto/attack/6.png",
+            "assets/images/enemies/magneto/attack/7.png",
+            "assets/images/enemies/magneto/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/magneto/portrait.png",
+        "size": 96
+      },
+      "phases": [
+        {
+          "threshold": 0.72,
+          "name": "Campo Magnético",
+          "telegraph": 1.4,
+          "barrier": 0.2,
+          "color": "#d86cff"
+        },
+        {
+          "threshold": 0.35,
+          "name": "Polaridad Inversa",
+          "telegraph": 1.2,
+          "barrier": 0.28,
+          "armor": 0.1,
+          "color": "#ff4d6d"
+        }
+      ],
+      "statusResistance": 0.35,
+      "statusResistances": {
+        "stun": 0.35,
+        "armorBreak": 0.2
+      }
+    },
+    "green_goblin": {
+      "id": "green_goblin",
+      "name": "Duende Verde",
+      "category": "Tecnológico",
+      "isBoss": true,
+      "hp": 3800,
+      "speed": 98,
+      "reward": 950,
+      "armor": 0.2,
+      "stealth": false,
+      "immuneToSlow": false,
+      "statusResistances": {
+        "slow": 0.3
+      },
+      "sprite": "assets/images/enemies/green_goblin/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/green_goblin/walk/north/0.png",
+              "assets/images/enemies/green_goblin/walk/north/1.png",
+              "assets/images/enemies/green_goblin/walk/north/2.png",
+              "assets/images/enemies/green_goblin/walk/north/3.png",
+              "assets/images/enemies/green_goblin/walk/north/4.png",
+              "assets/images/enemies/green_goblin/walk/north/5.png",
+              "assets/images/enemies/green_goblin/walk/north/6.png",
+              "assets/images/enemies/green_goblin/walk/north/7.png",
+              "assets/images/enemies/green_goblin/walk/north/8.png"
+            ],
+            "south": [
+              "assets/images/enemies/green_goblin/walk/south/0.png",
+              "assets/images/enemies/green_goblin/walk/south/1.png",
+              "assets/images/enemies/green_goblin/walk/south/2.png",
+              "assets/images/enemies/green_goblin/walk/south/3.png",
+              "assets/images/enemies/green_goblin/walk/south/4.png",
+              "assets/images/enemies/green_goblin/walk/south/5.png",
+              "assets/images/enemies/green_goblin/walk/south/6.png",
+              "assets/images/enemies/green_goblin/walk/south/7.png",
+              "assets/images/enemies/green_goblin/walk/south/8.png"
+            ],
+            "west": [
+              "assets/images/enemies/green_goblin/walk/west/0.png",
+              "assets/images/enemies/green_goblin/walk/west/1.png",
+              "assets/images/enemies/green_goblin/walk/west/2.png",
+              "assets/images/enemies/green_goblin/walk/west/3.png",
+              "assets/images/enemies/green_goblin/walk/west/4.png",
+              "assets/images/enemies/green_goblin/walk/west/5.png",
+              "assets/images/enemies/green_goblin/walk/west/6.png",
+              "assets/images/enemies/green_goblin/walk/west/7.png",
+              "assets/images/enemies/green_goblin/walk/west/8.png"
+            ],
+            "east": [
+              "assets/images/enemies/green_goblin/walk/east/0.png",
+              "assets/images/enemies/green_goblin/walk/east/1.png",
+              "assets/images/enemies/green_goblin/walk/east/2.png",
+              "assets/images/enemies/green_goblin/walk/east/3.png",
+              "assets/images/enemies/green_goblin/walk/east/4.png",
+              "assets/images/enemies/green_goblin/walk/east/5.png",
+              "assets/images/enemies/green_goblin/walk/east/6.png",
+              "assets/images/enemies/green_goblin/walk/east/7.png",
+              "assets/images/enemies/green_goblin/walk/east/8.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/green_goblin/idle/south.png",
+          "north-west": "assets/images/enemies/green_goblin/idle/north-west.png",
+          "north": "assets/images/enemies/green_goblin/idle/north.png",
+          "south-west": "assets/images/enemies/green_goblin/idle/south-west.png",
+          "west": "assets/images/enemies/green_goblin/idle/west.png",
+          "north-east": "assets/images/enemies/green_goblin/idle/north-east.png",
+          "east": "assets/images/enemies/green_goblin/idle/east.png",
+          "south-east": "assets/images/enemies/green_goblin/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/green_goblin/attack/0.png",
+            "assets/images/enemies/green_goblin/attack/1.png",
+            "assets/images/enemies/green_goblin/attack/2.png",
+            "assets/images/enemies/green_goblin/attack/3.png",
+            "assets/images/enemies/green_goblin/attack/4.png",
+            "assets/images/enemies/green_goblin/attack/5.png",
+            "assets/images/enemies/green_goblin/attack/6.png",
+            "assets/images/enemies/green_goblin/attack/7.png",
+            "assets/images/enemies/green_goblin/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/green_goblin/portrait.png",
+        "size": 96
+      }
+    },
+    "red_skull": {
+      "id": "red_skull",
+      "name": "Red Skull",
+      "category": "Urbano",
+      "isBoss": true,
+      "hp": 4500,
+      "speed": 50,
+      "reward": 1000,
+      "armor": 0.3,
+      "stealth": false,
+      "immuneToStun": false,
+      "sprite": "assets/images/enemies/red_skull/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/red_skull/walk/north/0.png",
+              "assets/images/enemies/red_skull/walk/north/1.png",
+              "assets/images/enemies/red_skull/walk/north/2.png",
+              "assets/images/enemies/red_skull/walk/north/3.png",
+              "assets/images/enemies/red_skull/walk/north/4.png",
+              "assets/images/enemies/red_skull/walk/north/5.png",
+              "assets/images/enemies/red_skull/walk/north/6.png",
+              "assets/images/enemies/red_skull/walk/north/7.png"
+            ],
+            "south": [
+              "assets/images/enemies/red_skull/walk/south/0.png",
+              "assets/images/enemies/red_skull/walk/south/1.png",
+              "assets/images/enemies/red_skull/walk/south/2.png",
+              "assets/images/enemies/red_skull/walk/south/3.png",
+              "assets/images/enemies/red_skull/walk/south/4.png",
+              "assets/images/enemies/red_skull/walk/south/5.png",
+              "assets/images/enemies/red_skull/walk/south/6.png",
+              "assets/images/enemies/red_skull/walk/south/7.png"
+            ],
+            "west": [
+              "assets/images/enemies/red_skull/walk/west/0.png",
+              "assets/images/enemies/red_skull/walk/west/1.png",
+              "assets/images/enemies/red_skull/walk/west/2.png",
+              "assets/images/enemies/red_skull/walk/west/3.png",
+              "assets/images/enemies/red_skull/walk/west/4.png",
+              "assets/images/enemies/red_skull/walk/west/5.png",
+              "assets/images/enemies/red_skull/walk/west/6.png",
+              "assets/images/enemies/red_skull/walk/west/7.png"
+            ],
+            "east": [
+              "assets/images/enemies/red_skull/walk/east/0.png",
+              "assets/images/enemies/red_skull/walk/east/1.png",
+              "assets/images/enemies/red_skull/walk/east/2.png",
+              "assets/images/enemies/red_skull/walk/east/3.png",
+              "assets/images/enemies/red_skull/walk/east/4.png",
+              "assets/images/enemies/red_skull/walk/east/5.png",
+              "assets/images/enemies/red_skull/walk/east/6.png",
+              "assets/images/enemies/red_skull/walk/east/7.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/red_skull/idle/south.png",
+          "north-west": "assets/images/enemies/red_skull/idle/north-west.png",
+          "north": "assets/images/enemies/red_skull/idle/north.png",
+          "south-west": "assets/images/enemies/red_skull/idle/south-west.png",
+          "west": "assets/images/enemies/red_skull/idle/west.png",
+          "north-east": "assets/images/enemies/red_skull/idle/north-east.png",
+          "east": "assets/images/enemies/red_skull/idle/east.png",
+          "south-east": "assets/images/enemies/red_skull/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/red_skull/attack/0.png",
+            "assets/images/enemies/red_skull/attack/1.png",
+            "assets/images/enemies/red_skull/attack/2.png",
+            "assets/images/enemies/red_skull/attack/3.png",
+            "assets/images/enemies/red_skull/attack/4.png",
+            "assets/images/enemies/red_skull/attack/5.png",
+            "assets/images/enemies/red_skull/attack/6.png",
+            "assets/images/enemies/red_skull/attack/7.png",
+            "assets/images/enemies/red_skull/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/red_skull/portrait.png",
+        "size": 96
+      }
+    },
+    "ultron_prime": {
+      "id": "ultron_prime",
+      "name": "Ultrón Prime",
+      "category": "Tecnológico",
+      "isBoss": true,
+      "hp": 5200,
+      "speed": 38,
+      "reward": 2000,
+      "armor": 0.38,
+      "stealth": false,
+      "immuneToStun": false,
+      "faction": "Legión de Ultrón",
+      "archetype": "boss",
+      "threat": 5,
+      "resistances": {
+        "Tecnológico": 0.3
+      },
+      "phases": [
+        {
+          "threshold": 0.7,
+          "name": "Producción de Drones",
+          "telegraph": 1.4,
+          "summonId": "ultron_drone",
+          "summonCount": 2,
+          "barrier": 0.08,
+          "color": "#40c9ff"
+        },
+        {
+          "threshold": 0.3,
+          "name": "Protocolo Prime",
+          "telegraph": 1.1,
+          "armor": 0.07,
+          "speed": 1.25,
+          "color": "#e63946"
+        }
+      ],
+      "statusResistance": 0.28,
+      "statusResistances": {
+        "slow": 0.35,
+        "stun": 0.45,
+        "poison": 0.2,
+        "burn": 0.1,
+        "armorBreak": 0.15
+      },
+      "sprite": "assets/images/enemies/ultron_prime/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/ultron_prime/walk/north/0.png",
+              "assets/images/enemies/ultron_prime/walk/north/1.png",
+              "assets/images/enemies/ultron_prime/walk/north/2.png",
+              "assets/images/enemies/ultron_prime/walk/north/3.png",
+              "assets/images/enemies/ultron_prime/walk/north/4.png",
+              "assets/images/enemies/ultron_prime/walk/north/5.png",
+              "assets/images/enemies/ultron_prime/walk/north/6.png",
+              "assets/images/enemies/ultron_prime/walk/north/7.png",
+              "assets/images/enemies/ultron_prime/walk/north/8.png"
+            ],
+            "south": [
+              "assets/images/enemies/ultron_prime/walk/south/0.png",
+              "assets/images/enemies/ultron_prime/walk/south/1.png",
+              "assets/images/enemies/ultron_prime/walk/south/2.png",
+              "assets/images/enemies/ultron_prime/walk/south/3.png",
+              "assets/images/enemies/ultron_prime/walk/south/4.png",
+              "assets/images/enemies/ultron_prime/walk/south/5.png",
+              "assets/images/enemies/ultron_prime/walk/south/6.png",
+              "assets/images/enemies/ultron_prime/walk/south/7.png",
+              "assets/images/enemies/ultron_prime/walk/south/8.png"
+            ],
+            "west": [
+              "assets/images/enemies/ultron_prime/walk/west/0.png",
+              "assets/images/enemies/ultron_prime/walk/west/1.png",
+              "assets/images/enemies/ultron_prime/walk/west/2.png",
+              "assets/images/enemies/ultron_prime/walk/west/3.png",
+              "assets/images/enemies/ultron_prime/walk/west/4.png",
+              "assets/images/enemies/ultron_prime/walk/west/5.png",
+              "assets/images/enemies/ultron_prime/walk/west/6.png",
+              "assets/images/enemies/ultron_prime/walk/west/7.png",
+              "assets/images/enemies/ultron_prime/walk/west/8.png"
+            ],
+            "east": [
+              "assets/images/enemies/ultron_prime/walk/east/0.png",
+              "assets/images/enemies/ultron_prime/walk/east/1.png",
+              "assets/images/enemies/ultron_prime/walk/east/2.png",
+              "assets/images/enemies/ultron_prime/walk/east/3.png",
+              "assets/images/enemies/ultron_prime/walk/east/4.png",
+              "assets/images/enemies/ultron_prime/walk/east/5.png",
+              "assets/images/enemies/ultron_prime/walk/east/6.png",
+              "assets/images/enemies/ultron_prime/walk/east/7.png",
+              "assets/images/enemies/ultron_prime/walk/east/8.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/ultron_prime/idle/south.png",
+          "north-west": "assets/images/enemies/ultron_prime/idle/north-west.png",
+          "north": "assets/images/enemies/ultron_prime/idle/north.png",
+          "south-west": "assets/images/enemies/ultron_prime/idle/south-west.png",
+          "west": "assets/images/enemies/ultron_prime/idle/west.png",
+          "north-east": "assets/images/enemies/ultron_prime/idle/north-east.png",
+          "east": "assets/images/enemies/ultron_prime/idle/east.png",
+          "south-east": "assets/images/enemies/ultron_prime/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/ultron_prime/attack/0.png",
+            "assets/images/enemies/ultron_prime/attack/1.png",
+            "assets/images/enemies/ultron_prime/attack/2.png",
+            "assets/images/enemies/ultron_prime/attack/3.png",
+            "assets/images/enemies/ultron_prime/attack/4.png",
+            "assets/images/enemies/ultron_prime/attack/5.png",
+            "assets/images/enemies/ultron_prime/attack/6.png",
+            "assets/images/enemies/ultron_prime/attack/7.png",
+            "assets/images/enemies/ultron_prime/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/ultron_prime/portrait.png",
+        "size": 96
+      }
+    },
+    "kingpin": {
+      "id": "kingpin",
+      "name": "Kingpin",
+      "category": "Urbano",
+      "isBoss": true,
+      "hp": 8000,
+      "speed": 30,
+      "reward": 1500,
+      "armor": 0.45,
+      "stealth": false,
+      "immuneToSlow": true,
+      "sprite": "assets/images/enemies/kingpin/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/kingpin/walk/north/0.png",
+              "assets/images/enemies/kingpin/walk/north/1.png",
+              "assets/images/enemies/kingpin/walk/north/2.png",
+              "assets/images/enemies/kingpin/walk/north/3.png",
+              "assets/images/enemies/kingpin/walk/north/4.png",
+              "assets/images/enemies/kingpin/walk/north/5.png",
+              "assets/images/enemies/kingpin/walk/north/6.png",
+              "assets/images/enemies/kingpin/walk/north/7.png"
+            ],
+            "south": [
+              "assets/images/enemies/kingpin/walk/south/0.png",
+              "assets/images/enemies/kingpin/walk/south/1.png",
+              "assets/images/enemies/kingpin/walk/south/2.png",
+              "assets/images/enemies/kingpin/walk/south/3.png",
+              "assets/images/enemies/kingpin/walk/south/4.png",
+              "assets/images/enemies/kingpin/walk/south/5.png",
+              "assets/images/enemies/kingpin/walk/south/6.png",
+              "assets/images/enemies/kingpin/walk/south/7.png"
+            ],
+            "west": [
+              "assets/images/enemies/kingpin/walk/west/0.png",
+              "assets/images/enemies/kingpin/walk/west/1.png",
+              "assets/images/enemies/kingpin/walk/west/2.png",
+              "assets/images/enemies/kingpin/walk/west/3.png",
+              "assets/images/enemies/kingpin/walk/west/4.png",
+              "assets/images/enemies/kingpin/walk/west/5.png",
+              "assets/images/enemies/kingpin/walk/west/6.png",
+              "assets/images/enemies/kingpin/walk/west/7.png"
+            ],
+            "east": [
+              "assets/images/enemies/kingpin/walk/east/0.png",
+              "assets/images/enemies/kingpin/walk/east/1.png",
+              "assets/images/enemies/kingpin/walk/east/2.png",
+              "assets/images/enemies/kingpin/walk/east/3.png",
+              "assets/images/enemies/kingpin/walk/east/4.png",
+              "assets/images/enemies/kingpin/walk/east/5.png",
+              "assets/images/enemies/kingpin/walk/east/6.png",
+              "assets/images/enemies/kingpin/walk/east/7.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/kingpin/idle/south.png",
+          "north-west": "assets/images/enemies/kingpin/idle/north-west.png",
+          "north": "assets/images/enemies/kingpin/idle/north.png",
+          "south-west": "assets/images/enemies/kingpin/idle/south-west.png",
+          "west": "assets/images/enemies/kingpin/idle/west.png",
+          "north-east": "assets/images/enemies/kingpin/idle/north-east.png",
+          "east": "assets/images/enemies/kingpin/idle/east.png",
+          "south-east": "assets/images/enemies/kingpin/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/kingpin/attack/0.png",
+            "assets/images/enemies/kingpin/attack/1.png",
+            "assets/images/enemies/kingpin/attack/2.png",
+            "assets/images/enemies/kingpin/attack/3.png",
+            "assets/images/enemies/kingpin/attack/4.png",
+            "assets/images/enemies/kingpin/attack/5.png",
+            "assets/images/enemies/kingpin/attack/6.png",
+            "assets/images/enemies/kingpin/attack/7.png",
+            "assets/images/enemies/kingpin/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/kingpin/portrait.png",
+        "size": 96
+      }
+    },
+    "kang": {
+      "id": "kang",
+      "name": "Kang el Conquistador",
+      "category": "Cósmico",
+      "isBoss": true,
+      "hp": 6500,
+      "speed": 50,
+      "reward": 1800,
+      "armor": 0.35,
+      "stealth": false,
+      "immuneToStun": true,
+      "sprite": "assets/images/enemies/kang/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/kang/walk/north/0.png",
+              "assets/images/enemies/kang/walk/north/1.png",
+              "assets/images/enemies/kang/walk/north/2.png",
+              "assets/images/enemies/kang/walk/north/3.png",
+              "assets/images/enemies/kang/walk/north/4.png",
+              "assets/images/enemies/kang/walk/north/5.png",
+              "assets/images/enemies/kang/walk/north/6.png",
+              "assets/images/enemies/kang/walk/north/7.png",
+              "assets/images/enemies/kang/walk/north/8.png"
+            ],
+            "south": [
+              "assets/images/enemies/kang/walk/south/0.png",
+              "assets/images/enemies/kang/walk/south/1.png",
+              "assets/images/enemies/kang/walk/south/2.png",
+              "assets/images/enemies/kang/walk/south/3.png",
+              "assets/images/enemies/kang/walk/south/4.png",
+              "assets/images/enemies/kang/walk/south/5.png",
+              "assets/images/enemies/kang/walk/south/6.png",
+              "assets/images/enemies/kang/walk/south/7.png",
+              "assets/images/enemies/kang/walk/south/8.png"
+            ],
+            "west": [
+              "assets/images/enemies/kang/walk/west/0.png",
+              "assets/images/enemies/kang/walk/west/1.png",
+              "assets/images/enemies/kang/walk/west/2.png",
+              "assets/images/enemies/kang/walk/west/3.png",
+              "assets/images/enemies/kang/walk/west/4.png",
+              "assets/images/enemies/kang/walk/west/5.png",
+              "assets/images/enemies/kang/walk/west/6.png",
+              "assets/images/enemies/kang/walk/west/7.png",
+              "assets/images/enemies/kang/walk/west/8.png"
+            ],
+            "east": [
+              "assets/images/enemies/kang/walk/east/0.png",
+              "assets/images/enemies/kang/walk/east/1.png",
+              "assets/images/enemies/kang/walk/east/2.png",
+              "assets/images/enemies/kang/walk/east/3.png",
+              "assets/images/enemies/kang/walk/east/4.png",
+              "assets/images/enemies/kang/walk/east/5.png",
+              "assets/images/enemies/kang/walk/east/6.png",
+              "assets/images/enemies/kang/walk/east/7.png",
+              "assets/images/enemies/kang/walk/east/8.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/kang/idle/south.png",
+          "north-west": "assets/images/enemies/kang/idle/north-west.png",
+          "north": "assets/images/enemies/kang/idle/north.png",
+          "south-west": "assets/images/enemies/kang/idle/south-west.png",
+          "west": "assets/images/enemies/kang/idle/west.png",
+          "north-east": "assets/images/enemies/kang/idle/north-east.png",
+          "east": "assets/images/enemies/kang/idle/east.png",
+          "south-east": "assets/images/enemies/kang/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/kang/attack/0.png",
+            "assets/images/enemies/kang/attack/1.png",
+            "assets/images/enemies/kang/attack/2.png",
+            "assets/images/enemies/kang/attack/3.png",
+            "assets/images/enemies/kang/attack/4.png",
+            "assets/images/enemies/kang/attack/5.png",
+            "assets/images/enemies/kang/attack/6.png",
+            "assets/images/enemies/kang/attack/7.png",
+            "assets/images/enemies/kang/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/kang/portrait.png",
+        "size": 96
+      }
+    },
+    "apocalypse": {
+      "id": "apocalypse",
+      "name": "Apocalypse",
+      "category": "Mutante",
+      "isBoss": true,
+      "hp": 10500,
+      "speed": 35,
+      "reward": 3000,
+      "armor": 0.42,
+      "stealth": false,
+      "immuneToStun": true,
+      "immuneToSlow": true,
+      "sprite": "assets/images/enemies/apocalypse/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/apocalypse/walk/north/0.png",
+              "assets/images/enemies/apocalypse/walk/north/1.png",
+              "assets/images/enemies/apocalypse/walk/north/2.png",
+              "assets/images/enemies/apocalypse/walk/north/3.png",
+              "assets/images/enemies/apocalypse/walk/north/4.png",
+              "assets/images/enemies/apocalypse/walk/north/5.png",
+              "assets/images/enemies/apocalypse/walk/north/6.png",
+              "assets/images/enemies/apocalypse/walk/north/7.png",
+              "assets/images/enemies/apocalypse/walk/north/8.png"
+            ],
+            "south": [
+              "assets/images/enemies/apocalypse/walk/south/0.png",
+              "assets/images/enemies/apocalypse/walk/south/1.png",
+              "assets/images/enemies/apocalypse/walk/south/2.png",
+              "assets/images/enemies/apocalypse/walk/south/3.png",
+              "assets/images/enemies/apocalypse/walk/south/4.png",
+              "assets/images/enemies/apocalypse/walk/south/5.png",
+              "assets/images/enemies/apocalypse/walk/south/6.png",
+              "assets/images/enemies/apocalypse/walk/south/7.png",
+              "assets/images/enemies/apocalypse/walk/south/8.png"
+            ],
+            "west": [
+              "assets/images/enemies/apocalypse/walk/west/0.png",
+              "assets/images/enemies/apocalypse/walk/west/1.png",
+              "assets/images/enemies/apocalypse/walk/west/2.png",
+              "assets/images/enemies/apocalypse/walk/west/3.png",
+              "assets/images/enemies/apocalypse/walk/west/4.png",
+              "assets/images/enemies/apocalypse/walk/west/5.png",
+              "assets/images/enemies/apocalypse/walk/west/6.png",
+              "assets/images/enemies/apocalypse/walk/west/7.png",
+              "assets/images/enemies/apocalypse/walk/west/8.png"
+            ],
+            "east": [
+              "assets/images/enemies/apocalypse/walk/east/0.png",
+              "assets/images/enemies/apocalypse/walk/east/1.png",
+              "assets/images/enemies/apocalypse/walk/east/2.png",
+              "assets/images/enemies/apocalypse/walk/east/3.png",
+              "assets/images/enemies/apocalypse/walk/east/4.png",
+              "assets/images/enemies/apocalypse/walk/east/5.png",
+              "assets/images/enemies/apocalypse/walk/east/6.png",
+              "assets/images/enemies/apocalypse/walk/east/7.png",
+              "assets/images/enemies/apocalypse/walk/east/8.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/apocalypse/idle/south.png",
+          "north-west": "assets/images/enemies/apocalypse/idle/north-west.png",
+          "north": "assets/images/enemies/apocalypse/idle/north.png",
+          "south-west": "assets/images/enemies/apocalypse/idle/south-west.png",
+          "west": "assets/images/enemies/apocalypse/idle/west.png",
+          "north-east": "assets/images/enemies/apocalypse/idle/north-east.png",
+          "east": "assets/images/enemies/apocalypse/idle/east.png",
+          "south-east": "assets/images/enemies/apocalypse/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/apocalypse/attack/0.png",
+            "assets/images/enemies/apocalypse/attack/1.png",
+            "assets/images/enemies/apocalypse/attack/2.png",
+            "assets/images/enemies/apocalypse/attack/3.png",
+            "assets/images/enemies/apocalypse/attack/4.png",
+            "assets/images/enemies/apocalypse/attack/5.png",
+            "assets/images/enemies/apocalypse/attack/6.png",
+            "assets/images/enemies/apocalypse/attack/7.png",
+            "assets/images/enemies/apocalypse/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/apocalypse/portrait.png",
+        "size": 96
+      }
+    },
+    "carnage": {
+      "id": "carnage",
+      "name": "Carnage",
+      "category": "Urbano",
+      "isBoss": true,
+      "hp": 4300,
+      "speed": 118,
+      "reward": 1150,
+      "armor": 0.15,
+      "stealth": false,
+      "immuneToSlow": true,
+      "statusResistance": 0.18,
+      "statusResistances": {
+        "slow": 0.45,
+        "poison": 0.25
+      },
+      "sprite": "assets/images/enemies/carnage/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/carnage/walk/north/0.png",
+              "assets/images/enemies/carnage/walk/north/1.png",
+              "assets/images/enemies/carnage/walk/north/2.png",
+              "assets/images/enemies/carnage/walk/north/3.png",
+              "assets/images/enemies/carnage/walk/north/4.png",
+              "assets/images/enemies/carnage/walk/north/5.png",
+              "assets/images/enemies/carnage/walk/north/6.png",
+              "assets/images/enemies/carnage/walk/north/7.png",
+              "assets/images/enemies/carnage/walk/north/8.png"
+            ],
+            "south": [
+              "assets/images/enemies/carnage/walk/south/0.png",
+              "assets/images/enemies/carnage/walk/south/1.png",
+              "assets/images/enemies/carnage/walk/south/2.png",
+              "assets/images/enemies/carnage/walk/south/3.png",
+              "assets/images/enemies/carnage/walk/south/4.png",
+              "assets/images/enemies/carnage/walk/south/5.png",
+              "assets/images/enemies/carnage/walk/south/6.png",
+              "assets/images/enemies/carnage/walk/south/7.png",
+              "assets/images/enemies/carnage/walk/south/8.png"
+            ],
+            "west": [
+              "assets/images/enemies/carnage/walk/west/0.png",
+              "assets/images/enemies/carnage/walk/west/1.png",
+              "assets/images/enemies/carnage/walk/west/2.png",
+              "assets/images/enemies/carnage/walk/west/3.png",
+              "assets/images/enemies/carnage/walk/west/4.png",
+              "assets/images/enemies/carnage/walk/west/5.png",
+              "assets/images/enemies/carnage/walk/west/6.png",
+              "assets/images/enemies/carnage/walk/west/7.png",
+              "assets/images/enemies/carnage/walk/west/8.png"
+            ],
+            "east": [
+              "assets/images/enemies/carnage/walk/east/0.png",
+              "assets/images/enemies/carnage/walk/east/1.png",
+              "assets/images/enemies/carnage/walk/east/2.png",
+              "assets/images/enemies/carnage/walk/east/3.png",
+              "assets/images/enemies/carnage/walk/east/4.png",
+              "assets/images/enemies/carnage/walk/east/5.png",
+              "assets/images/enemies/carnage/walk/east/6.png",
+              "assets/images/enemies/carnage/walk/east/7.png",
+              "assets/images/enemies/carnage/walk/east/8.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/carnage/idle/south.png",
+          "north-west": "assets/images/enemies/carnage/idle/north-west.png",
+          "north": "assets/images/enemies/carnage/idle/north.png",
+          "south-west": "assets/images/enemies/carnage/idle/south-west.png",
+          "west": "assets/images/enemies/carnage/idle/west.png",
+          "north-east": "assets/images/enemies/carnage/idle/north-east.png",
+          "east": "assets/images/enemies/carnage/idle/east.png",
+          "south-east": "assets/images/enemies/carnage/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/carnage/attack/0.png",
+            "assets/images/enemies/carnage/attack/1.png",
+            "assets/images/enemies/carnage/attack/2.png",
+            "assets/images/enemies/carnage/attack/3.png",
+            "assets/images/enemies/carnage/attack/4.png",
+            "assets/images/enemies/carnage/attack/5.png",
+            "assets/images/enemies/carnage/attack/6.png",
+            "assets/images/enemies/carnage/attack/7.png",
+            "assets/images/enemies/carnage/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/carnage/portrait.png",
+        "size": 96
+      }
+    },
+    "hela": {
+      "id": "hela",
+      "name": "Hela",
+      "category": "Místico",
+      "isBoss": true,
+      "hp": 9000,
+      "speed": 40,
+      "reward": 2500,
+      "armor": 0.3,
+      "stealth": false,
+      "immuneToStun": true,
+      "sprite": "assets/images/enemies/hela/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/hela/idle/north.png",
+              "assets/images/enemies/hela/idle/north.png",
+              "assets/images/enemies/hela/idle/north.png",
+              "assets/images/enemies/hela/idle/north.png"
+            ],
+            "south": [
+              "assets/images/enemies/hela/idle/south.png",
+              "assets/images/enemies/hela/idle/south.png",
+              "assets/images/enemies/hela/idle/south.png",
+              "assets/images/enemies/hela/idle/south.png"
+            ],
+            "west": [
+              "assets/images/enemies/hela/idle/west.png",
+              "assets/images/enemies/hela/idle/west.png",
+              "assets/images/enemies/hela/idle/west.png",
+              "assets/images/enemies/hela/idle/west.png"
+            ],
+            "east": [
+              "assets/images/enemies/hela/idle/east.png",
+              "assets/images/enemies/hela/idle/east.png",
+              "assets/images/enemies/hela/idle/east.png",
+              "assets/images/enemies/hela/idle/east.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/hela/idle/south.png",
+          "north-west": "assets/images/enemies/hela/idle/north-west.png",
+          "north": "assets/images/enemies/hela/idle/north.png",
+          "south-west": "assets/images/enemies/hela/idle/south-west.png",
+          "west": "assets/images/enemies/hela/idle/west.png",
+          "north-east": "assets/images/enemies/hela/idle/north-east.png",
+          "east": "assets/images/enemies/hela/idle/east.png",
+          "south-east": "assets/images/enemies/hela/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/hela/attack/0.png",
+            "assets/images/enemies/hela/attack/1.png",
+            "assets/images/enemies/hela/attack/2.png",
+            "assets/images/enemies/hela/attack/3.png",
+            "assets/images/enemies/hela/attack/4.png",
+            "assets/images/enemies/hela/attack/5.png",
+            "assets/images/enemies/hela/attack/6.png",
+            "assets/images/enemies/hela/attack/7.png",
+            "assets/images/enemies/hela/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/hela/portrait.png",
+        "size": 96
+      }
+    },
+    "killmonger": {
+      "id": "killmonger",
+      "name": "Killmonger",
+      "category": "Urbano",
+      "isBoss": true,
+      "hp": 5000,
+      "speed": 60,
+      "reward": 1200,
+      "armor": 0.4,
+      "stealth": false,
+      "immuneToStun": false,
+      "faction": "Mercenarios",
+      "archetype": "boss",
+      "threat": 5,
+      "resistances": {
+        "Urbano": 0.2
+      },
+      "phases": [
+        {
+          "threshold": 0.68,
+          "name": "Traje de Vibranium",
+          "telegraph": 1.2,
+          "barrier": 0.18,
+          "speed": 1.2,
+          "color": "#b865ff"
+        },
+        {
+          "threshold": 0.3,
+          "name": "Desafío al Trono",
+          "telegraph": 1,
+          "heal": 0.12,
+          "speed": 1.45,
+          "color": "#fca311"
+        }
+      ]
+    },
+    "dormammu": {
+      "id": "dormammu",
+      "name": "Dormammu",
+      "category": "Místico",
+      "isBoss": true,
+      "hp": 11000,
+      "speed": 25,
+      "reward": 5000,
+      "armor": 0.2,
+      "stealth": false,
+      "immuneToStun": true,
+      "immuneToSlow": true,
+      "sprite": "assets/images/enemies/dormammu/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/dormammu/walk/north/0.png",
+              "assets/images/enemies/dormammu/walk/north/1.png",
+              "assets/images/enemies/dormammu/walk/north/2.png",
+              "assets/images/enemies/dormammu/walk/north/3.png",
+              "assets/images/enemies/dormammu/walk/north/4.png",
+              "assets/images/enemies/dormammu/walk/north/5.png",
+              "assets/images/enemies/dormammu/walk/north/6.png",
+              "assets/images/enemies/dormammu/walk/north/7.png",
+              "assets/images/enemies/dormammu/walk/north/8.png"
+            ],
+            "south": [
+              "assets/images/enemies/dormammu/walk/south/0.png",
+              "assets/images/enemies/dormammu/walk/south/1.png",
+              "assets/images/enemies/dormammu/walk/south/2.png",
+              "assets/images/enemies/dormammu/walk/south/3.png",
+              "assets/images/enemies/dormammu/walk/south/4.png",
+              "assets/images/enemies/dormammu/walk/south/5.png",
+              "assets/images/enemies/dormammu/walk/south/6.png",
+              "assets/images/enemies/dormammu/walk/south/7.png",
+              "assets/images/enemies/dormammu/walk/south/8.png"
+            ],
+            "west": [
+              "assets/images/enemies/dormammu/walk/west/0.png",
+              "assets/images/enemies/dormammu/walk/west/1.png",
+              "assets/images/enemies/dormammu/walk/west/2.png",
+              "assets/images/enemies/dormammu/walk/west/3.png",
+              "assets/images/enemies/dormammu/walk/west/4.png",
+              "assets/images/enemies/dormammu/walk/west/5.png",
+              "assets/images/enemies/dormammu/walk/west/6.png",
+              "assets/images/enemies/dormammu/walk/west/7.png",
+              "assets/images/enemies/dormammu/walk/west/8.png"
+            ],
+            "east": [
+              "assets/images/enemies/dormammu/walk/east/0.png",
+              "assets/images/enemies/dormammu/walk/east/1.png",
+              "assets/images/enemies/dormammu/walk/east/2.png",
+              "assets/images/enemies/dormammu/walk/east/3.png",
+              "assets/images/enemies/dormammu/walk/east/4.png",
+              "assets/images/enemies/dormammu/walk/east/5.png",
+              "assets/images/enemies/dormammu/walk/east/6.png",
+              "assets/images/enemies/dormammu/walk/east/7.png",
+              "assets/images/enemies/dormammu/walk/east/8.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/dormammu/idle/south.png",
+          "north-west": "assets/images/enemies/dormammu/idle/north-west.png",
+          "north": "assets/images/enemies/dormammu/idle/north.png",
+          "south-west": "assets/images/enemies/dormammu/idle/south-west.png",
+          "west": "assets/images/enemies/dormammu/idle/west.png",
+          "north-east": "assets/images/enemies/dormammu/idle/north-east.png",
+          "east": "assets/images/enemies/dormammu/idle/east.png",
+          "south-east": "assets/images/enemies/dormammu/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/dormammu/attack/0.png",
+            "assets/images/enemies/dormammu/attack/1.png",
+            "assets/images/enemies/dormammu/attack/2.png",
+            "assets/images/enemies/dormammu/attack/3.png",
+            "assets/images/enemies/dormammu/attack/4.png",
+            "assets/images/enemies/dormammu/attack/5.png",
+            "assets/images/enemies/dormammu/attack/6.png",
+            "assets/images/enemies/dormammu/attack/7.png",
+            "assets/images/enemies/dormammu/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/dormammu/portrait.png",
+        "size": 96
+      }
+    },
+    "galactus": {
+      "id": "galactus",
+      "name": "Galactus",
+      "category": "Cósmico",
+      "isBoss": true,
+      "hp": 12000,
+      "speed": 20,
+      "reward": 6500,
+      "armor": 0.55,
+      "stealth": false,
+      "immuneToStun": true,
+      "immuneToSlow": true
+    },
+    "thanos_final": {
+      "id": "thanos_final",
+      "name": "Thanos (Guantelete)",
+      "category": "Cósmico",
+      "isBoss": true,
+      "isFinalBoss": true,
+      "hp": 28000,
+      "speed": 25,
+      "reward": 0,
+      "armor": 0.55,
+      "stealth": false,
+      "immuneToStun": true,
+      "immuneToSlow": true,
+      "immuneToKnockback": true,
+      "faction": "Orden Negro",
+      "archetype": "boss",
+      "threat": 5,
+      "resistances": {
+        "Cósmico": 0.35,
+        "Místico": 0.2
+      },
+      "phases": [
+        {
+          "threshold": 0.75,
+          "name": "Gema del Poder",
+          "telegraph": 1.5,
+          "barrier": 0.12,
+          "color": "#b865ff"
+        },
+        {
+          "threshold": 0.5,
+          "name": "Guantelete del Infinito",
+          "telegraph": 0.8,
+          "animation": "gauntlet",
+          "stunHeroes": true,
+          "stunDuration": 4,
+          "stunRadius": 260,
+          "color": "#ffd166"
+        },
+        {
+          "threshold": 0.25,
+          "name": "Destino Inevitable",
+          "telegraph": 1.2,
+          "armor": 0.12,
+          "speed": 1.35,
+          "heal": 0.08,
+          "color": "#ffd166"
+        }
+      ],
+      "sprite": "assets/images/enemies/thanos_final/portrait.png",
+      "visual": {
+        "defaultDirection": "south",
+        "walk": {
+          "frames": {
+            "north": [
+              "assets/images/enemies/thanos_final/walk/north/0.png",
+              "assets/images/enemies/thanos_final/walk/north/1.png",
+              "assets/images/enemies/thanos_final/walk/north/2.png",
+              "assets/images/enemies/thanos_final/walk/north/3.png"
+            ],
+            "south": [
+              "assets/images/enemies/thanos_final/walk/south/0.png",
+              "assets/images/enemies/thanos_final/walk/south/1.png",
+              "assets/images/enemies/thanos_final/walk/south/2.png",
+              "assets/images/enemies/thanos_final/walk/south/3.png"
+            ],
+            "west": [
+              "assets/images/enemies/thanos_final/walk/west/0.png",
+              "assets/images/enemies/thanos_final/walk/west/1.png",
+              "assets/images/enemies/thanos_final/walk/west/2.png",
+              "assets/images/enemies/thanos_final/walk/west/3.png"
+            ],
+            "east": [
+              "assets/images/enemies/thanos_final/walk/east/0.png",
+              "assets/images/enemies/thanos_final/walk/east/1.png",
+              "assets/images/enemies/thanos_final/walk/east/2.png",
+              "assets/images/enemies/thanos_final/walk/east/3.png"
+            ]
+          },
+          "fps": 8
+        },
+        "idle": {
+          "south": "assets/images/enemies/thanos_final/idle/south.png",
+          "north-west": "assets/images/enemies/thanos_final/idle/north-west.png",
+          "north": "assets/images/enemies/thanos_final/idle/north.png",
+          "south-west": "assets/images/enemies/thanos_final/idle/south-west.png",
+          "west": "assets/images/enemies/thanos_final/idle/west.png",
+          "north-east": "assets/images/enemies/thanos_final/idle/north-east.png",
+          "east": "assets/images/enemies/thanos_final/idle/east.png",
+          "south-east": "assets/images/enemies/thanos_final/idle/south-east.png"
+        },
+        "attack": {
+          "frames": [
+            "assets/images/enemies/thanos_final/attack/0.png",
+            "assets/images/enemies/thanos_final/attack/1.png",
+            "assets/images/enemies/thanos_final/attack/2.png",
+            "assets/images/enemies/thanos_final/attack/3.png",
+            "assets/images/enemies/thanos_final/attack/4.png",
+            "assets/images/enemies/thanos_final/attack/5.png",
+            "assets/images/enemies/thanos_final/attack/6.png",
+            "assets/images/enemies/thanos_final/attack/7.png",
+            "assets/images/enemies/thanos_final/attack/8.png"
+          ],
+          "fps": 10
+        },
+        "anchor": {
+          "y": 0.62,
+          "x": 0.5
+        },
+        "portrait": "assets/images/enemies/thanos_final/portrait.png",
+        "size": 96
+      },
+      "statusResistance": 0.55,
+      "statusResistances": {
+        "slow": 0.4,
+        "stun": 0.6,
+        "poison": 0.4,
+        "burn": 0.25,
+        "curse": 0.35
+      }
+    },
+    "malekith": {
+      "id": "malekith",
+      "name": "Malekith",
+      "category": "Místico",
+      "hp": 5200,
+      "speed": 32,
+      "reward": 720,
+      "armor": 0.38,
+      "isBoss": true,
+      "faction": "Ejército de Malekith",
+      "archetype": "boss",
+      "threat": 5,
+      "phases": [
+        {
+          "threshold": 0.7,
+          "name": "Éter oscuro",
+          "speed": 1.15,
+          "barrier": 0.12
+        },
+        {
+          "threshold": 0.35,
+          "name": "Convergencia",
+          "speed": 1.25,
+          "summonId": "dark_elf_skirmisher",
+          "summonCount": 3
+        }
+      ]
+    },
+    "baron_mordo": {
+      "id": "baron_mordo",
+      "name": "Barón Mordo",
+      "category": "Místico",
+      "hp": 5600,
+      "speed": 30,
+      "reward": 760,
+      "armor": 0.3,
+      "isBoss": true,
+      "faction": "Dimensión Oscura",
+      "archetype": "boss",
+      "threat": 5,
+      "phases": [
+        {
+          "threshold": 0.72,
+          "name": "Hechizo vedado",
+          "barrier": 0.18
+        },
+        {
+          "threshold": 0.38,
+          "name": "Ruptura temporal",
+          "speed": 1.3,
+          "summonId": "dark_zealot",
+          "summonCount": 2
+        }
+      ]
+    },
+    "sauron": {
+      "id": "sauron",
+      "name": "Sauron",
+      "category": "Mutante",
+      "hp": 6100,
+      "speed": 36,
+      "reward": 800,
+      "armor": 0.32,
+      "flying": true,
+      "isBoss": true,
+      "faction": "Savage Land",
+      "archetype": "boss",
+      "threat": 5,
+      "phases": [
+        {
+          "threshold": 0.66,
+          "name": "Drenaje vital",
+          "heal": 0.12
+        },
+        {
+          "threshold": 0.3,
+          "name": "Señor prehistórico",
+          "speed": 1.25,
+          "summonId": "savage_raptor",
+          "summonCount": 4
+        }
+      ]
+    },
+    "abomination": {
+      "id": "abomination",
+      "name": "Abominación",
+      "category": "Mutante",
+      "hp": 7200,
+      "speed": 28,
+      "reward": 860,
+      "armor": 0.45,
+      "isBoss": true,
+      "faction": "Prisioneros de The Raft",
+      "archetype": "boss",
+      "threat": 5,
+      "phases": [
+        {
+          "threshold": 0.7,
+          "name": "Furia gamma",
+          "speed": 1.18,
+          "barrier": 0.12
+        },
+        {
+          "threshold": 0.32,
+          "name": "Contención rota",
+          "speed": 1.3,
+          "summonId": "raft_escapee",
+          "summonCount": 4
+        }
+      ]
+    }
+  }
+}

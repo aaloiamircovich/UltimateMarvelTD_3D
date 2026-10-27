@@ -1,0 +1,2433 @@
+{
+  "repository": "https://github.com/aaloiamircovich/TowerDefense_Marvel",
+  "commit": "84797a5a0c0f344145a7b3442b02e46f13ebdb8b",
+  "scope": "Datos completos, núcleo de reglas y pruebas reutilizables, retratos, iconos y miniaturas. No equivale a paridad jugable 3D.",
+  "excludedTests": {
+    "reason": "Validan atlas, audio y sprites del renderizador 2D no incorporados a esta fase.",
+    "files": [
+      "audio-manager",
+      "core-hero-visuals",
+      "evolution-visual-assets",
+      "new-hero-additions",
+      "rivals-roster"
+    ]
+  },
+  "counts": {
+    "heroes": 105,
+    "items": 82,
+    "enemies": 30,
+    "bosses": 19,
+    "levels": 11,
+    "modules": 58,
+    "tests": 89,
+    "assets": 245
+  },
+  "files": [
+    {
+      "source": "NOTICE.md",
+      "local": "src/legacy/NOTICE.md",
+      "sha256": "55b3bb22421fb104e31a176aafc1eb8eae9d43fcd7d084cc59fb2adeb5b8e7a7",
+      "bytes": 591
+    },
+    {
+      "source": "assets/images/enemies/aim_scientist/portrait.png",
+      "local": "public/legacy/assets/images/enemies/aim_scientist/portrait.png",
+      "sha256": "61e959173f8c0a291fa703767cab5cfa084af4abdd18998dcb6fcb787a9c9431",
+      "bytes": 3964
+    },
+    {
+      "source": "assets/images/enemies/apocalypse/portrait.png",
+      "local": "public/legacy/assets/images/enemies/apocalypse/portrait.png",
+      "sha256": "af46be6ccb97e3c435d06cf079299c30516e194b89907b0366e5462a27a724b8",
+      "bytes": 4870
+    },
+    {
+      "source": "assets/images/enemies/asgardian_traitor/portrait.png",
+      "local": "public/legacy/assets/images/enemies/asgardian_traitor/portrait.png",
+      "sha256": "173f9cb865ffcf54efe2d7143f988d26d36158a73e4676bf5d24105cdebe5b85",
+      "bytes": 5169
+    },
+    {
+      "source": "assets/images/enemies/black_order_hunter/portrait.png",
+      "local": "public/legacy/assets/images/enemies/black_order_hunter/portrait.png",
+      "sha256": "82907ec78fe7885264f52654d75bf4bcef216673411c01249f7200652f77f9ed",
+      "bytes": 4431
+    },
+    {
+      "source": "assets/images/enemies/brotherhood_mutant/portrait.png",
+      "local": "public/legacy/assets/images/enemies/brotherhood_mutant/portrait.png",
+      "sha256": "c11a6c1e3964f5f11d6079e555d326213e49f0ad17d657cc4f0770af453c5222",
+      "bytes": 4281
+    },
+    {
+      "source": "assets/images/enemies/carnage/portrait.png",
+      "local": "public/legacy/assets/images/enemies/carnage/portrait.png",
+      "sha256": "1975fc851327737b142ce6008fc151af425c55fc7419d48d1b9a858d1cb4c7bc",
+      "bytes": 4116
+    },
+    {
+      "source": "assets/images/enemies/chitauri_warrior/portrait.png",
+      "local": "public/legacy/assets/images/enemies/chitauri_warrior/portrait.png",
+      "sha256": "e3dc8ba99199e3bf84cad1a54e04f91dd3f33bacf15f8c4ce2f522f933ff6b0c",
+      "bytes": 5346
+    },
+    {
+      "source": "assets/images/enemies/dark_elf/portrait.png",
+      "local": "public/legacy/assets/images/enemies/dark_elf/portrait.png",
+      "sha256": "87d944f9d1d3cab68ed070a001d0ee03105475ef9d349cacca7c455a22bef536",
+      "bytes": 5326
+    },
+    {
+      "source": "assets/images/enemies/dark_zealot/portrait.png",
+      "local": "public/legacy/assets/images/enemies/dark_zealot/portrait.png",
+      "sha256": "9066ea2d7feda6b3d9b84e89cafb0c65c68723310085385d079027ff118d3089",
+      "bytes": 4047
+    },
+    {
+      "source": "assets/images/enemies/doctor_doom/portrait.png",
+      "local": "public/legacy/assets/images/enemies/doctor_doom/portrait.png",
+      "sha256": "693c21c1d04d2f8f0f62799747c7940fb88ed941d1e1520b8fea2443a1d856ff",
+      "bytes": 5094
+    },
+    {
+      "source": "assets/images/enemies/doombot/portrait.png",
+      "local": "public/legacy/assets/images/enemies/doombot/portrait.png",
+      "sha256": "6b85b17836e7fb416121981033f5fe5a9bb86b2cdd971141e796f6ab5686a355",
+      "bytes": 5399
+    },
+    {
+      "source": "assets/images/enemies/dormammu/portrait.png",
+      "local": "public/legacy/assets/images/enemies/dormammu/portrait.png",
+      "sha256": "2e4f4966d7af33a87b32a138e96c99a846119ef1382de3636d2ee898951dd30a",
+      "bytes": 4068
+    },
+    {
+      "source": "assets/images/enemies/frost_giant_scout/portrait.png",
+      "local": "public/legacy/assets/images/enemies/frost_giant_scout/portrait.png",
+      "sha256": "d7e054943f322a0389b5ef5e74b00f6734db504248bc52e728db4be0a4ce2b37",
+      "bytes": 6245
+    },
+    {
+      "source": "assets/images/enemies/green_goblin/portrait.png",
+      "local": "public/legacy/assets/images/enemies/green_goblin/portrait.png",
+      "sha256": "b92afd7543fe8b42a53e943e49cec4279295f853782e58fab979d740053bb327",
+      "bytes": 4258
+    },
+    {
+      "source": "assets/images/enemies/hand_ninja/portrait.png",
+      "local": "public/legacy/assets/images/enemies/hand_ninja/portrait.png",
+      "sha256": "b157bc08a271f44eb036b401b620174ba1e5299a2ef96ed5a61490a6cf17073f",
+      "bytes": 5689
+    },
+    {
+      "source": "assets/images/enemies/hela/portrait.png",
+      "local": "public/legacy/assets/images/enemies/hela/portrait.png",
+      "sha256": "71450d887827d9c0e1052892d26f38e282a9796e6d8e6d6cdfa7e9336031d254",
+      "bytes": 5034
+    },
+    {
+      "source": "assets/images/enemies/hellfire_guard/portrait.png",
+      "local": "public/legacy/assets/images/enemies/hellfire_guard/portrait.png",
+      "sha256": "9d7427c715a214f4d5970f5e63d3e81b4063ff6e1cec55cc80f42997c4711ea4",
+      "bytes": 3812
+    },
+    {
+      "source": "assets/images/enemies/hydra_soldier/portrait.png",
+      "local": "public/legacy/assets/images/enemies/hydra_soldier/portrait.png",
+      "sha256": "f5c52c55c7925fe4e98b0d1b73f5ff033af218cfdd501802aad6928318e2ceb1",
+      "bytes": 3672
+    },
+    {
+      "source": "assets/images/enemies/kang/portrait.png",
+      "local": "public/legacy/assets/images/enemies/kang/portrait.png",
+      "sha256": "209cdac38d2eaba13cfcc89cbde51fe347d62e945b7be109dbfedf80e10bf1cc",
+      "bytes": 5626
+    },
+    {
+      "source": "assets/images/enemies/kingpin/portrait.png",
+      "local": "public/legacy/assets/images/enemies/kingpin/portrait.png",
+      "sha256": "8cd9b57d5f1398269662c58ff2f6710fe90f7fe5e1e4d908a7d4557f9a5b2c33",
+      "bytes": 5356
+    },
+    {
+      "source": "assets/images/enemies/loki/portrait.png",
+      "local": "public/legacy/assets/images/enemies/loki/portrait.png",
+      "sha256": "54244d0fd705b386f7f63a76043fa631256ed6ae89922be6dbfc494535cfdb63",
+      "bytes": 6391
+    },
+    {
+      "source": "assets/images/enemies/magneto/portrait.png",
+      "local": "public/legacy/assets/images/enemies/magneto/portrait.png",
+      "sha256": "36e7b0517e8d7f645ef5a0a6a0df123ca651b139e03961d8ac8b5e97b4404be3",
+      "bytes": 6572
+    },
+    {
+      "source": "assets/images/enemies/mercenary_raider/portrait.png",
+      "local": "public/legacy/assets/images/enemies/mercenary_raider/portrait.png",
+      "sha256": "c181c2eb734b8db0c457470327db8502182b6b4aa74ed70b51d63e00ad002165",
+      "bytes": 3815
+    },
+    {
+      "source": "assets/images/enemies/outrider/portrait.png",
+      "local": "public/legacy/assets/images/enemies/outrider/portrait.png",
+      "sha256": "91d053cc677f49fc182520d104db900b92e09f6a3efab0fd97145b4e376dc8cc",
+      "bytes": 4419
+    },
+    {
+      "source": "assets/images/enemies/raft_escapee/portrait.png",
+      "local": "public/legacy/assets/images/enemies/raft_escapee/portrait.png",
+      "sha256": "005a8014db307315f044d62a0b9634cb70d59905daa545a1a34e917dd062c334",
+      "bytes": 4294
+    },
+    {
+      "source": "assets/images/enemies/red_skull/portrait.png",
+      "local": "public/legacy/assets/images/enemies/red_skull/portrait.png",
+      "sha256": "9b534bdafbb9d8257c0d5c14159bbf35334619c8b2abe923378f3466d0117fd6",
+      "bytes": 3340
+    },
+    {
+      "source": "assets/images/enemies/sakaaran_soldier/portrait.png",
+      "local": "public/legacy/assets/images/enemies/sakaaran_soldier/portrait.png",
+      "sha256": "4e72635a85b1888813777068550991b19a74ab6ef1ceab3dd47bafe09e172cc2",
+      "bytes": 4138
+    },
+    {
+      "source": "assets/images/enemies/sentinel/portrait.png",
+      "local": "public/legacy/assets/images/enemies/sentinel/portrait.png",
+      "sha256": "df740ef73d87f323450b73d2c9bc7736f26e2286ec3fb9fe4618454b6245098d",
+      "bytes": 5852
+    },
+    {
+      "source": "assets/images/enemies/skrull_infiltrator/portrait.png",
+      "local": "public/legacy/assets/images/enemies/skrull_infiltrator/portrait.png",
+      "sha256": "84d31ac771d02846dad85dd7c50c090ba5f2cf19a125798624997adea79ab715",
+      "bytes": 5177
+    },
+    {
+      "source": "assets/images/enemies/symbiote_spawn/portrait.png",
+      "local": "public/legacy/assets/images/enemies/symbiote_spawn/portrait.png",
+      "sha256": "958bd0d758c73b3d6fb3c77dbf796cea795647a22a08f7aceeb5495421253ace",
+      "bytes": 7304
+    },
+    {
+      "source": "assets/images/enemies/thanos_final/portrait.png",
+      "local": "public/legacy/assets/images/enemies/thanos_final/portrait.png",
+      "sha256": "3624edda534553af4a6eb4fd930e1aa826243260517fdb144db3369fffd6026f",
+      "bytes": 7606
+    },
+    {
+      "source": "assets/images/enemies/ultron_drone/portrait.png",
+      "local": "public/legacy/assets/images/enemies/ultron_drone/portrait.png",
+      "sha256": "4b8f04f38a461a7c7193e3e2b7e0c37a7a2271ffca3c4e99176eefce60afddbf",
+      "bytes": 4040
+    },
+    {
+      "source": "assets/images/enemies/ultron_prime/portrait.png",
+      "local": "public/legacy/assets/images/enemies/ultron_prime/portrait.png",
+      "sha256": "5ac54e8b96d6496f41ed85efb74e64c2f631c82db835b9e0b6d226b9f1315b2d",
+      "bytes": 7789
+    },
+    {
+      "source": "assets/images/evolutions/adam_warlock_gauntlet/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/adam_warlock_gauntlet/portrait.png",
+      "sha256": "13daa977e5f1e5c16c474663a37c7d7b01ef6a45bea80c9f7affb76078867f1a",
+      "bytes": 5600
+    },
+    {
+      "source": "assets/images/evolutions/angela_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/angela_evolution/portrait.png",
+      "sha256": "7a0dd9c376e3d20a9e8baa8661c34f78861d09e59efae83e3474f9d4990ee0dc",
+      "bytes": 4610
+    },
+    {
+      "source": "assets/images/evolutions/capitan_america_mjolnir/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/capitan_america_mjolnir/portrait.png",
+      "sha256": "95fa8c6dc3b55ec20e587b6116b4ad1e795f055685a1f1ca2090414ad1dba5f9",
+      "bytes": 5606
+    },
+    {
+      "source": "assets/images/evolutions/captain_marvel_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/captain_marvel_evolution/portrait.png",
+      "sha256": "645e8fbc3fa4f2ca9729e26c6be110329999f59b165ee9847e5fe4c36f5aa428",
+      "bytes": 3792
+    },
+    {
+      "source": "assets/images/evolutions/cyclops_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/cyclops_evolution/portrait.png",
+      "sha256": "7df753f108c383722fd008b4dcd53be1db28c5a730e308967c4af5a89f57d134",
+      "bytes": 5255
+    },
+    {
+      "source": "assets/images/evolutions/dark_phoenix/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/dark_phoenix/portrait.png",
+      "sha256": "11bb5f5bdcd12642118ca3ea66b68bf7c535ccf45e85d833cdd2fcf663a7bdf2",
+      "bytes": 5570
+    },
+    {
+      "source": "assets/images/evolutions/dark_surfer/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/dark_surfer/portrait.png",
+      "sha256": "7188cbb9367639a62a4ce2819bce3c2472dfcfe5031e8021c663614ace7c1878",
+      "bytes": 4509
+    },
+    {
+      "source": "assets/images/evolutions/doctor_strange_dios_magia/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/doctor_strange_dios_magia/portrait.png",
+      "sha256": "99e8b0892f9397fe4866c93bcb14dee2aba858bb744f562cfd0f983ddaa56b7c",
+      "bytes": 4622
+    },
+    {
+      "source": "assets/images/evolutions/emma_frost_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/emma_frost_evolution/portrait.png",
+      "sha256": "b529b4ec07070301d0ebb5db6db5b653696f80484bce10056cb47d31ee2c85e1",
+      "bytes": 4267
+    },
+    {
+      "source": "assets/images/evolutions/ghost_rider_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/ghost_rider_evolution/portrait.png",
+      "sha256": "85674ba334ffcfbfa2dd39669846b9f7aa181f95008ae765834f542c836d1984",
+      "bytes": 5118
+    },
+    {
+      "source": "assets/images/evolutions/groot_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/groot_evolution/portrait.png",
+      "sha256": "2a67bfbe3937e6706fd8cf5bac1c8379474e08825e2a132c4f14da0443dc393e",
+      "bytes": 5997
+    },
+    {
+      "source": "assets/images/evolutions/hawkeye_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/hawkeye_evolution/portrait.png",
+      "sha256": "f4bf0481234ce18e10adf922dc0917e2636f573a8ec353acd50b0aeeac992bba",
+      "bytes": 4097
+    },
+    {
+      "source": "assets/images/evolutions/hulk_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/hulk_evolution/portrait.png",
+      "sha256": "039126b58979a8b3a4b65642cec3dd32d535fbae53d27652a782f93426e38334",
+      "bytes": 6101
+    },
+    {
+      "source": "assets/images/evolutions/iron_man_extremis/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/iron_man_extremis/portrait.png",
+      "sha256": "76ce8ec91d6821f7eef4911341e7d1d122c8d296d50ecbcef4b83adb3ea336e4",
+      "bytes": 3856
+    },
+    {
+      "source": "assets/images/evolutions/king_in_black_venom/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/king_in_black_venom/portrait.png",
+      "sha256": "1bb581e9b41ebf3e8f076aa077acf0a6e4cd3e1eb3560e25d910ac9b57087659",
+      "bytes": 4519
+    },
+    {
+      "source": "assets/images/evolutions/loki_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/loki_evolution/portrait.png",
+      "sha256": "d53b70bc715818a8921613793f3cae5dd2cc9f99589b92f59cd731dcdd5cb4d6",
+      "bytes": 4381
+    },
+    {
+      "source": "assets/images/evolutions/magik_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/magik_evolution/portrait.png",
+      "sha256": "4ab17a22a8183266d6782ee98f7f8aea7e77ec125d5a9bf5ff791e176c3847c7",
+      "bytes": 5378
+    },
+    {
+      "source": "assets/images/evolutions/mister_fantastic_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/mister_fantastic_evolution/portrait.png",
+      "sha256": "27099a4c12521def7a0a8f245f5fa716d05f16d7298a67d6613ef051e8ee6864",
+      "bytes": 2877
+    },
+    {
+      "source": "assets/images/evolutions/spiderman_black_suit/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/spiderman_black_suit/portrait.png",
+      "sha256": "437ef25e31479bdd2d1a47ac1a21861257c9eda28aebb2c7fcdaf226dc25e595",
+      "bytes": 3452
+    },
+    {
+      "source": "assets/images/evolutions/star_lord_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/star_lord_evolution/portrait.png",
+      "sha256": "a19b967b84538b64619dad60bb5b40ae79440e03230d1847348c1cea3a391b7a",
+      "bytes": 4210
+    },
+    {
+      "source": "assets/images/evolutions/the_void/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/the_void/portrait.png",
+      "sha256": "dc042aa74f606132c67da1c2b370add50610d7b8754426d49f4839b0e439bbfe",
+      "bytes": 1856
+    },
+    {
+      "source": "assets/images/evolutions/thor_evolution/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/thor_evolution/portrait.png",
+      "sha256": "c9527c6e0b19439f7aff8fd3b2d81af1a81fcd6368efca5a1fc73f8314adfa2e",
+      "bytes": 5001
+    },
+    {
+      "source": "assets/images/evolutions/venom_jeff/portrait.png",
+      "local": "public/legacy/assets/images/evolutions/venom_jeff/portrait.png",
+      "sha256": "b27ab8916c3479105ae6183651ce671fdf7fd0e8da6353df931600add2ece1dd",
+      "bytes": 4509
+    },
+    {
+      "source": "assets/images/heroes/adam_warlock/portrait.png",
+      "local": "public/legacy/assets/images/heroes/adam_warlock/portrait.png",
+      "sha256": "2bd096377f42e39430a16075ff39280518ac1fc81c36ebabe9486447751e8654",
+      "bytes": 6330
+    },
+    {
+      "source": "assets/images/heroes/angela/portrait.png",
+      "local": "public/legacy/assets/images/heroes/angela/portrait.png",
+      "sha256": "83cd1a4e4853964fa67cf2d4731411910508f71d1bcd1c7a336e25c50f040e6e",
+      "bytes": 6009
+    },
+    {
+      "source": "assets/images/heroes/ant_man/portrait.png",
+      "local": "public/legacy/assets/images/heroes/ant_man/portrait.png",
+      "sha256": "ebffae14ac80be4ed33c1ae3c261cae71159e56b429afd6c210e23d2c26e250d",
+      "bytes": 5953
+    },
+    {
+      "source": "assets/images/heroes/beast/portrait.png",
+      "local": "public/legacy/assets/images/heroes/beast/portrait.png",
+      "sha256": "4777e498d98674e07fd60167cdfd9a5ef17bb53f3a6687c0932bd05eb98f045c",
+      "bytes": 1883
+    },
+    {
+      "source": "assets/images/heroes/beta_ray_bill/portrait.png",
+      "local": "public/legacy/assets/images/heroes/beta_ray_bill/portrait.png",
+      "sha256": "a00c39d6ea3009ec3579866464905a77e58c42acfed76f9b7966409d9aa6afc5",
+      "bytes": 1811
+    },
+    {
+      "source": "assets/images/heroes/black_bolt/portrait.png",
+      "local": "public/legacy/assets/images/heroes/black_bolt/portrait.png",
+      "sha256": "8ce11f5acd3acd742d5a00c3c0cea9005508d08d2dc18660b94247c24505aa2c",
+      "bytes": 4887
+    },
+    {
+      "source": "assets/images/heroes/black_cat/portrait.png",
+      "local": "public/legacy/assets/images/heroes/black_cat/portrait.png",
+      "sha256": "26609b52cae0d2487ff6720d80da767c71cbebd90d1db98f4d5cf6c711f10a4d",
+      "bytes": 5240
+    },
+    {
+      "source": "assets/images/heroes/black_panther/portrait.png",
+      "local": "public/legacy/assets/images/heroes/black_panther/portrait.png",
+      "sha256": "2d61f3f0a1a7079286def1f2108bc98dfe693262946350b06f7230f879de66b5",
+      "bytes": 5631
+    },
+    {
+      "source": "assets/images/heroes/black_widow/portrait.png",
+      "local": "public/legacy/assets/images/heroes/black_widow/portrait.png",
+      "sha256": "c7e228c511ba3b18fe7ee1b3af175f52e280b0fc595fe84ac865718623edf608",
+      "bytes": 5428
+    },
+    {
+      "source": "assets/images/heroes/blade/portrait.png",
+      "local": "public/legacy/assets/images/heroes/blade/portrait.png",
+      "sha256": "9522b19e2700c6f4d616bd6ee75e6f5f1be46f00e770d0dac9c2902ccc2b8281",
+      "bytes": 4635
+    },
+    {
+      "source": "assets/images/heroes/cable/portrait.png",
+      "local": "public/legacy/assets/images/heroes/cable/portrait.png",
+      "sha256": "19f35c8081f6986bc68e831378c381e009993a7daa869b164b1c58a7ecb0a01c",
+      "bytes": 1661
+    },
+    {
+      "source": "assets/images/heroes/capitan_america/portrait.png",
+      "local": "public/legacy/assets/images/heroes/capitan_america/portrait.png",
+      "sha256": "25bf0d6591c8dda0482704168164f514993c257dd0b09a9725c58e5c932b3080",
+      "bytes": 6405
+    },
+    {
+      "source": "assets/images/heroes/captain_marvel/portrait.png",
+      "local": "public/legacy/assets/images/heroes/captain_marvel/portrait.png",
+      "sha256": "c09a7838d3c434b43e1f3500960103f57141ffd2f27eaeb3df0b621d0f7f16da",
+      "bytes": 6582
+    },
+    {
+      "source": "assets/images/heroes/cloak/portrait.png",
+      "local": "public/legacy/assets/images/heroes/cloak/portrait.png",
+      "sha256": "1f1ac58bb78bc5696b70686eb2273ce6dbe113e7e1627b5ce15b9a4b0688f39a",
+      "bytes": 4698
+    },
+    {
+      "source": "assets/images/heroes/cosmo/portrait.png",
+      "local": "public/legacy/assets/images/heroes/cosmo/portrait.png",
+      "sha256": "321d3156fb05be4d90e4d5bccbab8f40bc68b1268c8e05656bea7753cb280e8f",
+      "bytes": 1820
+    },
+    {
+      "source": "assets/images/heroes/crystal/portrait.png",
+      "local": "public/legacy/assets/images/heroes/crystal/portrait.png",
+      "sha256": "11b858b3914ff6982b426b939d680a6d217e237a1976e9044f709e427b6729f7",
+      "bytes": 4861
+    },
+    {
+      "source": "assets/images/heroes/cyclops/portrait.png",
+      "local": "public/legacy/assets/images/heroes/cyclops/portrait.png",
+      "sha256": "ca571617e89004f919d46e88e5c40628a05c3d884225fe2fb84b11dae0d16adb",
+      "bytes": 6505
+    },
+    {
+      "source": "assets/images/heroes/dagger/portrait.png",
+      "local": "public/legacy/assets/images/heroes/dagger/portrait.png",
+      "sha256": "9bbefd947362ac73ee92125c5a2633cbb359f2f2c0d8f1f94dc8f2090374eca6",
+      "bytes": 3986
+    },
+    {
+      "source": "assets/images/heroes/daredevil/portrait.png",
+      "local": "public/legacy/assets/images/heroes/daredevil/portrait.png",
+      "sha256": "36e0a9f13b2dd4ab4e5fb8997f824d43ee6f4c6340543bae51a52ac7b364c701",
+      "bytes": 5740
+    },
+    {
+      "source": "assets/images/heroes/deadpool/portrait.png",
+      "local": "public/legacy/assets/images/heroes/deadpool/portrait.png",
+      "sha256": "bb3c8af29ae7955f06a56d06b81af8f3ad978a03278333c08584b4d6746ab6b9",
+      "bytes": 6050
+    },
+    {
+      "source": "assets/images/heroes/devil_dinosaur/portrait.png",
+      "local": "public/legacy/assets/images/heroes/devil_dinosaur/portrait.png",
+      "sha256": "a8ffa1ab424e3bc43e6ebd75767298e76c45f0c35c92ef3c8b14d7d4ea63bb0e",
+      "bytes": 5773
+    },
+    {
+      "source": "assets/images/heroes/doctor_strange/portrait.png",
+      "local": "public/legacy/assets/images/heroes/doctor_strange/portrait.png",
+      "sha256": "784e410fd041826d767738e4c94b6598a3ec4b538dbd0f479706b978eb11865b",
+      "bytes": 7345
+    },
+    {
+      "source": "assets/images/heroes/domino/portrait.png",
+      "local": "public/legacy/assets/images/heroes/domino/portrait.png",
+      "sha256": "41b69e9398f48bc735a0ae427f63d401a9758eafe2568f1c25f25ba33d9b64e7",
+      "bytes": 4221
+    },
+    {
+      "source": "assets/images/heroes/drax/portrait.png",
+      "local": "public/legacy/assets/images/heroes/drax/portrait.png",
+      "sha256": "bfcfd50513628b6aa9bda6de6152cc5219e97c453efe20f1dd77e97ad940d1f4",
+      "bytes": 2021
+    },
+    {
+      "source": "assets/images/heroes/echo/portrait.png",
+      "local": "public/legacy/assets/images/heroes/echo/portrait.png",
+      "sha256": "61f067e006fc216df671b2bdbfaa79a4138fca46493c332692d6bc0e9424ab30",
+      "bytes": 1286
+    },
+    {
+      "source": "assets/images/heroes/elektra/portrait.png",
+      "local": "public/legacy/assets/images/heroes/elektra/portrait.png",
+      "sha256": "0310d51602dff6cc21043602fe1ffbf58ad7fe0f4dc6532201f026383792a17f",
+      "bytes": 4469
+    },
+    {
+      "source": "assets/images/heroes/elsa_bloodstone/portrait.png",
+      "local": "public/legacy/assets/images/heroes/elsa_bloodstone/portrait.png",
+      "sha256": "a53a96690048abe703c65e5e53865bd99175407eeda8640a589d8be851d5c6a5",
+      "bytes": 4131
+    },
+    {
+      "source": "assets/images/heroes/emma_frost/portrait.png",
+      "local": "public/legacy/assets/images/heroes/emma_frost/portrait.png",
+      "sha256": "38adefab7afb9b9034eb8be580385c7679927b0f830ca6139aa0bd996bcdabaa",
+      "bytes": 5651
+    },
+    {
+      "source": "assets/images/heroes/falcon/portrait.png",
+      "local": "public/legacy/assets/images/heroes/falcon/portrait.png",
+      "sha256": "faabafadb69753739fbd61b05cd7e44848aced3fdb7ac0c1894140b4b40b18c9",
+      "bytes": 5642
+    },
+    {
+      "source": "assets/images/heroes/gambit/portrait.png",
+      "local": "public/legacy/assets/images/heroes/gambit/portrait.png",
+      "sha256": "46994c4986704e7c7d630b6ef8e6b819a00eb27bef81b8efc859c997d158ccbe",
+      "bytes": 5500
+    },
+    {
+      "source": "assets/images/heroes/gamora/portrait.png",
+      "local": "public/legacy/assets/images/heroes/gamora/portrait.png",
+      "sha256": "3af11a8b80ce929df77bd799e9da4f2e4dad1409552e2c04bd522609fb73a278",
+      "bytes": 5308
+    },
+    {
+      "source": "assets/images/heroes/ghost_rider/portrait.png",
+      "local": "public/legacy/assets/images/heroes/ghost_rider/portrait.png",
+      "sha256": "c85d0679fa00244ee81358a0093d4b0a104b61ddc1cc7cf1badd6bb98b992478",
+      "bytes": 7401
+    },
+    {
+      "source": "assets/images/heroes/groot/portrait.png",
+      "local": "public/legacy/assets/images/heroes/groot/portrait.png",
+      "sha256": "e47624ffa2a3cc4beb623d094e94ab159d8bcda6e00d216c34ed7083b5c29f5f",
+      "bytes": 7318
+    },
+    {
+      "source": "assets/images/heroes/hawkeye/portrait.png",
+      "local": "public/legacy/assets/images/heroes/hawkeye/portrait.png",
+      "sha256": "9cda024731a5bd91464b264406df227bf1f377bc27396414ebc1cfa0c0da2bef",
+      "bytes": 5228
+    },
+    {
+      "source": "assets/images/heroes/heimdall/portrait.png",
+      "local": "public/legacy/assets/images/heroes/heimdall/portrait.png",
+      "sha256": "1f80770770e1fb9636c76476e5be000dcc7a0f2db3fe059be69cf9e099b397ee",
+      "bytes": 2346
+    },
+    {
+      "source": "assets/images/heroes/hela/portrait.png",
+      "local": "public/legacy/assets/images/heroes/hela/portrait.png",
+      "sha256": "71450d887827d9c0e1052892d26f38e282a9796e6d8e6d6cdfa7e9336031d254",
+      "bytes": 5034
+    },
+    {
+      "source": "assets/images/heroes/howard_the_duck/portrait.png",
+      "local": "public/legacy/assets/images/heroes/howard_the_duck/portrait.png",
+      "sha256": "7f7ef8648ed1ee5b7bc46deaa1df0f6258eb3ae8702c00afb8f4a91053fbeaaa",
+      "bytes": 1541
+    },
+    {
+      "source": "assets/images/heroes/hulk/portrait.png",
+      "local": "public/legacy/assets/images/heroes/hulk/portrait.png",
+      "sha256": "1d9eafd6d5fbc178562b1e4112fe351c7f1bbade5ffa0c314a679fd732702937",
+      "bytes": 7055
+    },
+    {
+      "source": "assets/images/heroes/human_torch/portrait.png",
+      "local": "public/legacy/assets/images/heroes/human_torch/portrait.png",
+      "sha256": "71e4723af28dac77e11039d8ca38141dbf80a2aecb8a38febdd18f7a1ae8420f",
+      "bytes": 6426
+    },
+    {
+      "source": "assets/images/heroes/iceman/portrait.png",
+      "local": "public/legacy/assets/images/heroes/iceman/portrait.png",
+      "sha256": "3112db60d809260a59164c82af325afa0a32b6a750b19cce0b1532e4c91f2aa1",
+      "bytes": 5889
+    },
+    {
+      "source": "assets/images/heroes/invisible_woman/portrait.png",
+      "local": "public/legacy/assets/images/heroes/invisible_woman/portrait.png",
+      "sha256": "ae048a551478f3d246b5f5e3f27a0b0647ae1339b6dc51838a61c0b4360088fe",
+      "bytes": 3177
+    },
+    {
+      "source": "assets/images/heroes/iron_fist/portrait.png",
+      "local": "public/legacy/assets/images/heroes/iron_fist/portrait.png",
+      "sha256": "05313d03b068130523c1e9f5a179b88d25f314f69c3a59e9c30822f902137649",
+      "bytes": 5176
+    },
+    {
+      "source": "assets/images/heroes/iron_man/portrait.png",
+      "local": "public/legacy/assets/images/heroes/iron_man/portrait.png",
+      "sha256": "01bfb9b7b99049cc6562ff117972a073c3fe695920853efcd53e436244f4abf0",
+      "bytes": 1553
+    },
+    {
+      "source": "assets/images/heroes/jean_grey/portrait.png",
+      "local": "public/legacy/assets/images/heroes/jean_grey/portrait.png",
+      "sha256": "0a57db33dec4a9a361a98a18692cae40cae9d3798fc94f7e0644c5d4dae8096f",
+      "bytes": 5101
+    },
+    {
+      "source": "assets/images/heroes/jeff_the_land_shark/portrait.png",
+      "local": "public/legacy/assets/images/heroes/jeff_the_land_shark/portrait.png",
+      "sha256": "6c7bb520ed46e329b9f4b9c62368f368a9dbb1d72852b24796aa8c579367e30f",
+      "bytes": 5340
+    },
+    {
+      "source": "assets/images/heroes/jessica_jones/portrait.png",
+      "local": "public/legacy/assets/images/heroes/jessica_jones/portrait.png",
+      "sha256": "a8f73ccc257fe9c789b992736561c609a2f3aae50ae12d22cfd553ba1c317cb8",
+      "bytes": 4424
+    },
+    {
+      "source": "assets/images/heroes/jubilee/portrait.png",
+      "local": "public/legacy/assets/images/heroes/jubilee/portrait.png",
+      "sha256": "d32163622c46981216fdf31ddd4b5f0a4bf0c4cf1dc35aaf504abe4605cf5954",
+      "bytes": 6091
+    },
+    {
+      "source": "assets/images/heroes/kate_bishop/portrait.png",
+      "local": "public/legacy/assets/images/heroes/kate_bishop/portrait.png",
+      "sha256": "688e811b3ea3a50c05702128345452effa02423efaafbf33687d39c1df77a8e4",
+      "bytes": 1427
+    },
+    {
+      "source": "assets/images/heroes/korg/portrait.png",
+      "local": "public/legacy/assets/images/heroes/korg/portrait.png",
+      "sha256": "27eff3fd4d02196d2b395755bf1d9eee61615ab6c291820ad164060a53e3c93c",
+      "bytes": 2127
+    },
+    {
+      "source": "assets/images/heroes/lady_sif/portrait.png",
+      "local": "public/legacy/assets/images/heroes/lady_sif/portrait.png",
+      "sha256": "6db3e63bc1a2bd32a88e89bd20d8d6a71477f76311c56ce6964d7b499169f98f",
+      "bytes": 1835
+    },
+    {
+      "source": "assets/images/heroes/loki/portrait.png",
+      "local": "public/legacy/assets/images/heroes/loki/portrait.png",
+      "sha256": "54244d0fd705b386f7f63a76043fa631256ed6ae89922be6dbfc494535cfdb63",
+      "bytes": 6391
+    },
+    {
+      "source": "assets/images/heroes/luke_cage/portrait.png",
+      "local": "public/legacy/assets/images/heroes/luke_cage/portrait.png",
+      "sha256": "84d0a4f4c9434a2077563cb3952148752364c68f2312542768626416f570d733",
+      "bytes": 6480
+    },
+    {
+      "source": "assets/images/heroes/luna_snow/portrait.png",
+      "local": "public/legacy/assets/images/heroes/luna_snow/portrait.png",
+      "sha256": "266bd670c614f727a3f0aa6edfe3c3c37af93ebcea3fd1827de8cb08b5ac63b5",
+      "bytes": 5414
+    },
+    {
+      "source": "assets/images/heroes/magik/portrait.png",
+      "local": "public/legacy/assets/images/heroes/magik/portrait.png",
+      "sha256": "b9567cddde6a2d615894991bc447ed701f61b5d2b60b2897404c455b367a6b50",
+      "bytes": 5549
+    },
+    {
+      "source": "assets/images/heroes/magneto/portrait.png",
+      "local": "public/legacy/assets/images/heroes/magneto/portrait.png",
+      "sha256": "36e7b0517e8d7f645ef5a0a6a0df123ca651b139e03961d8ac8b5e97b4404be3",
+      "bytes": 6572
+    },
+    {
+      "source": "assets/images/heroes/mantis/portrait.png",
+      "local": "public/legacy/assets/images/heroes/mantis/portrait.png",
+      "sha256": "8d6a57c375cbd338da239f915cf16a109a3f083601985804bdd50e7fff44521b",
+      "bytes": 3992
+    },
+    {
+      "source": "assets/images/heroes/maria_hill/portrait.png",
+      "local": "public/legacy/assets/images/heroes/maria_hill/portrait.png",
+      "sha256": "5f1f6711bd84c527a674418117476bdf758099b5293c9396a77ff01fb4d76136",
+      "bytes": 1090
+    },
+    {
+      "source": "assets/images/heroes/mbaku/portrait.png",
+      "local": "public/legacy/assets/images/heroes/mbaku/portrait.png",
+      "sha256": "576b73e8321af85bb522887d93feaedefd41697151035e37c097f6a5fa4deaf2",
+      "bytes": 2015
+    },
+    {
+      "source": "assets/images/heroes/medusa/portrait.png",
+      "local": "public/legacy/assets/images/heroes/medusa/portrait.png",
+      "sha256": "3b725f88982631aa4c34df8bce6004a89493d56c8927be898d4021a5308af988",
+      "bytes": 6454
+    },
+    {
+      "source": "assets/images/heroes/miles_morales/portrait.png",
+      "local": "public/legacy/assets/images/heroes/miles_morales/portrait.png",
+      "sha256": "ce920f7570ef5f40e57aa87d3582ba8dd9718a7ab3441c8ee37dbfe19d96be76",
+      "bytes": 1792
+    },
+    {
+      "source": "assets/images/heroes/mister_fantastic/portrait.png",
+      "local": "public/legacy/assets/images/heroes/mister_fantastic/portrait.png",
+      "sha256": "17b0fc325078270672ac6a059f4a8248deaa154be71b66f513a211ec6875efd3",
+      "bytes": 4560
+    },
+    {
+      "source": "assets/images/heroes/mockingbird/portrait.png",
+      "local": "public/legacy/assets/images/heroes/mockingbird/portrait.png",
+      "sha256": "9c16d315c3944a320b4857ded23c7152b6023689343dc9b6cd5fd552936f2cf4",
+      "bytes": 1515
+    },
+    {
+      "source": "assets/images/heroes/moon_knight/portrait.png",
+      "local": "public/legacy/assets/images/heroes/moon_knight/portrait.png",
+      "sha256": "4e6bdd7939a758f3bcc1826b342874ca7c1f01a9ae476aedb3024619d8a1eb43",
+      "bytes": 5626
+    },
+    {
+      "source": "assets/images/heroes/ms_marvel/portrait.png",
+      "local": "public/legacy/assets/images/heroes/ms_marvel/portrait.png",
+      "sha256": "59085acd7d35a6f05d973df2450ca95397bdd4426ed0dbcfecfb944932b90af6",
+      "bytes": 5286
+    },
+    {
+      "source": "assets/images/heroes/namor/portrait.png",
+      "local": "public/legacy/assets/images/heroes/namor/portrait.png",
+      "sha256": "ddf14742318b55b001510d96b2883593617bf4b08d560111051ae941c04790d6",
+      "bytes": 4895
+    },
+    {
+      "source": "assets/images/heroes/namora/portrait.png",
+      "local": "public/legacy/assets/images/heroes/namora/portrait.png",
+      "sha256": "c38917e34ddf6bc1eb32b89827723e2b613eb034ec063e9d3294bba83e94bc08",
+      "bytes": 4265
+    },
+    {
+      "source": "assets/images/heroes/nebula/portrait.png",
+      "local": "public/legacy/assets/images/heroes/nebula/portrait.png",
+      "sha256": "46e5710e99899ba6d7df39308cdba78d604c529e86d388b5ec9172ba7c66dfaf",
+      "bytes": 1548
+    },
+    {
+      "source": "assets/images/heroes/nick_fury/portrait.png",
+      "local": "public/legacy/assets/images/heroes/nick_fury/portrait.png",
+      "sha256": "113ac74358a6a0610dea25b25d6ddb5dc9f8d7e7ebe1305ecc222b6cf6faefbc",
+      "bytes": 5025
+    },
+    {
+      "source": "assets/images/heroes/nightcrawler/portrait.png",
+      "local": "public/legacy/assets/images/heroes/nightcrawler/portrait.png",
+      "sha256": "84c09164953ff440c947900b1f397a11c191eb6fb98a6a264e0102521b527d98",
+      "bytes": 7244
+    },
+    {
+      "source": "assets/images/heroes/nova/portrait.png",
+      "local": "public/legacy/assets/images/heroes/nova/portrait.png",
+      "sha256": "b746cbe7989e1448a042a925e9915740144144f7f26ebb1400568f7f5e8135cf",
+      "bytes": 6153
+    },
+    {
+      "source": "assets/images/heroes/okoye/portrait.png",
+      "local": "public/legacy/assets/images/heroes/okoye/portrait.png",
+      "sha256": "dcc246bc2ee0ec610825a26e8e0f1929e4ac3f002c81a387b1174e6f14cb12a7",
+      "bytes": 6052
+    },
+    {
+      "source": "assets/images/heroes/peni_parker/portrait.png",
+      "local": "public/legacy/assets/images/heroes/peni_parker/portrait.png",
+      "sha256": "4fe2531ff97e5255e28e9fee949b9acaa13b63c4b6be1387c6439ea4010e393d",
+      "bytes": 7415
+    },
+    {
+      "source": "assets/images/heroes/profesor_x/portrait.png",
+      "local": "public/legacy/assets/images/heroes/profesor_x/portrait.png",
+      "sha256": "373eb889cf5ee360d52c25fac18d898f4293f50b9ef80be5bad6513726e64d4c",
+      "bytes": 1994
+    },
+    {
+      "source": "assets/images/heroes/psylocke/portrait.png",
+      "local": "public/legacy/assets/images/heroes/psylocke/portrait.png",
+      "sha256": "de433d07dbb554be7914a06e8763507a6738359c6085ad37eff42cb2be861fa7",
+      "bytes": 5280
+    },
+    {
+      "source": "assets/images/heroes/punisher/portrait.png",
+      "local": "public/legacy/assets/images/heroes/punisher/portrait.png",
+      "sha256": "b188787b3a5ecadfe029f98c449655d3a7218f0449ad40a33cf2495691447f6d",
+      "bytes": 4519
+    },
+    {
+      "source": "assets/images/heroes/quake/portrait.png",
+      "local": "public/legacy/assets/images/heroes/quake/portrait.png",
+      "sha256": "53e91073c6432d65387094c55c8913998418d5f90c926ba656b367f114e1bd1c",
+      "bytes": 4242
+    },
+    {
+      "source": "assets/images/heroes/red_guardian/portrait.png",
+      "local": "public/legacy/assets/images/heroes/red_guardian/portrait.png",
+      "sha256": "813d34216ee95a0a3878785a8c3ea2e8f98fa507c8d014ba2429bcdb5fdd4500",
+      "bytes": 1770
+    },
+    {
+      "source": "assets/images/heroes/rocket_raccoon/portrait.png",
+      "local": "public/legacy/assets/images/heroes/rocket_raccoon/portrait.png",
+      "sha256": "86f6fe651fc59f1f74b60f4fb6886dbde90dcb42e3abb3a13e52d2dcca1c0bd4",
+      "bytes": 6412
+    },
+    {
+      "source": "assets/images/heroes/rogue/portrait.png",
+      "local": "public/legacy/assets/images/heroes/rogue/portrait.png",
+      "sha256": "cc7266ed4d6eb6f3f24dfa3a58c2da607c952f48b897bc40fd9fa7b997d78eeb",
+      "bytes": 1351
+    },
+    {
+      "source": "assets/images/heroes/scarlet_witch/portrait.png",
+      "local": "public/legacy/assets/images/heroes/scarlet_witch/portrait.png",
+      "sha256": "1edece6e11fb79184e3a4aeac46f4d5526176f5abcd4206c56ee9f8f49854d60",
+      "bytes": 5421
+    },
+    {
+      "source": "assets/images/heroes/sentry/portrait.png",
+      "local": "public/legacy/assets/images/heroes/sentry/portrait.png",
+      "sha256": "e8b4948d99f07ecacae0d77f2293ee4d0b4f3a8fa87c9dcbe3aa9408b7f0b838",
+      "bytes": 1793
+    },
+    {
+      "source": "assets/images/heroes/shang_chi/portrait.png",
+      "local": "public/legacy/assets/images/heroes/shang_chi/portrait.png",
+      "sha256": "01458aced51153e49554f21ef5895a80651f29de2c4cb7c194e9c34438d09a55",
+      "bytes": 4097
+    },
+    {
+      "source": "assets/images/heroes/she_hulk/portrait.png",
+      "local": "public/legacy/assets/images/heroes/she_hulk/portrait.png",
+      "sha256": "fddbf621a0a48ca68e8d9795d400b7334c70c6656be43448b1b9f8f5da33cf50",
+      "bytes": 5031
+    },
+    {
+      "source": "assets/images/heroes/shuri/portrait.png",
+      "local": "public/legacy/assets/images/heroes/shuri/portrait.png",
+      "sha256": "48e0cf206ed129150e53fa72ae44b6eb4ec303bf7d82d34222c17ed2e61ee27b",
+      "bytes": 4680
+    },
+    {
+      "source": "assets/images/heroes/silver_surfer/portrait.png",
+      "local": "public/legacy/assets/images/heroes/silver_surfer/portrait.png",
+      "sha256": "02638dd956035f7e1e2648f88f3d8519761b59eecdcd6fe7438a4a0893b6b340",
+      "bytes": 5398
+    },
+    {
+      "source": "assets/images/heroes/spiderman/portrait.png",
+      "local": "public/legacy/assets/images/heroes/spiderman/portrait.png",
+      "sha256": "243113cd08323aec7e2a6946c5082ed9cc857706b04001c2a9402a1ad1aafb95",
+      "bytes": 1564
+    },
+    {
+      "source": "assets/images/heroes/squirrel_girl/portrait.png",
+      "local": "public/legacy/assets/images/heroes/squirrel_girl/portrait.png",
+      "sha256": "1cb135dc6015a3acd65461dcd6fedb6bae1aa8cbabbdca4f7c33718521df462c",
+      "bytes": 5627
+    },
+    {
+      "source": "assets/images/heroes/star_lord/portrait.png",
+      "local": "public/legacy/assets/images/heroes/star_lord/portrait.png",
+      "sha256": "bbe240253075bd0d001e576e3c342b12c74ab6efc42fa9d89de7898bf967ec35",
+      "bytes": 7108
+    },
+    {
+      "source": "assets/images/heroes/storm/portrait.png",
+      "local": "public/legacy/assets/images/heroes/storm/portrait.png",
+      "sha256": "207a936fd2f92459ec133c2a6720e255dc5ab28c5de88c65ef6b9d3d6755a437",
+      "bytes": 6136
+    },
+    {
+      "source": "assets/images/heroes/the_hood/portrait.png",
+      "local": "public/legacy/assets/images/heroes/the_hood/portrait.png",
+      "sha256": "5dbec67e9f90f2b61ead782588401da9614b547d5cc8f8ffb251469241025714",
+      "bytes": 4944
+    },
+    {
+      "source": "assets/images/heroes/thor/portrait.png",
+      "local": "public/legacy/assets/images/heroes/thor/portrait.png",
+      "sha256": "7739d6ebbc12adf58827664292e09926c3bb337503ed5971f5dd104cfa3665f3",
+      "bytes": 5869
+    },
+    {
+      "source": "assets/images/heroes/tigra/portrait.png",
+      "local": "public/legacy/assets/images/heroes/tigra/portrait.png",
+      "sha256": "426af0bdd4034d5e11b23b798bd495aded9baa6026f45ba9603daa50a00f6cc4",
+      "bytes": 1912
+    },
+    {
+      "source": "assets/images/heroes/triton/portrait.png",
+      "local": "public/legacy/assets/images/heroes/triton/portrait.png",
+      "sha256": "3961d0843d167efe22c5f46a584d33da0a4b5bf67aef0f33085798d00f1f8ee7",
+      "bytes": 5771
+    },
+    {
+      "source": "assets/images/heroes/valkyrie/portrait.png",
+      "local": "public/legacy/assets/images/heroes/valkyrie/portrait.png",
+      "sha256": "04fd81f39f96200b8df9b0bd67b5e773356736ab823156e478badbf5c82d1667",
+      "bytes": 1845
+    },
+    {
+      "source": "assets/images/heroes/venom/portrait.png",
+      "local": "public/legacy/assets/images/heroes/venom/portrait.png",
+      "sha256": "958bd0d758c73b3d6fb3c77dbf796cea795647a22a08f7aceeb5495421253ace",
+      "bytes": 7304
+    },
+    {
+      "source": "assets/images/heroes/vision/portrait.png",
+      "local": "public/legacy/assets/images/heroes/vision/portrait.png",
+      "sha256": "8baceec270930248af05fb6ddb7289debfe53c6308677ce0f2ef3d080615f19d",
+      "bytes": 5572
+    },
+    {
+      "source": "assets/images/heroes/war_machine/portrait.png",
+      "local": "public/legacy/assets/images/heroes/war_machine/portrait.png",
+      "sha256": "7217a9aec4f0969b98a6e4e23b67acce406c0e8153f977208b8cd5ec0422dd1d",
+      "bytes": 6184
+    },
+    {
+      "source": "assets/images/heroes/wasp/portrait.png",
+      "local": "public/legacy/assets/images/heroes/wasp/portrait.png",
+      "sha256": "ab242c0e9beb4f648753e4ee82167d62cc73c622d9368faa9af5b40b10acf5c9",
+      "bytes": 6003
+    },
+    {
+      "source": "assets/images/heroes/white_tiger/portrait.png",
+      "local": "public/legacy/assets/images/heroes/white_tiger/portrait.png",
+      "sha256": "bd204e5fb74320028d3289337dafa47eb6362a1462f54ad59cc933a3b988d271",
+      "bytes": 1406
+    },
+    {
+      "source": "assets/images/heroes/winter_soldier/portrait.png",
+      "local": "public/legacy/assets/images/heroes/winter_soldier/portrait.png",
+      "sha256": "90c3a35aab4ac7865791bfea16e8eadc57b93b22acd15605f3b6a688444e9464",
+      "bytes": 4702
+    },
+    {
+      "source": "assets/images/heroes/wolverine/portrait.png",
+      "local": "public/legacy/assets/images/heroes/wolverine/portrait.png",
+      "sha256": "66d5f261d038caa2e53c789ccae4d8a59a1251e7131842fc3e21e294ae240b69",
+      "bytes": 6712
+    },
+    {
+      "source": "assets/images/heroes/wong/portrait.png",
+      "local": "public/legacy/assets/images/heroes/wong/portrait.png",
+      "sha256": "8e17c94c389b099718ea9509aa507976932d6ee026e40c2584b746f7e0f6e224",
+      "bytes": 1472
+    },
+    {
+      "source": "assets/images/heroes/x_23/portrait.png",
+      "local": "public/legacy/assets/images/heroes/x_23/portrait.png",
+      "sha256": "d85b8679e5164c74a2aebbd1511db1b7a98e85dca6278a98c2567a3c2206a274",
+      "bytes": 1538
+    },
+    {
+      "source": "assets/images/heroes/yelena_belova/portrait.png",
+      "local": "public/legacy/assets/images/heroes/yelena_belova/portrait.png",
+      "sha256": "2f1eb61c59d75717c91163d0f4d800edefa86a5805284860383ce8854b770d74",
+      "bytes": 1266
+    },
+    {
+      "source": "assets/images/heroes/yondu/portrait.png",
+      "local": "public/legacy/assets/images/heroes/yondu/portrait.png",
+      "sha256": "88d48df17d39cfbc5b2cea42d5be63d0d294405f173c6e070d2138c95b1fb931",
+      "bytes": 1566
+    },
+    {
+      "source": "assets/images/items/aerodeslizador.png",
+      "local": "public/legacy/assets/images/items/aerodeslizador.png",
+      "sha256": "0faf58db0bc1a9e9ee277c77b5f78420b24d04984cbc52b2d76ede1470f8b382",
+      "bytes": 3164
+    },
+    {
+      "source": "assets/images/items/aguijon_wasp.png",
+      "local": "public/legacy/assets/images/items/aguijon_wasp.png",
+      "sha256": "aa61e4b5cf09a728d82c765dbf6d41d657cffcabcadaceebc1c394bd0ed4fccc",
+      "bytes": 4430
+    },
+    {
+      "source": "assets/images/items/alas_wasp.png",
+      "local": "public/legacy/assets/images/items/alas_wasp.png",
+      "sha256": "fce1944eadb799980913a791db9ab4702e69fd3a9d5fd361090974ff2890f726",
+      "bytes": 2960
+    },
+    {
+      "source": "assets/images/items/amplificador_criocinetico.png",
+      "local": "public/legacy/assets/images/items/amplificador_criocinetico.png",
+      "sha256": "2292563bb910d4156e7d39e920884e4385fe4c197212bdf7f08671a4bdf9c3e9",
+      "bytes": 3508
+    },
+    {
+      "source": "assets/images/items/anillo_portal.png",
+      "local": "public/legacy/assets/images/items/anillo_portal.png",
+      "sha256": "1f54beb6336f49e3551b2eb489957c727106f16bf05e0d8d1f97bfd3d4c261fc",
+      "bytes": 2907
+    },
+    {
+      "source": "assets/images/items/armadura_war_machine.png",
+      "local": "public/legacy/assets/images/items/armadura_war_machine.png",
+      "sha256": "b4c2e3b725453ae7f9df46259e4cd5cb0e60dd597c49833643fb11945df96cef",
+      "bytes": 4323
+    },
+    {
+      "source": "assets/images/items/arsenal_deadpool.png",
+      "local": "public/legacy/assets/images/items/arsenal_deadpool.png",
+      "sha256": "4331e5eaf9fab2aae4ae51e26daee9e0d1c96283d1f6e13652532cd58b83a46a",
+      "bytes": 3578
+    },
+    {
+      "source": "assets/images/items/arsenal_knowhere.png",
+      "local": "public/legacy/assets/images/items/arsenal_knowhere.png",
+      "sha256": "9cf37d56d4b0ab61b34924e863fe5bdbaf8f199ca8df764e35f67ba9a2173b3c",
+      "bytes": 5481
+    },
+    {
+      "source": "assets/images/items/baliza_fury.png",
+      "local": "public/legacy/assets/images/items/baliza_fury.png",
+      "sha256": "f028004214a39c59ab1e7f54ffb6f2b0c51418e11095f82014fdc7ada022fb2c",
+      "bytes": 2859
+    },
+    {
+      "source": "assets/images/items/baraja_cinetica.png",
+      "local": "public/legacy/assets/images/items/baraja_cinetica.png",
+      "sha256": "92e95b4d51d914f4106af2d984900aaf5a55d0e57746778c0bc31be35eef1126",
+      "bytes": 3708
+    },
+    {
+      "source": "assets/images/items/botas_antigrav.png",
+      "local": "public/legacy/assets/images/items/botas_antigrav.png",
+      "sha256": "e1ecd22062cd3229becd204038a4211324aa97b5d594dbd843e3d2b292e384a8",
+      "bytes": 3213
+    },
+    {
+      "source": "assets/images/items/brazalete_kamala.png",
+      "local": "public/legacy/assets/images/items/brazalete_kamala.png",
+      "sha256": "f8c64bc24128f27b438aa977e82490ea75c5d5a02de768af0a4b2d27bc3ffb64",
+      "bytes": 4262
+    },
+    {
+      "source": "assets/images/items/brazalete_kun_lun.png",
+      "local": "public/legacy/assets/images/items/brazalete_kun_lun.png",
+      "sha256": "32722bc92813961fc412d9822b332453063ca1d67dbe3b415ebc5bdbaf7d36df",
+      "bytes": 6588
+    },
+    {
+      "source": "assets/images/items/capa_levitacion.png",
+      "local": "public/legacy/assets/images/items/capa_levitacion.png",
+      "sha256": "a38c770baf4e2c40426f09e7a665474a614e14187c5026082b938757025cbba2",
+      "bytes": 2903
+    },
+    {
+      "source": "assets/images/items/capucha_infernal.png",
+      "local": "public/legacy/assets/images/items/capucha_infernal.png",
+      "sha256": "9fa8d52585a7ee6a6e7c80a70bf82e27c346ab4dccc2b476e60f8cbfa67a9e36",
+      "bytes": 2667
+    },
+    {
+      "source": "assets/images/items/carcaj_flechas_truco.png",
+      "local": "public/legacy/assets/images/items/carcaj_flechas_truco.png",
+      "sha256": "6054ceaecd49b5fd0d509814e6e412ab034bf659287b38d0d8cd81a3cc9034ca",
+      "bytes": 3543
+    },
+    {
+      "source": "assets/images/items/carga_viuda.png",
+      "local": "public/legacy/assets/images/items/carga_viuda.png",
+      "sha256": "4866712384fad30748075d891e108238973b1ac8c5882ac33c1b378aeefde903",
+      "bytes": 2573
+    },
+    {
+      "source": "assets/images/items/casco_nova.png",
+      "local": "public/legacy/assets/images/items/casco_nova.png",
+      "sha256": "21d4d3832f3ef4ef4ae2506a60d2cf6c7332f41513d4d87e22338b7acd06c580",
+      "bytes": 3481
+    },
+    {
+      "source": "assets/images/items/cerebro.png",
+      "local": "public/legacy/assets/images/items/cerebro.png",
+      "sha256": "68363b57b04be3fc0c6388803eb66a1478823a6bd56b35d033b16a95329fae75",
+      "bytes": 3404
+    },
+    {
+      "source": "assets/images/items/cetro_loki.png",
+      "local": "public/legacy/assets/images/items/cetro_loki.png",
+      "sha256": "38d9950d53055e9f58d781ee793efacaf7069669807d7945f0aae1876724b27b",
+      "bytes": 2183
+    },
+    {
+      "source": "assets/images/items/chaleco_tactico.png",
+      "local": "public/legacy/assets/images/items/chaleco_tactico.png",
+      "sha256": "3033d5d14f9e0a0d405bf610f37e6be754a0973b8ebcf7930fdbaf6e656d5c02",
+      "bytes": 4019
+    },
+    {
+      "source": "assets/images/items/collar_pantera.png",
+      "local": "public/legacy/assets/images/items/collar_pantera.png",
+      "sha256": "1f5db7535bc59c95305fc46b639b47b6c04a96affbbcb0a94ee1515872c5e010",
+      "bytes": 3398
+    },
+    {
+      "source": "assets/images/items/comunicador_guardianes.png",
+      "local": "public/legacy/assets/images/items/comunicador_guardianes.png",
+      "sha256": "6da3e3ddb2db891f28de24bea76ba362fb3401bb133608bddbcdde5ec35fdd6f",
+      "bytes": 2249
+    },
+    {
+      "source": "assets/images/items/contrato_stark.png",
+      "local": "public/legacy/assets/images/items/contrato_stark.png",
+      "sha256": "1437dded3b0053aacf637653b9544e8805350a038fc9c84c568838a6da0e693a",
+      "bytes": 1796
+    },
+    {
+      "source": "assets/images/items/corazon_multiverso.png",
+      "local": "public/legacy/assets/images/items/corazon_multiverso.png",
+      "sha256": "92ef286254be54ee078d5057422f82a2856df084fae2c43cc9019b6fab045187",
+      "bytes": 4268
+    },
+    {
+      "source": "assets/images/items/corazon_wakanda.png",
+      "local": "public/legacy/assets/images/items/corazon_wakanda.png",
+      "sha256": "1ca5c383288dd1d231090b74aeb59955ee4516cbeb6feecb8889342676b2b780",
+      "bytes": 4562
+    },
+    {
+      "source": "assets/images/items/cristal_terrigeno.png",
+      "local": "public/legacy/assets/images/items/cristal_terrigeno.png",
+      "sha256": "e0ab29b26960be7beeca7057c7d8b8cbd1652e8436c298e046f3d0555120b6a3",
+      "bytes": 2033
+    },
+    {
+      "source": "assets/images/items/darkhold.png",
+      "local": "public/legacy/assets/images/items/darkhold.png",
+      "sha256": "fa951176ddd3fe4e5cb155e2e56889746b5730e39666f4e90d2424ca593ae8c3",
+      "bytes": 2862
+    },
+    {
+      "source": "assets/images/items/diez_anillos.png",
+      "local": "public/legacy/assets/images/items/diez_anillos.png",
+      "sha256": "c86c765fd9b1a320c00e561a715c11b2d57a12365600fc3db89e4168700350df",
+      "bytes": 1467
+    },
+    {
+      "source": "assets/images/items/el_vacio.png",
+      "local": "public/legacy/assets/images/items/el_vacio.png",
+      "sha256": "42b669286db21bb5c9867b65d5867181bb6c9839928e2a0124eabc3a4dc61b83",
+      "bytes": 1169
+    },
+    {
+      "source": "assets/images/items/emisor_termico.png",
+      "local": "public/legacy/assets/images/items/emisor_termico.png",
+      "sha256": "27e5dfeffb46bccf15f716b42cd28b93566f2e595902eac4fa5e9f9701efd65b",
+      "bytes": 3146
+    },
+    {
+      "source": "assets/images/items/escudo_guardian_rojo.png",
+      "local": "public/legacy/assets/images/items/escudo_guardian_rojo.png",
+      "sha256": "d33462dd01218a5cdf3713ba083af95c58de65f036db3b583b6687a324a7e442",
+      "bytes": 2374
+    },
+    {
+      "source": "assets/images/items/escudo_vibranium.png",
+      "local": "public/legacy/assets/images/items/escudo_vibranium.png",
+      "sha256": "92388fc62abe5ac8865450b948ba041647f213cfe623a54870d38f34c9261c60",
+      "bytes": 4258
+    },
+    {
+      "source": "assets/images/items/espada_infinito.png",
+      "local": "public/legacy/assets/images/items/espada_infinito.png",
+      "sha256": "fa8982a3854569994f4806789c8c06ae24ac3eaa98ad5bd352017d3e79c27468",
+      "bytes": 2282
+    },
+    {
+      "source": "assets/images/items/fertilizante_groot.png",
+      "local": "public/legacy/assets/images/items/fertilizante_groot.png",
+      "sha256": "8a9ef685b8681f00c347d7b597df4307687f763564808b0ca5343bee1db44237",
+      "bytes": 2467
+    },
+    {
+      "source": "assets/images/items/formula_phoenix.png",
+      "local": "public/legacy/assets/images/items/formula_phoenix.png",
+      "sha256": "67381637045274dbe4bbc6d4ee7659c1e56133c64514cb3547b9806736d4c5d9",
+      "bytes": 3678
+    },
+    {
+      "source": "assets/images/items/fragmento_bloodstone.png",
+      "local": "public/legacy/assets/images/items/fragmento_bloodstone.png",
+      "sha256": "ccaf8503701003ad7e0fd09641055a3590cf3ec84cf2552c5c6d9ca8425ce189",
+      "bytes": 1826
+    },
+    {
+      "source": "assets/images/items/fragmento_carnage.png",
+      "local": "public/legacy/assets/images/items/fragmento_carnage.png",
+      "sha256": "83356796bb1daecc734f0c2ce57fc3dde5243644926f2833972f3baf8a4e8c24",
+      "bytes": 2970
+    },
+    {
+      "source": "assets/images/items/gema_poder.png",
+      "local": "public/legacy/assets/images/items/gema_poder.png",
+      "sha256": "03b98e9db8e5e6be39ffab9bda2648503621cfa554643e1f61eca35ff9a4ea28",
+      "bytes": 1891
+    },
+    {
+      "source": "assets/images/items/guante_quake.png",
+      "local": "public/legacy/assets/images/items/guante_quake.png",
+      "sha256": "594f5710f731854bddbf27d7331322804c63911d3087ca87b7a96f5ce5b487e7",
+      "bytes": 2349
+    },
+    {
+      "source": "assets/images/items/guantelete_infinito.png",
+      "local": "public/legacy/assets/images/items/guantelete_infinito.png",
+      "sha256": "38773e2b6555e9d5c34adf14d2e5b6c793d6e450f603ae3898c5c86aa33a138a",
+      "bytes": 4238
+    },
+    {
+      "source": "assets/images/items/guanteletes_gigantes.png",
+      "local": "public/legacy/assets/images/items/guanteletes_gigantes.png",
+      "sha256": "65f13fcc576fa7e7d7992007673069a2ffefc2f00f90963de4e49f3800a2f282",
+      "bytes": 4155
+    },
+    {
+      "source": "assets/images/items/lanza_dora.png",
+      "local": "public/legacy/assets/images/items/lanza_dora.png",
+      "sha256": "39319e9fa776b615247115334d9ce79dade75320f7b97c4d71c2f7c3c1d73dba",
+      "bytes": 1586
+    },
+    {
+      "source": "assets/images/items/legado_wakanda.png",
+      "local": "public/legacy/assets/images/items/legado_wakanda.png",
+      "sha256": "12742e62a4918f053a67a99feed1f9c1e4857e65c6db7a3f478c4fe9d2ee38d7",
+      "bytes": 3711
+    },
+    {
+      "source": "assets/images/items/lentes_edith.png",
+      "local": "public/legacy/assets/images/items/lentes_edith.png",
+      "sha256": "56ac9677230b835a03ceb865c9be9377af4a5e515608bb9819b4c7411d4f6f3c",
+      "bytes": 1649
+    },
+    {
+      "source": "assets/images/items/localizador_fury.png",
+      "local": "public/legacy/assets/images/items/localizador_fury.png",
+      "sha256": "e36b095e3565be6852523e1972db1ee4fd9dbb77773ce3cd3752ed8736c71090",
+      "bytes": 2513
+    },
+    {
+      "source": "assets/images/items/manual_combate_elite.png",
+      "local": "public/legacy/assets/images/items/manual_combate_elite.png",
+      "sha256": "c7b225490d216a06702c0399855cf262e9d9d94afacd4673c5535e1349c20f72",
+      "bytes": 2740
+    },
+    {
+      "source": "assets/images/items/matriz_probabilidad.png",
+      "local": "public/legacy/assets/images/items/matriz_probabilidad.png",
+      "sha256": "edd85955f86f3715a6e9cecd23be826c9b1652d0864a80627363f598915035aa",
+      "bytes": 3005
+    },
+    {
+      "source": "assets/images/items/memoria_colmena.png",
+      "local": "public/legacy/assets/images/items/memoria_colmena.png",
+      "sha256": "2b9ff27b43512673cbf0c9bc2099c734c0180b471f2d8396f95b92ff63f5f9a5",
+      "bytes": 3525
+    },
+    {
+      "source": "assets/images/items/mjolnir.png",
+      "local": "public/legacy/assets/images/items/mjolnir.png",
+      "sha256": "62f31bbbfd9a1727b29dd197d3c2d1520db6ca477b41bc5b66dc0da6d0f59160",
+      "bytes": 2929
+    },
+    {
+      "source": "assets/images/items/moneda_madripoor.png",
+      "local": "public/legacy/assets/images/items/moneda_madripoor.png",
+      "sha256": "2108f8e05aae9637fdf91c698c39a171c84cf14f1dff74fadda5aaa82a333837",
+      "bytes": 3675
+    },
+    {
+      "source": "assets/images/items/municion_ice.png",
+      "local": "public/legacy/assets/images/items/municion_ice.png",
+      "sha256": "af3b619b5c11a25d2f5d7b3a952cc10b2f77eb953237962d060bf8b476161dc5",
+      "bytes": 2270
+    },
+    {
+      "source": "assets/images/items/municion_repulsora.png",
+      "local": "public/legacy/assets/images/items/municion_repulsora.png",
+      "sha256": "7fed37a4a34692b0c23fdfd1d2071e08bb562cc12f310345c8f09c08c41a8221",
+      "bytes": 2406
+    },
+    {
+      "source": "assets/images/items/nanites_stark_prime.png",
+      "local": "public/legacy/assets/images/items/nanites_stark_prime.png",
+      "sha256": "79fe0792faf1f51f95b0e04040427a011be839ce15d716579813aef76f885dbd",
+      "bytes": 3427
+    },
+    {
+      "source": "assets/images/items/necroespada.png",
+      "local": "public/legacy/assets/images/items/necroespada.png",
+      "sha256": "cde16ff43c62030bd189e862deabdda363d21dca4e6e16c4cee5a9f536791d05",
+      "bytes": 1520
+    },
+    {
+      "source": "assets/images/items/nucleo_adaptativo.png",
+      "local": "public/legacy/assets/images/items/nucleo_adaptativo.png",
+      "sha256": "a196a7759c1a6f123df394a82a2ac11c8050e3b8961ed58ab2f0cc9315f38382",
+      "bytes": 3828
+    },
+    {
+      "source": "assets/images/items/nucleo_gamma.png",
+      "local": "public/legacy/assets/images/items/nucleo_gamma.png",
+      "sha256": "363b1c7db58d38368e22bb7dd44c87f44c65081f8eb4e7d633c57699ef7901fa",
+      "bytes": 4125
+    },
+    {
+      "source": "assets/images/items/ojo_agamotto.png",
+      "local": "public/legacy/assets/images/items/ojo_agamotto.png",
+      "sha256": "db6b4509ca80434ea4de2f1d05373fd9c2b858b312d311018fcbc677d824d39e",
+      "bytes": 5138
+    },
+    {
+      "source": "assets/images/items/orbe_caos_wanda.png",
+      "local": "public/legacy/assets/images/items/orbe_caos_wanda.png",
+      "sha256": "c7b9fada3eec985eb243ec8f2a16db6300d2662f804a6c91788e176f95d37a49",
+      "bytes": 2474
+    },
+    {
+      "source": "assets/images/items/particulas_pym.png",
+      "local": "public/legacy/assets/images/items/particulas_pym.png",
+      "sha256": "4f754eb4a21064ea71abc3cd3cd994de13ade9de20c691d0b38513cd5196ff40",
+      "bytes": 1661
+    },
+    {
+      "source": "assets/images/items/pocion_yggdrasil.png",
+      "local": "public/legacy/assets/images/items/pocion_yggdrasil.png",
+      "sha256": "1e1cbc788722c9456231bf2ac2e4748bf343e31793ea396f8144dfbbf6b0b7f8",
+      "bytes": 3119
+    },
+    {
+      "source": "assets/images/items/prisma_luz_oscura.png",
+      "local": "public/legacy/assets/images/items/prisma_luz_oscura.png",
+      "sha256": "adf192d345ad67bb915355177522d458067169baea8359100c0a459f54930e3d",
+      "bytes": 2521
+    },
+    {
+      "source": "assets/images/items/protocolo_danger_room.png",
+      "local": "public/legacy/assets/images/items/protocolo_danger_room.png",
+      "sha256": "df62046ea17750208d1a5c31f95dc55e5c42631e3fc9e9d00dc5f234cb6f475d",
+      "bytes": 3172
+    },
+    {
+      "source": "assets/images/items/protocolo_extremis.png",
+      "local": "public/legacy/assets/images/items/protocolo_extremis.png",
+      "sha256": "6b116f282130510255224ec352cd514cc93fd4d3adf348286b9bd313558afc10",
+      "bytes": 3903
+    },
+    {
+      "source": "assets/images/items/reactor_arc.png",
+      "local": "public/legacy/assets/images/items/reactor_arc.png",
+      "sha256": "1f66dc1b8301470e7f2c8885f11fd583b0906bc86799ee4216676ef33ab3695e",
+      "bytes": 4757
+    },
+    {
+      "source": "assets/images/items/redwing_mk2.png",
+      "local": "public/legacy/assets/images/items/redwing_mk2.png",
+      "sha256": "6529d3f4a95a5e6d348e64c85bf7ba4f294495a0b19bc976c0fee91323c2c091",
+      "bytes": 3166
+    },
+    {
+      "source": "assets/images/items/regulador_cuantico.png",
+      "local": "public/legacy/assets/images/items/regulador_cuantico.png",
+      "sha256": "27f9f13e9d9bcb141c420469395471176764c9411c81c9e9c6fe4fffbe44211f",
+      "bytes": 3409
+    },
+    {
+      "source": "assets/images/items/runa_asgardiana.png",
+      "local": "public/legacy/assets/images/items/runa_asgardiana.png",
+      "sha256": "9e24fd142e16f9716d1095722dd27edfc3f621e6c08207a2198f051e7be6c28c",
+      "bytes": 3111
+    },
+    {
+      "source": "assets/images/items/runas_kamar_taj.png",
+      "local": "public/legacy/assets/images/items/runas_kamar_taj.png",
+      "sha256": "3e0119b0ea5365618f9cf0cc47b44d5edf1baad8f7fa727b64a5de09bdd7f575",
+      "bytes": 3078
+    },
+    {
+      "source": "assets/images/items/sello_kun_lun.png",
+      "local": "public/legacy/assets/images/items/sello_kun_lun.png",
+      "sha256": "288a15441ae601f6a2153f8f23338baea59dc7ce79619e1959b2bc911340422b",
+      "bytes": 6326
+    },
+    {
+      "source": "assets/images/items/senal_tippytoe.png",
+      "local": "public/legacy/assets/images/items/senal_tippytoe.png",
+      "sha256": "afe8f10474a19ad6fc4472a96eed8128653e600551b9bcadd3d8b44ac65aeec1",
+      "bytes": 3458
+    },
+    {
+      "source": "assets/images/items/simbionte.png",
+      "local": "public/legacy/assets/images/items/simbionte.png",
+      "sha256": "8ed614d23b19b8b9b4dec21437f7c0513f86f1788b5fbd6fc886dfabf23687e0",
+      "bytes": 2037
+    },
+    {
+      "source": "assets/images/items/stormcaster.png",
+      "local": "public/legacy/assets/images/items/stormcaster.png",
+      "sha256": "b47903a3257f67e851c1c234b6985a7158b92b7ba5b8f58174eb5df9d3116ef0",
+      "bytes": 2037
+    },
+    {
+      "source": "assets/images/items/tabla_surfer.png",
+      "local": "public/legacy/assets/images/items/tabla_surfer.png",
+      "sha256": "96042030a0674a118fc956d44b29c69d940ca530dbfcc62fdf4a029653f273dc",
+      "bytes": 2623
+    },
+    {
+      "source": "assets/images/items/talisman_tigre.png",
+      "local": "public/legacy/assets/images/items/talisman_tigre.png",
+      "sha256": "15da040da411188ecba20fe89d0bfd2056d3ef77c01958b6c87cc6922b3cceec",
+      "bytes": 4340
+    },
+    {
+      "source": "assets/images/items/tejido_cinetico.png",
+      "local": "public/legacy/assets/images/items/tejido_cinetico.png",
+      "sha256": "dab241dccf548ae746aefd62d414104e4292378aa4eb751997960e5b99937ced",
+      "bytes": 2823
+    },
+    {
+      "source": "assets/images/items/telarana_sintetica.png",
+      "local": "public/legacy/assets/images/items/telarana_sintetica.png",
+      "sha256": "868f90e402b12b1061d90dbcbabe6d527e9e2de51feb2a67cecf0dde5b3c08ca",
+      "bytes": 3103
+    },
+    {
+      "source": "assets/images/items/tentaculo_klyntar.png",
+      "local": "public/legacy/assets/images/items/tentaculo_klyntar.png",
+      "sha256": "ed64791c3f50a9d7e0a64d6c79b6730c79f933174c675a96d34e3983607e8101",
+      "bytes": 1611
+    },
+    {
+      "source": "assets/images/items/totem_tierra_salvaje.png",
+      "local": "public/legacy/assets/images/items/totem_tierra_salvaje.png",
+      "sha256": "f0419b855d7ca2517fb04c820b3bc11a3b6c3a67d7bd5104c1d8a8d5c560eae9",
+      "bytes": 4140
+    },
+    {
+      "source": "assets/images/items/traje_moleculas_inestables.png",
+      "local": "public/legacy/assets/images/items/traje_moleculas_inestables.png",
+      "sha256": "b8ab490918e5ff2bc8a724d16692316cf5b8f66e801cae3ae789e32bad167317",
+      "bytes": 3196
+    },
+    {
+      "source": "assets/images/items/tridente_atlante.png",
+      "local": "public/legacy/assets/images/items/tridente_atlante.png",
+      "sha256": "4f57e7d98b127bbe68f79e8ed59a4de1fe7b5c4c01183ce30f3e97117e66a926",
+      "bytes": 1678
+    },
+    {
+      "source": "assets/images/items/visor_sniper.png",
+      "local": "public/legacy/assets/images/items/visor_sniper.png",
+      "sha256": "c790e6a4f1904e4a98393d4a0f93d776058494ebdabe67786612e4dc3dc25f2f",
+      "bytes": 1978
+    },
+    {
+      "source": "assets/images/maps/wakanda.png",
+      "local": "public/legacy/assets/images/maps/wakanda.png",
+      "sha256": "a0840d26400dcf0d2803f5cfb0a32f0d1d96e7f6f7bb36e3f82f01b13aa40ef5",
+      "bytes": 70694
+    },
+    {
+      "source": "assets/images/tiles/base_vengadores_rpgmaker.png",
+      "local": "public/legacy/assets/images/tiles/base_vengadores_rpgmaker.png",
+      "sha256": "72005cc25e01d6eff03742726b7e0e0855b292aaf6a47bf74d7dec2bee477690",
+      "bytes": 51766
+    },
+    {
+      "source": "data/TypeChart.js",
+      "local": "src/legacy/data/TypeChart.js",
+      "sha256": "c16ff4892fb2688af00318110c220820d1820ea5f081172b4b0d828baa05f65a",
+      "bytes": 408
+    },
+    {
+      "source": "data/enemies.json",
+      "local": "src/legacy/data/enemies.json",
+      "sha256": "21d6a3b5171279ffe185f2269f811b965e3d570aa099b9aeefd13199de44cc42",
+      "bytes": 123995
+    },
+    {
+      "source": "data/evolutionVisuals.json",
+      "local": "src/legacy/data/evolutionVisuals.json",
+      "sha256": "587bba1ca03862c5dc01943a0108244c5dc5edbd7156e8284e9575b30671f758",
+      "bytes": 198119
+    },
+    {
+      "source": "data/heroes.json",
+      "local": "src/legacy/data/heroes.json",
+      "sha256": "277586facbe6e6052413987658be3cb3cbaedd78369b653f97d76c64bf8ecbfc",
+      "bytes": 273255
+    },
+    {
+      "source": "data/items.json",
+      "local": "src/legacy/data/items.json",
+      "sha256": "2a66735e587044f08dfcd7a75acb1b516fff696feb9b71ab81424cbbeefd640d",
+      "bytes": 36502
+    },
+    {
+      "source": "data/levels.json",
+      "local": "src/legacy/data/levels.json",
+      "sha256": "b672dd673d2b6bb4a32c4040bc59a31b898f3d9f5d71b89c4337356da42c7e1a",
+      "bytes": 29536
+    },
+    {
+      "source": "data/waves.json",
+      "local": "src/legacy/data/waves.json",
+      "sha256": "f19a6fb54a16efe6e7c7a1181e9565e6f1d2d2278385227b716bed48fab5e6c9",
+      "bytes": 521
+    },
+    {
+      "source": "docs/MATRIZ_IDENTIDAD_HEROES.md",
+      "local": "src/legacy/docs/MATRIZ_IDENTIDAD_HEROES.md",
+      "sha256": "9a890da67d0a07d859fc3355e9ab41faaf4dbb7322ef29db00be236bf4629fc7",
+      "bytes": 30607
+    },
+    {
+      "source": "src/audio/AudioManager.js",
+      "local": "src/legacy/src/audio/AudioManager.js",
+      "sha256": "ecca27f42ed5b0634312195bf834f080894de62d76ac2b1dca6ad43581e482ba",
+      "bytes": 12991
+    },
+    {
+      "source": "src/entities/Enemy.js",
+      "local": "src/legacy/src/entities/Enemy.js",
+      "sha256": "1c936c51dc652f3d721f4f3c67c0fe6b222e6a0057cfe548b93154ac5a9b5b56",
+      "bytes": 32427
+    },
+    {
+      "source": "src/entities/Hero.js",
+      "local": "src/legacy/src/entities/Hero.js",
+      "sha256": "58b64eb39e838b478613044454854c260c8f7f0eef03440004097a90928a7051",
+      "bytes": 27872
+    },
+    {
+      "source": "src/entities/Projectile.js",
+      "local": "src/legacy/src/entities/Projectile.js",
+      "sha256": "ced97afafccf6ba7a1c76ae55badf580fa46b4bb3485610ccfe60d3e9e4bf89d",
+      "bytes": 8749
+    },
+    {
+      "source": "src/rendering/ImageCache.js",
+      "local": "src/legacy/src/rendering/ImageCache.js",
+      "sha256": "dce81de879d95ee2ad6147e94d2b0422c6ad570615f7a32053e5e74c9a6a29a9",
+      "bytes": 1612
+    },
+    {
+      "source": "src/rendering/SpriteAnimator.js",
+      "local": "src/legacy/src/rendering/SpriteAnimator.js",
+      "sha256": "b71269b044f61b80b780f399dbcf77cf12dc70e62bd23387652788073962a3fc",
+      "bytes": 5866
+    },
+    {
+      "source": "src/systems/ArcaneStormKitSystem.js",
+      "local": "src/legacy/src/systems/ArcaneStormKitSystem.js",
+      "sha256": "315cab2ba701b0207b4f07dfd45e5291db95bd6a2aa3a9d6321bdd93d1ac7e48",
+      "bytes": 7107
+    },
+    {
+      "source": "src/systems/AvengerKitSystem.js",
+      "local": "src/legacy/src/systems/AvengerKitSystem.js",
+      "sha256": "9890e66a6d3b5fc4a38a5d183cb0d290ebe40246360743f6577cc05e57df142d",
+      "bytes": 20336
+    },
+    {
+      "source": "src/systems/CoastalKitSystem.js",
+      "local": "src/legacy/src/systems/CoastalKitSystem.js",
+      "sha256": "4d8936523d701208e8dc2da2ee978b938387f7e69ca936694a9224af23a11e11",
+      "bytes": 5705
+    },
+    {
+      "source": "src/systems/CombatSystem.js",
+      "local": "src/legacy/src/systems/CombatSystem.js",
+      "sha256": "8c2ecc9ae587fb11e710bf55ba0e2ada3d727ef482f7f269db4abcd9ad64ef81",
+      "bytes": 12153
+    },
+    {
+      "source": "src/systems/ControlKitSystem.js",
+      "local": "src/legacy/src/systems/ControlKitSystem.js",
+      "sha256": "51b6e80a060c899b3a6e712bc12e3ba6d1ff01d4128d3e71ed8ddd75d97fc48f",
+      "bytes": 4044
+    },
+    {
+      "source": "src/systems/CosmicKitSystem.js",
+      "local": "src/legacy/src/systems/CosmicKitSystem.js",
+      "sha256": "00bfefb4af7d49f5774f87ce4691eaf4ca98dc913984eb5b4e29177c6ae3ecb0",
+      "bytes": 17895
+    },
+    {
+      "source": "src/systems/DarkfireKitSystem.js",
+      "local": "src/legacy/src/systems/DarkfireKitSystem.js",
+      "sha256": "685a6ef3136e0277b57dda7424c161bbdaa340a39b95d049f708fc2a068e8d07",
+      "bytes": 6555
+    },
+    {
+      "source": "src/systems/ElementalKitSystem.js",
+      "local": "src/legacy/src/systems/ElementalKitSystem.js",
+      "sha256": "1f9d3f6948efc6e099a132118a15d67807a886cf7c5923af539fa1fae336d511",
+      "bytes": 4170
+    },
+    {
+      "source": "src/systems/EncounterDirector.js",
+      "local": "src/legacy/src/systems/EncounterDirector.js",
+      "sha256": "adc9f0a723eac85de3e5884a3c784ce1152142775a45d1a2ba7f30072d3c22c2",
+      "bytes": 4841
+    },
+    {
+      "source": "src/systems/EnemyBehaviorSystem.js",
+      "local": "src/legacy/src/systems/EnemyBehaviorSystem.js",
+      "sha256": "7cc239e5861a3f2601f3f57245e6ac7ce14ef665ac9896fd96f078d1bfdab842",
+      "bytes": 11179
+    },
+    {
+      "source": "src/systems/EnergyReserveKitSystem.js",
+      "local": "src/legacy/src/systems/EnergyReserveKitSystem.js",
+      "sha256": "3706c4860298b890ff552f47d648400bd585a0b680baafb8f5aa03f8c86e9814",
+      "bytes": 10583
+    },
+    {
+      "source": "src/systems/EvolutionSystem.js",
+      "local": "src/legacy/src/systems/EvolutionSystem.js",
+      "sha256": "1222b4c76031b068eaf1241bc38ae608e28052f4637bbdf0b19a4a63905fdd12",
+      "bytes": 11678
+    },
+    {
+      "source": "src/systems/FateKitSystem.js",
+      "local": "src/legacy/src/systems/FateKitSystem.js",
+      "sha256": "f96636812341bb8d54c1165f0144158986349f83f24d7add9fa097196fa23707",
+      "bytes": 5902
+    },
+    {
+      "source": "src/systems/FieldDeviceSystem.js",
+      "local": "src/legacy/src/systems/FieldDeviceSystem.js",
+      "sha256": "cf62ef366a4bf20d4c5b16327de69eef41f3f148168a293c012cca3ebce7655c",
+      "bytes": 4649
+    },
+    {
+      "source": "src/systems/GameModeSystem.js",
+      "local": "src/legacy/src/systems/GameModeSystem.js",
+      "sha256": "d3f09bed7868095d583026f9e1f134af98fdd0cacab9d8c258fac6630929ba68",
+      "bytes": 7180
+    },
+    {
+      "source": "src/systems/HeroAbilitySystem.js",
+      "local": "src/legacy/src/systems/HeroAbilitySystem.js",
+      "sha256": "c678230c657aaf5e477205a97a10cb469d16680918553812db985a9fa99f3cf8",
+      "bytes": 15323
+    },
+    {
+      "source": "src/systems/ItemEffectSystem.js",
+      "local": "src/legacy/src/systems/ItemEffectSystem.js",
+      "sha256": "1fa76428f95aa51a96675489d60b3ba564e3eac79611c3380f0b251f5d1575e1",
+      "bytes": 2206
+    },
+    {
+      "source": "src/systems/ItemSignatureSystem.js",
+      "local": "src/legacy/src/systems/ItemSignatureSystem.js",
+      "sha256": "63aab429cc9b9127f8c0305616b970d7d18d4ec814942692874da601af3927a1",
+      "bytes": 35395
+    },
+    {
+      "source": "src/systems/MartialKitSystem.js",
+      "local": "src/legacy/src/systems/MartialKitSystem.js",
+      "sha256": "b7a81917ca1b681358d59d356ef5f8190835ec06ea50f82cf947e2dea89703bd",
+      "bytes": 12277
+    },
+    {
+      "source": "src/systems/MasteryCodexSystem.js",
+      "local": "src/legacy/src/systems/MasteryCodexSystem.js",
+      "sha256": "5fabb23bc76a018fe888baab92f0b361f4a6c41fbd70e4afde63905588323ad3",
+      "bytes": 1701
+    },
+    {
+      "source": "src/systems/MissionSystem.js",
+      "local": "src/legacy/src/systems/MissionSystem.js",
+      "sha256": "8dec0e7e27ffd9dd2037f451a1ee9f1a6827ddeaa12da7269ae8e01fe8edd7c2",
+      "bytes": 12210
+    },
+    {
+      "source": "src/systems/MutantKitSystem.js",
+      "local": "src/legacy/src/systems/MutantKitSystem.js",
+      "sha256": "c2a8ef97f3eb1fa221d14d21496f84d7dd7445ba04061d71c66094c424d66747",
+      "bytes": 23928
+    },
+    {
+      "source": "src/systems/MysticKitSystem.js",
+      "local": "src/legacy/src/systems/MysticKitSystem.js",
+      "sha256": "da1d1e493ce9d3e3de8d497041ef92d79d7a54b295186b7bfedda6225f3e237b",
+      "bytes": 8145
+    },
+    {
+      "source": "src/systems/PoisonStatus.js",
+      "local": "src/legacy/src/systems/PoisonStatus.js",
+      "sha256": "7892d329834d47b92fc26186596b13d015f762f41235500044e537b34739023b",
+      "bytes": 4185
+    },
+    {
+      "source": "src/systems/ProgressionManager.js",
+      "local": "src/legacy/src/systems/ProgressionManager.js",
+      "sha256": "99680c697e604f0825f9227d273cf45c0d00c0e8f31a540b5ea0c896591976c4",
+      "bytes": 63348
+    },
+    {
+      "source": "src/systems/PsychicKitSystem.js",
+      "local": "src/legacy/src/systems/PsychicKitSystem.js",
+      "sha256": "e508dbcbdb3a10fa959aa921292d5929b23f96b46210676dfeeadd01a612280d",
+      "bytes": 5536
+    },
+    {
+      "source": "src/systems/ReplaySystem.js",
+      "local": "src/legacy/src/systems/ReplaySystem.js",
+      "sha256": "9704afede3003659f5b27094101c0f28efbc91a95046d889982c3b80d382e140",
+      "bytes": 3460
+    },
+    {
+      "source": "src/systems/ResourceManager.js",
+      "local": "src/legacy/src/systems/ResourceManager.js",
+      "sha256": "d620736a31352b057264c1640a52880decce55244d49a9f7e3f787e03b586335",
+      "bytes": 1791
+    },
+    {
+      "source": "src/systems/ShopSystem.js",
+      "local": "src/legacy/src/systems/ShopSystem.js",
+      "sha256": "ccb4234ad21d97564c0d3cf49b6d4ce6f8b1b9434e0e50c8f5b7cbb5c8999d76",
+      "bytes": 3559
+    },
+    {
+      "source": "src/systems/StreetKitSystem.js",
+      "local": "src/legacy/src/systems/StreetKitSystem.js",
+      "sha256": "060958754d1c88a416a4158b3d619b331889818c0ddf7a006593d46aa46b438f",
+      "bytes": 23362
+    },
+    {
+      "source": "src/systems/SupportAuraSystem.js",
+      "local": "src/legacy/src/systems/SupportAuraSystem.js",
+      "sha256": "0ade3062a634208d53dc4d5a7755dee486f6d5ef75bf181a4e7e954a0140e2df",
+      "bytes": 12383
+    },
+    {
+      "source": "src/systems/TacticalActionSystem.js",
+      "local": "src/legacy/src/systems/TacticalActionSystem.js",
+      "sha256": "6ca4b35ab1814598fbf7b19502dff7e49040fb5e712d8c813e906faa726e7c51",
+      "bytes": 2646
+    },
+    {
+      "source": "src/systems/TargetFocusSystem.js",
+      "local": "src/legacy/src/systems/TargetFocusSystem.js",
+      "sha256": "670918ca09600c4de9d92cbb7e7cab12e5a406b14e922e50e77b63c047f937d9",
+      "bytes": 9600
+    },
+    {
+      "source": "src/systems/TeamSynergySystem.js",
+      "local": "src/legacy/src/systems/TeamSynergySystem.js",
+      "sha256": "437843e356fbf6101031b3a7a2cf0f3f8a094aaa2d9021050df65e5363c4ecbd",
+      "bytes": 21493
+    },
+    {
+      "source": "src/systems/VigilanceKitSystem.js",
+      "local": "src/legacy/src/systems/VigilanceKitSystem.js",
+      "sha256": "b16697705114e080e0d4610a1685b82c5bf2fd6e21c5fdfd543703a7b3477054",
+      "bytes": 4044
+    },
+    {
+      "source": "src/systems/VillainCodexSystem.js",
+      "local": "src/legacy/src/systems/VillainCodexSystem.js",
+      "sha256": "fb08eb34576a4423e83e1a060d147f6d2af881f63894d6bcab2341b32c661d6c",
+      "bytes": 2616
+    },
+    {
+      "source": "src/systems/WaveDamageCheck.js",
+      "local": "src/legacy/src/systems/WaveDamageCheck.js",
+      "sha256": "67bacbf6e0d98d0d8cadaab1bdbb49c8fbe04c2381e79a87409d089403f33ae5",
+      "bytes": 6098
+    },
+    {
+      "source": "src/systems/WaveManager.js",
+      "local": "src/legacy/src/systems/WaveManager.js",
+      "sha256": "44d3d74621a813f45dc40eeba54679db3413f12c0c86d5ee7bdf73c6140c16c5",
+      "bytes": 42092
+    },
+    {
+      "source": "src/utils/AbilityModifiers.js",
+      "local": "src/legacy/src/utils/AbilityModifiers.js",
+      "sha256": "162ea25928161f4cd0a2716412a51585aa67147e32bacbeee46fe7d5f33198de",
+      "bytes": 995
+    },
+    {
+      "source": "src/utils/HeroLevel.js",
+      "local": "src/legacy/src/utils/HeroLevel.js",
+      "sha256": "c67753f97b0ccb7779fd7540bc4925b4e1610b650af3eb0a830fcd85db637e67",
+      "bytes": 3933
+    },
+    {
+      "source": "src/utils/HeroVisuals.js",
+      "local": "src/legacy/src/utils/HeroVisuals.js",
+      "sha256": "4c3d248be05030a918277400f0fe63c64794fe4422a37ffb41eb409921e02692",
+      "bytes": 2103
+    },
+    {
+      "source": "src/utils/LevelProgression.js",
+      "local": "src/legacy/src/utils/LevelProgression.js",
+      "sha256": "393ae7e20ffc42081cd8c900a3659deab2df17e88d8ce6870ba9a27757d40a2a",
+      "bytes": 1441
+    },
+    {
+      "source": "src/utils/LineTargeting.js",
+      "local": "src/legacy/src/utils/LineTargeting.js",
+      "sha256": "cbbc1953bd91a0220ae5305ca571ebe4f511b338247abbfb9ea062d6ed70c90b",
+      "bytes": 1149
+    },
+    {
+      "source": "src/utils/ObjectPool.js",
+      "local": "src/legacy/src/utils/ObjectPool.js",
+      "sha256": "b0d60ca85b9387af3cf43e560e05f118ce33f0ef0ad864872ea3780b1409f0e5",
+      "bytes": 867
+    },
+    {
+      "source": "src/utils/PathUtils.js",
+      "local": "src/legacy/src/utils/PathUtils.js",
+      "sha256": "068767f23e7efb940b968fa9cb23525e9204ec5da769c953d5fce3e6c63e81ac",
+      "bytes": 4538
+    },
+    {
+      "source": "src/utils/Random.js",
+      "local": "src/legacy/src/utils/Random.js",
+      "sha256": "4f4ed9ea003548e77a79594f93d127926a592a196a6eae7e27b672b5dc88ea9b",
+      "bytes": 1138
+    },
+    {
+      "source": "src/utils/RangePattern.js",
+      "local": "src/legacy/src/utils/RangePattern.js",
+      "sha256": "42ef439df9ff5f9c9ca591bbfa4006f281f727a2f1f7f6e53f3605087fb9ff89",
+      "bytes": 1536
+    },
+    {
+      "source": "src/utils/Rarity.js",
+      "local": "src/legacy/src/utils/Rarity.js",
+      "sha256": "7bf1d055223318e13c5448530314492a87f19c34315f1dc49c161eccdb41af97",
+      "bytes": 321
+    },
+    {
+      "source": "src/utils/StarterSelection.js",
+      "local": "src/legacy/src/utils/StarterSelection.js",
+      "sha256": "2929464ace30b385e530574f390b2d344db29254ef1a55aaec7f1fe75b1660f9",
+      "bytes": 2519
+    },
+    {
+      "source": "src/utils/StatusDamage.js",
+      "local": "src/legacy/src/utils/StatusDamage.js",
+      "sha256": "8e62545b0647822c9e87c775c387f72ed69c5ca44efc169dd7b2e79b84212c51",
+      "bytes": 878
+    },
+    {
+      "source": "src/utils/TargetingPriority.js",
+      "local": "src/legacy/src/utils/TargetingPriority.js",
+      "sha256": "b74ddd6ec6d42a8c581927c1e3a780c777ba33cb78a62a072ba0ba59f0ef943a",
+      "bytes": 2003
+    },
+    {
+      "source": "src/utils/TerrainRules.js",
+      "local": "src/legacy/src/utils/TerrainRules.js",
+      "sha256": "d24d25f38655379f6e04a72866d0275e4861d691e764997e53f1b7d22144df79",
+      "bytes": 1964
+    },
+    {
+      "source": "test/ability-modifiers.test.js",
+      "local": "src/legacy/test/ability-modifiers.test.js",
+      "sha256": "26400e65dc4512ff4df4b7ba3a66b6eb9ee91b7b3552b082b23eb35619cb4488",
+      "bytes": 1412
+    },
+    {
+      "source": "test/allegiance-roster.test.js",
+      "local": "src/legacy/test/allegiance-roster.test.js",
+      "sha256": "549843d2e81136e582173e8aa8bea40dd8691659007096078d0a36ad9997094a",
+      "bytes": 2278
+    },
+    {
+      "source": "test/arc-quiver-contract.test.js",
+      "local": "src/legacy/test/arc-quiver-contract.test.js",
+      "sha256": "e71ed6e2a96d7614713765888e7ee0d83cae81030735f2b8e0abd7024bf59779",
+      "bytes": 10140
+    },
+    {
+      "source": "test/arcane-storm-contract.test.js",
+      "local": "src/legacy/test/arcane-storm-contract.test.js",
+      "sha256": "32e958f0b1905bbc4bbd12166f4c8b223abb5e62f133753ecf47caa8db2ab98e",
+      "bytes": 14729
+    },
+    {
+      "source": "test/area-recon-contract.test.js",
+      "local": "src/legacy/test/area-recon-contract.test.js",
+      "sha256": "7f5c6aa570765819dcd6d2faff25637493f903f08fb54d3a56fc23e74050bc95",
+      "bytes": 11467
+    },
+    {
+      "source": "test/arsenal-web-contract.test.js",
+      "local": "src/legacy/test/arsenal-web-contract.test.js",
+      "sha256": "0faf5fbf2c29883e6903c46cecc6b7329f138303e1712d4d1d203c4d31753020",
+      "bytes": 11809
+    },
+    {
+      "source": "test/assassin-finishers-contract.test.js",
+      "local": "src/legacy/test/assassin-finishers-contract.test.js",
+      "sha256": "f6ca8c8fd65d15349f14969ff0417002258ac0acf0b777597ac99c4da3aacacf",
+      "bytes": 6376
+    },
+    {
+      "source": "test/autonomous-kit-targeting.test.js",
+      "local": "src/legacy/test/autonomous-kit-targeting.test.js",
+      "sha256": "28a8326a1bf2b8bc806a61a3b2492a58870138626e2c803bcee156b710d44055",
+      "bytes": 7870
+    },
+    {
+      "source": "test/avenger-kit-system.test.js",
+      "local": "src/legacy/test/avenger-kit-system.test.js",
+      "sha256": "c49f52c0b544ee0e8a9774ec77568d533ad7789587e02205f3632253a466ad6c",
+      "bytes": 5912
+    },
+    {
+      "source": "test/ballistic-identity-contract.test.js",
+      "local": "src/legacy/test/ballistic-identity-contract.test.js",
+      "sha256": "62f7f9d2a23810ff9d3d3fd139580c6bb53230d7dfdf3c1ec84239498e48a2ba",
+      "bytes": 10312
+    },
+    {
+      "source": "test/beacon-baton-contract.test.js",
+      "local": "src/legacy/test/beacon-baton-contract.test.js",
+      "sha256": "f7d3bbc1d5ac0df82b4dc0678d657eb04fa8dd782cfa09136b18bc4da0e38035",
+      "bytes": 7176
+    },
+    {
+      "source": "test/beam-contract.test.js",
+      "local": "src/legacy/test/beam-contract.test.js",
+      "sha256": "edd17bda1780399c354ebfe2eecb6937ac0a7882f224bae9d158a864f6ffeec9",
+      "bytes": 7480
+    },
+    {
+      "source": "test/catalog-burn-contract.test.js",
+      "local": "src/legacy/test/catalog-burn-contract.test.js",
+      "sha256": "d46fbfeb11f782ca9717f005d97ca87d2474d78f8d0cd7a7748bbf5f3bc8f91f",
+      "bytes": 4541
+    },
+    {
+      "source": "test/claw-pursuit-contract.test.js",
+      "local": "src/legacy/test/claw-pursuit-contract.test.js",
+      "sha256": "c991feed0ae0ffee94b6eeea63bc37743418dd4cef2bb8c83dd6fae60dc3c3fd",
+      "bytes": 7678
+    },
+    {
+      "source": "test/coastal-rhythm-contract.test.js",
+      "local": "src/legacy/test/coastal-rhythm-contract.test.js",
+      "sha256": "5c5f93e699bcd56b4cbe095c105f277412d2729cc69414027fa58aa825eed363",
+      "bytes": 9758
+    },
+    {
+      "source": "test/collision-worlds.test.js",
+      "local": "src/legacy/test/collision-worlds.test.js",
+      "sha256": "a8230f9fcf19e8ea395c0c9aa62bd8daeb37892b850f481fdbb84afd4079d870",
+      "bytes": 4303
+    },
+    {
+      "source": "test/combat-system.test.js",
+      "local": "src/legacy/test/combat-system.test.js",
+      "sha256": "cd0640b017c00890ef14ab64d8d3b3e0dea91766909d855b245badcef0d8b072",
+      "bytes": 9768
+    },
+    {
+      "source": "test/cosmic-kit-system.test.js",
+      "local": "src/legacy/test/cosmic-kit-system.test.js",
+      "sha256": "0852d2458c808f8fa3d81a5e5191a0c23ce0eb3699c86c5877a6a3aa3ed9e3d3",
+      "bytes": 4843
+    },
+    {
+      "source": "test/darkfire-consumption-contract.test.js",
+      "local": "src/legacy/test/darkfire-consumption-contract.test.js",
+      "sha256": "1eb2ddd43f86c887352efdf00e74c712540d9bb9a5c9cbe9bdda6312aeb30697",
+      "bytes": 10396
+    },
+    {
+      "source": "test/deferred-evolution-contract.test.js",
+      "local": "src/legacy/test/deferred-evolution-contract.test.js",
+      "sha256": "ceff32d4dcc9876640f0903662a12862c022d6c53427dc11006bb18f12482f1f",
+      "bytes": 7294
+    },
+    {
+      "source": "test/elemental-weather-contract.test.js",
+      "local": "src/legacy/test/elemental-weather-contract.test.js",
+      "sha256": "bcbfda2096df822f8b82244345f361f68fe0c76330189726370606d00bd32564",
+      "bytes": 10165
+    },
+    {
+      "source": "test/encounter-director.test.js",
+      "local": "src/legacy/test/encounter-director.test.js",
+      "sha256": "2ab053449dd86cb25b3b548794b6aee94729e8f3936e73b1f7408429c96a2ef3",
+      "bytes": 3551
+    },
+    {
+      "source": "test/enemy.test.js",
+      "local": "src/legacy/test/enemy.test.js",
+      "sha256": "571186198491650be821e40f221d0165a408ef1c79447b39835b4dd1b0d3a5f1",
+      "bytes": 17467
+    },
+    {
+      "source": "test/energy-identity-contract.test.js",
+      "local": "src/legacy/test/energy-identity-contract.test.js",
+      "sha256": "ff6b7cab9f2a2a8bbeb6e985f03909bfedb778301ad21bd95971297c9e9af97f",
+      "bytes": 11775
+    },
+    {
+      "source": "test/energy-reserve-contract.test.js",
+      "local": "src/legacy/test/energy-reserve-contract.test.js",
+      "sha256": "01636af4ac6586170adc479c07e4d7806d0ce115476672c0d27877d4d4c503cd",
+      "bytes": 12757
+    },
+    {
+      "source": "test/equipment-transition-contract.test.js",
+      "local": "src/legacy/test/equipment-transition-contract.test.js",
+      "sha256": "79f9d52474bffdb4dd03d1612ebb55e8a0cc9f61883965f69c028b94f7331873",
+      "bytes": 8773
+    },
+    {
+      "source": "test/escaped-impact-contract.test.js",
+      "local": "src/legacy/test/escaped-impact-contract.test.js",
+      "sha256": "f47c66cf5b37821cea511071fcc5f21ac93e37a1f6bb42bbd4c9cb3e149d890e",
+      "bytes": 7549
+    },
+    {
+      "source": "test/evolution-item-compatibility.test.js",
+      "local": "src/legacy/test/evolution-item-compatibility.test.js",
+      "sha256": "151d2117288f88a4bb0cb792f131ce449d9d7f4fd43d60cb31d9786e42faa7a5",
+      "bytes": 7181
+    },
+    {
+      "source": "test/evolution-system.test.js",
+      "local": "src/legacy/test/evolution-system.test.js",
+      "sha256": "d2de8ca89b54d11043828a5c3cc1d895e268d77e310764884cdefc7d30ff9516",
+      "bytes": 3405
+    },
+    {
+      "source": "test/fate-hunt-contract.test.js",
+      "local": "src/legacy/test/fate-hunt-contract.test.js",
+      "sha256": "9a8f65d4ec9627a8a6e5b05af6c64bcf244d7bda2458d0bdc169299d8a96dee9",
+      "bytes": 9758
+    },
+    {
+      "source": "test/field-devices-contract.test.js",
+      "local": "src/legacy/test/field-devices-contract.test.js",
+      "sha256": "e2ed7b7ac4fca4a517010e27b1e868d63a3267a26e104535adfb10005a789965",
+      "bytes": 7586
+    },
+    {
+      "source": "test/frontier-roster.test.js",
+      "local": "src/legacy/test/frontier-roster.test.js",
+      "sha256": "152ffa2be61160eb61533e6b191354974d2223322b7f07868de7da6b086e7b14",
+      "bytes": 2731
+    },
+    {
+      "source": "test/frontline-contract.test.js",
+      "local": "src/legacy/test/frontline-contract.test.js",
+      "sha256": "713c472824a6608f68dba5d9100540b9f18e2902784b81d03d66fb965fa54fd5",
+      "bytes": 6529
+    },
+    {
+      "source": "test/game-flow.test.js",
+      "local": "src/legacy/test/game-flow.test.js",
+      "sha256": "83bb39761a97d55dc40c5820c2fb5d8f546c1abecebbee58d3474784fc899d1d",
+      "bytes": 2768
+    },
+    {
+      "source": "test/game-mode-system.test.js",
+      "local": "src/legacy/test/game-mode-system.test.js",
+      "sha256": "6f8ceb37949d7e35caf5ad5703c4b1238b4f8a590b10fe4a7774689006337445",
+      "bytes": 7425
+    },
+    {
+      "source": "test/gamma-pressure-contract.test.js",
+      "local": "src/legacy/test/gamma-pressure-contract.test.js",
+      "sha256": "e3aa75fe00e428648d306c204602c8b1991ae03a311f931d5a418347abc8853a",
+      "bytes": 6198
+    },
+    {
+      "source": "test/hero-ability-system.test.js",
+      "local": "src/legacy/test/hero-ability-system.test.js",
+      "sha256": "303d6aab3cdd57f24cb69b52048d9f080448229ff5e5f251c4ec7a5de62d0750",
+      "bytes": 9994
+    },
+    {
+      "source": "test/hero-income-contract.test.js",
+      "local": "src/legacy/test/hero-income-contract.test.js",
+      "sha256": "deb6299a96726688d53970123d9857e5d59718ed7847ea08e265d7106a35ec99",
+      "bytes": 6508
+    },
+    {
+      "source": "test/hero-level-system.test.js",
+      "local": "src/legacy/test/hero-level-system.test.js",
+      "sha256": "5a3f3074b833e71dc95242e80d920bc182241449d524b1f7c33979007d72081f",
+      "bytes": 2147
+    },
+    {
+      "source": "test/hero-rarity-audit.test.js",
+      "local": "src/legacy/test/hero-rarity-audit.test.js",
+      "sha256": "1752286094c317ae77755329e5fba0abdeda270984daac659726fd334de224e5",
+      "bytes": 2144
+    },
+    {
+      "source": "test/hero-roster-contract.test.js",
+      "local": "src/legacy/test/hero-roster-contract.test.js",
+      "sha256": "56ca53d937527edc16b4f3427c63165b769d8e4cb235c55a01caaf4166918266",
+      "bytes": 7003
+    },
+    {
+      "source": "test/hero-targeting.test.js",
+      "local": "src/legacy/test/hero-targeting.test.js",
+      "sha256": "1dc8ec1d58fcfa04ca6b34c46d376ad38999c40b87bc33c0bc342c68dd6d74d6",
+      "bytes": 3435
+    },
+    {
+      "source": "test/hunt-finishers-contract.test.js",
+      "local": "src/legacy/test/hunt-finishers-contract.test.js",
+      "sha256": "e62cfe5f945871f239815eaf3e21c692e7663d5737031a086567a7515499efc5",
+      "bytes": 10514
+    },
+    {
+      "source": "test/hunt-tricks-contract.test.js",
+      "local": "src/legacy/test/hunt-tricks-contract.test.js",
+      "sha256": "89308bf3bf93124ffe38f87b6103c571b2a062796d193e1478a0254f1402e99f",
+      "bytes": 6221
+    },
+    {
+      "source": "test/item-effect-system.test.js",
+      "local": "src/legacy/test/item-effect-system.test.js",
+      "sha256": "dc453c9d3f75334d4c5c5d532bc9f9cd9e829f53ce976c60119347624cb5bd55",
+      "bytes": 1181
+    },
+    {
+      "source": "test/item-signature-system.test.js",
+      "local": "src/legacy/test/item-signature-system.test.js",
+      "sha256": "6f6eb67cb6e939ee6aa275ceef640769c53ac08d426d9a53299278a0841fa23d",
+      "bytes": 4161
+    },
+    {
+      "source": "test/item-status-damage.test.js",
+      "local": "src/legacy/test/item-status-damage.test.js",
+      "sha256": "4cc64e27f70ec436651c5805ef53cacae15f9f286e02c43912930fc7ebfff069",
+      "bytes": 5103
+    },
+    {
+      "source": "test/jabari-interception-contract.test.js",
+      "local": "src/legacy/test/jabari-interception-contract.test.js",
+      "sha256": "a41441acebbf9e6a00650dd63d74c916d6ba99de3a5ef1d46ab9141d927c92ba",
+      "bytes": 9948
+    },
+    {
+      "source": "test/kit-status-damage.test.js",
+      "local": "src/legacy/test/kit-status-damage.test.js",
+      "sha256": "50bc119cdbfddb77b754079686b2f2d4b40f1e692d3ba9db5ad66c4bae30a03a",
+      "bytes": 6341
+    },
+    {
+      "source": "test/level-progression.test.js",
+      "local": "src/legacy/test/level-progression.test.js",
+      "sha256": "27885674e1ce2acf87e8b594b8a1ed2a058f011f229303d72e849e90f7cf8d45",
+      "bytes": 1784
+    },
+    {
+      "source": "test/line-targeting.test.js",
+      "local": "src/legacy/test/line-targeting.test.js",
+      "sha256": "e3a444315963a3ec259bb48b50b964aebd10cf3d09fc3e3ebb27d07e091a86e1",
+      "bytes": 1192
+    },
+    {
+      "source": "test/luke-tenacity-contract.test.js",
+      "local": "src/legacy/test/luke-tenacity-contract.test.js",
+      "sha256": "8ddf54eda4e3d764fed947c5c2f7112f998db4a72465f3d97533186bc4676060",
+      "bytes": 3986
+    },
+    {
+      "source": "test/martial-duel-contract.test.js",
+      "local": "src/legacy/test/martial-duel-contract.test.js",
+      "sha256": "fdb2b848e94958b85067b0619565674576af4fd637f21d5b876d4d9a62c45fc4",
+      "bytes": 9974
+    },
+    {
+      "source": "test/mastery-codex-system.test.js",
+      "local": "src/legacy/test/mastery-codex-system.test.js",
+      "sha256": "273eb9a7fcd08e553199439ffbeda000bff6c11c57fd8922f9869ecf1fb2ce0c",
+      "bytes": 1745
+    },
+    {
+      "source": "test/mission-system.test.js",
+      "local": "src/legacy/test/mission-system.test.js",
+      "sha256": "4f320a1256251c0b2af9e9eff0fee13c6915598aebccd8af21c36aec2f430c0a",
+      "bytes": 4591
+    },
+    {
+      "source": "test/moon-chi-contract.test.js",
+      "local": "src/legacy/test/moon-chi-contract.test.js",
+      "sha256": "3e25704871ee5a873a1ecfcd27e704654def63ae6cd799350c3c4b5710646e6f",
+      "bytes": 6943
+    },
+    {
+      "source": "test/mutant-kit-system.test.js",
+      "local": "src/legacy/test/mutant-kit-system.test.js",
+      "sha256": "924ff55b888af38e01c947d4800fcc246df83b6659a640e69c168d56f81c8092",
+      "bytes": 6951
+    },
+    {
+      "source": "test/mystic-aura-transition-contract.test.js",
+      "local": "src/legacy/test/mystic-aura-transition-contract.test.js",
+      "sha256": "3379e242fc9fbd733d0f29ee5c93f38cd1de686773417348fb76d8fc757e1292",
+      "bytes": 4814
+    },
+    {
+      "source": "test/mystic-network-contract.test.js",
+      "local": "src/legacy/test/mystic-network-contract.test.js",
+      "sha256": "6a9064f9f165eaa1a2e3c207384055284826c34acadc3e9aafb9d1d42b041a02",
+      "bytes": 11365
+    },
+    {
+      "source": "test/path-utils.test.js",
+      "local": "src/legacy/test/path-utils.test.js",
+      "sha256": "19ac06ea20b96c9b0775874ce0f25abd2cf3bdeffebefd4c41782a4a2d31ae40",
+      "bytes": 2526
+    },
+    {
+      "source": "test/poison-stacks.test.js",
+      "local": "src/legacy/test/poison-stacks.test.js",
+      "sha256": "f04119d6f0f9c9dad88ee7ef8ae9e79c37d3950fedba05e9547ae3b66f7c41d0",
+      "bytes": 8550
+    },
+    {
+      "source": "test/progression-manager.test.js",
+      "local": "src/legacy/test/progression-manager.test.js",
+      "sha256": "c32a558794441c476288940684d646ee2e21eb6b57b46f5e5be016e3523b8f5f",
+      "bytes": 32612
+    },
+    {
+      "source": "test/psychic-bamf-contract.test.js",
+      "local": "src/legacy/test/psychic-bamf-contract.test.js",
+      "sha256": "91d04e84bb2ebc07c8f949d6aaba0e6413f41ac0299f4508f96c64ba30334351",
+      "bytes": 9355
+    },
+    {
+      "source": "test/pym-ring-combo-contract.test.js",
+      "local": "src/legacy/test/pym-ring-combo-contract.test.js",
+      "sha256": "5b673d967c9896f94b2a5704c5186dc327f9089229dfc4b70e50dfe60b090a95",
+      "bytes": 7218
+    },
+    {
+      "source": "test/random.test.js",
+      "local": "src/legacy/test/random.test.js",
+      "sha256": "b133a9eadb088f9ca8a8aa382d3ce73fa7f7ee12ec4ed41d50d7b0f05df2c073",
+      "bytes": 812
+    },
+    {
+      "source": "test/recon-salvo-contract.test.js",
+      "local": "src/legacy/test/recon-salvo-contract.test.js",
+      "sha256": "a14adfda58e525cf6bdeb930bd4838a2cd539c74e14c33e88e7a54d02f1f70ef",
+      "bytes": 7849
+    },
+    {
+      "source": "test/replay-system.test.js",
+      "local": "src/legacy/test/replay-system.test.js",
+      "sha256": "94278b230a51eb7d452d3289bcebf84baaedf5d4693ec8ecc046081b0bfe6384",
+      "bytes": 2325
+    },
+    {
+      "source": "test/resource-manager.test.js",
+      "local": "src/legacy/test/resource-manager.test.js",
+      "sha256": "afe1f7a017144bd416bfa1fdc529c73805f70663e0fe15cafd810687de106ff3",
+      "bytes": 1546
+    },
+    {
+      "source": "test/secondary-impact-contract.test.js",
+      "local": "src/legacy/test/secondary-impact-contract.test.js",
+      "sha256": "fe9d97fac4b713b91e24586dfaa5049cf274210b31ef3cf60fc8513f3fb3973c",
+      "bytes": 6276
+    },
+    {
+      "source": "test/shop-system.test.js",
+      "local": "src/legacy/test/shop-system.test.js",
+      "sha256": "c62557c6c0c649e46e122fb889ee91cee7655c5dcb0e64610d0489c44756c233",
+      "bytes": 5152
+    },
+    {
+      "source": "test/signature-burn-contract.test.js",
+      "local": "src/legacy/test/signature-burn-contract.test.js",
+      "sha256": "712b7e3523b310cf78960505324deff1229156bf3d309cbccfef7f6477ad17cd",
+      "bytes": 7762
+    },
+    {
+      "source": "test/signature-cycle-contract.test.js",
+      "local": "src/legacy/test/signature-cycle-contract.test.js",
+      "sha256": "95e7bf09ff20ce8562246ecafc300c0020596887c10cb39cb7fbe18a0f90b6cf",
+      "bytes": 9612
+    },
+    {
+      "source": "test/signature-mark-contract.test.js",
+      "local": "src/legacy/test/signature-mark-contract.test.js",
+      "sha256": "bb7574ae2ad32f4965ca112a4a618e35a1be81562b4dc7fae0d9d73af2930023",
+      "bytes": 8236
+    },
+    {
+      "source": "test/signature-secondary-targeting.test.js",
+      "local": "src/legacy/test/signature-secondary-targeting.test.js",
+      "sha256": "d4378ed83ee7140ce86e72bb0facbde925b0a30b9803733f64a03a30482766b5",
+      "bytes": 5252
+    },
+    {
+      "source": "test/sprite-animator.test.js",
+      "local": "src/legacy/test/sprite-animator.test.js",
+      "sha256": "48e1f62f936f9221cc10a0ca79ff991582af0e80e46fc1b756e7eff9db4737cc",
+      "bytes": 3162
+    },
+    {
+      "source": "test/starter-selection.test.js",
+      "local": "src/legacy/test/starter-selection.test.js",
+      "sha256": "224757af63677dcf25066c54b2b5d6e404ce9181a40a69c2dc6efe4f1c9b001e",
+      "bytes": 3366
+    },
+    {
+      "source": "test/status-damage-contract.test.js",
+      "local": "src/legacy/test/status-damage-contract.test.js",
+      "sha256": "e67e2d13d7e6179a675ea738d1f1b1fd30e6ba9922c51af2c3cba14ca2e0acbe",
+      "bytes": 5725
+    },
+    {
+      "source": "test/status-duration-contract.test.js",
+      "local": "src/legacy/test/status-duration-contract.test.js",
+      "sha256": "572ce36925805c69e3554d9bfafd59679773df42b4897ad70e9fb49f48222dc8",
+      "bytes": 6551
+    },
+    {
+      "source": "test/street-kit-system.test.js",
+      "local": "src/legacy/test/street-kit-system.test.js",
+      "sha256": "f77e824ef2adca39b3958d4dfc39d5fce5f08c64d078c3d3241d071717db9527",
+      "bytes": 5718
+    },
+    {
+      "source": "test/support-economy-system.test.js",
+      "local": "src/legacy/test/support-economy-system.test.js",
+      "sha256": "f5d5a125cbf5852b0184c6a412ce78080569e9a945096319e1e8db2000228956",
+      "bytes": 6790
+    },
+    {
+      "source": "test/support-transition-state.test.js",
+      "local": "src/legacy/test/support-transition-state.test.js",
+      "sha256": "d2a714e58717ee843be836b6fe47f61a857a65c1c81d2946b25e58a8f927f2c7",
+      "bytes": 6797
+    },
+    {
+      "source": "test/tactical-action-system.test.js",
+      "local": "src/legacy/test/tactical-action-system.test.js",
+      "sha256": "e53c565eb6a53a608703934483933ef7a724215ff1614ed393b8628b0ea45a7b",
+      "bytes": 1993
+    },
+    {
+      "source": "test/target-focus-contract.test.js",
+      "local": "src/legacy/test/target-focus-contract.test.js",
+      "sha256": "5b870af174e99234e3ad717549bc21340f6e12f0f8da496f765857711d6830ed",
+      "bytes": 8189
+    },
+    {
+      "source": "test/team-synergy-system.test.js",
+      "local": "src/legacy/test/team-synergy-system.test.js",
+      "sha256": "1cfb0914718424a5483177954c4ad71b110375fad333f3259915212d64175f24",
+      "bytes": 12670
+    },
+    {
+      "source": "test/vigilance-hunters-contract.test.js",
+      "local": "src/legacy/test/vigilance-hunters-contract.test.js",
+      "sha256": "9e8c57829629cabdf025159af666d44526ca6180192413fe6debdd350c011459",
+      "bytes": 11619
+    },
+    {
+      "source": "test/villain-codex-system.test.js",
+      "local": "src/legacy/test/villain-codex-system.test.js",
+      "sha256": "704861c23121d0674b80124f3c30bde79a86d0192a7f16eb3da042356e7bbc19",
+      "bytes": 1248
+    },
+    {
+      "source": "test/wave-damage-check.test.js",
+      "local": "src/legacy/test/wave-damage-check.test.js",
+      "sha256": "036ddc8973d95ce50b81c4f91e14d76b6fee6d2f3e1c11a71a9f309850e7c06f",
+      "bytes": 3501
+    },
+    {
+      "source": "test/wave-manager.test.js",
+      "local": "src/legacy/test/wave-manager.test.js",
+      "sha256": "9ee0309aa2535a42b2c47fe09aa552814c6c68df837e92cf3e27c22eaeda9430",
+      "bytes": 25943
+    },
+    {
+      "source": "test/zone-control-contract.test.js",
+      "local": "src/legacy/test/zone-control-contract.test.js",
+      "sha256": "5789ce01e0acb8bead403775e0faf370fd0ef5c9418c0d097c7ed4a8073e16d8",
+      "bytes": 8112
+    }
+  ]
+}

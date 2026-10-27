@@ -1,6 +1,8 @@
 # Ultimate Marvel TD 3D
 
 - Este repositorio es el juego 3D independiente de Roblox. El origen principal de diseño es `aaloiamircovich/TowerDefense_Marvel`.
+- Prioridad actual del usuario: migrar todo lo aprovechable del juego 2D antes de ampliar funciones exclusivas del 3D o producir más modelos. Seguir `docs/MIGRACION_2D.md` y conservar reglas y contenido originales; no reemplazarlos por versiones simplificadas.
+- `src/legacy/` conserva un snapshot verificable del origen. No editar sus archivos importados: construir adaptadores fuera de esa carpeta. Distinguir contenido copiado, reglas verificadas y funcionalidades integradas en partidas 3D; la copia de un módulo no implica paridad jugable.
 - El usuario autorizó hacer commit y push de los cambios terminados a `https://github.com/aaloiamircovich/UltimateMarvelTD_3D`. Conservar esta preferencia en futuras tareas; verificar el remoto antes del push.
 - Mantener la simulación independiente de Three.js y del DOM. Definiciones de héroes, enemigos, mapas y oleadas van en módulos de datos.
 - Interfaz y documentación en español. Mantener controles de teclado y estados de error visibles.

@@ -8,8 +8,10 @@
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test test/*.test.js",
+    "test:legacy": "node scripts/test-legacy.mjs",
+    "import:legacy": "node scripts/import-legacy.mjs",
     "test:browser": "node scripts/browser-smoke.mjs",
-    "check": "npm test && npm run build"
+    "check": "npm test && npm run test:legacy && npm run build"
   },
   "engines": {
     "node": ">=22.12.0"

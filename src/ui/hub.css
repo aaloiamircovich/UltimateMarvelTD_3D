@@ -3,6 +3,8 @@
 #hub-world canvas { display: block; }
 .hub-top { position: absolute; inset: 0 0 auto; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: linear-gradient(#091625e8, #09162500); pointer-events: none; }
 .hub-top button { pointer-events: auto; }
+.hub-header-actions { display: flex; gap: 8px; }
+@media (max-width: 600px) { .hub-header-actions { flex-direction: column; gap: 4px; } }
 .hub-brand { display: flex; gap: 12px; align-items: center; }
 .hub-brand > span { background: #e73643; padding: 4px 7px; font: 800 25px 'Barlow Condensed',sans-serif; }
 .hub-brand strong { font: 800 25px 'Barlow Condensed',sans-serif; letter-spacing: 1px; }

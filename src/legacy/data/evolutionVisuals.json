@@ -1,0 +1,1681 @@
+{
+    "adam_warlock_gauntlet":  {
+                                  "id":  "adam_warlock_gauntlet",
+                                  "heroId":  "adam_warlock",
+                                  "sprite":  "assets/images/evolutions/adam_warlock_gauntlet/portrait.png",
+                                  "visual":  {
+                                                 "size":  96,
+                                                 "anchor":  {
+                                                                "y":  0.62,
+                                                                "x":  0.5
+                                                            },
+                                                 "defaultDirection":  "south",
+                                                 "portrait":  "assets/images/evolutions/adam_warlock_gauntlet/portrait.png",
+                                                 "idle":  {
+                                                              "south":  "assets/images/evolutions/adam_warlock_gauntlet/idle/south.png",
+                                                              "south-east":  "assets/images/evolutions/adam_warlock_gauntlet/idle/south-east.png",
+                                                              "east":  "assets/images/evolutions/adam_warlock_gauntlet/idle/east.png",
+                                                              "north-east":  "assets/images/evolutions/adam_warlock_gauntlet/idle/north-east.png",
+                                                              "north":  "assets/images/evolutions/adam_warlock_gauntlet/idle/north.png",
+                                                              "north-west":  "assets/images/evolutions/adam_warlock_gauntlet/idle/north-west.png",
+                                                              "west":  "assets/images/evolutions/adam_warlock_gauntlet/idle/west.png",
+                                                              "south-west":  "assets/images/evolutions/adam_warlock_gauntlet/idle/south-west.png"
+                                                          },
+                                                 "attack":  {
+                                                                "frames":  {
+                                                                               "south":  [
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/south/0.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/south/1.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/south/2.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/south/3.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/south/4.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/south/5.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/south/6.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/south/7.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/south/8.png"
+                                                                                         ],
+                                                                               "north":  [
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/north/0.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/north/1.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/north/2.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/north/3.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/north/4.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/north/5.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/north/6.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/north/7.png",
+                                                                                             "assets/images/evolutions/adam_warlock_gauntlet/attack/north/8.png"
+                                                                                         ],
+                                                                               "east":  [
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/east/0.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/east/1.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/east/2.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/east/3.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/east/4.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/east/5.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/east/6.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/east/7.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/east/8.png"
+                                                                                        ],
+                                                                               "west":  [
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/west/0.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/west/1.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/west/2.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/west/3.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/west/4.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/west/5.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/west/6.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/west/7.png",
+                                                                                            "assets/images/evolutions/adam_warlock_gauntlet/attack/west/8.png"
+                                                                                        ]
+                                                                           },
+                                                                "fps":  10
+                                                            }
+                                             }
+                              },
+    "angela_evolution":  {
+                             "id":  "angela_evolution",
+                             "heroId":  "angela",
+                             "sprite":  "assets/images/evolutions/angela_evolution/portrait.png",
+                             "visual":  {
+                                            "size":  96,
+                                            "anchor":  {
+                                                           "y":  0.62,
+                                                           "x":  0.5
+                                                       },
+                                            "defaultDirection":  "south",
+                                            "portrait":  "assets/images/evolutions/angela_evolution/portrait.png",
+                                            "idle":  {
+                                                         "south":  "assets/images/evolutions/angela_evolution/idle/south.png",
+                                                         "south-east":  "assets/images/evolutions/angela_evolution/idle/south-east.png",
+                                                         "east":  "assets/images/evolutions/angela_evolution/idle/east.png",
+                                                         "north-east":  "assets/images/evolutions/angela_evolution/idle/north-east.png",
+                                                         "north":  "assets/images/evolutions/angela_evolution/idle/north.png",
+                                                         "north-west":  "assets/images/evolutions/angela_evolution/idle/north-west.png",
+                                                         "west":  "assets/images/evolutions/angela_evolution/idle/west.png",
+                                                         "south-west":  "assets/images/evolutions/angela_evolution/idle/south-west.png"
+                                                     },
+                                            "attack":  {
+                                                           "frames":  {
+                                                                          "south":  [
+                                                                                        "assets/images/evolutions/angela_evolution/attack/south/0.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/south/1.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/south/2.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/south/3.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/south/4.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/south/5.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/south/6.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/south/7.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/south/8.png"
+                                                                                    ],
+                                                                          "north":  [
+                                                                                        "assets/images/evolutions/angela_evolution/attack/north/0.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/north/1.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/north/2.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/north/3.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/north/4.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/north/5.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/north/6.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/north/7.png",
+                                                                                        "assets/images/evolutions/angela_evolution/attack/north/8.png"
+                                                                                    ],
+                                                                          "east":  [
+                                                                                       "assets/images/evolutions/angela_evolution/attack/east/0.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/east/1.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/east/2.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/east/3.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/east/4.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/east/5.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/east/6.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/east/7.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/east/8.png"
+                                                                                   ],
+                                                                          "west":  [
+                                                                                       "assets/images/evolutions/angela_evolution/attack/west/0.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/west/1.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/west/2.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/west/3.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/west/4.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/west/5.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/west/6.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/west/7.png",
+                                                                                       "assets/images/evolutions/angela_evolution/attack/west/8.png"
+                                                                                   ]
+                                                                      },
+                                                           "fps":  10
+                                                       }
+                                        }
+                         },
+    "captain_marvel_evolution":  {
+                                     "id":  "captain_marvel_evolution",
+                                     "heroId":  "captain_marvel",
+                                     "sprite":  "assets/images/evolutions/captain_marvel_evolution/portrait.png",
+                                     "visual":  {
+                                                    "size":  96,
+                                                    "anchor":  {
+                                                                   "y":  0.62,
+                                                                   "x":  0.5
+                                                               },
+                                                    "defaultDirection":  "south",
+                                                    "portrait":  "assets/images/evolutions/captain_marvel_evolution/portrait.png",
+                                                    "idle":  {
+                                                                 "south":  "assets/images/evolutions/captain_marvel_evolution/idle/south.png",
+                                                                 "south-east":  "assets/images/evolutions/captain_marvel_evolution/idle/south-east.png",
+                                                                 "east":  "assets/images/evolutions/captain_marvel_evolution/idle/east.png",
+                                                                 "north-east":  "assets/images/evolutions/captain_marvel_evolution/idle/north-east.png",
+                                                                 "north":  "assets/images/evolutions/captain_marvel_evolution/idle/north.png",
+                                                                 "north-west":  "assets/images/evolutions/captain_marvel_evolution/idle/north-west.png",
+                                                                 "west":  "assets/images/evolutions/captain_marvel_evolution/idle/west.png",
+                                                                 "south-west":  "assets/images/evolutions/captain_marvel_evolution/idle/south-west.png"
+                                                             },
+                                                    "attack":  {
+                                                                   "frames":  {
+                                                                                  "south":  [
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/south/0.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/south/1.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/south/2.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/south/3.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/south/4.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/south/5.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/south/6.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/south/7.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/south/8.png"
+                                                                                            ],
+                                                                                  "north":  [
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/north/0.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/north/1.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/north/2.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/north/3.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/north/4.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/north/5.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/north/6.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/north/7.png",
+                                                                                                "assets/images/evolutions/captain_marvel_evolution/attack/north/8.png"
+                                                                                            ],
+                                                                                  "east":  [
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/east/0.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/east/1.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/east/2.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/east/3.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/east/4.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/east/5.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/east/6.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/east/7.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/east/8.png"
+                                                                                           ],
+                                                                                  "west":  [
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/west/0.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/west/1.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/west/2.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/west/3.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/west/4.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/west/5.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/west/6.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/west/7.png",
+                                                                                               "assets/images/evolutions/captain_marvel_evolution/attack/west/8.png"
+                                                                                           ]
+                                                                              },
+                                                                   "fps":  10
+                                                               }
+                                                }
+                                 },
+    "capitan_america_mjolnir":  {
+                                    "id":  "capitan_america_mjolnir",
+                                    "heroId":  "capitan_america",
+                                    "sprite":  "assets/images/evolutions/capitan_america_mjolnir/portrait.png",
+                                    "visual":  {
+                                                   "size":  96,
+                                                   "anchor":  {
+                                                                  "y":  0.62,
+                                                                  "x":  0.5
+                                                              },
+                                                   "defaultDirection":  "south",
+                                                   "portrait":  "assets/images/evolutions/capitan_america_mjolnir/portrait.png",
+                                                   "idle":  {
+                                                                "south":  "assets/images/evolutions/capitan_america_mjolnir/idle/south.png",
+                                                                "south-east":  "assets/images/evolutions/capitan_america_mjolnir/idle/south-east.png",
+                                                                "east":  "assets/images/evolutions/capitan_america_mjolnir/idle/east.png",
+                                                                "north-east":  "assets/images/evolutions/capitan_america_mjolnir/idle/north-east.png",
+                                                                "north":  "assets/images/evolutions/capitan_america_mjolnir/idle/north.png",
+                                                                "north-west":  "assets/images/evolutions/capitan_america_mjolnir/idle/north-west.png",
+                                                                "west":  "assets/images/evolutions/capitan_america_mjolnir/idle/west.png",
+                                                                "south-west":  "assets/images/evolutions/capitan_america_mjolnir/idle/south-west.png"
+                                                            },
+                                                   "attack":  {
+                                                                  "frames":  {
+                                                                                 "south":  [
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/south/0.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/south/1.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/south/2.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/south/3.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/south/4.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/south/5.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/south/6.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/south/7.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/south/8.png"
+                                                                                           ],
+                                                                                 "north":  [
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/north/0.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/north/1.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/north/2.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/north/3.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/north/4.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/north/5.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/north/6.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/north/7.png",
+                                                                                               "assets/images/evolutions/capitan_america_mjolnir/attack/north/8.png"
+                                                                                           ],
+                                                                                 "east":  [
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/east/0.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/east/1.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/east/2.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/east/3.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/east/4.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/east/5.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/east/6.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/east/7.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/east/8.png"
+                                                                                          ],
+                                                                                 "west":  [
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/west/0.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/west/1.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/west/2.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/west/3.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/west/4.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/west/5.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/west/6.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/west/7.png",
+                                                                                              "assets/images/evolutions/capitan_america_mjolnir/attack/west/8.png"
+                                                                                          ]
+                                                                             },
+                                                                  "fps":  10
+                                                              }
+                                               }
+                                },
+    "cyclops_evolution":  {
+                              "id":  "cyclops_evolution",
+                              "heroId":  "cyclops",
+                              "sprite":  "assets/images/evolutions/cyclops_evolution/portrait.png",
+                              "visual":  {
+                                             "size":  96,
+                                             "anchor":  {
+                                                            "y":  0.62,
+                                                            "x":  0.5
+                                                        },
+                                             "defaultDirection":  "south",
+                                             "portrait":  "assets/images/evolutions/cyclops_evolution/portrait.png",
+                                             "idle":  {
+                                                          "south":  "assets/images/evolutions/cyclops_evolution/idle/south.png",
+                                                          "south-east":  "assets/images/evolutions/cyclops_evolution/idle/south-east.png",
+                                                          "east":  "assets/images/evolutions/cyclops_evolution/idle/east.png",
+                                                          "north-east":  "assets/images/evolutions/cyclops_evolution/idle/north-east.png",
+                                                          "north":  "assets/images/evolutions/cyclops_evolution/idle/north.png",
+                                                          "north-west":  "assets/images/evolutions/cyclops_evolution/idle/north-west.png",
+                                                          "west":  "assets/images/evolutions/cyclops_evolution/idle/west.png",
+                                                          "south-west":  "assets/images/evolutions/cyclops_evolution/idle/south-west.png"
+                                                      },
+                                             "attack":  {
+                                                            "frames":  {
+                                                                           "south":  [
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/south/0.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/south/1.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/south/2.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/south/3.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/south/4.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/south/5.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/south/6.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/south/7.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/south/8.png"
+                                                                                     ],
+                                                                           "north":  [
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/north/0.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/north/1.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/north/2.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/north/3.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/north/4.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/north/5.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/north/6.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/north/7.png",
+                                                                                         "assets/images/evolutions/cyclops_evolution/attack/north/8.png"
+                                                                                     ],
+                                                                           "east":  [
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/east/0.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/east/1.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/east/2.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/east/3.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/east/4.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/east/5.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/east/6.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/east/7.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/east/8.png"
+                                                                                    ],
+                                                                           "west":  [
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/west/0.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/west/1.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/west/2.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/west/3.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/west/4.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/west/5.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/west/6.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/west/7.png",
+                                                                                        "assets/images/evolutions/cyclops_evolution/attack/west/8.png"
+                                                                                    ]
+                                                                       },
+                                                            "fps":  10
+                                                        }
+                                         }
+                          },
+    "magik_evolution":  {
+                            "id":  "magik_evolution",
+                            "heroId":  "magik",
+                            "sprite":  "assets/images/evolutions/magik_evolution/portrait.png",
+                            "visual":  {
+                                           "size":  96,
+                                           "anchor":  {
+                                                          "y":  0.62,
+                                                          "x":  0.5
+                                                      },
+                                           "defaultDirection":  "south",
+                                           "portrait":  "assets/images/evolutions/magik_evolution/portrait.png",
+                                           "idle":  {
+                                                        "south":  "assets/images/evolutions/magik_evolution/idle/south.png",
+                                                        "south-east":  "assets/images/evolutions/magik_evolution/idle/south-east.png",
+                                                        "east":  "assets/images/evolutions/magik_evolution/idle/east.png",
+                                                        "north-east":  "assets/images/evolutions/magik_evolution/idle/north-east.png",
+                                                        "north":  "assets/images/evolutions/magik_evolution/idle/north.png",
+                                                        "north-west":  "assets/images/evolutions/magik_evolution/idle/north-west.png",
+                                                        "west":  "assets/images/evolutions/magik_evolution/idle/west.png",
+                                                        "south-west":  "assets/images/evolutions/magik_evolution/idle/south-west.png"
+                                                    },
+                                           "attack":  {
+                                                          "frames":  {
+                                                                         "south":  [
+                                                                                       "assets/images/evolutions/magik_evolution/attack/south/0.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/south/1.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/south/2.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/south/3.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/south/4.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/south/5.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/south/6.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/south/7.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/south/8.png"
+                                                                                   ],
+                                                                         "north":  [
+                                                                                       "assets/images/evolutions/magik_evolution/attack/north/0.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/north/1.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/north/2.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/north/3.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/north/4.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/north/5.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/north/6.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/north/7.png",
+                                                                                       "assets/images/evolutions/magik_evolution/attack/north/8.png"
+                                                                                   ],
+                                                                         "east":  [
+                                                                                      "assets/images/evolutions/magik_evolution/attack/east/0.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/east/1.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/east/2.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/east/3.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/east/4.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/east/5.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/east/6.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/east/7.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/east/8.png"
+                                                                                  ],
+                                                                         "west":  [
+                                                                                      "assets/images/evolutions/magik_evolution/attack/west/0.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/west/1.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/west/2.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/west/3.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/west/4.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/west/5.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/west/6.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/west/7.png",
+                                                                                      "assets/images/evolutions/magik_evolution/attack/west/8.png"
+                                                                                  ]
+                                                                     },
+                                                          "fps":  10
+                                                      }
+                                       }
+                        },
+    "dark_phoenix":  {
+                         "id":  "dark_phoenix",
+                         "heroId":  "jean_grey",
+                         "sprite":  "assets/images/evolutions/dark_phoenix/portrait.png",
+                         "visual":  {
+                                        "size":  96,
+                                        "anchor":  {
+                                                       "y":  0.62,
+                                                       "x":  0.5
+                                                   },
+                                        "defaultDirection":  "south",
+                                        "portrait":  "assets/images/evolutions/dark_phoenix/portrait.png",
+                                        "idle":  {
+                                                     "south":  "assets/images/evolutions/dark_phoenix/idle/south.png",
+                                                     "south-east":  "assets/images/evolutions/dark_phoenix/idle/south-east.png",
+                                                     "east":  "assets/images/evolutions/dark_phoenix/idle/east.png",
+                                                     "north-east":  "assets/images/evolutions/dark_phoenix/idle/north-east.png",
+                                                     "north":  "assets/images/evolutions/dark_phoenix/idle/north.png",
+                                                     "north-west":  "assets/images/evolutions/dark_phoenix/idle/north-west.png",
+                                                     "west":  "assets/images/evolutions/dark_phoenix/idle/west.png",
+                                                     "south-west":  "assets/images/evolutions/dark_phoenix/idle/south-west.png"
+                                                 },
+                                        "attack":  {
+                                                       "frames":  {
+                                                                      "south":  [
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/south/0.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/south/1.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/south/2.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/south/3.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/south/4.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/south/5.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/south/6.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/south/7.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/south/8.png"
+                                                                                ],
+                                                                      "north":  [
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/north/0.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/north/1.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/north/2.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/north/3.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/north/4.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/north/5.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/north/6.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/north/7.png",
+                                                                                    "assets/images/evolutions/dark_phoenix/attack/north/8.png"
+                                                                                ],
+                                                                      "east":  [
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/east/0.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/east/1.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/east/2.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/east/3.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/east/4.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/east/5.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/east/6.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/east/7.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/east/8.png"
+                                                                               ],
+                                                                      "west":  [
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/west/0.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/west/1.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/west/2.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/west/3.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/west/4.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/west/5.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/west/6.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/west/7.png",
+                                                                                   "assets/images/evolutions/dark_phoenix/attack/west/8.png"
+                                                                               ]
+                                                                  },
+                                                       "fps":  10
+                                                   }
+                                    }
+                     },
+    "dark_surfer":  {
+                        "id":  "dark_surfer",
+                        "heroId":  "silver_surfer",
+                        "sprite":  "assets/images/evolutions/dark_surfer/portrait.png",
+                        "visual":  {
+                                       "size":  96,
+                                       "anchor":  {
+                                                      "y":  0.62,
+                                                      "x":  0.5
+                                                  },
+                                       "defaultDirection":  "south",
+                                       "portrait":  "assets/images/evolutions/dark_surfer/portrait.png",
+                                       "idle":  {
+                                                    "south":  "assets/images/evolutions/dark_surfer/idle/south.png",
+                                                    "south-east":  "assets/images/evolutions/dark_surfer/idle/south-east.png",
+                                                    "east":  "assets/images/evolutions/dark_surfer/idle/east.png",
+                                                    "north-east":  "assets/images/evolutions/dark_surfer/idle/north-east.png",
+                                                    "north":  "assets/images/evolutions/dark_surfer/idle/north.png",
+                                                    "north-west":  "assets/images/evolutions/dark_surfer/idle/north-west.png",
+                                                    "west":  "assets/images/evolutions/dark_surfer/idle/west.png",
+                                                    "south-west":  "assets/images/evolutions/dark_surfer/idle/south-west.png"
+                                                },
+                                       "attack":  {
+                                                      "frames":  {
+                                                                     "south":  [
+                                                                                   "assets/images/evolutions/dark_surfer/attack/south/0.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/south/1.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/south/2.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/south/3.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/south/4.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/south/5.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/south/6.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/south/7.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/south/8.png"
+                                                                               ],
+                                                                     "north":  [
+                                                                                   "assets/images/evolutions/dark_surfer/attack/north/0.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/north/1.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/north/2.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/north/3.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/north/4.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/north/5.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/north/6.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/north/7.png",
+                                                                                   "assets/images/evolutions/dark_surfer/attack/north/8.png"
+                                                                               ],
+                                                                     "east":  [
+                                                                                  "assets/images/evolutions/dark_surfer/attack/east/0.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/east/1.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/east/2.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/east/3.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/east/4.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/east/5.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/east/6.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/east/7.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/east/8.png"
+                                                                              ],
+                                                                     "west":  [
+                                                                                  "assets/images/evolutions/dark_surfer/attack/west/0.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/west/1.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/west/2.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/west/3.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/west/4.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/west/5.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/west/6.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/west/7.png",
+                                                                                  "assets/images/evolutions/dark_surfer/attack/west/8.png"
+                                                                              ]
+                                                                 },
+                                                      "fps":  10
+                                                  }
+                                   }
+                    },
+    "doctor_strange_dios_magia":  {
+                                      "id":  "doctor_strange_dios_magia",
+                                      "heroId":  "doctor_strange",
+                                      "sprite":  "assets/images/evolutions/doctor_strange_dios_magia/portrait.png",
+                                      "visual":  {
+                                                     "size":  96,
+                                                     "anchor":  {
+                                                                    "y":  0.62,
+                                                                    "x":  0.5
+                                                                },
+                                                     "defaultDirection":  "south",
+                                                     "portrait":  "assets/images/evolutions/doctor_strange_dios_magia/portrait.png",
+                                                     "idle":  {
+                                                                  "south":  "assets/images/evolutions/doctor_strange_dios_magia/idle/south.png",
+                                                                  "south-east":  "assets/images/evolutions/doctor_strange_dios_magia/idle/south-east.png",
+                                                                  "east":  "assets/images/evolutions/doctor_strange_dios_magia/idle/east.png",
+                                                                  "north-east":  "assets/images/evolutions/doctor_strange_dios_magia/idle/north-east.png",
+                                                                  "north":  "assets/images/evolutions/doctor_strange_dios_magia/idle/north.png",
+                                                                  "north-west":  "assets/images/evolutions/doctor_strange_dios_magia/idle/north-west.png",
+                                                                  "west":  "assets/images/evolutions/doctor_strange_dios_magia/idle/west.png",
+                                                                  "south-west":  "assets/images/evolutions/doctor_strange_dios_magia/idle/south-west.png"
+                                                              },
+                                                     "attack":  {
+                                                                    "frames":  {
+                                                                                   "south":  [
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/south/0.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/south/1.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/south/2.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/south/3.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/south/4.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/south/5.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/south/6.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/south/7.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/south/8.png"
+                                                                                             ],
+                                                                                   "north":  [
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/north/0.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/north/1.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/north/2.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/north/3.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/north/4.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/north/5.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/north/6.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/north/7.png",
+                                                                                                 "assets/images/evolutions/doctor_strange_dios_magia/attack/north/8.png"
+                                                                                             ],
+                                                                                   "east":  [
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/east/0.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/east/1.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/east/2.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/east/3.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/east/4.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/east/5.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/east/6.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/east/7.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/east/8.png"
+                                                                                            ],
+                                                                                   "west":  [
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/west/0.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/west/1.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/west/2.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/west/3.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/west/4.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/west/5.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/west/6.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/west/7.png",
+                                                                                                "assets/images/evolutions/doctor_strange_dios_magia/attack/west/8.png"
+                                                                                            ]
+                                                                               },
+                                                                    "fps":  10
+                                                                }
+                                                 }
+                                  },
+    "emma_frost_evolution":  {
+                                 "id":  "emma_frost_evolution",
+                                 "heroId":  "emma_frost",
+                                 "sprite":  "assets/images/evolutions/emma_frost_evolution/portrait.png",
+                                 "visual":  {
+                                                "size":  96,
+                                                "anchor":  {
+                                                               "y":  0.62,
+                                                               "x":  0.5
+                                                           },
+                                                "defaultDirection":  "south",
+                                                "portrait":  "assets/images/evolutions/emma_frost_evolution/portrait.png",
+                                                "idle":  {
+                                                             "south":  "assets/images/evolutions/emma_frost_evolution/idle/south.png",
+                                                             "south-east":  "assets/images/evolutions/emma_frost_evolution/idle/south-east.png",
+                                                             "east":  "assets/images/evolutions/emma_frost_evolution/idle/east.png",
+                                                             "north-east":  "assets/images/evolutions/emma_frost_evolution/idle/north-east.png",
+                                                             "north":  "assets/images/evolutions/emma_frost_evolution/idle/north.png",
+                                                             "north-west":  "assets/images/evolutions/emma_frost_evolution/idle/north-west.png",
+                                                             "west":  "assets/images/evolutions/emma_frost_evolution/idle/west.png",
+                                                             "south-west":  "assets/images/evolutions/emma_frost_evolution/idle/south-west.png"
+                                                         },
+                                                "attack":  {
+                                                               "frames":  {
+                                                                              "south":  [
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/south/0.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/south/1.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/south/2.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/south/3.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/south/4.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/south/5.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/south/6.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/south/7.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/south/8.png"
+                                                                                        ],
+                                                                              "north":  [
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/north/0.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/north/1.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/north/2.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/north/3.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/north/4.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/north/5.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/north/6.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/north/7.png",
+                                                                                            "assets/images/evolutions/emma_frost_evolution/attack/north/8.png"
+                                                                                        ],
+                                                                              "east":  [
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/east/0.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/east/1.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/east/2.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/east/3.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/east/4.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/east/5.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/east/6.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/east/7.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/east/8.png"
+                                                                                       ],
+                                                                              "west":  [
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/west/0.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/west/1.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/west/2.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/west/3.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/west/4.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/west/5.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/west/6.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/west/7.png",
+                                                                                           "assets/images/evolutions/emma_frost_evolution/attack/west/8.png"
+                                                                                       ]
+                                                                          },
+                                                               "fps":  10
+                                                           }
+                                            }
+                             },
+    "ghost_rider_evolution":  {
+                                  "id":  "ghost_rider_evolution",
+                                  "heroId":  "ghost_rider",
+                                  "sprite":  "assets/images/evolutions/ghost_rider_evolution/portrait.png",
+                                  "visual":  {
+                                                 "size":  96,
+                                                 "anchor":  {
+                                                                "y":  0.62,
+                                                                "x":  0.5
+                                                            },
+                                                 "defaultDirection":  "south",
+                                                 "portrait":  "assets/images/evolutions/ghost_rider_evolution/portrait.png",
+                                                 "idle":  {
+                                                              "south":  "assets/images/evolutions/ghost_rider_evolution/idle/south.png",
+                                                              "south-east":  "assets/images/evolutions/ghost_rider_evolution/idle/south-east.png",
+                                                              "east":  "assets/images/evolutions/ghost_rider_evolution/idle/east.png",
+                                                              "north-east":  "assets/images/evolutions/ghost_rider_evolution/idle/north-east.png",
+                                                              "north":  "assets/images/evolutions/ghost_rider_evolution/idle/north.png",
+                                                              "north-west":  "assets/images/evolutions/ghost_rider_evolution/idle/north-west.png",
+                                                              "west":  "assets/images/evolutions/ghost_rider_evolution/idle/west.png",
+                                                              "south-west":  "assets/images/evolutions/ghost_rider_evolution/idle/south-west.png"
+                                                          },
+                                                 "attack":  {
+                                                                "frames":  {
+                                                                               "south":  [
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/south/0.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/south/1.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/south/2.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/south/3.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/south/4.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/south/5.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/south/6.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/south/7.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/south/8.png"
+                                                                                         ],
+                                                                               "north":  [
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/north/0.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/north/1.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/north/2.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/north/3.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/north/4.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/north/5.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/north/6.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/north/7.png",
+                                                                                             "assets/images/evolutions/ghost_rider_evolution/attack/north/8.png"
+                                                                                         ],
+                                                                               "east":  [
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/east/0.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/east/1.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/east/2.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/east/3.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/east/4.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/east/5.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/east/6.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/east/7.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/east/8.png"
+                                                                                        ],
+                                                                               "west":  [
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/west/0.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/west/1.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/west/2.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/west/3.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/west/4.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/west/5.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/west/6.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/west/7.png",
+                                                                                            "assets/images/evolutions/ghost_rider_evolution/attack/west/8.png"
+                                                                                        ]
+                                                                           },
+                                                                "fps":  10
+                                                            }
+                                             }
+                              },
+    "venom_jeff":  {
+                       "id":  "venom_jeff",
+                       "heroId":  "jeff_the_land_shark",
+                       "sprite":  "assets/images/evolutions/venom_jeff/portrait.png",
+                       "visual":  {
+                                      "size":  96,
+                                      "anchor":  {
+                                                     "y":  0.62,
+                                                     "x":  0.5
+                                                 },
+                                      "defaultDirection":  "south",
+                                      "portrait":  "assets/images/evolutions/venom_jeff/portrait.png",
+                                      "idle":  {
+                                                   "south":  "assets/images/evolutions/venom_jeff/idle/south.png",
+                                                   "south-east":  "assets/images/evolutions/venom_jeff/idle/south-east.png",
+                                                   "east":  "assets/images/evolutions/venom_jeff/idle/east.png",
+                                                   "north-east":  "assets/images/evolutions/venom_jeff/idle/north-east.png",
+                                                   "north":  "assets/images/evolutions/venom_jeff/idle/north.png",
+                                                   "north-west":  "assets/images/evolutions/venom_jeff/idle/north-west.png",
+                                                   "west":  "assets/images/evolutions/venom_jeff/idle/west.png",
+                                                   "south-west":  "assets/images/evolutions/venom_jeff/idle/south-west.png"
+                                               },
+                                      "attack":  {
+                                                     "frames":  {
+                                                                    "south":  [
+                                                                                  "assets/images/evolutions/venom_jeff/attack/south/0.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/south/1.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/south/2.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/south/3.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/south/4.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/south/5.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/south/6.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/south/7.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/south/8.png"
+                                                                              ],
+                                                                    "north":  [
+                                                                                  "assets/images/evolutions/venom_jeff/attack/north/0.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/north/1.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/north/2.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/north/3.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/north/4.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/north/5.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/north/6.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/north/7.png",
+                                                                                  "assets/images/evolutions/venom_jeff/attack/north/8.png"
+                                                                              ],
+                                                                    "east":  [
+                                                                                 "assets/images/evolutions/venom_jeff/attack/east/0.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/east/1.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/east/2.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/east/3.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/east/4.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/east/5.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/east/6.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/east/7.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/east/8.png"
+                                                                             ],
+                                                                    "west":  [
+                                                                                 "assets/images/evolutions/venom_jeff/attack/west/0.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/west/1.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/west/2.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/west/3.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/west/4.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/west/5.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/west/6.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/west/7.png",
+                                                                                 "assets/images/evolutions/venom_jeff/attack/west/8.png"
+                                                                             ]
+                                                                },
+                                                     "fps":  10
+                                                 }
+                                  }
+                   },
+    "groot_evolution":  {
+                            "id":  "groot_evolution",
+                            "heroId":  "groot",
+                            "sprite":  "assets/images/evolutions/groot_evolution/portrait.png",
+                            "visual":  {
+                                           "size":  96,
+                                           "anchor":  {
+                                                          "y":  0.62,
+                                                          "x":  0.5
+                                                      },
+                                           "defaultDirection":  "south",
+                                           "portrait":  "assets/images/evolutions/groot_evolution/portrait.png",
+                                           "idle":  {
+                                                        "south":  "assets/images/evolutions/groot_evolution/idle/south.png",
+                                                        "south-east":  "assets/images/evolutions/groot_evolution/idle/south-east.png",
+                                                        "east":  "assets/images/evolutions/groot_evolution/idle/east.png",
+                                                        "north-east":  "assets/images/evolutions/groot_evolution/idle/north-east.png",
+                                                        "north":  "assets/images/evolutions/groot_evolution/idle/north.png",
+                                                        "north-west":  "assets/images/evolutions/groot_evolution/idle/north-west.png",
+                                                        "west":  "assets/images/evolutions/groot_evolution/idle/west.png",
+                                                        "south-west":  "assets/images/evolutions/groot_evolution/idle/south-west.png"
+                                                    },
+                                           "attack":  {
+                                                          "frames":  {
+                                                                         "south":  [
+                                                                                       "assets/images/evolutions/groot_evolution/attack/south/0.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/south/1.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/south/2.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/south/3.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/south/4.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/south/5.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/south/6.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/south/7.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/south/8.png"
+                                                                                   ],
+                                                                         "north":  [
+                                                                                       "assets/images/evolutions/groot_evolution/attack/north/0.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/north/1.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/north/2.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/north/3.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/north/4.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/north/5.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/north/6.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/north/7.png",
+                                                                                       "assets/images/evolutions/groot_evolution/attack/north/8.png"
+                                                                                   ],
+                                                                         "east":  [
+                                                                                      "assets/images/evolutions/groot_evolution/attack/east/0.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/east/1.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/east/2.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/east/3.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/east/4.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/east/5.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/east/6.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/east/7.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/east/8.png"
+                                                                                  ],
+                                                                         "west":  [
+                                                                                      "assets/images/evolutions/groot_evolution/attack/west/0.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/west/1.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/west/2.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/west/3.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/west/4.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/west/5.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/west/6.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/west/7.png",
+                                                                                      "assets/images/evolutions/groot_evolution/attack/west/8.png"
+                                                                                  ]
+                                                                     },
+                                                          "fps":  10
+                                                      }
+                                       }
+                        },
+    "king_in_black_venom":  {
+                                "id":  "king_in_black_venom",
+                                "heroId":  "venom",
+                                "sprite":  "assets/images/evolutions/king_in_black_venom/portrait.png",
+                                "visual":  {
+                                               "size":  96,
+                                               "anchor":  {
+                                                              "y":  0.62,
+                                                              "x":  0.5
+                                                          },
+                                               "defaultDirection":  "south",
+                                               "portrait":  "assets/images/evolutions/king_in_black_venom/portrait.png",
+                                               "idle":  {
+                                                            "south":  "assets/images/evolutions/king_in_black_venom/idle/south.png",
+                                                            "south-east":  "assets/images/evolutions/king_in_black_venom/idle/south-east.png",
+                                                            "east":  "assets/images/evolutions/king_in_black_venom/idle/east.png",
+                                                            "north-east":  "assets/images/evolutions/king_in_black_venom/idle/north-east.png",
+                                                            "north":  "assets/images/evolutions/king_in_black_venom/idle/north.png",
+                                                            "north-west":  "assets/images/evolutions/king_in_black_venom/idle/north-west.png",
+                                                            "west":  "assets/images/evolutions/king_in_black_venom/idle/west.png",
+                                                            "south-west":  "assets/images/evolutions/king_in_black_venom/idle/south-west.png"
+                                                        },
+                                               "attack":  {
+                                                              "frames":  {
+                                                                             "south":  [
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/south/0.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/south/1.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/south/2.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/south/3.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/south/4.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/south/5.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/south/6.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/south/7.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/south/8.png"
+                                                                                       ],
+                                                                             "north":  [
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/north/0.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/north/1.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/north/2.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/north/3.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/north/4.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/north/5.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/north/6.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/north/7.png",
+                                                                                           "assets/images/evolutions/king_in_black_venom/attack/north/8.png"
+                                                                                       ],
+                                                                             "east":  [
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/east/0.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/east/1.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/east/2.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/east/3.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/east/4.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/east/5.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/east/6.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/east/7.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/east/8.png"
+                                                                                      ],
+                                                                             "west":  [
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/west/0.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/west/1.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/west/2.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/west/3.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/west/4.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/west/5.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/west/6.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/west/7.png",
+                                                                                          "assets/images/evolutions/king_in_black_venom/attack/west/8.png"
+                                                                                      ]
+                                                                         },
+                                                              "fps":  10
+                                                          }
+                                           }
+                            },
+    "thor_evolution":  {
+                           "id":  "thor_evolution",
+                           "heroId":  "thor",
+                           "sprite":  "assets/images/evolutions/thor_evolution/portrait.png",
+                           "visual":  {
+                                          "size":  96,
+                                          "anchor":  {
+                                                         "y":  0.62,
+                                                         "x":  0.5
+                                                     },
+                                          "defaultDirection":  "south",
+                                          "portrait":  "assets/images/evolutions/thor_evolution/portrait.png",
+                                          "idle":  {
+                                                       "south":  "assets/images/evolutions/thor_evolution/idle/south.png",
+                                                       "south-east":  "assets/images/evolutions/thor_evolution/idle/south-east.png",
+                                                       "east":  "assets/images/evolutions/thor_evolution/idle/east.png",
+                                                       "north-east":  "assets/images/evolutions/thor_evolution/idle/north-east.png",
+                                                       "north":  "assets/images/evolutions/thor_evolution/idle/north.png",
+                                                       "north-west":  "assets/images/evolutions/thor_evolution/idle/north-west.png",
+                                                       "west":  "assets/images/evolutions/thor_evolution/idle/west.png",
+                                                       "south-west":  "assets/images/evolutions/thor_evolution/idle/south-west.png"
+                                                   },
+                                          "attack":  {
+                                                         "frames":  {
+                                                                        "south":  [
+                                                                                      "assets/images/evolutions/thor_evolution/attack/south/0.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/south/1.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/south/2.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/south/3.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/south/4.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/south/5.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/south/6.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/south/7.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/south/8.png"
+                                                                                  ],
+                                                                        "north":  [
+                                                                                      "assets/images/evolutions/thor_evolution/attack/north/0.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/north/1.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/north/2.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/north/3.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/north/4.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/north/5.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/north/6.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/north/7.png",
+                                                                                      "assets/images/evolutions/thor_evolution/attack/north/8.png"
+                                                                                  ],
+                                                                        "east":  [
+                                                                                     "assets/images/evolutions/thor_evolution/attack/east/0.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/east/1.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/east/2.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/east/3.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/east/4.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/east/5.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/east/6.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/east/7.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/east/8.png"
+                                                                                 ],
+                                                                        "west":  [
+                                                                                     "assets/images/evolutions/thor_evolution/attack/west/0.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/west/1.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/west/2.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/west/3.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/west/4.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/west/5.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/west/6.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/west/7.png",
+                                                                                     "assets/images/evolutions/thor_evolution/attack/west/8.png"
+                                                                                 ]
+                                                                    },
+                                                         "fps":  10
+                                                     }
+                                      }
+                       },
+    "loki_evolution":  {
+                           "id":  "loki_evolution",
+                           "heroId":  "loki",
+                           "sprite":  "assets/images/evolutions/loki_evolution/portrait.png",
+                           "visual":  {
+                                          "size":  96,
+                                          "anchor":  {
+                                                         "y":  0.62,
+                                                         "x":  0.5
+                                                     },
+                                          "defaultDirection":  "south",
+                                          "portrait":  "assets/images/evolutions/loki_evolution/portrait.png",
+                                          "idle":  {
+                                                       "south":  "assets/images/evolutions/loki_evolution/idle/south.png",
+                                                       "south-east":  "assets/images/evolutions/loki_evolution/idle/south-east.png",
+                                                       "east":  "assets/images/evolutions/loki_evolution/idle/east.png",
+                                                       "north-east":  "assets/images/evolutions/loki_evolution/idle/north-east.png",
+                                                       "north":  "assets/images/evolutions/loki_evolution/idle/north.png",
+                                                       "north-west":  "assets/images/evolutions/loki_evolution/idle/north-west.png",
+                                                       "west":  "assets/images/evolutions/loki_evolution/idle/west.png",
+                                                       "south-west":  "assets/images/evolutions/loki_evolution/idle/south-west.png"
+                                                   },
+                                          "attack":  {
+                                                         "frames":  {
+                                                                        "south":  [
+                                                                                      "assets/images/evolutions/loki_evolution/attack/south/0.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/south/1.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/south/2.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/south/3.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/south/4.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/south/5.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/south/6.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/south/7.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/south/8.png"
+                                                                                  ],
+                                                                        "north":  [
+                                                                                      "assets/images/evolutions/loki_evolution/attack/north/0.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/north/1.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/north/2.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/north/3.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/north/4.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/north/5.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/north/6.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/north/7.png",
+                                                                                      "assets/images/evolutions/loki_evolution/attack/north/8.png"
+                                                                                  ],
+                                                                        "east":  [
+                                                                                     "assets/images/evolutions/loki_evolution/attack/east/0.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/east/1.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/east/2.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/east/3.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/east/4.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/east/5.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/east/6.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/east/7.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/east/8.png"
+                                                                                 ],
+                                                                        "west":  [
+                                                                                     "assets/images/evolutions/loki_evolution/attack/west/0.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/west/1.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/west/2.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/west/3.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/west/4.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/west/5.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/west/6.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/west/7.png",
+                                                                                     "assets/images/evolutions/loki_evolution/attack/west/8.png"
+                                                                                 ]
+                                                                    },
+                                                         "fps":  10
+                                                     }
+                                      }
+                       },
+    "star_lord_evolution":  {
+                                "id":  "star_lord_evolution",
+                                "heroId":  "star_lord",
+                                "sprite":  "assets/images/evolutions/star_lord_evolution/portrait.png",
+                                "visual":  {
+                                               "size":  96,
+                                               "anchor":  {
+                                                              "y":  0.62,
+                                                              "x":  0.5
+                                                          },
+                                               "defaultDirection":  "south",
+                                               "portrait":  "assets/images/evolutions/star_lord_evolution/portrait.png",
+                                               "idle":  {
+                                                            "south":  "assets/images/evolutions/star_lord_evolution/idle/south.png",
+                                                            "south-east":  "assets/images/evolutions/star_lord_evolution/idle/south-east.png",
+                                                            "east":  "assets/images/evolutions/star_lord_evolution/idle/east.png",
+                                                            "north-east":  "assets/images/evolutions/star_lord_evolution/idle/north-east.png",
+                                                            "north":  "assets/images/evolutions/star_lord_evolution/idle/north.png",
+                                                            "north-west":  "assets/images/evolutions/star_lord_evolution/idle/north-west.png",
+                                                            "west":  "assets/images/evolutions/star_lord_evolution/idle/west.png",
+                                                            "south-west":  "assets/images/evolutions/star_lord_evolution/idle/south-west.png"
+                                                        },
+                                               "attack":  {
+                                                              "frames":  {
+                                                                             "south":  [
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/south/0.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/south/1.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/south/2.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/south/3.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/south/4.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/south/5.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/south/6.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/south/7.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/south/8.png"
+                                                                                       ],
+                                                                             "north":  [
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/north/0.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/north/1.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/north/2.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/north/3.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/north/4.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/north/5.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/north/6.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/north/7.png",
+                                                                                           "assets/images/evolutions/star_lord_evolution/attack/north/8.png"
+                                                                                       ],
+                                                                             "east":  [
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/east/0.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/east/1.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/east/2.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/east/3.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/east/4.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/east/5.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/east/6.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/east/7.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/east/8.png"
+                                                                                      ],
+                                                                             "west":  [
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/west/0.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/west/1.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/west/2.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/west/3.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/west/4.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/west/5.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/west/6.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/west/7.png",
+                                                                                          "assets/images/evolutions/star_lord_evolution/attack/west/8.png"
+                                                                                      ]
+                                                                         },
+                                                              "fps":  10
+                                                          }
+                                           }
+                            },
+    "hawkeye_evolution":  {
+                              "id":  "hawkeye_evolution",
+                              "heroId":  "hawkeye",
+                              "sprite":  "assets/images/evolutions/hawkeye_evolution/portrait.png",
+                              "visual":  {
+                                             "size":  96,
+                                             "anchor":  {
+                                                            "y":  0.62,
+                                                            "x":  0.5
+                                                        },
+                                             "defaultDirection":  "south",
+                                             "portrait":  "assets/images/evolutions/hawkeye_evolution/portrait.png",
+                                             "idle":  {
+                                                          "south":  "assets/images/evolutions/hawkeye_evolution/idle/south.png",
+                                                          "south-east":  "assets/images/evolutions/hawkeye_evolution/idle/south-east.png",
+                                                          "east":  "assets/images/evolutions/hawkeye_evolution/idle/east.png",
+                                                          "north-east":  "assets/images/evolutions/hawkeye_evolution/idle/north-east.png",
+                                                          "north":  "assets/images/evolutions/hawkeye_evolution/idle/north.png",
+                                                          "north-west":  "assets/images/evolutions/hawkeye_evolution/idle/north-west.png",
+                                                          "west":  "assets/images/evolutions/hawkeye_evolution/idle/west.png",
+                                                          "south-west":  "assets/images/evolutions/hawkeye_evolution/idle/south-west.png"
+                                                      },
+                                             "attack":  {
+                                                            "frames":  {
+                                                                           "south":  [
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/south/0.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/south/1.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/south/2.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/south/3.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/south/4.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/south/5.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/south/6.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/south/7.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/south/8.png"
+                                                                                     ],
+                                                                           "north":  [
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/north/0.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/north/1.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/north/2.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/north/3.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/north/4.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/north/5.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/north/6.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/north/7.png",
+                                                                                         "assets/images/evolutions/hawkeye_evolution/attack/north/8.png"
+                                                                                     ],
+                                                                           "east":  [
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/east/0.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/east/1.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/east/2.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/east/3.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/east/4.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/east/5.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/east/6.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/east/7.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/east/8.png"
+                                                                                    ],
+                                                                           "west":  [
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/west/0.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/west/1.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/west/2.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/west/3.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/west/4.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/west/5.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/west/6.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/west/7.png",
+                                                                                        "assets/images/evolutions/hawkeye_evolution/attack/west/8.png"
+                                                                                    ]
+                                                                       },
+                                                            "fps":  10
+                                                        }
+                                         }
+                          },
+    "iron_man_extremis":  {
+                              "id":  "iron_man_extremis",
+                              "heroId":  "iron_man",
+                              "sprite":  "assets/images/evolutions/iron_man_extremis/portrait.png",
+                              "visual":  {
+                                             "size":  96,
+                                             "anchor":  {
+                                                            "y":  0.62,
+                                                            "x":  0.5
+                                                        },
+                                             "defaultDirection":  "south",
+                                             "portrait":  "assets/images/evolutions/iron_man_extremis/portrait.png",
+                                             "idle":  {
+                                                          "south":  "assets/images/evolutions/iron_man_extremis/idle/south.png",
+                                                          "south-east":  "assets/images/evolutions/iron_man_extremis/idle/south-east.png",
+                                                          "east":  "assets/images/evolutions/iron_man_extremis/idle/east.png",
+                                                          "north-east":  "assets/images/evolutions/iron_man_extremis/idle/north-east.png",
+                                                          "north":  "assets/images/evolutions/iron_man_extremis/idle/north.png",
+                                                          "north-west":  "assets/images/evolutions/iron_man_extremis/idle/north-west.png",
+                                                          "west":  "assets/images/evolutions/iron_man_extremis/idle/west.png",
+                                                          "south-west":  "assets/images/evolutions/iron_man_extremis/idle/south-west.png"
+                                                      },
+                                             "attack":  {
+                                                            "frames":  {
+                                                                           "south":  [
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/south/0.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/south/1.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/south/2.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/south/3.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/south/4.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/south/5.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/south/6.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/south/7.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/south/8.png"
+                                                                                     ],
+                                                                           "north":  [
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/north/0.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/north/1.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/north/2.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/north/3.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/north/4.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/north/5.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/north/6.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/north/7.png",
+                                                                                         "assets/images/evolutions/iron_man_extremis/attack/north/8.png"
+                                                                                     ],
+                                                                           "east":  [
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/east/0.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/east/1.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/east/2.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/east/3.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/east/4.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/east/5.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/east/6.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/east/7.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/east/8.png"
+                                                                                    ],
+                                                                           "west":  [
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/west/0.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/west/1.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/west/2.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/west/3.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/west/4.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/west/5.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/west/6.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/west/7.png",
+                                                                                        "assets/images/evolutions/iron_man_extremis/attack/west/8.png"
+                                                                                    ]
+                                                                       },
+                                                            "fps":  10
+                                                        }
+                                         }
+                          },
+    "mister_fantastic_evolution":  {
+                                       "id":  "mister_fantastic_evolution",
+                                       "heroId":  "mister_fantastic",
+                                       "sprite":  "assets/images/evolutions/mister_fantastic_evolution/portrait.png",
+                                       "visual":  {
+                                                      "size":  96,
+                                                      "anchor":  {
+                                                                     "y":  0.62,
+                                                                     "x":  0.5
+                                                                 },
+                                                      "defaultDirection":  "south",
+                                                      "portrait":  "assets/images/evolutions/mister_fantastic_evolution/portrait.png",
+                                                      "idle":  {
+                                                                   "south":  "assets/images/evolutions/mister_fantastic_evolution/idle/south.png",
+                                                                   "south-east":  "assets/images/evolutions/mister_fantastic_evolution/idle/south-east.png",
+                                                                   "east":  "assets/images/evolutions/mister_fantastic_evolution/idle/east.png",
+                                                                   "north-east":  "assets/images/evolutions/mister_fantastic_evolution/idle/north-east.png",
+                                                                   "north":  "assets/images/evolutions/mister_fantastic_evolution/idle/north.png",
+                                                                   "north-west":  "assets/images/evolutions/mister_fantastic_evolution/idle/north-west.png",
+                                                                   "west":  "assets/images/evolutions/mister_fantastic_evolution/idle/west.png",
+                                                                   "south-west":  "assets/images/evolutions/mister_fantastic_evolution/idle/south-west.png"
+                                                               },
+                                                      "attack":  {
+                                                                     "frames":  {
+                                                                                    "south":  [
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/south/0.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/south/1.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/south/2.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/south/3.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/south/4.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/south/5.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/south/6.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/south/7.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/south/8.png"
+                                                                                              ],
+                                                                                    "north":  [
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/north/0.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/north/1.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/north/2.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/north/3.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/north/4.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/north/5.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/north/6.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/north/7.png",
+                                                                                                  "assets/images/evolutions/mister_fantastic_evolution/attack/north/8.png"
+                                                                                              ],
+                                                                                    "east":  [
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/east/0.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/east/1.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/east/2.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/east/3.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/east/4.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/east/5.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/east/6.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/east/7.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/east/8.png"
+                                                                                             ],
+                                                                                    "west":  [
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/west/0.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/west/1.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/west/2.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/west/3.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/west/4.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/west/5.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/west/6.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/west/7.png",
+                                                                                                 "assets/images/evolutions/mister_fantastic_evolution/attack/west/8.png"
+                                                                                             ]
+                                                                                },
+                                                                     "fps":  10
+                                                                 }
+                                                  }
+                                   },
+    "the_void":  {
+                     "id":  "the_void",
+                     "heroId":  "sentry",
+                     "sprite":  "assets/images/evolutions/the_void/portrait.png",
+                     "visual":  {
+                                    "size":  96,
+                                    "anchor":  {
+                                                   "y":  0.62,
+                                                   "x":  0.5
+                                               },
+                                    "defaultDirection":  "south",
+                                    "portrait":  "assets/images/evolutions/the_void/portrait.png",
+                                    "idle":  {
+                                                 "south":  "assets/images/evolutions/the_void/idle/south.png",
+                                                 "south-east":  "assets/images/evolutions/the_void/idle/south-east.png",
+                                                 "east":  "assets/images/evolutions/the_void/idle/east.png",
+                                                 "north-east":  "assets/images/evolutions/the_void/idle/north-east.png",
+                                                 "north":  "assets/images/evolutions/the_void/idle/north.png",
+                                                 "north-west":  "assets/images/evolutions/the_void/idle/north-west.png",
+                                                 "west":  "assets/images/evolutions/the_void/idle/west.png",
+                                                 "south-west":  "assets/images/evolutions/the_void/idle/south-west.png"
+                                             },
+                                    "attack":  {
+                                                   "frames":  {
+                                                                  "south":  [
+                                                                                "assets/images/evolutions/the_void/attack/south/0.png",
+                                                                                "assets/images/evolutions/the_void/attack/south/1.png",
+                                                                                "assets/images/evolutions/the_void/attack/south/2.png",
+                                                                                "assets/images/evolutions/the_void/attack/south/3.png",
+                                                                                "assets/images/evolutions/the_void/attack/south/4.png",
+                                                                                "assets/images/evolutions/the_void/attack/south/5.png",
+                                                                                "assets/images/evolutions/the_void/attack/south/6.png",
+                                                                                "assets/images/evolutions/the_void/attack/south/7.png",
+                                                                                "assets/images/evolutions/the_void/attack/south/8.png"
+                                                                            ],
+                                                                  "north":  [
+                                                                                "assets/images/evolutions/the_void/attack/north/0.png",
+                                                                                "assets/images/evolutions/the_void/attack/north/1.png",
+                                                                                "assets/images/evolutions/the_void/attack/north/2.png",
+                                                                                "assets/images/evolutions/the_void/attack/north/3.png",
+                                                                                "assets/images/evolutions/the_void/attack/north/4.png",
+                                                                                "assets/images/evolutions/the_void/attack/north/5.png",
+                                                                                "assets/images/evolutions/the_void/attack/north/6.png",
+                                                                                "assets/images/evolutions/the_void/attack/north/7.png",
+                                                                                "assets/images/evolutions/the_void/attack/north/8.png"
+                                                                            ],
+                                                                  "east":  [
+                                                                               "assets/images/evolutions/the_void/attack/east/0.png",
+                                                                               "assets/images/evolutions/the_void/attack/east/1.png",
+                                                                               "assets/images/evolutions/the_void/attack/east/2.png",
+                                                                               "assets/images/evolutions/the_void/attack/east/3.png",
+                                                                               "assets/images/evolutions/the_void/attack/east/4.png",
+                                                                               "assets/images/evolutions/the_void/attack/east/5.png",
+                                                                               "assets/images/evolutions/the_void/attack/east/6.png",
+                                                                               "assets/images/evolutions/the_void/attack/east/7.png",
+                                                                               "assets/images/evolutions/the_void/attack/east/8.png"
+                                                                           ],
+                                                                  "west":  [
+                                                                               "assets/images/evolutions/the_void/attack/west/0.png",
+                                                                               "assets/images/evolutions/the_void/attack/west/1.png",
+                                                                               "assets/images/evolutions/the_void/attack/west/2.png",
+                                                                               "assets/images/evolutions/the_void/attack/west/3.png",
+                                                                               "assets/images/evolutions/the_void/attack/west/4.png",
+                                                                               "assets/images/evolutions/the_void/attack/west/5.png",
+                                                                               "assets/images/evolutions/the_void/attack/west/6.png",
+                                                                               "assets/images/evolutions/the_void/attack/west/7.png",
+                                                                               "assets/images/evolutions/the_void/attack/west/8.png"
+                                                                           ]
+                                                              },
+                                                   "fps":  10
+                                               }
+                                }
+                 },
+    "hulk_evolution":  {
+                           "id":  "hulk_evolution",
+                           "heroId":  "hulk",
+                           "sprite":  "assets/images/evolutions/hulk_evolution/portrait.png",
+                           "visual":  {
+                                          "size":  96,
+                                          "anchor":  {
+                                                         "y":  0.62,
+                                                         "x":  0.5
+                                                     },
+                                          "defaultDirection":  "south",
+                                          "portrait":  "assets/images/evolutions/hulk_evolution/portrait.png",
+                                          "idle":  {
+                                                       "south":  "assets/images/evolutions/hulk_evolution/idle/south.png",
+                                                       "south-east":  "assets/images/evolutions/hulk_evolution/idle/south-east.png",
+                                                       "east":  "assets/images/evolutions/hulk_evolution/idle/east.png",
+                                                       "north-east":  "assets/images/evolutions/hulk_evolution/idle/north-east.png",
+                                                       "north":  "assets/images/evolutions/hulk_evolution/idle/north.png",
+                                                       "north-west":  "assets/images/evolutions/hulk_evolution/idle/north-west.png",
+                                                       "west":  "assets/images/evolutions/hulk_evolution/idle/west.png",
+                                                       "south-west":  "assets/images/evolutions/hulk_evolution/idle/south-west.png"
+                                                   },
+                                          "attack":  {
+                                                         "frames":  {
+                                                                        "south":  [
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/south/0.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/south/1.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/south/2.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/south/3.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/south/4.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/south/5.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/south/6.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/south/7.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/south/8.png"
+                                                                                  ],
+                                                                        "north":  [
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/north/0.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/north/1.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/north/2.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/north/3.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/north/4.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/north/5.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/north/6.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/north/7.png",
+                                                                                      "assets/images/evolutions/hulk_evolution/attack/north/8.png"
+                                                                                  ],
+                                                                        "east":  [
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/east/0.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/east/1.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/east/2.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/east/3.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/east/4.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/east/5.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/east/6.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/east/7.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/east/8.png"
+                                                                                 ],
+                                                                        "west":  [
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/west/0.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/west/1.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/west/2.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/west/3.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/west/4.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/west/5.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/west/6.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/west/7.png",
+                                                                                     "assets/images/evolutions/hulk_evolution/attack/west/8.png"
+                                                                                 ]
+                                                                    },
+                                                         "fps":  10
+                                                     }
+                                      }
+                       },
+    "spiderman_black_suit":  {
+                                 "id":  "spiderman_black_suit",
+                                 "heroId":  "spiderman",
+                                 "sprite":  "assets/images/evolutions/spiderman_black_suit/portrait.png",
+                                 "visual":  {
+                                                "size":  96,
+                                                "anchor":  {
+                                                               "y":  0.62,
+                                                               "x":  0.5
+                                                           },
+                                                "defaultDirection":  "south",
+                                                "portrait":  "assets/images/evolutions/spiderman_black_suit/portrait.png",
+                                                "idle":  {
+                                                             "south":  "assets/images/evolutions/spiderman_black_suit/idle/south.png",
+                                                             "south-east":  "assets/images/evolutions/spiderman_black_suit/idle/south-east.png",
+                                                             "east":  "assets/images/evolutions/spiderman_black_suit/idle/east.png",
+                                                             "north-east":  "assets/images/evolutions/spiderman_black_suit/idle/north-east.png",
+                                                             "north":  "assets/images/evolutions/spiderman_black_suit/idle/north.png",
+                                                             "north-west":  "assets/images/evolutions/spiderman_black_suit/idle/north-west.png",
+                                                             "west":  "assets/images/evolutions/spiderman_black_suit/idle/west.png",
+                                                             "south-west":  "assets/images/evolutions/spiderman_black_suit/idle/south-west.png"
+                                                         },
+                                                "attack":  {
+                                                               "frames":  {
+                                                                              "south":  [
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/south/0.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/south/1.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/south/2.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/south/3.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/south/4.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/south/5.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/south/6.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/south/7.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/south/8.png"
+                                                                                        ],
+                                                                              "north":  [
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/north/0.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/north/1.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/north/2.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/north/3.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/north/4.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/north/5.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/north/6.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/north/7.png",
+                                                                                            "assets/images/evolutions/spiderman_black_suit/attack/north/8.png"
+                                                                                        ],
+                                                                              "east":  [
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/east/0.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/east/1.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/east/2.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/east/3.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/east/4.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/east/5.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/east/6.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/east/7.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/east/8.png"
+                                                                                       ],
+                                                                              "west":  [
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/west/0.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/west/1.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/west/2.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/west/3.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/west/4.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/west/5.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/west/6.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/west/7.png",
+                                                                                           "assets/images/evolutions/spiderman_black_suit/attack/west/8.png"
+                                                                                       ]
+                                                                          },
+                                                               "fps":  10
+                                                           }
+                                            }
+                             }
+}

@@ -1,0 +1,47 @@
+#hub-dialog:has(.legacy-tabs) { width: min(1180px, calc(100vw - 24px)); }
+#hub-dialog:has(.legacy-tabs) > .hub-close { position: sticky; top: 0; float: right; z-index: 3; margin: -20px -8px 0 0; background: #28445b; }
+#hub-panel .legacy-intro { color: #8ee5f3; font-weight: 600; }
+#hub-panel .legacy-state { background: #e6b75a0b; border-left: 2px solid #d0b775; padding: 12px; font-size: 12px; margin: 15px 0; color: #d3c6a9; }
+.legacy-tabs { display: flex; gap: 7px; overflow-x: auto; padding: 6px 0 18px; }
+.legacy-tabs button { padding: 10px 15px; border: 1px solid #ffffff20; background: #152c42; white-space: nowrap; border-radius: 5px; }
+.legacy-tabs button[aria-pressed="true"] { background: #79d9e7; color: #0b2434; }
+.legacy-filters { display: flex; gap: 12px; }
+.legacy-filters label { display: grid; gap: 6px; color: #aac2d5; font-size: 12px; flex: 1; }
+.legacy-filters label:last-child { flex: .5; }
+.legacy-filters input, .legacy-filters select, .legacy-label select { width: 100%; background: #0b1828; color: #e5f4fa; border: 1px solid #53748b; border-radius: 4px; padding: 11px; font: inherit; }
+#legacy-results { color: #8aa5b9; font-size: 12px; margin: 12px 0; }
+.legacy-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: start; }
+.legacy-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.legacy-card { background: #162d42; border: 1px solid #ffffff10; padding: 10px; display: flex; align-items: center; gap: 10px; text-align: left; min-height: 86px; border-radius: 5px; }
+.legacy-card img { width: 54px; height: 60px; object-fit: contain; image-rendering: pixelated; }
+.legacy-card span { min-width: 0; }
+.legacy-card strong { display: block; font-size: 13px; }
+.legacy-card small { color: #80d7ed; font-size: 10px; }
+.legacy-card em { display: block; font-size: 10px; color: #9bb4c8; margin-top: 5px; font-style: normal; }
+#legacy-detail { border: 1px solid #ffffff1c; border-radius: 7px; padding: 20px; background: #0b1928; min-width: 0; }
+.legacy-detail-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.legacy-detail-heading img { width: 92px; height: 100px; object-fit: contain; image-rendering: pixelated; }
+.legacy-detail-heading span { font-size: 11px; color: #8bcfe6; }
+.legacy-detail-heading h3 { font: 700 27px 'Barlow Condensed',sans-serif; }
+#hub-panel #legacy-detail p { font-size: 13px; }
+#legacy-detail h4 { margin: 18px 0 8px; color: #b8e8f3; font-size: 13px; }
+.legacy-numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0; }
+.legacy-numbers span { color: #7e9bb1; display: block; font-size: 10px; }
+.legacy-numbers strong { display: block; margin-top: 5px; font-size: 17px; }
+.legacy-label { display: block; margin: 18px 0; font-size: 13px; color: #b8d3e7; }
+.legacy-label input, .legacy-label select { display: block; width: 100%; margin-top: 9px; accent-color: #80deed; }
+.legacy-label output { float: right; color: #fff; }
+#hub-panel .legacy-small, #hub-panel #legacy-detail .legacy-small { font-size: 11px; color: #8ba5b9; margin: 12px 0; }
+#legacy-more { margin-top: 15px; width: 100%; }
+.legacy-objective { border-left: 2px solid #70c4d4; padding-left: 10px; margin-top: 12px; }
+.legacy-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.legacy-groups article { background: #172e42; border: 1px solid #ffffff14; padding: 18px; border-radius: 6px; }
+.legacy-groups h3 { font-size: 17px; }
+.legacy-groups h3 small { font-size: 11px; color: #91b2c9; }
+#hub-panel .legacy-groups p { margin-top: 12px; font-size: 12px; }
+.legacy-active { color: #a7f5c2 !important; }
+.legacy-team { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 0 20px; }
+.legacy-team button { padding: 8px 12px; background: #285363; border-radius: 4px; }
+.legacy-pair-title { margin: 25px 0 16px; }
+@media (max-width: 800px) { .legacy-layout { grid-template-columns: 1fr; } .legacy-groups { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .legacy-cards, .legacy-groups { grid-template-columns: 1fr; } .legacy-filters { flex-direction: column; } .legacy-numbers { grid-template-columns: 1fr 1fr; } }

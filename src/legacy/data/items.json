@@ -1,0 +1,1375 @@
+{
+  "chaleco_tactico": {
+    "id": "chaleco_tactico",
+    "name": "CHALECO TACTICO",
+    "desc": "+6% dano, +6% cadencia y 6% penetracion. El primer anti-blindaje economico.",
+    "icon": "assets/images/items/chaleco_tactico.png",
+    "price": 260,
+    "tier": 1,
+    "slot": "armor",
+    "set": "tactical",
+    "effects": {
+      "damagePct": 0.06,
+      "fireRatePct": 0.06,
+      "armorPenetration": 0.06
+    },
+    "rarity": "Common"
+  },
+  "baliza_fury": {
+    "id": "baliza_fury",
+    "name": "BALIZA TACTICA",
+    "desc": "Detecta sigilo y extiende 8% el alcance.",
+    "icon": "assets/images/items/baliza_fury.png",
+    "price": 320,
+    "tier": 1,
+    "slot": "artifact",
+    "set": "tactical",
+    "effects": {
+      "detectStealth": true,
+      "rangePct": 0.08
+    },
+    "rarity": "Common"
+  },
+  "telarana_sintetica": {
+    "id": "telarana_sintetica",
+    "name": "TELARANA SINTETICA",
+    "desc": "35% de ralentizar al impactar.",
+    "icon": "assets/images/items/telarana_sintetica.png",
+    "price": 360,
+    "tier": 1,
+    "slot": "weapon",
+    "set": "street",
+    "effects": {
+      "slowChance": 0.35,
+      "slowPower": 0.3
+    },
+    "rarity": "Common"
+  },
+  "aguijon_wasp": {
+    "id": "aguijon_wasp",
+    "name": "AGUIJON WASP",
+    "desc": "22% de ralentizar y +3% critico.",
+    "icon": "assets/images/items/aguijon_wasp.png",
+    "price": 420,
+    "tier": 1,
+    "slot": "weapon",
+    "set": "pym",
+    "effects": {
+      "slowChance": 0.22,
+      "slowPower": 0.22,
+      "critChance": 3
+    },
+    "rarity": "Common"
+  },
+  "lentes_edith": {
+    "id": "lentes_edith",
+    "name": "LENTES E.D.I.T.H.",
+    "desc": "Detecta sigilo, +4% alcance y +2% critico.",
+    "icon": "assets/images/items/lentes_edith.png",
+    "price": 480,
+    "tier": 1,
+    "slot": "artifact",
+    "set": "stark",
+    "effects": {
+      "detectStealth": true,
+      "rangePct": 0.04,
+      "critChance": 2
+    },
+    "rarity": "Common"
+  },
+  "aerodeslizador": {
+    "id": "aerodeslizador",
+    "name": "AERODESLIZADOR PYM",
+    "desc": "Permite colocacion sobre agua y +4% alcance.",
+    "icon": "assets/images/items/aerodeslizador.png",
+    "price": 520,
+    "tier": 1,
+    "slot": "armor",
+    "set": "pym",
+    "effects": {
+      "allowWater": true,
+      "rangePct": 0.04
+    },
+    "rarity": "Common"
+  },
+  "botas_antigrav": {
+    "id": "botas_antigrav",
+    "name": "BOTAS ANTIGRAV",
+    "desc": "Permite colocacion en montana y +5% alcance.",
+    "icon": "assets/images/items/botas_antigrav.png",
+    "price": 600,
+    "tier": 1,
+    "slot": "armor",
+    "set": "stark",
+    "effects": {
+      "allowMountain": true,
+      "rangePct": 0.05
+    },
+    "rarity": "Common"
+  },
+  "fertilizante_groot": {
+    "id": "fertilizante_groot",
+    "name": "ESPORAS DE GROOT",
+    "desc": "Permite colocacion en pasto y +5% dano.",
+    "icon": "assets/images/items/fertilizante_groot.png",
+    "price": 680,
+    "tier": 1,
+    "slot": "artifact",
+    "set": "cosmic",
+    "effects": {
+      "allowGrass": true,
+      "damagePct": 0.05
+    },
+    "rarity": "Common"
+  },
+  "emisor_termico": {
+    "id": "emisor_termico",
+    "name": "EMISOR TERMICO",
+    "desc": "18% de quemar durante 3 s: 12% del dano efectivo del heroe por segundo. No acumula quemaduras.",
+    "icon": "assets/images/items/emisor_termico.png",
+    "price": 760,
+    "tier": 1,
+    "slot": "weapon",
+    "set": "stark",
+    "effects": {
+      "burnChance": 0.18,
+      "burnDuration": 3,
+      "burnAttackDamagePct": 0.12
+    },
+    "rarity": "Common"
+  },
+  "carga_viuda": {
+    "id": "carga_viuda",
+    "name": "CARGA WIDOW",
+    "desc": "12% de aturdir brevemente y +4% cadencia.",
+    "icon": "assets/images/items/carga_viuda.png",
+    "price": 820,
+    "tier": 1,
+    "slot": "weapon",
+    "set": "street",
+    "effects": {
+      "stunChance": 0.12,
+      "stunDuration": 0.18,
+      "fireRatePct": 0.04
+    },
+    "rarity": "Common"
+  },
+  "reactor_arc": {
+    "id": "reactor_arc",
+    "name": "REACTOR ARC",
+    "desc": "+18% cadencia y +4% dano.",
+    "icon": "assets/images/items/reactor_arc.png",
+    "price": 950,
+    "tier": 2,
+    "slot": "weapon",
+    "set": "stark",
+    "effects": {
+      "fireRatePct": 0.18,
+      "damagePct": 0.04
+    },
+    "rarity": "Rare"
+  },
+  "tejido_cinetico": {
+    "id": "tejido_cinetico",
+    "name": "TEJIDO CINETICO",
+    "desc": "+12% cadencia y +4% alcance.",
+    "icon": "assets/images/items/tejido_cinetico.png",
+    "price": 1050,
+    "tier": 2,
+    "slot": "armor",
+    "set": "vibranium",
+    "effects": {
+      "fireRatePct": 0.12,
+      "rangePct": 0.04
+    },
+    "rarity": "Rare"
+  },
+  "escudo_vibranium": {
+    "id": "escudo_vibranium",
+    "name": "ESCUDO DE VIBRANIUM",
+    "desc": "+8% dano, +4% alcance y +8% contra blindaje.",
+    "icon": "assets/images/items/escudo_vibranium.png",
+    "price": 1120,
+    "tier": 2,
+    "slot": "armor",
+    "set": "vibranium",
+    "effects": {
+      "damagePct": 0.08,
+      "rangePct": 0.04,
+      "armorDamagePct": 0.08
+    },
+    "rarity": "Rare"
+  },
+  "contrato_stark": {
+    "id": "contrato_stark",
+    "name": "CONTRATO STARK",
+    "desc": "Cada impacto genera 2.5% de la recompensa del enemigo y +3% dano.",
+    "icon": "assets/images/items/contrato_stark.png",
+    "price": 1220,
+    "tier": 2,
+    "slot": "artifact",
+    "set": "stark",
+    "effects": {
+      "onHitCreditPct": 0.025,
+      "damagePct": 0.03
+    },
+    "rarity": "Rare"
+  },
+  "regulador_cuantico": {
+    "id": "regulador_cuantico",
+    "name": "REGULADOR CUANTICO",
+    "desc": "+7% critico y +15% dano critico.",
+    "icon": "assets/images/items/regulador_cuantico.png",
+    "price": 1300,
+    "tier": 2,
+    "slot": "artifact",
+    "set": "pym",
+    "effects": {
+      "critChance": 7,
+      "critDamageBonus": 0.15
+    },
+    "rarity": "Rare"
+  },
+  "municion_ice": {
+    "id": "municion_ice",
+    "name": "MUNICION I.C.E.R.",
+    "desc": "28% de ralentizar y 8% penetracion.",
+    "icon": "assets/images/items/municion_ice.png",
+    "price": 1380,
+    "tier": 2,
+    "slot": "weapon",
+    "set": "tactical",
+    "effects": {
+      "slowChance": 0.28,
+      "slowPower": 0.22,
+      "armorPenetration": 0.08
+    },
+    "rarity": "Rare"
+  },
+  "localizador_fury": {
+    "id": "localizador_fury",
+    "name": "LOCALIZADOR FURY",
+    "desc": "Detecta sigilo, +8% alcance y +8% dano a larga distancia.",
+    "icon": "assets/images/items/localizador_fury.png",
+    "price": 1460,
+    "tier": 2,
+    "slot": "artifact",
+    "set": "tactical",
+    "effects": {
+      "detectStealth": true,
+      "rangePct": 0.08,
+      "longRangeDamagePct": 0.08,
+      "longRangeThreshold": 150
+    },
+    "rarity": "Rare"
+  },
+  "runas_kamar_taj": {
+    "id": "runas_kamar_taj",
+    "name": "RUNAS DE KAMAR-TAJ",
+    "desc": "20% de maldecir y +6% dano por estado activo.",
+    "icon": "assets/images/items/runas_kamar_taj.png",
+    "price": 1540,
+    "tier": 2,
+    "slot": "weapon",
+    "set": "mystic",
+    "effects": {
+      "curseChance": 0.2,
+      "curseDuration": 4,
+      "cursePower": 0.01,
+      "statusDamagePct": 0.06,
+      "statusDamageCap": 0.24
+    },
+    "rarity": "Rare"
+  },
+  "brazalete_kun_lun": {
+    "id": "brazalete_kun_lun",
+    "name": "BRAZALETE KUN-LUN",
+    "desc": "16% de aturdir y +20% dano critico.",
+    "icon": "assets/images/items/brazalete_kun_lun.png",
+    "price": 1620,
+    "tier": 2,
+    "slot": "artifact",
+    "set": "mystic",
+    "effects": {
+      "stunChance": 0.16,
+      "stunDuration": 0.22,
+      "critDamageBonus": 0.2
+    },
+    "rarity": "Rare"
+  },
+  "memoria_colmena": {
+    "id": "memoria_colmena",
+    "name": "MEMORIA COLMENA",
+    "desc": "Detecta sigilo, +5% alcance y dano acumulativo por foco.",
+    "icon": "assets/images/items/memoria_colmena.png",
+    "price": 1700,
+    "tier": 2,
+    "slot": "artifact",
+    "set": "symbiote",
+    "effects": {
+      "detectStealth": true,
+      "rangePct": 0.05,
+      "consecutiveDamagePct": 0.015
+    },
+    "rarity": "Rare"
+  },
+  "municion_repulsora": {
+    "id": "municion_repulsora",
+    "name": "MUNICION REPULSORA",
+    "desc": "22% penetracion y +15% dano contra enemigos blindados.",
+    "icon": "assets/images/items/municion_repulsora.png",
+    "price": 2100,
+    "tier": 3,
+    "slot": "weapon",
+    "set": "stark",
+    "effects": {
+      "armorPenetration": 0.22,
+      "armorDamagePct": 0.15
+    },
+    "rarity": "Epic"
+  },
+  "guanteletes_gigantes": {
+    "id": "guanteletes_gigantes",
+    "name": "GUANTELETES GIGANTES",
+    "desc": "Impactos en area pequena, pero -12% dano si el enemigo esta demasiado cerca.",
+    "icon": "assets/images/items/guanteletes_gigantes.png",
+    "price": 2250,
+    "tier": 3,
+    "slot": "weapon",
+    "set": "pym",
+    "effects": {
+      "splashRadius": 42,
+      "splashFactor": 0.32,
+      "closeRangeDamagePenaltyPct": 0.12,
+      "closeRangeThreshold": 110
+    },
+    "rarity": "Epic"
+  },
+  "anillo_portal": {
+    "id": "anillo_portal",
+    "name": "ANILLO PORTAL",
+    "desc": "Los proyectiles rebotan una vez entre enemigos cercanos.",
+    "icon": "assets/images/items/anillo_portal.png",
+    "price": 2400,
+    "tier": 3,
+    "slot": "weapon",
+    "set": "mystic",
+    "effects": {
+      "chainCount": 1,
+      "chainRange": 105,
+      "chainFactor": 0.55
+    },
+    "rarity": "Epic"
+  },
+  "lanza_dora": {
+    "id": "lanza_dora",
+    "name": "LANZA DORA MILAJE",
+    "desc": "+5% critico, +20% dano critico y 18% penetracion.",
+    "icon": "assets/images/items/lanza_dora.png",
+    "price": 2550,
+    "tier": 3,
+    "slot": "weapon",
+    "set": "vibranium",
+    "effects": {
+      "critChance": 5,
+      "critDamageBonus": 0.2,
+      "armorPenetration": 0.18
+    },
+    "rarity": "Epic"
+  },
+  "corazon_wakanda": {
+    "id": "corazon_wakanda",
+    "name": "CORAZON DE WAKANDA",
+    "desc": "+14% dano y +10% contra blindaje.",
+    "icon": "assets/images/items/corazon_wakanda.png",
+    "price": 2700,
+    "tier": 3,
+    "slot": "artifact",
+    "set": "vibranium",
+    "effects": {
+      "damagePct": 0.14,
+      "armorDamagePct": 0.1
+    },
+    "rarity": "Epic"
+  },
+  "particulas_pym": {
+    "id": "particulas_pym",
+    "name": "PARTICULAS PYM",
+    "desc": "+25% cadencia, pero -8% dano base.",
+    "icon": "assets/images/items/particulas_pym.png",
+    "price": 2850,
+    "tier": 3,
+    "slot": "artifact",
+    "set": "pym",
+    "effects": {
+      "fireRatePct": 0.25,
+      "damagePct": -0.08
+    },
+    "rarity": "Epic"
+  },
+  "tentaculo_klyntar": {
+    "id": "tentaculo_klyntar",
+    "name": "TENTACULO KLYNTAR",
+    "desc": "Rompe armadura y puede aplicar veneno ligero.",
+    "icon": "assets/images/items/tentaculo_klyntar.png",
+    "price": 3000,
+    "tier": 3,
+    "slot": "weapon",
+    "set": "symbiote",
+    "effects": {
+      "armorBreakChance": 0.32,
+      "armorBreakPower": 0.16,
+      "poisonChance": 0.2,
+      "poisonDuration": 4,
+      "poisonPower": 0.008,
+      "poisonStacks": 1
+    },
+    "rarity": "Epic"
+  },
+  "sello_kun_lun": {
+    "id": "sello_kun_lun",
+    "name": "SELLO KUN-LUN",
+    "desc": "+9% dano, 18% de aturdir y +10% contra enemigos controlados.",
+    "icon": "assets/images/items/sello_kun_lun.png",
+    "price": 3150,
+    "tier": 3,
+    "slot": "artifact",
+    "set": "mystic",
+    "effects": {
+      "damagePct": 0.09,
+      "stunChance": 0.18,
+      "stunDuration": 0.24,
+      "damageToControlledPct": 0.1
+    },
+    "rarity": "Epic"
+  },
+  "tridente_atlante": {
+    "id": "tridente_atlante",
+    "name": "TRIDENTE ATLANTE",
+    "desc": "Permite agua, 20% penetracion y +8% contra jefes.",
+    "icon": "assets/images/items/tridente_atlante.png",
+    "price": 3300,
+    "tier": 3,
+    "slot": "weapon",
+    "set": "cosmic",
+    "effects": {
+      "allowWater": true,
+      "armorPenetration": 0.2,
+      "bossDamagePct": 0.08
+    },
+    "rarity": "Epic"
+  },
+  "alas_wasp": {
+    "id": "alas_wasp",
+    "name": "ALAS WASP",
+    "desc": "+16% cadencia y +4% critico.",
+    "icon": "assets/images/items/alas_wasp.png",
+    "price": 3450,
+    "tier": 3,
+    "slot": "armor",
+    "set": "pym",
+    "effects": {
+      "fireRatePct": 0.16,
+      "critChance": 4
+    },
+    "rarity": "Epic"
+  },
+  "guante_quake": {
+    "id": "guante_quake",
+    "name": "GUANTE QUAKE",
+    "desc": "Ralentiza y rompe armadura por vibracion.",
+    "icon": "assets/images/items/guante_quake.png",
+    "price": 3600,
+    "tier": 3,
+    "slot": "weapon",
+    "set": "tactical",
+    "effects": {
+      "slowChance": 0.25,
+      "slowPower": 0.22,
+      "armorBreakChance": 0.28,
+      "armorBreakPower": 0.14
+    },
+    "rarity": "Epic"
+  },
+  "casco_nova": {
+    "id": "casco_nova",
+    "name": "CASCO NOVA",
+    "desc": "Rebote energetico y +8% dano contra jefes.",
+    "icon": "assets/images/items/casco_nova.png",
+    "price": 3750,
+    "tier": 3,
+    "slot": "artifact",
+    "set": "cosmic",
+    "effects": {
+      "chainCount": 1,
+      "chainRange": 110,
+      "chainFactor": 0.58,
+      "bossDamagePct": 0.08
+    },
+    "rarity": "Epic"
+  },
+  "armadura_war_machine": {
+    "id": "armadura_war_machine",
+    "name": "ARMADURA WAR MACHINE",
+    "desc": "Area pequena y 12% penetracion.",
+    "icon": "assets/images/items/armadura_war_machine.png",
+    "price": 3900,
+    "tier": 3,
+    "slot": "armor",
+    "set": "stark",
+    "effects": {
+      "splashRadius": 38,
+      "splashFactor": 0.28,
+      "armorPenetration": 0.12
+    },
+    "rarity": "Epic"
+  },
+  "simbionte": {
+    "id": "simbionte",
+    "name": "SIMBIONTE VENOM",
+    "desc": "Dano acumulativo por foco y +8% contra enemigos controlados.",
+    "icon": "assets/images/items/simbionte.png",
+    "price": 4100,
+    "tier": 3,
+    "slot": "armor",
+    "set": "symbiote",
+    "effects": {
+      "consecutiveDamagePct": 0.025,
+      "damageToControlledPct": 0.08
+    },
+    "rarity": "Epic"
+  },
+  "protocolo_extremis": {
+    "id": "protocolo_extremis",
+    "name": "PROTOCOLO EXTREMIS",
+    "desc": "+18% dano. 25% de quemar durante 4 s: 18% del dano efectivo del heroe por segundo, sin acumular. +18% dano con 10 vidas o menos.",
+    "icon": "assets/images/items/protocolo_extremis.png",
+    "price": 5400,
+    "tier": 4,
+    "slot": "armor",
+    "set": "stark",
+    "effects": {
+      "damagePct": 0.18,
+      "burnChance": 0.25,
+      "burnDuration": 4,
+      "burnAttackDamagePct": 0.18,
+      "lowLifeDamagePct": 0.18
+    },
+    "rarity": "Legendary"
+  },
+  "ojo_agamotto": {
+    "id": "ojo_agamotto",
+    "name": "OJO DE AGAMOTTO",
+    "desc": "Detecta sigilo, +13% alcance y +8% dano por estado activo.",
+    "icon": "assets/images/items/ojo_agamotto.png",
+    "price": 5850,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "mystic",
+    "effects": {
+      "detectStealth": true,
+      "rangePct": 0.13,
+      "statusDamagePct": 0.08,
+      "statusDamageCap": 0.32
+    },
+    "rarity": "Legendary"
+  },
+  "capa_levitacion": {
+    "id": "capa_levitacion",
+    "name": "CAPA DE LEVITACION",
+    "desc": "Permite agua y montana, con +12% alcance.",
+    "icon": "assets/images/items/capa_levitacion.png",
+    "price": 6200,
+    "tier": 4,
+    "slot": "armor",
+    "set": "mystic",
+    "effects": {
+      "allowWater": true,
+      "allowMountain": true,
+      "rangePct": 0.12
+    },
+    "rarity": "Legendary"
+  },
+  "prisma_luz_oscura": {
+    "id": "prisma_luz_oscura",
+    "name": "PRISMA LUZ OSCURA",
+    "desc": "Detecta sigilo, rebota y castiga enemigos malditos.",
+    "icon": "assets/images/items/prisma_luz_oscura.png",
+    "price": 6600,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "mystic",
+    "effects": {
+      "detectStealth": true,
+      "chainCount": 1,
+      "chainRange": 90,
+      "chainFactor": 0.5,
+      "curseChance": 0.22,
+      "curseDuration": 4,
+      "cursePower": 0.012,
+      "damageToCursedPct": 0.18
+    },
+    "rarity": "Legendary"
+  },
+  "moneda_madripoor": {
+    "id": "moneda_madripoor",
+    "name": "MONEDA DE MADRIPOOR",
+    "desc": "Cada impacto genera 6% de recompensa, pero reduce 5% el dano.",
+    "icon": "assets/images/items/moneda_madripoor.png",
+    "price": 7000,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "street",
+    "effects": {
+      "onHitCreditPct": 0.06,
+      "damagePct": -0.05
+    },
+    "rarity": "Legendary"
+  },
+  "visor_sniper": {
+    "id": "visor_sniper",
+    "name": "VISOR SNIPER",
+    "desc": "+8% alcance y +22% dano a larga distancia, pero penaliza el combate cercano.",
+    "icon": "assets/images/items/visor_sniper.png",
+    "price": 7350,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "tactical",
+    "effects": {
+      "rangePct": 0.08,
+      "longRangeDamagePct": 0.22,
+      "longRangeThreshold": 165,
+      "closeRangeDamagePenaltyPct": 0.18,
+      "closeRangeThreshold": 115
+    },
+    "rarity": "Legendary"
+  },
+  "collar_pantera": {
+    "id": "collar_pantera",
+    "name": "COLLAR PANTERA",
+    "desc": "+6% critico, +35% dano critico y +16% contra blindaje.",
+    "icon": "assets/images/items/collar_pantera.png",
+    "price": 7700,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "vibranium",
+    "effects": {
+      "critChance": 6,
+      "critDamageBonus": 0.35,
+      "armorDamagePct": 0.16
+    },
+    "rarity": "Legendary"
+  },
+  "cetro_loki": {
+    "id": "cetro_loki",
+    "name": "CETRO DE LOKI",
+    "desc": "Maldice con frecuencia y propaga dano entre grupos.",
+    "icon": "assets/images/items/cetro_loki.png",
+    "price": 8200,
+    "tier": 4,
+    "slot": "weapon",
+    "set": "asgard",
+    "effects": {
+      "curseChance": 0.28,
+      "curseDuration": 5,
+      "cursePower": 0.013,
+      "statusDamagePct": 0.1,
+      "statusDamageCap": 0.35,
+      "chainCount": 1,
+      "chainRange": 80,
+      "chainFactor": 0.45
+    },
+    "rarity": "Legendary"
+  },
+  "fragmento_carnage": {
+    "id": "fragmento_carnage",
+    "name": "FRAGMENTO CARNAGE",
+    "desc": "+18% dano, +5% critico y veneno acumulable.",
+    "icon": "assets/images/items/fragmento_carnage.png",
+    "price": 11500,
+    "tier": 5,
+    "slot": "artifact",
+    "set": "symbiote",
+    "effects": {
+      "damagePct": 0.18,
+      "critChance": 5,
+      "poisonChance": 0.35,
+      "poisonDuration": 5,
+      "poisonPower": 0.01,
+      "poisonStacks": 2
+    },
+    "rarity": "Mythic"
+  },
+  "formula_phoenix": {
+    "id": "formula_phoenix",
+    "name": "FORMULA PHOENIX",
+    "desc": "45% de quemar durante 5 s: 30% del dano efectivo del heroe por segundo, sin acumular. Area de dano y +25% contra enemigos quemados. Jean Grey evolucionada: Dark Phoenix cada 8 ataques, quema en area (36% poder/s, 5 s).",
+    "icon": "assets/images/items/formula_phoenix.png",
+    "price": 13500,
+    "tier": 5,
+    "slot": "artifact",
+    "set": "cosmic",
+    "effects": {
+      "burnChance": 0.45,
+      "burnDuration": 5,
+      "burnAttackDamagePct": 0.3,
+      "damageToBurnedPct": 0.25,
+      "splashRadius": 44,
+      "splashFactor": 0.28
+    },
+    "rarity": "Mythic"
+  },
+  "tabla_surfer": {
+    "id": "tabla_surfer",
+    "name": "TABLA DEL SURFER",
+    "desc": "+18% alcance, rebote y +18% dano a larga distancia.",
+    "icon": "assets/images/items/tabla_surfer.png",
+    "price": 15000,
+    "tier": 5,
+    "slot": "armor",
+    "set": "cosmic",
+    "effects": {
+      "rangePct": 0.18,
+      "chainCount": 1,
+      "chainRange": 130,
+      "chainFactor": 0.5,
+      "longRangeDamagePct": 0.18,
+      "longRangeThreshold": 170
+    },
+    "rarity": "Mythic"
+  },
+  "orbe_caos_wanda": {
+    "id": "orbe_caos_wanda",
+    "name": "ORBE DE CAOS",
+    "desc": "Alta probabilidad de maldicion y +12% dano por estado activo.",
+    "icon": "assets/images/items/orbe_caos_wanda.png",
+    "price": 17000,
+    "tier": 5,
+    "slot": "artifact",
+    "set": "mystic",
+    "effects": {
+      "curseChance": 0.4,
+      "curseDuration": 5,
+      "cursePower": 0.014,
+      "statusDamagePct": 0.12,
+      "statusDamageCap": 0.48
+    },
+    "rarity": "Mythic"
+  },
+  "nanites_stark_prime": {
+    "id": "nanites_stark_prime",
+    "name": "NANITES STARK PRIME",
+    "desc": "+14% dano, +18% cadencia y deteccion de sigilo.",
+    "icon": "assets/images/items/nanites_stark_prime.png",
+    "price": 19000,
+    "tier": 5,
+    "slot": "armor",
+    "set": "stark",
+    "effects": {
+      "damagePct": 0.14,
+      "fireRatePct": 0.18,
+      "detectStealth": true
+    },
+    "rarity": "Mythic"
+  },
+  "gema_poder": {
+    "id": "gema_poder",
+    "name": "GEMA DEL PODER",
+    "desc": "+30% dano total y +15% contra jefes.",
+    "icon": "assets/images/items/gema_poder.png",
+    "price": 36000,
+    "tier": 6,
+    "slot": "artifact",
+    "set": "cosmic",
+    "effects": {
+      "damagePct": 0.3,
+      "bossDamagePct": 0.15
+    },
+    "rarity": "Secret"
+  },
+  "necroespada": {
+    "id": "necroespada",
+    "name": "NECROESPADA",
+    "desc": "Maldice, castiga jefes y destruye enemigos ya malditos.",
+    "icon": "assets/images/items/necroespada.png",
+    "price": 52000,
+    "tier": 6,
+    "slot": "weapon",
+    "set": "asgard",
+    "effects": {
+      "damagePct": 0.26,
+      "curseChance": 0.42,
+      "curseDuration": 6,
+      "cursePower": 0.016,
+      "damageToCursedPct": 0.35,
+      "bossDamagePct": 0.18
+    },
+    "rarity": "Secret"
+  },
+  "corazon_multiverso": {
+    "id": "corazon_multiverso",
+    "name": "CORAZON MULTIVERSAL",
+    "desc": "+20% alcance, +8% critico, +55% dano critico y +20% a larga distancia.",
+    "icon": "assets/images/items/corazon_multiverso.png",
+    "price": 56000,
+    "tier": 6,
+    "slot": "artifact",
+    "set": "mystic",
+    "effects": {
+      "rangePct": 0.2,
+      "critChance": 8,
+      "critDamageBonus": 0.55,
+      "longRangeDamagePct": 0.2,
+      "longRangeThreshold": 170
+    },
+    "rarity": "Secret"
+  },
+  "guantelete_infinito": {
+    "id": "guantelete_infinito",
+    "name": "GUANTELETE DEL INFINITO",
+    "desc": "+32% dano, dos rebotes y +12% dano por estado activo.",
+    "icon": "assets/images/items/guantelete_infinito.png",
+    "price": 65000,
+    "tier": 6,
+    "slot": "weapon",
+    "set": "cosmic",
+    "effects": {
+      "damagePct": 0.32,
+      "chainCount": 2,
+      "chainRange": 120,
+      "chainFactor": 0.55,
+      "statusDamagePct": 0.12,
+      "statusDamageCap": 0.5
+    },
+    "rarity": "Secret"
+  },
+  "cristal_terrigeno": {
+    "id": "cristal_terrigeno",
+    "name": "CRISTAL TERRIGENO",
+    "desc": "+10% dano, +8% alcance y escalado por estados. Activa sobrecargas Inhumanas. Crystal evolucionada alterna fuego (20% poder/s, 4 s), hielo y rayos cada 7 ataques.",
+    "icon": "assets/images/items/cristal_terrigeno.png",
+    "price": 7600,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "cosmic",
+    "effects": {
+      "damagePct": 0.1,
+      "rangePct": 0.08,
+      "statusDamagePct": 0.06,
+      "statusDamageCap": 0.24
+    },
+    "rarity": "Legendary"
+  },
+  "matriz_probabilidad": {
+    "id": "matriz_probabilidad",
+    "name": "MATRIZ DE PROBABILIDAD",
+    "desc": "+9% critico, +30% dano critico y manipulacion de probabilidad.",
+    "icon": "assets/images/items/matriz_probabilidad.png",
+    "price": 7400,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "street",
+    "effects": {
+      "critChance": 9,
+      "critDamageBonus": 0.3,
+      "damagePct": 0.05
+    },
+    "rarity": "Legendary"
+  },
+  "manual_combate_elite": {
+    "id": "manual_combate_elite",
+    "name": "MANUAL DE COMBATE ELITE",
+    "desc": "+10% cadencia, +5% critico y 10% penetracion.",
+    "icon": "assets/images/items/manual_combate_elite.png",
+    "price": 3650,
+    "tier": 3,
+    "slot": "artifact",
+    "set": "street",
+    "effects": {
+      "fireRatePct": 0.1,
+      "critChance": 5,
+      "armorPenetration": 0.1
+    },
+    "rarity": "Epic"
+  },
+  "traje_moleculas_inestables": {
+    "id": "traje_moleculas_inestables",
+    "name": "TRAJE DE MOLECULAS INESTABLES",
+    "desc": "+8% dano, +10% cadencia y +10% alcance. Human Torch evolucionado: Nova Flame cada 7 ataques, quema en area (45% poder/s, 4 s).",
+    "icon": "assets/images/items/traje_moleculas_inestables.png",
+    "price": 7800,
+    "tier": 4,
+    "slot": "armor",
+    "set": "cosmic",
+    "effects": {
+      "damagePct": 0.08,
+      "fireRatePct": 0.1,
+      "rangePct": 0.1
+    },
+    "rarity": "Legendary"
+  },
+  "protocolo_danger_room": {
+    "id": "protocolo_danger_room",
+    "name": "PROTOCOLO DANGER ROOM",
+    "desc": "+8% dano, +8% alcance y +6% critico. Al evolucionar, cada 10 ataques: Jubilee quema en area (20% poder/s, 3 s); X-23 corta hasta 3 blancos con sangrado (30% poder/s, 4 s, sin acumular).",
+    "icon": "assets/images/items/protocolo_danger_room.png",
+    "price": 8100,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "tactical",
+    "effects": {
+      "damagePct": 0.08,
+      "rangePct": 0.08,
+      "critChance": 6
+    },
+    "rarity": "Legendary"
+  },
+  "comunicador_guardianes": {
+    "id": "comunicador_guardianes",
+    "name": "COMUNICADOR DE LOS GUARDIANES",
+    "desc": "+8% dano, +8% alcance, +4% critico y +6% a jefes.",
+    "icon": "assets/images/items/comunicador_guardianes.png",
+    "price": 7900,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "cosmic",
+    "effects": {
+      "damagePct": 0.08,
+      "rangePct": 0.08,
+      "critChance": 4,
+      "bossDamagePct": 0.06
+    },
+    "rarity": "Legendary"
+  },
+  "legado_wakanda": {
+    "id": "legado_wakanda",
+    "name": "LEGADO DE WAKANDA",
+    "desc": "+10% dano, +12% contra blindaje y +4% critico.",
+    "icon": "assets/images/items/legado_wakanda.png",
+    "price": 7700,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "vibranium",
+    "effects": {
+      "damagePct": 0.1,
+      "armorDamagePct": 0.12,
+      "critChance": 4
+    },
+    "rarity": "Legendary"
+  },
+  "runa_asgardiana": {
+    "id": "runa_asgardiana",
+    "name": "RUNA DEL GUERRERO ASGARDIANO",
+    "desc": "+14% dano, +10% a jefes y rebote asgardiano.",
+    "icon": "assets/images/items/runa_asgardiana.png",
+    "price": 14500,
+    "tier": 5,
+    "slot": "artifact",
+    "set": "asgard",
+    "effects": {
+      "damagePct": 0.14,
+      "bossDamagePct": 0.1,
+      "chainCount": 1,
+      "chainRange": 100,
+      "chainFactor": 0.5
+    },
+    "rarity": "Mythic"
+  },
+  "talisman_tigre": {
+    "id": "talisman_tigre",
+    "name": "TALISMAN DEL ESPIRITU TIGRE",
+    "desc": "+7% critico, +25% dano critico y dano acumulativo por foco.",
+    "icon": "assets/images/items/talisman_tigre.png",
+    "price": 6800,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "mystic",
+    "effects": {
+      "critChance": 7,
+      "critDamageBonus": 0.25,
+      "consecutiveDamagePct": 0.02
+    },
+    "rarity": "Legendary"
+  },
+  "redwing_mk2": {
+    "id": "redwing_mk2",
+    "name": "REDWING MK II",
+    "desc": "Detecta sigilo, +10% alcance y +6% dano. Redwing asiste a Falcon.",
+    "icon": "assets/images/items/redwing_mk2.png",
+    "price": 3500,
+    "tier": 3,
+    "slot": "artifact",
+    "set": "tactical",
+    "effects": {
+      "detectStealth": true,
+      "rangePct": 0.1,
+      "damagePct": 0.06
+    },
+    "rarity": "Epic"
+  },
+  "baraja_cinetica": {
+    "id": "baraja_cinetica",
+    "name": "BARAJA CINETICA",
+    "desc": "Rebote cinetico, +5% critico y cartas sobrecargadas para Gambit.",
+    "icon": "assets/images/items/baraja_cinetica.png",
+    "price": 7200,
+    "tier": 4,
+    "slot": "weapon",
+    "set": "street",
+    "effects": {
+      "chainCount": 1,
+      "chainRange": 95,
+      "chainFactor": 0.6,
+      "critChance": 5
+    },
+    "rarity": "Legendary"
+  },
+  "fragmento_bloodstone": {
+    "id": "fragmento_bloodstone",
+    "name": "FRAGMENTO BLOODSTONE",
+    "desc": "+15% a jefes, 12% penetracion y +6% critico.",
+    "icon": "assets/images/items/fragmento_bloodstone.png",
+    "price": 7500,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "mystic",
+    "effects": {
+      "bossDamagePct": 0.15,
+      "armorPenetration": 0.12,
+      "critChance": 6
+    },
+    "rarity": "Legendary"
+  },
+  "arsenal_deadpool": {
+    "id": "arsenal_deadpool",
+    "name": "ARSENAL SIN FONDO",
+    "desc": "+14% cadencia, +6% critico y pequenas explosiones. Deadpool evolucionado alterna pistolas, katana y explosivos cada 3 ataques.",
+    "icon": "assets/images/items/arsenal_deadpool.png",
+    "price": 6900,
+    "tier": 4,
+    "slot": "weapon",
+    "set": "street",
+    "effects": {
+      "fireRatePct": 0.14,
+      "critChance": 6,
+      "splashRadius": 30,
+      "splashFactor": 0.25
+    },
+    "rarity": "Legendary"
+  },
+  "totem_tierra_salvaje": {
+    "id": "totem_tierra_salvaje",
+    "name": "TOTEM DE LA TIERRA SALVAJE",
+    "desc": "+12% dano, +8% a jefes y rugido en area.",
+    "icon": "assets/images/items/totem_tierra_salvaje.png",
+    "price": 3400,
+    "tier": 3,
+    "slot": "artifact",
+    "set": "cosmic",
+    "effects": {
+      "damagePct": 0.12,
+      "bossDamagePct": 0.08,
+      "splashRadius": 36,
+      "splashFactor": 0.3
+    },
+    "rarity": "Epic"
+  },
+  "amplificador_criocinetico": {
+    "id": "amplificador_criocinetico",
+    "name": "AMPLIFICADOR CRIOCINETICO",
+    "desc": "Ralentizacion fuerte y +8% dano contra enemigos con estados.",
+    "icon": "assets/images/items/amplificador_criocinetico.png",
+    "price": 3600,
+    "tier": 3,
+    "slot": "artifact",
+    "set": "tactical",
+    "effects": {
+      "slowChance": 0.3,
+      "slowPower": 0.25,
+      "statusDamagePct": 0.08,
+      "statusDamageCap": 0.24
+    },
+    "rarity": "Epic"
+  },
+  "brazalete_kamala": {
+    "id": "brazalete_kamala",
+    "name": "BRAZALETE DE KAMALA",
+    "desc": "+10% dano, +10% alcance y +4% critico.",
+    "icon": "assets/images/items/brazalete_kamala.png",
+    "price": 3300,
+    "tier": 3,
+    "slot": "artifact",
+    "set": "street",
+    "effects": {
+      "damagePct": 0.1,
+      "rangePct": 0.1,
+      "critChance": 4
+    },
+    "rarity": "Epic"
+  },
+  "nucleo_gamma": {
+    "id": "nucleo_gamma",
+    "name": "NUCLEO GAMMA",
+    "desc": "+14% dano, foco acumulativo y splash pequeno.",
+    "icon": "assets/images/items/nucleo_gamma.png",
+    "price": 7000,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "tactical",
+    "effects": {
+      "damagePct": 0.14,
+      "consecutiveDamagePct": 0.025,
+      "splashRadius": 36,
+      "splashFactor": 0.25
+    },
+    "rarity": "Legendary"
+  },
+  "senal_tippytoe": {
+    "id": "senal_tippytoe",
+    "name": "SENAL DE TIPPY-TOE",
+    "desc": "+12% cadencia, +4% critico y rebote ligero.",
+    "icon": "assets/images/items/senal_tippytoe.png",
+    "price": 3000,
+    "tier": 3,
+    "slot": "artifact",
+    "set": "street",
+    "effects": {
+      "fireRatePct": 0.12,
+      "critChance": 4,
+      "chainCount": 1,
+      "chainRange": 80,
+      "chainFactor": 0.45
+    },
+    "rarity": "Epic"
+  },
+  "stormcaster": {
+    "id": "stormcaster",
+    "name": "STORMCASTER",
+    "desc": "+16% dano, doble cadena y stun breve.",
+    "icon": "assets/images/items/stormcaster.png",
+    "price": 15000,
+    "tier": 5,
+    "slot": "weapon",
+    "set": "asgard",
+    "effects": {
+      "damagePct": 0.16,
+      "chainCount": 2,
+      "chainRange": 115,
+      "chainFactor": 0.55,
+      "stunChance": 0.18,
+      "stunDuration": 0.25
+    },
+    "rarity": "Mythic"
+  },
+  "capucha_infernal": {
+    "id": "capucha_infernal",
+    "name": "CAPUCHA INFERNAL",
+    "desc": "Maldicion potente y +20% contra enemigos malditos.",
+    "icon": "assets/images/items/capucha_infernal.png",
+    "price": 8100,
+    "tier": 4,
+    "slot": "armor",
+    "set": "mystic",
+    "effects": {
+      "curseChance": 0.3,
+      "curseDuration": 5,
+      "cursePower": 0.014,
+      "damageToCursedPct": 0.2
+    },
+    "rarity": "Legendary"
+  },
+  "nucleo_adaptativo": {
+    "id": "nucleo_adaptativo",
+    "name": "NUCLEO DE COMBATE ADAPTATIVO",
+    "desc": "+8% dano, +10% cadencia, deteccion y 8% penetracion.",
+    "icon": "assets/images/items/nucleo_adaptativo.png",
+    "price": 7600,
+    "tier": 4,
+    "slot": "artifact",
+    "set": "tactical",
+    "effects": {
+      "damagePct": 0.08,
+      "fireRatePct": 0.1,
+      "detectStealth": true,
+      "armorPenetration": 0.08
+    },
+    "rarity": "Legendary"
+  },
+  "escudo_guardian_rojo": {
+    "id": "escudo_guardian_rojo",
+    "name": "ESCUDO DEL RED GUARDIAN",
+    "desc": "+8% dano, +12% contra blindaje y +4% critico.",
+    "icon": "assets/images/items/escudo_guardian_rojo.png",
+    "price": 3500,
+    "tier": 3,
+    "slot": "armor",
+    "set": "tactical",
+    "effects": {
+      "damagePct": 0.08,
+      "armorDamagePct": 0.12,
+      "critChance": 4
+    },
+    "rarity": "Epic"
+  },
+  "arsenal_knowhere": {
+    "id": "arsenal_knowhere",
+    "name": "ARSENAL DE KNOWHERE",
+    "desc": "+5% critico, splash, +6% alcance y ataques pesados.",
+    "icon": "assets/images/items/arsenal_knowhere.png",
+    "price": 7300,
+    "tier": 4,
+    "slot": "weapon",
+    "set": "cosmic",
+    "effects": {
+      "critChance": 5,
+      "splashRadius": 38,
+      "splashFactor": 0.3,
+      "rangePct": 0.06
+    },
+    "rarity": "Legendary"
+  },
+  "cerebro": {
+    "id": "cerebro",
+    "name": "CEREBRO",
+    "desc": "+22% alcance, deteccion y dano por estados.",
+    "icon": "assets/images/items/cerebro.png",
+    "price": 18000,
+    "tier": 5,
+    "slot": "artifact",
+    "set": "tactical",
+    "effects": {
+      "rangePct": 0.22,
+      "detectStealth": true,
+      "statusDamagePct": 0.12,
+      "statusDamageCap": 0.45
+    },
+    "rarity": "Mythic"
+  },
+  "carcaj_flechas_truco": {
+    "id": "carcaj_flechas_truco",
+    "name": "CARCAJ DE FLECHAS TRUCO",
+    "desc": "+6% critico, +10% alcance, slow y armor break. Kate Bishop evolucionada alterna explosion, ralentizacion y rotura de armadura cada 4 ataques.",
+    "icon": "assets/images/items/carcaj_flechas_truco.png",
+    "price": 7100,
+    "tier": 4,
+    "slot": "weapon",
+    "set": "tactical",
+    "effects": {
+      "critChance": 6,
+      "rangePct": 0.1,
+      "slowChance": 0.2,
+      "slowPower": 0.18,
+      "armorBreakChance": 0.2,
+      "armorBreakPower": 0.12
+    },
+    "rarity": "Legendary"
+  },
+  "mjolnir": {
+    "id": "mjolnir",
+    "name": "MJOLNIR",
+    "desc": "Martillo digno: rayos, rebotes y despertar ofensivo del portador.",
+    "icon": "assets/images/items/mjolnir.png",
+    "price": 22000,
+    "tier": 5,
+    "slot": "weapon",
+    "set": "asgard",
+    "effects": {
+      "damagePct": 0.18,
+      "chainCount": 2,
+      "chainRange": 120,
+      "chainFactor": 0.55,
+      "stunChance": 0.18,
+      "stunDuration": 0.24
+    },
+    "rarity": "Mythic"
+  },
+  "pocion_yggdrasil": {
+    "id": "pocion_yggdrasil",
+    "name": "POCION DE YGGDRASIL",
+    "desc": "Reliquia magica para detener el tiempo y amplificar hechizos.",
+    "icon": "assets/images/items/pocion_yggdrasil.png",
+    "price": 24000,
+    "tier": 5,
+    "slot": "artifact",
+    "set": "mystic",
+    "effects": {
+      "damagePct": 0.14,
+      "rangePct": 0.16,
+      "statusDamagePct": 0.1,
+      "statusDamageCap": 0.42
+    },
+    "rarity": "Mythic"
+  },
+  "darkhold": {
+    "id": "darkhold",
+    "name": "DARKHOLD",
+    "desc": "Grimorio oscuro: maldicion extrema y poder de caos.",
+    "icon": "assets/images/items/darkhold.png",
+    "price": 60000,
+    "tier": 6,
+    "slot": "artifact",
+    "set": "mystic",
+    "effects": {
+      "damagePct": 0.28,
+      "curseChance": 0.45,
+      "curseDuration": 6,
+      "cursePower": 0.018,
+      "statusDamagePct": 0.14,
+      "statusDamageCap": 0.55
+    },
+    "rarity": "Secret"
+  },
+  "diez_anillos": {
+    "id": "diez_anillos",
+    "name": "LOS DIEZ ANILLOS",
+    "desc": "Arma legendaria de combos automaticos y cadenas de impacto.",
+    "icon": "assets/images/items/diez_anillos.png",
+    "price": 14000,
+    "tier": 5,
+    "slot": "weapon",
+    "set": "mystic",
+    "effects": {
+      "damagePct": 0.14,
+      "fireRatePct": 0.12,
+      "chainCount": 1,
+      "chainRange": 110,
+      "chainFactor": 0.55
+    },
+    "rarity": "Mythic"
+  },
+  "espada_infinito": {
+    "id": "espada_infinito",
+    "name": "ESPADA DEL INFINITO",
+    "desc": "Hoja cosmica de endgame para Dark Surfer.",
+    "icon": "assets/images/items/espada_infinito.png",
+    "price": 68000,
+    "tier": 6,
+    "slot": "weapon",
+    "set": "cosmic",
+    "effects": {
+      "damagePct": 0.34,
+      "bossDamagePct": 0.22,
+      "armorPenetration": 0.28,
+      "rangePct": 0.12
+    },
+    "rarity": "Secret"
+  },
+  "el_vacio": {
+    "id": "el_vacio",
+    "name": "EL VACIO",
+    "desc": "Entidad oscura que desbloquea The Void y ataques de sombra.",
+    "icon": "assets/images/items/el_vacio.png",
+    "price": 72000,
+    "tier": 6,
+    "slot": "artifact",
+    "set": "mystic",
+    "effects": {
+      "damagePct": 0.36,
+      "bossDamagePct": 0.18,
+      "curseChance": 0.36,
+      "curseDuration": 6,
+      "cursePower": 0.018
+    },
+    "rarity": "Secret"
+  }
+}

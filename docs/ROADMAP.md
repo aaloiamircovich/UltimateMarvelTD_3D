@@ -1,5 +1,11 @@
 # Roadmap
 
+## Prioridad vigente — Migrar el juego 2D
+
+El usuario pidió pasar todo lo aprovechable de `TowerDefense_Marvel` antes de nuevas funciones 3D. Esta prioridad reemplaza el orden previo de expansión del HUB. La referencia de ejecución es [MIGRACION_2D.md](MIGRACION_2D.md): primero datos y núcleo verificable, después combate completo, progresión e inventario, mapas y modos, y por último presentación 3D.
+
+Ya se incorporaron los datos de 105 héroes, 82 objetos, 49 enemigos y 11 mapas; 58 módulos heredados y 89 archivos de pruebas. El archivo del HUB utiliza los cálculos originales para consultar niveles, objetos, evoluciones y sinergias. La integración de ese núcleo en partidas 3D sigue pendiente.
+
 ## Dirección confirmada por el usuario
 
 El objetivo es el ciclo de los tower defense de Roblox: personaje propio en tercera persona → HUB recorrible → invocaciones, historia, infinito, traits y grades → mejora del escuadrón → nuevas misiones. La misión de Manhattan es una actividad dentro de esa experiencia. Priorizar este flujo antes de dedicar la siguiente fase exclusivamente a producir modelos.
@@ -11,10 +17,10 @@ El objetivo es el ciclo de los tower defense de Roblox: personaje propio en terc
 - Estaciones de invocaciones, traits y grades ubicadas, con indicación explícita de que aún no son funcionales.
 - Volver al HUB desde la misión y desde resultados.
 
-## Próximo — Definir e implementar progresión
+## Después de la migración — Extensiones del HUB
 
 - El usuario indicó que describirá otras reglas para traits y grades. No usar como decisión aprobada la propuesta de traits pasivos aleatorios y grades C/B/A/S con rerolls.
-- Definir colección, inventario, reglas y recursos de invocación; después implementar reclutamiento y selección de escuadrón.
+- Reutilizar primero colección, inventario, reclutamiento y selección de escuadrón del 2D. Definir cambios únicamente después de comprobar su migración.
 - Integrar traits y grades con las reglas que aporte el usuario y verificar su efecto en las misiones.
 - Extender el avatar y la cámara de tercera persona a las misiones; actualmente el combate mantiene cámara táctica.
 
