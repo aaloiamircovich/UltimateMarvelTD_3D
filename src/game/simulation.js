@@ -95,7 +95,8 @@ export function selectTarget(enemies, unit, range) {
 
 // No DOM, WebGL or wall clock: the same simulation runs in browser and balance tests.
 export class Game {
-  constructor() {
+  constructor(mode = "story") {
+    this.mode = mode === "infinite" ? "infinite" : "story";
     this.reset();
   }
   reset() {
@@ -209,7 +210,7 @@ export class Game {
         PRIORITIES[(PRIORITIES.indexOf(u.priority) + 1) % PRIORITIES.length];
   }
   startWave() {
-    if (this.phase !== "preparing" || this.wave >= WAVE_COUNT || this.paused)
+    if (this.phase !== "preparing" || (this.mode !== "infinite" && this.wave >= WAVE_COUNT) || this.paused)
       return false;
     this.wave++;
     this.definition = waveDefinition(this.wave);
@@ -360,7 +361,7 @@ export class Game {
     if (!this.spawnQueue.length && !this.enemies.length) {
       this.cash += this.definition.bonus;
       this.betweenTimer = 4;
-      this.phase = this.wave === WAVE_COUNT ? "victory" : "preparing";
+      this.phase = this.mode !== "infinite" && this.wave === WAVE_COUNT ? "victory" : "preparing";
       this.events.push({
         type: this.phase === "victory" ? "end" : "clear",
         bonus: this.definition.bonus,

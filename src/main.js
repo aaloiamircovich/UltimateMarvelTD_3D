@@ -22,6 +22,7 @@ import { makePortraits } from "./render/models.js";
 import { AudioManager } from "./ui/audio.js";
 import { icon } from "./ui/icons.js";
 import { Vector3 } from "three";
+import { Hub } from "./ui/hub.js";
 
 const $ = (id) => document.getElementById(id);
 let storage;
@@ -45,6 +46,8 @@ let selectedHero = null,
   ended = false,
   lastKills = 0;
 let world,
+  hub,
+  inHub = true,
   portraits = {},
   toastTimer;
 
@@ -133,7 +136,7 @@ $("modal").addEventListener("click", (e) => {
 });
 
 function selectHero(id) {
-  if (ended) return;
+  if (ended || inHub) return;
   selectedHero = selectedHero === id ? null : id;
   selectedUnitId = null;
   detailsSignature = "";
@@ -141,7 +144,7 @@ function selectHero(id) {
 }
 function onPick(point) {
   audio.unlock();
-  if (ended) return;
+  if (ended || inHub) return;
   if (selectedHero) {
     const result = game.deploy(selectedHero, point.x, point.z);
     if (result.error) {
@@ -182,7 +185,7 @@ function updateInspector() {
   detailsSignature = signature;
   if (!hero) {
     const next =
-      Math.min(game.wave + (game.phase === "preparing" ? 1 : 0), 12) || 1;
+      Math.min(game.wave + (game.phase === "preparing" ? 1 : 0), game.mode === "infinite" ? Infinity : 12) || 1;
     const wave = waveDefinition(next),
       counts = {};
     wave.enemies.forEach((kind) => (counts[kind] = (counts[kind] || 0) + 1));
@@ -237,10 +240,10 @@ function updateUI() {
   $("health").innerHTML = `${game.health} <small>/ 100</small>`;
   $("health-bar").style.width = `${game.health}%`;
   $("wave").innerHTML =
-    `${String(game.wave).padStart(2, "0")} <small>/ 12</small>`;
+    `${String(game.wave).padStart(2, "0")} <small>/ ${game.mode === "infinite" ? "∞" : "12"}</small>`;
   const completed =
     game.wave - (game.phase === "combat" || game.phase === "defeat" ? 1 : 0);
-  $("progress").textContent = `${Math.max(0, completed)} / 12`;
+  $("progress").textContent = `${Math.max(0, completed)} / ${game.mode === "infinite" ? "∞" : "12"}`;
   document
     .querySelectorAll("#wave-dots i")
     .forEach(
@@ -371,8 +374,39 @@ function restart() {
   world.resetCamera();
   toast("Nueva misión. Reuní a tu escuadrón.");
 }
+function startMission(mode) {
+  inHub = false;
+  hub.hide();
+  $("app").hidden = false;
+  game.mode = mode;
+  restart();
+  world.resize();
+  document.querySelector(".operation-header").innerHTML = `<span class="live-dot"></span> ${mode === "infinite" ? "RESISTENCIA INFINITA" : "OPERACIÓN MANHATTAN"} <span class="alpha">ALPHA 0.2</span>`;
+  document.querySelector(".mission-panel .eyebrow").textContent = mode === "infinite" ? "MODO INFINITO" : "MODO HISTORIA · 01";
+  document.querySelector(".objective div span").textContent = mode === "infinite" ? "Resistí hasta que caiga la base" : "Sobreviví a las 12 oleadas";
+  $("wave-dots").hidden = mode === "infinite";
+  $("best-wave").textContent = `${mode === "infinite" ? profile.bestInfinite : profile.bestWave} OLEADAS`;
+}
+function returnToHub() {
+  $("modal").close();
+  game.paused = true;
+  inHub = true;
+  $("app").hidden = true;
+  hub.show();
+}
+const returnButton = document.createElement("button");
+returnButton.id = "return-hub";
+returnButton.className = "nav-button";
+returnButton.textContent = "← HUB";
+document.querySelector(".top-actions").prepend(returnButton);
+returnButton.onclick = () => {
+  if (ended || game.wave === 0 && game.units.length === 0) return returnToHub();
+  showModal(`<div class="eyebrow">VOLVER AL CAMPUS</div><h2>¿Salir de la misión?</h2><p class="modal-note">Se perderá la partida en curso. Las marcas de oleadas completadas se conservan.</p><button id="confirm-hub" class="primary">VOLVER AL HUB</button>`);
+  $("confirm-hub").onclick = returnToHub;
+};
 document.addEventListener("keydown", (e) => {
   if (
+    inHub ||
     $("modal").open ||
     /INPUT|SELECT|TEXTAREA/.test(e.target.tagName) ||
     e.repeat ||
@@ -411,7 +445,8 @@ function processEvents() {
     if (event.type === "leak") toast("¡Un enemigo alcanzó la base!", true);
     if (event.type === "clear" || event.type === "end") {
       const cleared = game.phase === "defeat" ? game.wave - 1 : game.wave;
-      profile.bestWave = Math.max(profile.bestWave, cleared);
+      const recordKey = game.mode === "infinite" ? "bestInfinite" : "bestWave";
+      profile[recordKey] = Math.max(profile[recordKey], cleared);
       profile.totalKills += game.kills - lastKills;
       lastKills = game.kills;
       if (event.type === "clear")
@@ -425,9 +460,18 @@ function processEvents() {
           "end",
         );
         $("play-again").onclick = restart;
+        if (game.mode === "infinite") {
+          $("modal-content").querySelector("h2").textContent = "Resistencia finalizada";
+          $("modal-content").querySelector(".profile-stats b").textContent = String(cleared);
+        }
+        const back = document.createElement("button");
+        back.className = "secondary";
+        back.textContent = "VOLVER AL HUB";
+        back.onclick = returnToHub;
+        $("modal-content").append(back);
       }
       persist();
-      $("best-wave").textContent = `${profile.bestWave} OLEADAS`;
+      $("best-wave").textContent = `${profile[recordKey]} OLEADAS`;
     }
   }
 }
@@ -437,6 +481,9 @@ try {
     hoverPoint = point;
   });
   portraits = makePortraits(HEROES);
+  hub = new Hub(profile, startMission, portraits);
+  $("app").hidden = true;
+  game.paused = true;
   $("roster").innerHTML = HEROES.map(
     (h, i) =>
       `<button class="hero-card" data-hero="${h.id}" style="--hero-color:${h.color}" aria-label="Desplegar ${h.name}, ${h.cost} créditos" aria-pressed="false"><span class="hero-hotkey">${i + 1}</span><span class="rarity-mark" title="${h.rarity}">${h.rarity === "Mythic" ? "✦✦✦" : h.rarity === "Legendary" ? "✦✦" : "✦"}</span><div class="hero-image"><img src="${portraits[h.id]}" alt="" draggable="false"/></div><span class="hero-name">${h.name}</span><span class="hero-bottom"><span>${h.role}</span><b>◈ ${h.cost}</b></span></button>`,
@@ -453,6 +500,11 @@ try {
   function frame(now) {
     const dt = Math.min((now - lastTime) / 1000, 0.1);
     lastTime = now;
+    if (inHub) {
+      hub.render(dt);
+      requestAnimationFrame(frame);
+      return;
+    }
     game.update(dt);
     processEvents();
     world.setPreview(
@@ -475,6 +527,8 @@ try {
     window.__TD = {
       game,
       world,
+      hub,
+      get inHub() { return inHub; },
       get selectedHero() {
         return selectedHero;
       },

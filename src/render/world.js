@@ -157,6 +157,7 @@ export class World {
   }
   resize() {
     const { width, height } = this.container.getBoundingClientRect();
+    if (!width || !height) return;
     this.renderer.setSize(width, height);
     this.camera.aspect = width / height;
     this.camera.zoom = Math.min(1, this.camera.aspect / 1.35);

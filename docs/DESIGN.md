@@ -2,6 +2,8 @@
 
 ## Dirección
 
+La dirección actual del usuario sitúa un personaje controlable en tercera persona dentro de un HUB como punto de entrada, siguiendo el flujo de los tower defense de Roblox. La implementación inicial del HUB ofrece historia e infinito; los lugares de invocaciones, traits y grades están reservados mientras se definen sus reglas. El texto siguiente documenta las decisiones de la primera misión, que ahora se accede desde ese HUB.
+
 La prioridad es una experiencia de tower defense 3D independiente de Roblox: personajes reconocibles, una ruta clara, colocación rápida y decisiones de equipo que importen. La estética combina un diorama de Manhattan con una interfaz tecnológica S.H.I.E.L.D., acentos cian y cartas por rareza.
 
 Three.js se eligió porque el usuario no tiene preferencia de motor, el juego anterior está escrito en JavaScript y una primera versión web se prueba sin instalar un editor. Los datos y la simulación están separados del renderizador para facilitar futuras expansiones o una adaptación a otro motor.

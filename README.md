@@ -1,6 +1,8 @@
 # Ultimate Marvel TD · 3D
 
-Tower defense 3D independiente de Roblox, desarrollado con Three.js y JavaScript. **Alpha 0.1: una misión completa y jugable en Manhattan.**
+Tower defense 3D independiente de Roblox, desarrollado con Three.js y JavaScript. **Alpha 0.2: HUB recorrible en tercera persona con acceso a historia e infinito.**
+
+La experiencia comienza en Avengers Campus: controlás a tu agente, recorrés la plaza y accedés a las actividades desde sus estaciones. Historia e infinito ya se pueden jugar; invocaciones, traits y grades tienen espacios reservados pero aún no implementan sus sistemas. Las reglas de traits y grades están pendientes de la descripción del usuario: no asumir pasivas aleatorias, rangos C–S ni rerolls.
 
 El punto de partida de diseño es [TowerDefense_Marvel](https://github.com/aaloiamircovich/TowerDefense_Marvel). Se toman sus roles de héroes, el soporte de Capitán América, las prioridades de ataque y las sinergias, adaptados a un campo de batalla tridimensional. No es una migración completa de los 78 héroes del juego 2D.
 
@@ -17,6 +19,10 @@ Abrir **http://127.0.0.1:5173/**. En Windows también se puede usar `Jugar.cmd`.
 
 ## Qué incluye
 
+- HUB con avatar propio, cámara de seguimiento giratoria, movimiento relativo a cámara, salto, límites y colisión con las estaciones.
+- Portales a historia (12 oleadas) e infinito (continúa después de la 12, jefes cada seis oleadas y récord independiente guardado).
+- Interacción por proximidad con E, accesos equivalentes por botones y controles de movimiento táctiles.
+- Retorno al HUB desde misiones y resultados; salir de una misión en curso requiere confirmación.
 - Manhattan en 3D con Torre Stark, portal enemigo, calles, edificios, parques, vehículos, sombras y cámara orbital.
 - Seis héroes disponibles desde el inicio, con modelos geométricos originales: Iron Man, Spider-Man, Capitán América, Thor, Hulk y Doctor Strange.
 - 12 oleadas; drones de Ultron, exploradores Chitauri, centinelas de Hydra y Ultron como jefe en las oleadas 6 y 12.
@@ -33,6 +39,10 @@ Abrir **http://127.0.0.1:5173/**. En Windows también se puede usar `Jugar.cmd`.
 
 | Acción | Control |
 | --- | --- |
+| Caminar en el HUB | WASD / flechas / botones táctiles |
+| Cámara del HUB | Arrastrar para girar, rueda para acercar |
+| Saltar en el HUB | Espacio |
+| Usar estación cercana | E / botón Interactuar |
 | Elegir héroe | Clic en su tarjeta o teclas 1–6 |
 | Desplegar / seleccionar | Clic izquierdo en el mapa |
 | Cancelar selección | Esc |
@@ -84,7 +94,7 @@ La simulación no depende del DOM ni de Three.js. La escena agrupa geometría es
 
 ## Alcance y próximos pasos
 
-Esta alpha es para un jugador, con un mapa y seis héroes. Todavía no incluye lobby explorable, gacha, inventario persistente de unidades, evolución, equipamiento, más mapas ni multijugador. La partida en curso no se guarda; al recargar comienza una misión nueva.
+Esta alpha es para un jugador, con un HUB, un mapa de combate y seis héroes. Todavía no incluye gacha funcional, inventario persistente de unidades, traits, grades, evolución, equipamiento, más mapas ni multijugador. El avatar y la cámara en tercera persona están implementados en el HUB; el combate conserva la cámara táctica. La partida en curso no se guarda; al recargar se vuelve al HUB. El infinito limita la cantidad de enemigos por oleada para mantener acotada la carga, y escala su vida.
 
 Ver [decisiones de diseño y referencias](docs/DESIGN.md), [roadmap](docs/ROADMAP.md) y [guía de la base chibi en Blender](docs/BLENDER.md).
 

@@ -29,6 +29,42 @@ try {
       document.querySelectorAll(".hero-card").length === 6,
   );
   await page.evaluate(() => document.fonts.ready);
+  await page.waitForFunction(() => window.__TD?.hub && window.__TD.inHub);
+  await page.screenshot({ path: "artifacts/hub-desktop.png" });
+  const startZ = await page.evaluate(() => window.__TD.hub.world.player.position.z);
+  await page.locator("#hub-world canvas").focus();
+  await page.keyboard.down("w");
+  await page.waitForTimeout(400);
+  await page.keyboard.up("w");
+  assert.ok(await page.evaluate(z => window.__TD.hub.world.player.position.z < z - 0.5, startZ));
+  await page.evaluate(() => window.__TD.hub.world.player.position.set(-9, 0, -8));
+  await page.waitForFunction(() => window.__TD.hub.world.nearby?.id === "story");
+  await page.keyboard.press("e");
+  assert.ok(await page.locator("#hub-dialog").isVisible());
+  await page.keyboard.press("Escape");
+  assert.equal(await page.locator("#hub-dialog").isVisible(), false);
+  await page.locator('[data-station="traits"]').click();
+  await page.getByText("ZONA EN PREPARACIÓN", { exact: true }).waitFor();
+  await page.locator("#hub-close").click();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: "artifacts/hub-mobile.png" });
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  const touchZ = await page.evaluate(() => window.__TD.hub.world.player.position.z);
+  const touchButton = await page.locator('[data-move="KeyS"]').boundingBox();
+  await page.mouse.move(touchButton.x + touchButton.width / 2, touchButton.y + touchButton.height / 2);
+  await page.mouse.down();
+  await page.waitForTimeout(250);
+  await page.mouse.up();
+  assert.ok(await page.evaluate(z => window.__TD.hub.world.player.position.z > z, touchZ));
+  await page.setViewportSize({ width: 1600, height: 1000 });
+  await page.locator('[data-station="infinite"]').click();
+  await page.locator("#hub-launch").click();
+  assert.equal(await page.evaluate(() => window.__TD.game.mode), "infinite");
+  assert.equal(await page.evaluate(() => window.__TD.inHub), false);
+  await page.locator("#return-hub").click();
+  assert.ok(await page.locator("#hub").isVisible());
+  await page.locator('[data-station="story"]').click();
+  await page.locator("#hub-launch").click();
   await page.screenshot({ path: "artifacts/desktop-initial.png" });
   const pick = async (x, z) => {
     const p = await page.evaluate(

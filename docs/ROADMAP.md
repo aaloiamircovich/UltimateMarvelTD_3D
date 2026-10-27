@@ -1,10 +1,28 @@
 # Roadmap
 
+## Dirección confirmada por el usuario
+
+El objetivo es el ciclo de los tower defense de Roblox: personaje propio en tercera persona → HUB recorrible → invocaciones, historia, infinito, traits y grades → mejora del escuadrón → nuevas misiones. La misión de Manhattan es una actividad dentro de esa experiencia. Priorizar este flujo antes de dedicar la siguiente fase exclusivamente a producir modelos.
+
+## 0.2 — Primera base del HUB (implementada)
+
+- Plaza Avengers Campus, avatar con movimiento y salto, cámara en tercera persona y controles táctiles.
+- Estaciones de historia e infinito conectadas a Manhattan. Infinito continúa después de la oleada 12 y guarda una marca separada.
+- Estaciones de invocaciones, traits y grades ubicadas, con indicación explícita de que aún no son funcionales.
+- Volver al HUB desde la misión y desde resultados.
+
+## Próximo — Definir e implementar progresión
+
+- El usuario indicó que describirá otras reglas para traits y grades. No usar como decisión aprobada la propuesta de traits pasivos aleatorios y grades C/B/A/S con rerolls.
+- Definir colección, inventario, reglas y recursos de invocación; después implementar reclutamiento y selección de escuadrón.
+- Integrar traits y grades con las reglas que aporte el usuario y verificar su efecto en las misiones.
+- Extender el avatar y la cámara de tercera persona a las misiones; actualmente el combate mantiene cámara táctica.
+
 ## 0.1 — Base jugable (implementada)
 
 Manhattan 3D, seis héroes, doce oleadas, Ultron, economía, mejoras, sinergia, prioridades, perfil local, cámara y controles, pruebas de simulación y navegador.
 
-## 0.2 — Identidad visual y contenido
+## Posterior — Identidad visual y contenido
 
 - Sustituir modelos geométricos por modelos GLB chibi con rigs y animaciones de idle, ataque e impacto.
 - Sincronizar daño y efectos con los momentos de impacto de las animaciones.
@@ -14,7 +32,7 @@ Manhattan 3D, seis héroes, doce oleadas, Ultron, economía, mejoras, sinergia, 
 
 ## 0.3 — Colección y progresión
 
-- Lobby 3D y navegación entre campaña, escuadrón y colección.
+- Ampliar la navegación del HUB y convertir el escuadrón informativo en una colección configurable.
 - Guardado versionado de colección, experiencia, misiones y recompensas.
 - Invocaciones con rarezas, probabilidades visibles y protección contra duplicados frustrantes.
 - Primeras evoluciones: Extremis, Iron Spider y variantes coherentes con el juego 2D.
@@ -24,7 +42,7 @@ Manhattan 3D, seis héroes, doce oleadas, Ultron, economía, mejoras, sinergia, 
 
 - Más héroes del repositorio 2D, equipo de seis configurable y familias de sinergias.
 - Reglas de terreno, enemigos especiales, counters y habilidades activas.
-- Modos historia, desafío e infinito, con recompensas y dificultad diferenciadas.
+- Expandir historia e infinito con recompensas y añadir desafío.
 - Persistencia de una partida en curso y tutorial interactivo.
 
 ## Futuro — Cooperativo

@@ -201,7 +201,7 @@ export const MAX_UNITS = 12;
 export const PRIORITIES = ["Primero", "Último", "Fuerte"];
 export function waveDefinition(number) {
   const enemies = [];
-  for (let i = 0; i < 5 + number; i++) {
+  for (let i = 0; i < Math.min(65, 5 + number); i++) {
     enemies.push(
       number >= 4 && i % 4 === 3
         ? "tank"
@@ -210,11 +210,11 @@ export function waveDefinition(number) {
           : "drone",
     );
   }
-  if (number === 6 || number === 12) enemies.splice(3, 0, "boss");
+  if (number % 6 === 0) enemies.splice(3, 0, "boss");
   return {
     enemies,
     interval: Math.max(0.5, 1.15 - number * 0.035),
-    multiplier: 1.14 ** (number - 1),
+    multiplier: 1.14 ** (Math.min(number, 1000) - 1),
     bonus: 110 + number * 22,
   };
 }
