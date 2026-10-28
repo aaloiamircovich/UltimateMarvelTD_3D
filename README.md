@@ -6,7 +6,9 @@ La experiencia comienza en Avengers Campus: controlás a tu agente, recorrés la
 
 La prioridad es migrar [TowerDefense_Marvel](https://github.com/aaloiamircovich/TowerDefense_Marvel) antes de añadir nuevas funciones exclusivas del 3D. Ya se incorporó su catálogo completo: **105 héroes, 82 objetos, 30 enemigos normales, 19 jefes y 11 mapas**, más el núcleo de reglas y sus pruebas. El botón **ARCHIVO 2D** del HUB permite buscar contenido, probar niveles y objetos en las fichas y consultar evoluciones y sinergias con el cálculo original.
 
-**Esto todavía no es una migración completa del combate.** Los datos y reglas están conservados y el catálogo está integrado; las partidas 3D siguen usando los seis héroes y la misión del prototipo. El estado de cada sistema y el orden de integración están en [MIGRACION_2D.md](docs/MIGRACION_2D.md).
+Desde **ARCHIVO 2D → Héroes → Ensayo de combate** también se pueden ejecutar 15 segundos de las reglas originales: elegir héroe, nivel, objeto y enemigo, incluir compañeros de la prueba de sinergias y consultar daño, habilidades, bajas, fugas y créditos. Es una prueba numérica reproducible; no gasta recursos ni modifica perfiles.
+
+**Esto todavía no es una migración completa del combate.** El adaptador ejecuta las entidades originales y sus resultados se comparan con el bucle 2D; las partidas 3D siguen usando los seis héroes y la misión del prototipo. El estado de cada sistema y el orden de integración están en [MIGRACION_2D.md](docs/MIGRACION_2D.md).
 
 ## Jugar en tu computadora
 
@@ -82,6 +84,8 @@ npm run preview
 src/game/data.js          Definiciones de héroes, enemigos, mapa y oleadas
 src/game/simulation.js    Economía, colocación, ruta, combate y estados
 src/game/profile.js       Perfil local versionado y validado
+src/game/legacy-combat.js Puente de combate original, reloj fijo y eventos independientes del render
+src/game/legacy-catalog.js Catálogo completo y estadísticas del juego original
 src/render/models.js      Modelos 3D y retratos generados con Three.js
 src/render/world.js       Escenario, cámara, selección, efectos y pools
 src/ui/                  Iconos y audio sintetizado

@@ -2,6 +2,7 @@ import { LEGACY, LEGACY_COUNTS, previewLegacyHero, legacyAsset, findLegacyEntrie
   SYNERGY_DEFINITIONS, EVOLUTION_CATALOG, GAME_MODES, CAMPAIGN_MAX_WAVES,
   getLevelUnlockRequirement, getAllowedTerrainLabels, analyzeTeam } from "../game/legacy-catalog.js";
 import { formatEffectSummary } from "../legacy/src/systems/TeamSynergySystem.js";
+import { runLegacyTrial } from "../game/legacy-combat.js";
 import "./legacy-catalog.css";
 
 const esc = value => String(value ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -21,6 +22,7 @@ export class LegacyCatalog {
     this.heroId = "iron_man";
     this.level = 1;
     this.itemId = "";
+    this.enemyId = "hydra_soldier";
     this.render();
   }
   render() {
@@ -66,6 +68,7 @@ export class LegacyCatalog {
     const evolution = Object.values(EVOLUTION_CATALOG).find(e => e.baseHeroId === id);
     const detail = this.body.querySelector("#legacy-detail");
     detail.innerHTML = `<div class="legacy-detail-heading">${image(portrait, preview.evolution?.name || hero.name)}<div><span>${esc(hero.rarity)} · ${esc(hero.category)}</span><h3>${esc(preview.evolution?.name || hero.name)}</h3></div></div><p>${esc(hero.niche)}</p><h4>${esc(hero.ability)}</h4><p>${esc(hero.abilityDesc)}</p><div class="legacy-numbers">${stat("Costo original", number(hero.cost))}${stat("Daño", preview.support ? "Apoyo" : number(preview.stats.damage))}${stat("Ataques / s", preview.support ? "No ataca" : number(preview.stats.fireRate))}${stat("Alcance 2D (px)", number(preview.stats.range))}${stat("Crítico", `${number(preview.stats.critChance)}%`)}${stat("Detecta sigilo", preview.stats.canSeeStealth ? "Sí" : "No")}</div><label class="legacy-label">Probar nivel <output>${preview.level}</output><input id="legacy-level" type="range" min="1" max="100" value="${preview.level}"></label><label class="legacy-label">Probar un objeto<select id="legacy-item"><option value="">Sin objeto</option>${Object.values(LEGACY.items).map(i => `<option value="${esc(i.id)}" ${i.id === this.itemId ? "selected" : ""}>${esc(i.name)}</option>`).join("")}</select></label><p class="legacy-small">Vista previa con el cálculo original, sin gasto ni cambios de guardado. Las cargas temporales de combate comienzan vacías.</p><h4>Evolución por nivel</h4><p>${esc(evolution?.name || "Sin evolución")}${evolution ? ` · nivel ${evolution.requiredLevel}` : ""}</p>${evolution?.itemTransforms?.length ? `<p class="legacy-small">Con objeto: ${evolution.itemTransforms.map(t => `${esc(t.name)} (${esc(LEGACY.items[t.itemId]?.name || t.itemId)})`).join(" · ")}</p>` : ""}<p class="legacy-small">Siguiente nivel: ${Number.isFinite(preview.upgradeCost) ? `${number(preview.upgradeCost)} créditos` : "Máximo"}</p><h4>Terrenos</h4><p>${esc(getAllowedTerrainLabels(preview.hero.allowedTerrains))}</p><h4>Agrupaciones</h4><p>${esc((hero.tags || []).join(" · "))}</p><button id="legacy-team-toggle" class="secondary">${this.teamIds.includes(id) ? "Quitar de la prueba" : "Añadir a prueba de sinergias"} (${this.teamIds.length}/6)</button><p id="legacy-team-message" role="status"></p>`;
+    this.renderCombatTrial(detail);
     detail.querySelector("#legacy-level").onchange = e => { this.level = Number(e.target.value); this.showHero(id); };
     detail.querySelector("#legacy-level").oninput = e => { detail.querySelector("output").textContent = e.target.value; };
     detail.querySelector("#legacy-item").onchange = e => { this.itemId = e.target.value; this.showHero(id); };
@@ -74,6 +77,23 @@ export class LegacyCatalog {
       else if (this.teamIds.length < 6) this.teamIds.push(id);
       else { detail.querySelector("#legacy-team-message").textContent = "La prueba admite hasta seis héroes distintos."; return; }
       this.showHero(id);
+    };
+  }
+  renderCombatTrial(detail) {
+    detail.insertAdjacentHTML("beforeend", `<section class="legacy-trial" aria-labelledby="legacy-trial-title"><div class="hub-kicker">LABORATORIO · REGLAS ORIGINALES</div><h4 id="legacy-trial-title">Ensayo de combate</h4><p class="legacy-small">15 segundos, semilla fija y seis enemigos base, uno por segundo. Se usa el nivel y objeto de esta ficha. Incluye hasta cinco compañeros de la prueba de sinergias, en nivel 1 y sin objeto. Ruta recta sin bonificaciones de terreno; colocación libre de laboratorio.</p><label class="legacy-label">Enemigo de prueba<select id="legacy-trial-enemy">${Object.entries({ Normales: LEGACY.enemies.normal, Jefes: LEGACY.enemies.bosses }).map(([label, entries]) => `<optgroup label="${label}">${Object.values(entries).map(e => `<option value="${esc(e.id)}" ${this.enemyId === e.id ? "selected" : ""}>${esc(e.name)}</option>`).join("")}</optgroup>`).join("")}</select></label><button id="legacy-trial-run" class="secondary">Simular 15 segundos</button><div id="legacy-trial-result" role="status" aria-live="polite"><p class="legacy-small">Prueba numérica del núcleo 2D. No modifica tu colección ni la misión 3D actual.</p></div></section>`);
+    detail.querySelector("#legacy-trial-enemy").onchange = e => {
+      this.enemyId = e.target.value;
+      detail.querySelector("#legacy-trial-result").textContent = "Enemigo cambiado. Ejecutá el ensayo para ver el resultado.";
+    };
+    detail.querySelector("#legacy-trial-run").onclick = () => {
+      const output = detail.querySelector("#legacy-trial-result");
+      try {
+        const result = runLegacyTrial({ heroId: this.heroId, level: this.level, itemId: this.itemId, enemyId: this.enemyId, teamIds: this.teamIds });
+        const selected = result.heroes[0];
+        output.innerHTML = `<p class="legacy-trial-summary">${result.defeated ? "Derrota en el ensayo" : "Ensayo completado"} · ${number(result.seconds)} s</p><div class="legacy-numbers">${stat("Daño del héroe", number(selected.combat.damageDealt))}${stat("Daño del equipo", number(result.heroes.reduce((sum, h) => sum + h.combat.damageDealt, 0)))}${stat("Habilidades del héroe", number(selected.combat.abilityActivations))}${stat("Enemigos derrotados", result.totals.defeated)}${stat("Fugas", result.totals.leaked)}${stat("Enemigos en ruta", result.enemies.length)}${stat("Vidas restantes", result.lives)}${stat("Créditos obtenidos", number(result.credits - 650))}</div><p class="legacy-small">Equipo: ${result.heroes.map(h => esc(LEGACY.heroes[h.id].name)).join(" · ")}. Los héroes de apoyo pueden mejorar al equipo sin infligir daño. Un jefe que llega al final provoca derrota inmediata.</p>`;
+      } catch (error) {
+        output.textContent = `No se pudo completar el ensayo: ${error.message}`;
+      }
     };
   }
   showEntry(entry) {

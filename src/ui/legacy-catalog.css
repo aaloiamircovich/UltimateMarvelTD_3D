@@ -43,5 +43,8 @@
 .legacy-team { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 0 20px; }
 .legacy-team button { padding: 8px 12px; background: #285363; border-radius: 4px; }
 .legacy-pair-title { margin: 25px 0 16px; }
+.legacy-trial { margin-top: 24px; border-top: 1px solid #70c4d44d; padding-top: 22px; }
+.legacy-trial .hub-kicker { font-size: 10px; margin-bottom: 9px; }
+.legacy-trial-summary { color: #a7f5c2; margin-top: 18px; }
 @media (max-width: 800px) { .legacy-layout { grid-template-columns: 1fr; } .legacy-groups { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .legacy-cards, .legacy-groups { grid-template-columns: 1fr; } .legacy-filters { flex-direction: column; } .legacy-numbers { grid-template-columns: 1fr 1fr; } }

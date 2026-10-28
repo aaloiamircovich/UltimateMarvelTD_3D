@@ -37,6 +37,18 @@ try {
   await page.locator("#hub-archive").click();
   await page.locator("#legacy-search").waitFor();
   assert.equal(await page.locator("#legacy-results").textContent(), "105 resultados");
+  const profileBeforeTrial = await page.evaluate(() => JSON.stringify(localStorage));
+  await page.locator("#legacy-trial-run").click();
+  assert.match(await page.locator("#legacy-trial-result").textContent(), /Ensayo completado.*15 s/);
+  const firstTrial = await page.locator("#legacy-trial-result").textContent();
+  await page.locator("#legacy-trial-run").click();
+  assert.equal(await page.locator("#legacy-trial-result").textContent(), firstTrial);
+  await page.locator("#legacy-trial-enemy").selectOption("loki");
+  await page.locator("#legacy-trial-run").click();
+  assert.match(await page.locator("#legacy-trial-result").textContent(), /Derrota en el ensayo/);
+  assert.equal(await page.evaluate(() => JSON.stringify(localStorage)), profileBeforeTrial);
+  await page.screenshot({ path: "artifacts/legacy-combat-desktop.png" });
+  await page.locator("#legacy-trial-enemy").selectOption("hydra_soldier");
   await page.locator("#legacy-more").click();
   assert.equal(await page.locator(".legacy-card").count(), 48);
   await page.locator("#legacy-team-toggle").click();
@@ -68,6 +80,9 @@ try {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.locator("#legacy-search").fill("black_widow");
   await page.locator('[data-entry="black_widow"]').click();
+  await page.locator("#legacy-trial-run").click();
+  assert.match(await page.locator("#legacy-trial-result").textContent(), /Ensayo completado/);
+  await page.screenshot({ path: "artifacts/legacy-combat-mobile.png" });
   await page.locator(".legacy-detail-heading img").evaluate(img => img.decode());
   await page.screenshot({ path: "artifacts/legacy-catalog-mobile.png" });
   assert.ok(await page.locator("#hub-dialog").evaluate(d => d.scrollWidth <= d.clientWidth));

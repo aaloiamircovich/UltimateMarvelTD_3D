@@ -21,7 +21,7 @@ Inventario verificado en código: 105 héroes, 105 evoluciones base, 82 objetos,
 | Enemigos y jefes | 30 normales, 19 jefes, comportamientos y resistencias | Catálogo de valores base | Oleadas y representación en escenarios 3D |
 | Mapas y misiones | 11 definiciones, rutas, terreno, objetivos y textos | Consulta de operaciones, requisitos y objetivos | Conversión geométrica y validación de ruta/terreno |
 | Oleadas | Generador, escalado, facciones y director de encuentros | Núcleo con pruebas heredadas | Sustituir las 12 oleadas simplificadas del prototipo |
-| Combate | Habilidades, proyectiles, tipos, estados, efectos de área, auras y apoyo | Cálculo de fichas y pruebas de contratos | Adaptador de entidades/eventos para Three.js |
+| Combate | Habilidades, proyectiles, tipos, estados, efectos de área, auras y apoyo | Adaptador independiente del render y ensayo numérico desde las fichas | Conectar entidades/eventos a la misión 3D y validar campaña |
 | Progresión | Guardado versionado, economía, maestrías, códice, contratos y logros | Snapshot y pruebas | Guardado 3D aislado e importación explícita de partidas 2D |
 | Tienda y modos | Reclutamiento, tienda progresiva, diaria, Boss Rush, supervivencia y draft | Catálogo informativo y pruebas | Flujo completo en el HUB y partidas |
 | Arte | 245 retratos, iconos y miniaturas compartidos | Imágenes originales del catálogo | Animaciones, atlas y resto del arte; modelos 3D después de las reglas |
@@ -36,8 +36,22 @@ Copiado, probado e integrado son estados distintos. La existencia del módulo or
 - `public/legacy/`: imágenes del catálogo conservadas; nueve miniaturas de mapas del original son identificadores simbólicos, no rutas de imagen. No se fabrican URLs para ellas.
 - `src/game/legacy-catalog.js`: adaptador del núcleo original. Una subclase de Hero omite únicamente cargar imágenes de Canvas en la ficha; el cálculo de estadísticas usa las implementaciones originales, sin Three.js ni DOM.
 - `src/ui/legacy-catalog.js`: catálogo accesible desde ARCHIVO 2D en el HUB. Se carga al abrirlo para no cargar todo el contenido al arrancar la plaza.
+- `src/game/legacy-combat.js`: ejecuta Hero, Enemy, Projectile, ResourceManager y TeamSynergySystem originales. ProgressionManager usa almacenamiento nulo y estado transitorio. Reloj fijo de 60 pasos por segundo, RNG con semilla, pool original de proyectiles, snapshots y eventos desacoplados de la presentación.
+- `test/fixtures/original-combat-loop.js`: extracto sin cambios de `GameLoop.update` y `handleEnemyReachedEnd` del mismo commit publicado, usado como referencia diferencial de pruebas. No forma parte del juego distribuido.
 
 Algunos módulos heredados todavía contienen métodos de renderizado Canvas. Permanecen aislados en el snapshot; no deben ejecutarse como parte de la nueva simulación. Su separación o adaptación debe hacerse fuera del snapshot y verificarse contra los contratos originales.
+
+### Puente de combate y laboratorio
+
+En **ARCHIVO 2D → Héroes**, el ensayo ejecuta 15 segundos contra seis enemigos base, separados por un segundo. Permite seleccionar cualquiera de los 49 enemigos, incluyendo jefes. Usa el nivel y objeto de la ficha; añade hasta cinco compañeros distintos de la prueba de sinergias, en nivel 1 y sin objeto. El héroe de la ficha tiene prioridad si ya había seis seleccionados. Las posiciones son fijas sobre una ruta recta sin bonificaciones de terreno, con colocación libre: no es una misión ni una oleada del juego original. Las invocaciones de enemigos conservan sus reglas.
+
+El resumen muestra daño del héroe/equipo, activaciones, derrotados, fugas, enemigos aún en ruta, vidas y créditos. Los héroes de apoyo no necesitan atacar para afectar al equipo. La fuga de un jefe termina el ensayo con derrota. Las recompensas quedan sólo en memoria y no tocan el guardado del prototipo ni del 2D.
+
+Las coordenadas del adaptador son píxeles originales. `legacyToWorld` convierte únicamente la presentación a metros (40 px/m por defecto). `advance` acumula tiempo de presentación y ejecuta pasos fijos; `step` sirve para pruebas. El consumidor debe retirar los eventos con `drainEvents` después de cada actualización. Se entregan eventos de efectos, sonido, mensajes, aparición, bajas y fugas con datos separados de las entidades; no se ejecuta Canvas, Image, DOM ni Three.js. El tamaño visual del enemigo sí se conserva para calcular el tramo de salida original.
+
+Validación añadida: comparación cada segundo de 105 escenarios de 20 segundos contra entidades originales y el extracto de GameLoop; comparación de 82 objetos a 30 y 144 actualizaciones por segundo; recompensas únicas, reutilización de proyectiles, fugas y derrota por jefe; ejecución de los 49 enemigos y 105 héroes sin acceso a imágenes, DOM o almacenamiento. Esto cubre esos escenarios, **no demuestra todas las combinaciones de kits, terrenos, objetos y misiones**. Las 2.526 pruebas heredadas siguen ejecutándose sin cambios.
+
+El siguiente paso es conectar este puente a una escena de combate usando la ruta y terreno originales de Base Avengers, y después WaveManager y MissionSystem. Siguen pendientes compra/colocación, objetivos, escalado de oleadas, persistencia y visualización de habilidades. El ensayo no reemplaza silenciosamente la misión de seis héroes.
 
 ## Orden de continuación
 
