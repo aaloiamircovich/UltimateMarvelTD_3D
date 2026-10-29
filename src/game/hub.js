@@ -1,6 +1,6 @@
 // Shared by the plaza renderer and its accessible navigation.
 export const HUB_STATIONS = [
-  { id: "story", name: "HISTORIA", subtitle: "Operación Manhattan", color: "#64e5ff", x: -9, z: -8, number: "01" },
+  { id: "story", name: "HISTORIA", subtitle: "Base Avengers", color: "#64e5ff", x: -9, z: -8, number: "01" },
   { id: "infinite", name: "INFINITO", subtitle: "Resistí una oleada más", color: "#b69aff", x: 9, z: -8, number: "02" },
   { id: "summon", name: "INVOCACIONES", subtitle: "Centro de reclutamiento", color: "#ffcf72", x: -14, z: 3, number: "03" },
   { id: "traits", name: "TRAITS", subtitle: "Laboratorio de habilidades", color: "#7eefa9", x: 14, z: 3, number: "04" },

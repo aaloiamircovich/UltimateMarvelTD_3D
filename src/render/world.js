@@ -1,24 +1,9 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
-import {
-  HERO_BY_ID,
-  PATH,
-  BUILDINGS,
-  PARKS,
-  LAMPS,
-  CARS,
-  ENEMIES,
-} from "../game/data.js";
-import { placementError } from "../game/simulation.js";
-import {
-  box,
-  ball,
-  cylinder,
-  material,
-  heroModel,
-  enemyModel,
-} from "./models.js";
+
+import { HERO_BY_ID, ENEMIES, PIXELS_PER_UNIT } from "../game/combat-data.js";
+import { buildBattleMap } from "./battle-map.js";
+import { heroModel, enemyModel } from "./models.js";
 
 export class World {
   constructor(container, onPick, onHover) {
@@ -34,7 +19,7 @@ export class World {
     this.renderer.toneMappingExposure = 1.25;
     this.renderer.domElement.setAttribute(
       "aria-label",
-      "Mapa 3D de Manhattan. Seleccioná un héroe y hacé clic en una zona libre para desplegarlo.",
+      "Mapa 3D de la Base Avengers. Seleccioná un héroe y hacé clic en una zona libre para desplegarlo.",
     );
     this.renderer.domElement.tabIndex = 0;
     container.append(this.renderer.domElement);
@@ -79,6 +64,12 @@ export class World {
     this.enemies = new Map();
     this.enemyPools = new Map();
     this.effects = [];
+    this.projectiles = new Map();
+    this.projectilePool = [];
+    this.heroPool = new Map();
+    this.labels = new Map();
+    this.combatTexts = [];
+    this.textPool = [];
     this.effectPool = [];
     this.raycaster = new THREE.Raycaster();
     this.pointer = new THREE.Vector2();
@@ -107,11 +98,17 @@ export class World {
         side: THREE.DoubleSide,
       }),
     );
+    this.rangeFill.material = new THREE.ShaderMaterial({
+      transparent: true, depthWrite: false, side: THREE.DoubleSide,
+      uniforms: { tint: { value: new THREE.Color() }, pattern: { value: 0 }, geometryScale: { value: 1 }, lane: { value: .16 } },
+      vertexShader: 'varying vec2 p; void main(){p=position.xy;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+      fragmentShader: 'varying vec2 p; uniform vec3 tint; uniform float pattern; uniform float geometryScale; uniform float lane; void main(){if(pattern==1. && length(p)<.38*geometryScale) discard; if(pattern==2. && min(abs(p.x),abs(p.y))>lane) discard; if(pattern==3. && abs(abs(p.x)-abs(p.y))>lane) discard; gl_FragColor=vec4(tint,.16);}'
+    });
     this.rangeFill.rotation.x = -Math.PI / 2;
     this.rangeFill.visible = false;
     this.scene.add(this.rangeFill);
     this.placementTile = new THREE.Mesh(
-      new THREE.PlaneGeometry(1.4, 1.4),
+      new THREE.PlaneGeometry(.98, .98),
       new THREE.MeshBasicMaterial({
         color: "#7af5d0",
         transparent: true,
@@ -151,7 +148,7 @@ export class World {
     this.resize();
   }
   resetCamera() {
-    this.camera.position.set(26, 32, 36);
+    this.camera.position.set(15, 25, 27);
     this.controls.target.set(0, 0, 0);
     this.controls.update();
   }
@@ -177,7 +174,7 @@ export class World {
     }
     const p = new THREE.Vector3();
     return this.raycaster.ray.intersectPlane(this.ground, p)
-      ? { x: Math.round(p.x), z: Math.round(p.z) }
+      ? { x: p.x, z: p.z }
       : null;
   }
   label(text, x, y, z, color = "#b5dfff", width = 3.5) {
@@ -209,233 +206,31 @@ export class World {
     this.scene.add(sprite);
     return sprite;
   }
-  buildMap() {
-    const s = this.scene;
-    box(s, "#111d31", [0, -0.9, 0], [31.6, 1.5, 22.2]);
-    box(s, "#405560", [0, -0.12, 0], [31, 0.25, 21.5]);
-    box(s, "#48bbcc", [0, -0.66, 11.12], [28, 0.045, 0.035], true);
-    box(s, "#48bbcc", [15.82, -0.66, 0], [0.035, 0.045, 19], true);
-    const grid = new THREE.GridHelper(30, 30, "#748993", "#526871");
-    grid.position.y = 0.015;
-    grid.scale.z = 0.7;
-    grid.material.transparent = true;
-    grid.material.opacity = 0.2;
-    s.add(grid);
-    for (let i = 0; i < PATH.length - 1; i++) {
-      const a = PATH[i],
-        b = PATH[i + 1],
-        horizontal = a[1] === b[1],
-        length = Math.hypot(b[0] - a[0], b[1] - a[1]);
-      const pos = [(a[0] + b[0]) / 2, 0.02, (a[1] + b[1]) / 2];
-      box(s, "#7c8f96", pos, [
-        horizontal ? length + 2.6 : 2.6,
-        0.12,
-        horizontal ? 2.6 : length + 2.6,
-      ]);
-      box(
-        s,
-        "#253343",
-        [pos[0], 0.09, pos[2]],
-        [
-          horizontal ? length + 2.1 : 2.1,
-          0.025,
-          horizontal ? 2.1 : length + 2.1,
-        ],
-      );
-      for (let k = 0.7; k < length - 0.4; k += 1.7) {
-        const t = k / length;
-        box(
-          s,
-          "#cdbb8a",
-          [a[0] + (b[0] - a[0]) * t, 0.12, a[1] + (b[1] - a[1]) * t],
-          [horizontal ? 0.65 : 0.055, 0.015, horizontal ? 0.055 : 0.65],
-        );
-      }
-    }
-    // Crosswalks and route arrows make the winding route legible from the default camera.
-    for (const [x, z, rotate] of [
-      [-12, 5, false],
-      [-9, 0, true],
-      [2.5, 4, false],
-      [7, -1, true],
-    ]) {
-      for (let i = -2; i <= 2; i++)
-        box(
-          s,
-          "#b0c3c4",
-          [x + (rotate ? 0 : i * 0.24), 0.13, z + (rotate ? i * 0.24 : 0)],
-          [rotate ? 1.7 : 0.12, 0.01, rotate ? 0.12 : 1.7],
-        );
-    }
-    for (const b of BUILDINGS) {
-      box(s, "#26384b", [b.x, 0.17, b.z], [b.w + 0.3, 0.35, b.d + 0.3]);
-      box(s, b.color, [b.x, b.h / 2 + 0.3, b.z], [b.w, b.h, b.d]);
-      box(s, "#273e52", [b.x, b.h + 0.4, b.z], [b.w + 0.2, 0.23, b.d + 0.2]);
-      box(
-        s,
-        "#647c88",
-        [b.x + 0.3, b.h + 0.7, b.z],
-        [b.w * 0.45, 0.45, b.d * 0.5],
-      );
-      for (let y = 0.9; y < b.h; y += 0.8) {
-        for (let x = -b.w / 2 + 0.35; x < b.w / 2; x += 0.65)
-          box(
-            s,
-            Math.round(y * 10 + x * 10) % 3 === 0 ? "#8acbd9" : "#597d92",
-            [b.x + x, y, b.z + b.d / 2 + 0.012],
-            [0.28, 0.39, 0.035],
-            true,
-          );
-        for (let z = -b.d / 2 + 0.4; z < b.d / 2; z += 0.65)
-          box(
-            s,
-            "#628c9d",
-            [b.x + b.w / 2 + 0.012, y, b.z + z],
-            [0.035, 0.39, 0.29],
-            true,
-          );
-      }
-      if (b.stark) {
-        this.label("A", b.x, b.h - 0.6, b.z + 1.8, "#b7f6ff", 2.8);
-        this.label("STARK", b.x, b.h + 1.3, b.z, "#c8f5ff", 3.3);
-        box(s, "#8fe8ed", [b.x, b.h + 1.4, b.z], [0.08, 1.5, 0.08], true);
-      }
-    }
-    for (const [x, z] of PARKS) {
-      box(s, "#778784", [x, 0.1, z], [3.2, 0.22, 2.4]);
-      box(s, "#55775a", [x, 0.23, z], [3, 0.08, 2.2]);
-      // Tree trunks share obstacle definitions with placement validation.
-      for (const side of [-1, 1]) {
-        cylinder(s, "#6c5946", [x + side, 0.75, z + 0.5], [0.1, 1.1, 0.1]);
-        ball(s, "#649378", [x + side, 1.55, z + 0.5], [0.58, 0.73, 0.55]);
-      }
-    }
-    for (const [x, z] of LAMPS) {
-      cylinder(s, "#253647", [x, 1.3, z], [0.05, 2.6, 0.05]);
-      box(s, "#253647", [x + 0.25, 2.6, z], [0.65, 0.08, 0.1]);
-      box(s, "#ffe2a0", [x + 0.5, 2.54, z], [0.24, 0.07, 0.2], true);
-    }
-    for (const [x, z, color] of CARS) {
-      box(s, color, [x, 0.5, z], [1.7, 0.55, 0.9]);
-      box(s, "#243e52", [x, 0.94, z], [0.9, 0.4, 0.78]);
-      for (const a of [-0.55, 0.55])
-        for (const b of [-0.46, 0.46])
-          ball(s, "#172133", [x + a, 0.29, z + b], [0.22, 0.22, 0.11]);
-    }
-    const portal = new THREE.Group();
-    portal.position.set(-14.4, 1.7, 5);
-    portal.rotation.y = Math.PI / 2;
-    s.add(portal);
-    this.portal = portal;
-    for (const radius of [1.3, 1.5])
-      portal.add(
-        new THREE.Mesh(
-          new THREE.TorusGeometry(radius, 0.065, 6, 48),
-          material("#bb8dff", true),
-        ),
-      );
-    const interior = new THREE.Mesh(
-      new THREE.CircleGeometry(1.3, 48),
-      new THREE.MeshBasicMaterial({
-        color: "#8753d3",
-        transparent: true,
-        opacity: 0.32,
-        side: THREE.DoubleSide,
-      }),
-    );
-    portal.add(interior);
-    this.label("PORTAL ENEMIGO", -14, 3.8, 5, "#d7b5ff", 4);
-    cylinder(s, "#264557", [14, 0.18, -5], [1.2, 0.3, 1.2]);
-    const shield = new THREE.Mesh(
-      new THREE.SphereGeometry(1.3, 24, 12, 0, Math.PI * 2, 0, Math.PI / 2),
-      new THREE.MeshBasicMaterial({
-        color: "#61efd6",
-        wireframe: true,
-        transparent: true,
-        opacity: 0.25,
-      }),
-    );
-    shield.position.set(14, 0.2, -5);
-    s.add(shield);
-    this.shield = shield;
-    this.label("BASE", 14, 2.3, -5, "#91f5d8", 2);
-    this.label("MANHATTAN  /  SECTOR 07", -0.5, -0.15, 11.3, "#79a7b5", 8);
-    // Distant city silhouettes anchor the floating tactical diorama.
-    for (let i = 0; i < 18; i++) {
-      const x = -44 + i * 5.2,
-        h = 3 + ((i * 7) % 11);
-      box(s, "#1c2b40", [x, h / 2 - 3, -27 - (i % 3) * 3], [3.5, h, 4]);
-    }
-    const floor = new THREE.Mesh(
-      new THREE.PlaneGeometry(400, 400),
-      new THREE.MeshStandardMaterial({ color: "#111c2c", roughness: 1 }),
-    );
-    floor.rotation.x = -Math.PI / 2;
-    floor.position.y = -3;
-    floor.receiveShadow = true;
-    s.add(floor);
-    // Batch static scenery by material; windows no longer cost one draw call each.
-    s.updateMatrixWorld(true);
-    const batches = new Map();
-    for (const mesh of [...s.children]) {
-      if (!mesh.isMesh || mesh === shield || mesh === floor) continue;
-      const key = `${mesh.material.uuid}:${mesh.castShadow}`;
-      if (!batches.has(key)) batches.set(key, []);
-      batches.get(key).push(mesh);
-    }
-    for (const meshes of batches.values()) {
-      if (meshes.length < 2) continue;
-      const geometries = meshes.map((mesh) =>
-        mesh.geometry.clone().applyMatrix4(mesh.matrixWorld),
-      );
-      const merged = new THREE.Mesh(
-        mergeGeometries(geometries),
-        meshes[0].material,
-      );
-      merged.castShadow = meshes[0].castShadow;
-      merged.receiveShadow = meshes[0].receiveShadow;
-      s.add(merged);
-      meshes.forEach((mesh) => s.remove(mesh));
-      geometries.forEach((g) => g.dispose());
-    }
-  }
-  setPreview(heroId, point, game, selectedUnit) {
+  buildMap() { buildBattleMap(this); }
+  setPreview(heroId, point, game, selectedUnit, movingId = null) {
+    if (point) point = game.snap(point);
     if (this.ghostId !== heroId) {
-      if (this.ghost) this.scene.remove(this.ghost);
+      if (this.ghost) { this.scene.remove(this.ghost); this.ghost.traverse(o => { if (o.isMesh) o.geometry.dispose(); }); }
       this.ghost = heroId ? heroModel(HERO_BY_ID[heroId]) : null;
       this.ghostId = heroId;
-      if (this.ghost) this.scene.add(this.ghost);
+      if (this.ghost) { this.ghost.scale.setScalar(.55); this.scene.add(this.ghost); }
     }
     const preview = heroId && point;
     if (this.ghost) this.ghost.visible = !!preview;
     this.placementTile.visible = !!preview;
     if (preview) {
-      this.ghost.position.set(point.x, 0.15, point.z);
-      const valid =
-        !placementError(point.x, point.z, game.units) &&
-        game.cash >= HERO_BY_ID[heroId].cost &&
-        game.units.length < 12;
+      this.ghost.position.set(point.x, .15, point.z);
+      const valid = !game.placementError(heroId, point.x, point.z, movingId);
       this.placementTile.material.color.set(valid ? "#74f5c6" : "#ff546a");
-      this.placementTile.position.set(point.x, 0.3, point.z);
-      this.showRange(
-        point.x,
-        point.z,
-        HERO_BY_ID[heroId].range,
-        valid ? "#7df5dc" : "#ff6574",
-      );
-    } else if (selectedUnit)
-      this.showRange(
-        selectedUnit.x,
-        selectedUnit.z,
-        game.stats(selectedUnit).range,
-        HERO_BY_ID[selectedUnit.heroId].color,
-      );
-    else {
-      this.range.visible = false;
-      this.rangeFill.visible = false;
-    }
+      this.placementTile.position.set(point.x, .3, point.z);
+      const hero = game.preview(heroId, point), stats = hero.getEffectiveStats();
+      this.showRange(point.x, point.z, stats.range / PIXELS_PER_UNIT, valid ? "#7df5dc" : "#ff6574", hero.rangePattern, stats.rangeGeometryScale);
+    } else if (selectedUnit) {
+      const stats = game.stats(selectedUnit);
+      this.showRange(selectedUnit.x, selectedUnit.z, stats.range, HERO_BY_ID[selectedUnit.heroId].color, stats.pattern, stats.geometryScale);
+    } else { this.range.visible = false; this.rangeFill.visible = false; }
   }
-  showRange(x, z, radius, color) {
+  showRange(x, z, radius, color, pattern = "circle", geometryScale = 1) {
     for (const [mesh, y] of [
       [this.range, 0.29],
       [this.rangeFill, 0.28],
@@ -443,10 +238,28 @@ export class World {
       mesh.visible = true;
       mesh.position.set(x, y, z);
       mesh.scale.setScalar(radius);
-      mesh.material.color.set(color);
+      if (mesh === this.rangeFill) {
+        mesh.material.uniforms.tint.value.set(color);
+        mesh.material.uniforms.pattern.value = { circle: 0, ring: 1, cross: 2, x: 3 }[pattern] || 0;
+        mesh.material.uniforms.geometryScale.value = geometryScale || 1;
+        mesh.material.uniforms.lane.value = Math.max(18 / (radius * PIXELS_PER_UNIT), .16 * (geometryScale || 1));
+      } else mesh.material.color.set(color);
     }
   }
   addEffect(event) {
+    if (event.type === "text") {
+      if (this.combatTexts.length >= 40) return;
+      const sprite = this.textPool.pop() || this.label("", 0, 0, 0, "#fff", 1.8);
+      const canvas = sprite.material.map.image, ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.font = "bold 58px system-ui"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.strokeStyle = "#102030"; ctx.lineWidth = 8; ctx.strokeText(String(event.value), 256, 64);
+      ctx.fillStyle = event.color || "#f3f8ff"; ctx.fillText(String(event.value), 256, 64);
+      sprite.material.map.needsUpdate = true; sprite.material.opacity = 1; sprite.visible = true;
+      sprite.position.set(event.x, 1.5, event.z); sprite.userData.life = .75;
+      this.combatTexts.push(sprite); return;
+    }
+    if (this.effects.length >= 160) return;
     const ring =
       event.type !== "attack" || ["slam", "magic"].includes(event.kind);
     const effect =
@@ -461,7 +274,7 @@ export class World {
       const p = event.to || event;
       effect.mesh.position.set(p.x, 0.36, p.z);
       effect.mesh.scale.setScalar(0.3);
-      effect.radius = event.kind === "slam" ? 2.4 : 1.6;
+      effect.radius = event.worldRadius || (event.kind === "slam" ? 2.4 : .65);
     } else {
       const points = [
         new THREE.Vector3(event.from.x, 1.5, event.from.z),
@@ -500,16 +313,26 @@ export class World {
       if (!activeUnits.has(id)) {
         this.scene.remove(mesh);
         this.units.delete(id);
+        this.heroPool.set(mesh.userData.heroId, mesh);
+        if (this.labels.has(id)) {
+          const label = this.labels.get(id); this.scene.remove(label);
+          label.material.map.dispose(); label.material.dispose(); this.labels.delete(id);
+        }
       }
     for (const u of game.units) {
       if (!this.units.has(u.id)) {
-        const mesh = heroModel(HERO_BY_ID[u.heroId]);
+        const mesh = this.heroPool.get(u.heroId) || heroModel(HERO_BY_ID[u.heroId]);
+        this.heroPool.delete(u.heroId); mesh.userData.heroId = u.heroId; mesh.scale.setScalar(.55);
         this.scene.add(mesh);
         this.units.set(u.id, mesh);
       }
       const mesh = this.units.get(u.id);
       mesh.position.set(u.x, 0.14, u.z);
       mesh.rotation.y = u.angle;
+      mesh.userData.body.rotation.z = u.stunned ? .2 : 0;
+      if (!this.labels.has(u.id)) this.labels.set(u.id, this.label(HERO_BY_ID[u.heroId].name, u.x, 1.65, u.z, HERO_BY_ID[u.heroId].color, 1.7));
+      this.labels.get(u.id).visible = true;
+      this.labels.get(u.id).position.set(u.x, 1.65, u.z);
       mesh.userData.body.position.y =
         0.25 + Math.sin(game.time * 2 + u.id) * 0.025;
     }
@@ -526,14 +349,27 @@ export class World {
       if (!this.enemies.has(e.id)) {
         const mesh =
           this.enemyPools.get(e.kind)?.pop() ||
-          enemyModel(ENEMIES[e.kind], e.kind);
+          enemyModel(ENEMIES[e.kind], e.isBoss ? "boss" : e.kind);
+        if (!mesh.userData.privateHealthMaterial) {
+          mesh.userData.health.material = mesh.userData.health.material.clone();
+          mesh.userData.privateHealthMaterial = true;
+          const halo = new THREE.Mesh(new THREE.RingGeometry(.65, .76, 32), new THREE.MeshBasicMaterial({ transparent: true, opacity: .8, side: THREE.DoubleSide, depthWrite: false }));
+          halo.rotation.x = -Math.PI / 2; halo.position.y = .05;
+          mesh.add(halo); mesh.userData.halo = halo;
+        }
         mesh.userData.kind = e.kind;
         mesh.visible = true;
         this.scene.add(mesh);
         this.enemies.set(e.id, mesh);
       }
       const mesh = this.enemies.get(e.id);
-      mesh.position.set(e.x, 0.15, e.z);
+      mesh.position.set(e.x, e.flying ? .65 : .15, e.z);
+      mesh.userData.health.material.color.set(e.barrier > 0 ? "#7bdfff" : e.debuffs.includes("stun") ? "#ffd166" : e.debuffs.includes("web") ? "#eeeeff" : e.debuffs.includes("poison") ? "#77e492" : "#fb6477");
+      mesh.userData.body.visible = !e.stealth || Math.floor(game.time * 4) % 2 === 0;
+      const halo = mesh.userData.halo;
+      halo.visible = e.barrier > 0 || e.debuffs.length > 0 || Boolean(e.telegraph);
+      halo.material.color.set(e.telegraph ? "#ffbf49" : e.barrier > 0 ? "#7bdfff" : e.debuffs.includes("stun") ? "#ffd166" : e.debuffs.includes("web") ? "#eeeeff" : e.debuffs.includes("poison") ? "#77e492" : "#b78aff");
+      halo.scale.setScalar(e.telegraph ? 1.2 + .4 * Math.sin(game.time * 10) : 1);
       mesh.rotation.y = e.angle;
       mesh.userData.body.position.y =
         Math.abs(Math.sin(game.time * e.speed * 5)) * 0.08;
@@ -547,6 +383,23 @@ export class World {
       mesh.userData.bar.quaternion
         .copy(this.camera.quaternion)
         .premultiply(mesh.quaternion.clone().invert());
+    }
+    const liveProjectiles = new Set(game.projectiles.map(p => p.id));
+    for (const [id, mesh] of this.projectiles) if (!liveProjectiles.has(id)) {
+      mesh.visible = false; this.projectiles.delete(id); this.projectilePool.push(mesh);
+    }
+    for (const p of game.projectiles) {
+      if (!this.projectiles.has(p.id)) {
+        const mesh = this.projectilePool.pop() || new THREE.Mesh(new THREE.SphereGeometry(.075, 6, 6), new THREE.MeshBasicMaterial());
+        mesh.visible = true; mesh.material.color.set(p.color || "#8ee5f3"); this.scene.add(mesh); this.projectiles.set(p.id, mesh);
+      }
+      this.projectiles.get(p.id).position.set(p.x, .85, p.z);
+    }
+    for (let i = this.combatTexts.length - 1; i >= 0; i--) {
+      const sprite = this.combatTexts[i], elapsed = dt * (game.paused ? 0 : game.speed);
+      sprite.userData.life -= elapsed; sprite.position.y += elapsed * .7;
+      sprite.material.opacity = Math.max(0, sprite.userData.life / .75);
+      if (sprite.userData.life <= 0) { sprite.visible = false; this.combatTexts.splice(i, 1); this.textPool.push(sprite); }
     }
     for (let i = this.effects.length - 1; i >= 0; i--) {
       const effect = this.effects[i];
@@ -568,7 +421,13 @@ export class World {
     this.renderer.render(this.scene, this.camera);
   }
   clear() {
-    for (const mesh of this.units.values()) this.scene.remove(mesh);
+    for (const mesh of this.units.values()) { this.scene.remove(mesh); this.heroPool.set(mesh.userData.heroId, mesh); }
+    for (const label of this.labels.values()) { this.scene.remove(label); label.material.map.dispose(); label.material.dispose(); }
+    this.labels.clear();
+    for (const mesh of this.projectiles.values()) { mesh.visible = false; this.projectilePool.push(mesh); }
+    this.projectiles.clear();
+    for (const sprite of this.combatTexts) { sprite.visible = false; this.textPool.push(sprite); }
+    this.combatTexts.length = 0;
     this.units.clear();
     for (const [id, mesh] of this.enemies) {
       mesh.visible = false;

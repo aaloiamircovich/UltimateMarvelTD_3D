@@ -1894,3 +1894,7 @@ dialog h2 {
     pointer-events: none;
   }
 }
+.inspector { max-height: calc(100dvh - 340px); overflow-y: auto; scrollbar-width: thin; }
+.hero-bottom > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hero-bottom > b { flex-shrink: 0; }
+@media (max-width: 850px) { .inspector { max-height: calc(100dvh - 450px); } }

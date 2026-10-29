@@ -1,6 +1,5 @@
 import { LEGACY } from "./legacy-catalog.js";
-import { Hero } from "../legacy/src/entities/Hero.js";
-import { Enemy } from "../legacy/src/entities/Enemy.js";
+import { CombatHero, createCombatEnemy } from "./combat-entities.js";
 import { Projectile } from "../legacy/src/entities/Projectile.js";
 import { ResourceManager } from "../legacy/src/systems/ResourceManager.js";
 import { ProgressionManager } from "../legacy/src/systems/ProgressionManager.js";
@@ -10,10 +9,6 @@ import { RandomSource } from "../legacy/src/utils/Random.js";
 import { normalizeHeroLevel } from "../legacy/src/utils/HeroLevel.js";
 
 export const COMBAT_STEP = 1 / 60;
-
-class CombatHero extends Hero {
-  syncVisual() {} // Only suppress the Canvas presentation; retain every original kit.
-}
 
 function point(value) {
   return { x: value.x, y: value.y };
@@ -89,12 +84,7 @@ export class LegacyCombat {
     if (typeof config === "string") config = LEGACY.enemies.normal[config] || LEGACY.enemies.bosses[config];
     if (!config) throw Error("Enemigo desconocido.");
     config = structuredClone(config);
-    // Preserve visual.size for the original path overshoot, without loading images.
-    const enemy = new Enemy({ ...config, sprite: null, visual: config.visual ? { size: config.visual.size } : null }, this.path, this);
-    enemy.config = config;
-    enemy.visual = config.visual || null;
-    enemy.sprite = config.sprite;
-    enemy.animator = null;
+    const enemy = createCombatEnemy(config, this.path, this);
     enemy.uid = `enemy-${this.nextEnemyId++}`;
     if (source) enemy.copyPathPosition(source, 24);
     this.enemies.push(enemy);

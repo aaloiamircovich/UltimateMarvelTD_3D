@@ -1,6 +1,6 @@
 import { HubWorld } from "../render/hub.js";
 import { HUB_STATIONS } from "../game/hub.js";
-import { HEROES } from "../game/data.js";
+import { HEROES, DEFAULT_TEAM, HERO_BY_ID } from "../game/combat-data.js";
 import "./hub.css";
 
 export class Hub {
@@ -8,6 +8,7 @@ export class Hub {
     this.profile = profile;
     this.startMission = startMission;
     this.portraits = portraits;
+    this.teamIds = [...DEFAULT_TEAM];
     this.element = document.createElement("section");
     this.element.id = "hub";
     this.element.innerHTML = `
@@ -68,10 +69,16 @@ export class Hub {
     const mission = id === "story" || id === "infinite";
     if (mission) {
       const infinite = id === "infinite";
-      panel.innerHTML = `<div class="hub-kicker">${infinite ? "MODO INFINITO" : "HISTORIA · CAPÍTULO 01"}</div><h2>${infinite ? "Sin retirada." : "Invasión de Manhattan"}</h2><p>${infinite ? "La invasión no termina. Resistís hasta que caiga la base, con enemigos cada vez más fuertes y un jefe cada seis oleadas." : "Ultron ataca Nueva York. Defendé la Torre Stark durante 12 oleadas con tu escuadrón."}</p><div class="hub-mission-details"><span>ESCENARIO<strong>Manhattan</strong></span><span>OLEADAS<strong>${infinite ? "Sin límite" : "12"}</strong></span><span>ESCUADRÓN<strong>6 héroes</strong></span></div><p class="hub-note">En esta primera versión, la misión usa cámara táctica y los seis héroes iniciales. La partida en curso no se guarda.</p><button id="hub-launch" class="primary">${infinite ? "ENTRAR A INFINITO" : "INICIAR HISTORIA"} →</button>`;
-      panel.querySelector("#hub-launch").onclick = () => this.startMission(infinite ? "infinite" : "story");
+      panel.innerHTML = `<div class="hub-kicker">${infinite ? "SUPERVIVENCIA ORIGINAL" : "HISTORIA · CAPÍTULO 01"}</div><h2>${infinite ? "Sin retirada." : "Defensa de la Base Avengers"}</h2><p>${infinite ? "Resistí con las reglas de supervivencia originales: oleadas sin límite y bonus cada cinco rondas." : "Defendé la base frente a la legión de Ultrón. Las 100 oleadas, los jefes y las habilidades usan las reglas del juego anterior."}</p><div class="hub-mission-details"><span>ESCENARIO<strong>Base Avengers</strong></span><span>OLEADAS<strong>${infinite ? "Sin límite" : "100"}</strong></span><span>ESCUADRÓN<strong>6 héroes</strong></span></div><p>${this.teamIds.map(id => HERO_BY_ID[id].name).join(" · ")}</p><p class="hub-note">Despliegue gratis, una unidad por héroe, mejoras hasta nivel 100. Cambiá el equipo desde ESCUADRÓN. Los 105 héroes están disponibles para probar el combate durante la migración; la colección y el inventario persistentes siguen pendientes. Los niveles y créditos de esta partida se reinician al salir.</p><button id="hub-launch" class="primary">${infinite ? "ENTRAR A INFINITO" : "INICIAR HISTORIA"} →</button>`;
+      panel.querySelector("#hub-launch").onclick = () => this.startMission(infinite ? "infinite" : "story", this.teamIds);
     } else if (id === "squad") {
-      panel.innerHTML = `<div class="hub-kicker">TU ESCUADRÓN</div><h2>Los primeros Vengadores</h2><p>Escuadrón inicial de la alpha. La colección y el reclutamiento se incorporarán con las reglas de progresión.</p><div class="collection-grid">${HEROES.map(h => `<article style="--hero-color:${h.color}"><img src="${this.portraits[h.id]}" alt="${h.name}"><h3>${h.name}</h3><p>${h.role}</p></article>`).join("")}</div>`;
+      panel.innerHTML = `<div class="hub-kicker">TU ESCUADRÓN</div><h2>Preparación de combate</h2><p>Elegí seis héroes distintos entre los 105 originales. Sus habilidades y sinergias se aplican en batalla. La selección está disponible durante la migración; todavía no representa una colección desbloqueada.</p><div class="hub-team-slots">${this.teamIds.map((id, i) => `<label>Posición ${i + 1}<select data-team-slot="${i}">${HEROES.map(h => `<option value="${h.id}" ${h.id === id ? "selected" : ""}>${h.name} · ${h.category}</option>`).join("")}</select></label>`).join("")}</div><p id="team-error" role="status"></p><button id="save-team" class="primary">APLICAR ESCUADRÓN</button><p class="hub-note">La elección se conserva mientras esta página esté abierta. Cada héroe puede desplegarse una vez; podés moverlo o retirarlo sin coste.</p>`;
+      panel.querySelector("#save-team").onclick = () => {
+        const ids = [...panel.querySelectorAll("[data-team-slot]")].map(select => select.value);
+        if (new Set(ids).size !== 6) { panel.querySelector("#team-error").textContent = "Elegí seis héroes diferentes."; return; }
+        this.teamIds = ids;
+        panel.querySelector("#team-error").textContent = "Escuadrón listo para la próxima misión.";
+      };
     } else {
       panel.innerHTML = `<div class="hub-kicker">${station.name}</div><h2>${station.subtitle}</h2><p>${id === "summon" ? "Este será el lugar para invocar personajes y ampliar tu colección." : id === "traits" ? "Este laboratorio estará dedicado a los traits de tus unidades." : "Acá vas a gestionar los grades de tus unidades."}</p><div class="hub-pending">ZONA EN PREPARACIÓN</div><p class="hub-note">El espacio ya está ubicado en el HUB. Este sistema todavía no está implementado; sus reglas de progresión están pendientes de definición.</p>`;
     }

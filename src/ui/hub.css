@@ -72,3 +72,7 @@
   #hub-panel h2 { font-size: 30px; }
   .hub-mission-details { flex-wrap: wrap; }
 }
+.hub-team-slots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 20px 0; }
+.hub-team-slots label { display: grid; gap: 8px; font-size: 13px; color: #bdd8e8; }
+.hub-team-slots select { width: 100%; background: #122739; color: #eef6ff; padding: 12px; border: 1px solid #52738a; border-radius: 5px; }
+@media (max-width: 600px) { .hub-team-slots { grid-template-columns: 1fr; } }
