@@ -16,6 +16,7 @@ import {
 } from "./game/combat-data.js";
 import { CombatGame as Game } from "./game/combat.js";
 import { loadProfile, saveProfile } from "./game/profile.js";
+import { Collection } from "./game/progression.js";
 import { World } from "./render/world.js";
 import { formatEffectSummary } from "./legacy/src/systems/TeamSynergySystem.js";
 import { AudioManager } from "./ui/audio.js";
@@ -36,9 +37,10 @@ try {
   };
 }
 const profileOptions = { key: "ultimate-marvel-td-combat-v2", version: 2, maxWave: 100 };
-let roster = DEFAULT_TEAM.map(id => HERO_BY_ID[id]);
+let roster = [];
 const profile = loadProfile(storage, profileOptions),
-  game = new Game(),
+  collection = new Collection(storage),
+  game = new Game("story", { collection }),
   audio = new AudioManager(profile.sound);
 let movingUnitId = null;
 let selectedHero = null,
@@ -340,7 +342,7 @@ $("collection").onclick = () =>
   );
 $("settings").onclick = () => {
   showModal(
-    `<div class="eyebrow">CENTRO DE CONTROL</div><h2>Ajustes de misión</h2><label class="setting-row">Sonidos de interfaz <input id="setting-audio" type="checkbox" ${audio.enabled ? "checked" : ""}></label><label class="setting-row">Sombras en tiempo real <input id="setting-shadows" type="checkbox" ${world?.renderer.shadowMap.enabled ? "checked" : ""}></label><div class="profile-stats"><span>Mejor oleada<b>${profile.bestWave}/100</b></span><span>Victorias<b>${profile.victories}</b></span><span>Enemigos vencidos<b>${profile.totalKills}</b></span></div><p class="modal-note">Desactivá las sombras para mejorar el rendimiento en equipos modestos.</p><button id="restart-request" class="secondary danger">${icon("reset")} Reiniciar misión</button><div id="restart-confirm" hidden><p>Se perderá el avance de esta partida.</p><button id="restart-confirm-button" class="primary">Confirmar reinicio</button></div>`,
+    `<div class="eyebrow">CENTRO DE CONTROL</div><h2>Ajustes de misión</h2><label class="setting-row">Sonidos de interfaz <input id="setting-audio" type="checkbox" ${audio.enabled ? "checked" : ""}></label><label class="setting-row">Sombras en tiempo real <input id="setting-shadows" type="checkbox" ${world?.renderer.shadowMap.enabled ? "checked" : ""}></label><div class="profile-stats"><span>Mejor oleada<b>${profile.bestWave}/100</b></span><span>Victorias<b>${profile.victories}</b></span><span>Enemigos vencidos<b>${profile.totalKills}</b></span></div><p class="modal-note">Desactivá las sombras para mejorar el rendimiento en equipos modestos.</p><button id="restart-request" class="secondary danger">${icon("reset")} Reiniciar misión</button><div id="restart-confirm" hidden><p>Se reiniciarán las oleadas y el despliegue. Tus niveles, objetos y saldo del perfil se conservan; Infinito vuelve a iniciar con 750 créditos.</p><button id="restart-confirm-button" class="primary">Confirmar reinicio</button></div>`,
   );
   $("setting-audio").onchange = (e) => {
     audio.unlock();
@@ -389,6 +391,7 @@ function startMission(mode, teamIds = DEFAULT_TEAM) {
 function returnToHub() {
   $("modal").close();
   game.paused = true;
+  collection.attachHub();
   inHub = true;
   $("app").hidden = true;
   hub.show();
@@ -400,7 +403,7 @@ returnButton.textContent = "← HUB";
 document.querySelector(".top-actions").prepend(returnButton);
 returnButton.onclick = () => {
   if (ended || game.wave === 0 && game.units.length === 0) return returnToHub();
-  showModal(`<div class="eyebrow">VOLVER AL CAMPUS</div><h2>¿Salir de la misión?</h2><p class="modal-note">Se perderá la partida en curso. Las marcas de oleadas completadas se conservan.</p><button id="confirm-hub" class="primary">VOLVER AL HUB</button>`);
+  showModal(`<div class="eyebrow">VOLVER AL CAMPUS</div><h2>¿Salir de la misión?</h2><p class="modal-note">Terminará la partida en curso. Se conservan el saldo del perfil, los niveles, los objetos y las marcas de oleadas completadas.</p><button id="confirm-hub" class="primary">VOLVER AL HUB</button>`);
   $("confirm-hub").onclick = returnToHub;
 };
 document.addEventListener("keydown", (e) => {
@@ -414,7 +417,7 @@ document.addEventListener("keydown", (e) => {
     e.altKey
   )
     return;
-  if (/^[1-6]$/.test(e.key)) selectHero(roster[Number(e.key) - 1].id);
+  if (/^[1-6]$/.test(e.key) && roster[Number(e.key) - 1]) selectHero(roster[Number(e.key) - 1].id);
   if (e.key === "Escape") clearSelection();
   if (e.code === "Space") {
     e.preventDefault();
@@ -495,7 +498,8 @@ try {
     hoverPoint = point;
   });
   portraits = Object.fromEntries(HEROES.map(h => [h.id, h.portrait]));
-  hub = new Hub(profile, startMission, portraits);
+  collection.attachHub();
+  hub = new Hub(profile, startMission, portraits, collection);
   $("app").hidden = true;
   game.paused = true;
   renderRoster();

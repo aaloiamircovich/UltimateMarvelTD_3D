@@ -2,6 +2,9 @@ import { chromium } from "@playwright/test";
 import { createServer } from "vite";
 import { mkdir } from "node:fs/promises";
 import assert from "node:assert/strict";
+import { ProgressionManager } from "../src/legacy/src/systems/ProgressionManager.js";
+import { SOURCE, DEFAULT_TEAM } from "../src/game/combat-data.js";
+const collectionKey = "ultimate-marvel-td-collection-v1";
 
 const server = await createServer({
   server: { host: "127.0.0.1", port: 5174, strictPort: true },
@@ -23,18 +26,77 @@ try {
   });
   page.setDefaultTimeout(20000);
   page.on("pageerror", (error) => errors.push(error.message));
-  await page.goto("http://127.0.0.1:5174");
-  await page.waitForFunction(
-    () =>
-      window.__TD?.world &&
-      document.querySelectorAll(".hero-card").length === 6,
-  );
-  await page.evaluate(() => document.fonts.ready);
-  await page.waitForFunction(() => window.__TD?.hub && window.__TD.inHub);
   const missingLegacyAssets = [];
   page.on("response", response => {
     if (response.url().includes("/legacy/") && response.status() >= 400) missingLegacyAssets.push(response.url());
   });
+  await page.goto("http://127.0.0.1:5174");
+  await page.waitForFunction(
+    () =>
+      window.__TD?.world,
+  );
+  await page.evaluate(() => document.fonts.ready);
+  await page.waitForFunction(() => window.__TD?.hub && window.__TD.inHub);
+  // Exercise a real new profile before loading the explicit combat fixture.
+  await page.locator('#hub-squad').click();
+  assert.equal(await page.locator('[data-starter]').count(), 3);
+  await page.setViewportSize({width:390,height:844});
+  await page.screenshot({path:'artifacts/collection-starter-mobile.png'});
+  assert.ok(await page.locator('#hub-dialog').evaluate(d => d.scrollWidth <= d.clientWidth));
+  await page.locator('[data-starter="black_widow"]').click();
+  await page.locator('[data-collection-tab="summon"]').click();
+  await page.locator('#recruit-hero').click();
+  await page.locator('.recruit-reveal').waitFor();
+  let saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), collectionKey);
+  assert.equal(saved.unlockedHeroIds.length,2);
+  assert.equal(saved.credits,700);
+  assert.equal(saved.shop.heroBoxCost,560);
+  await page.locator('[data-buy="chaleco_tactico"]').click();
+  await page.locator('[data-collection-tab="squad"]').click();
+  await page.locator('[data-item-for="black_widow"]').selectOption('chaleco_tactico');
+  await page.locator('[data-equip="black_widow"]').click();
+  await page.locator('[data-team-slot="1"]').selectOption('');
+  await page.locator('#save-team').click();
+  await page.screenshot({path:'artifacts/collection-mobile.png'});
+  assert.ok(await page.locator('#hub-dialog').evaluate(d => d.scrollWidth <= d.clientWidth));
+  await page.keyboard.press('Escape');
+  await page.setViewportSize({width:1600,height:1000});
+  await page.locator('[data-station="story"]').click(); await page.locator('#hub-launch').click();
+  assert.equal(await page.locator('.hero-card').count(),1);
+  await page.keyboard.press('6'); // Empty roster hotkeys must be harmless.
+  await page.locator('[data-hero="black_widow"]').click();
+  const starterPoint = await page.evaluate(() => window.__TD.screenPoint(-4,-3.875));
+  await page.mouse.click(starterPoint.x,starterPoint.y);
+  await page.waitForFunction(() => window.__TD.game.units.length===1);
+  assert.equal(await page.evaluate(() => window.__TD.game.core.heroes[0].items[0].id),'chaleco_tactico');
+  await page.locator('#upgrade').click(); await page.locator('#priority').click();
+  await page.locator('#return-hub').click(); await page.locator('#confirm-hub').click();
+  await page.reload(); await page.waitForFunction(() => window.__TD?.hub);
+  saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), collectionKey);
+  assert.equal(saved.credits,260); assert.equal(saved.heroUpgrades.black_widow.level,2);
+  assert.equal(saved.heroTargetPriorities.black_widow,'Último');
+  assert.deepEqual(saved.activeTeamIds,['black_widow']);
+  await page.locator('#hub-squad').click();
+  assert.equal(await page.locator('[data-item-for="black_widow"]').inputValue(),'chaleco_tactico');
+  await page.screenshot({path:'artifacts/collection-desktop.png'});
+  await page.locator('.collection-save summary').click();
+  const downloadPromise = page.waitForEvent('download');
+  await page.locator('#export-collection').click();
+  assert.equal((await downloadPromise).suggestedFilename(),'marvel-td-perfil.json');
+  const beforeInvalid = await page.evaluate(key => localStorage.getItem(key),collectionKey);
+  await page.locator('#import-collection').setInputFiles({name:'invalid.json',mimeType:'application/json',buffer:Buffer.from('{}')});
+  await page.getByText(/No se pudo importar:/).waitFor();
+  assert.equal(await page.evaluate(key => localStorage.getItem(key),collectionKey),beforeInvalid);
+  // A documented 2D profile fixture unlocks the heroes needed for the combat UI checks.
+  const fixture = new ProgressionManager(null); fixture.data=structuredClone(SOURCE);
+  fixture.state.unlockedHeroIds=[...DEFAULT_TEAM,'scarlet_witch'];
+  fixture.state.activeTeamIds=[...DEFAULT_TEAM]; fixture.state.credits=650;
+  await page.locator('#import-collection').setInputFiles({name:'combat-fixture.json',mimeType:'application/json',buffer:Buffer.from(fixture.exportSave())});
+  await page.locator('#confirm-import').waitFor();
+  assert.equal(await page.evaluate(key => localStorage.getItem(key),collectionKey),beforeInvalid,'preview must not overwrite');
+  await page.locator('#confirm-import').click();
+  assert.equal(await page.evaluate(key => localStorage.getItem(key+'-backup'),collectionKey),beforeInvalid);
+  await page.keyboard.press('Escape');
   await page.locator("#hub-archive").click();
   await page.locator("#legacy-search").waitFor();
   assert.equal(await page.locator("#legacy-results").textContent(), "105 resultados");
@@ -187,15 +249,17 @@ try {
   await page.screenshot({path:'artifacts/combat-mobile.png'});
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth<=innerWidth));
   await page.keyboard.press('Escape');
+  const creditsBeforeRestart = await page.evaluate(() => window.__TD.game.cash);
   await page.locator('#settings').click();
   await page.locator('#restart-request').click();
   await page.locator('#restart-confirm-button').click();
   assert.equal(await page.evaluate(() => window.__TD.game.wave),0);
   assert.equal(await page.evaluate(() => window.__TD.game.units.length),0);
-  assert.equal(await page.evaluate(() => window.__TD.game.cash),650);
+  assert.equal(await page.evaluate(() => window.__TD.game.cash),creditsBeforeRestart);
   await page.locator('#return-hub').click();
   await page.locator('#hub-squad').click();
-  assert.equal(await page.locator('[data-team-slot="0"] option').count(),105);
+  assert.equal(await page.locator('[data-team-slot="0"] option').count(),8);
+  assert.equal(await page.locator('[data-team-slot="0"] option[value="thanos"]').count(),0);
   await page.locator('[data-team-slot="0"]').selectOption('spiderman');
   await page.locator('#save-team').click();
   assert.match(await page.locator('#team-error').textContent(),/diferentes/);
@@ -223,7 +287,18 @@ try {
   assert.ok(await page.evaluate(() => JSON.parse(localStorage.getItem('ultimate-marvel-td-combat-v2')).victories>=1));
   assert.deepEqual(missingLegacyAssets,[]);
   assert.deepEqual(errors,[]);
-  console.log('Browser smoke passed: archive, HUB, 105-hero team selection, original terrain/placement/upgrade/reposition/withdrawal, projectiles, real wave rewards, pause/speed/auto, mobile layout, bosses, terminal fixtures and isolated records.');
+  await page.close();
+  const recovery = await browser.newPage({viewport:{width:1000,height:800}});
+  recovery.on('pageerror', error => errors.push(error.message));
+  await recovery.addInitScript(key => localStorage.setItem(key,'{broken'),collectionKey);
+  await recovery.goto('http://127.0.0.1:5174');
+  await recovery.locator('#hub-squad').click();
+  assert.match(await recovery.locator('.collection-error').textContent(),/conserva intacto/);
+  await recovery.locator('[data-starter="korg"]').click();
+  assert.equal(await recovery.evaluate(key => localStorage.getItem(key),collectionKey),'{broken');
+  await recovery.close();
+  assert.deepEqual(errors,[]);
+  console.log('Browser smoke passed: archive, HUB, persistent collection, recruitment, equipment, validated 2D import, export, owned-hero team selection, original terrain/placement/upgrade/reposition/withdrawal, projectiles, real wave rewards, pause/speed/auto, mobile layout, bosses, terminal fixtures and isolated records.');
 } finally {
   await browser.close();
   await server.close();

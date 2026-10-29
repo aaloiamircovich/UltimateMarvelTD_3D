@@ -22,11 +22,11 @@ Se dibujan proyectiles, impactos, daño flotante, vuelo, sigilo, vida, barreras,
 
 Los terrenos usan instancias por material. Proyectiles, textos y efectos visuales reutilizan objetos. Las reglas conservan el pool de proyectiles original. Agua, pasto, camino, zonas elevadas y celdas bloqueadas tienen colores distintos.
 
-## Progresión temporal
+## Progresión persistente
 
-Se pueden elegir seis de los 105 héroes para comprobar sus kits; esto no sustituye al reclutamiento. Niveles, créditos, equipo y progresión de la partida viven en memoria. La interfaz avisa que se reinician al salir.
+Collection extiende ProgressionManager fuera del snapshot, omite ajustes del DOM y conserva sus reglas. El perfil comienza con un héroe inicial y 1.200 créditos. ShopSystem ejecuta reclutamiento y tienda; equipo, niveles, prioridades, objetos, saldo y progreso se guardan en ultimate-marvel-td-collection-v1. Las compras y mejoras se persisten al terminar la operación completa. Historia usa el saldo guardado; supervivencia conserva el reinicio original a 750 y sincroniza el perfil al ganar/gastar, explicado en la entrada al modo. Oleadas y posiciones no son partidas reanudables.
 
-Las marcas usan ultimate-marvel-td-combat-v2. No se importan ni sobrescriben perfiles 2D o del prototipo de doce oleadas. El traslado de partidas y el inventario se implementarán explícitamente con validación y respaldo.
+Las marcas previas siguen en ultimate-marvel-td-combat-v2. La importación es explícita, valida formato, versión y estructura, usa el saneamiento original sobre una copia y sólo aplica después de respaldar los bytes anteriores y escribir el nuevo perfil. Los errores dejan el perfil actual intacto. Un guardado local dañado bloquea su sobrescritura durante esa sesión y permite descargarlo; los errores de lectura/escritura se muestran sin impedir jugar en memoria. No se leen ni sobrescriben las claves de guardado del 2D o del prototipo.
 
 Traits y grades esperan las reglas del usuario. No se aprobaron pasivas aleatorias ni rangos C–S con rerolls.
 

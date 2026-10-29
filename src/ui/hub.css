@@ -73,6 +73,37 @@
   .hub-mission-details { flex-wrap: wrap; }
 }
 .hub-team-slots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 20px 0; }
+.collection-tabs { display: flex; gap: 8px; margin: 22px 0; }
+.collection-tabs button { flex: 1; padding: 12px; border: 1px solid #466b83; border-radius: 5px; background: #183248; font-weight: 600; }
+.collection-tabs [aria-pressed="true"] { color: #102331; background: #8ee5f3; }
+.hub-collection-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 18px 0; }
+.collection-card { display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #162c40; border: 1px solid #5c899a55; border-radius: 8px; min-width: 0; }
+.collection-card img { width: 82px; height: 82px; object-fit: contain; align-self: center; }
+.collection-card h3 { font: 700 22px 'Barlow Condensed', sans-serif; }
+.collection-card span, .collection-card label { font-size: 12px; color: #a7c4d8; }
+.collection-card p { font-size: 12px; }
+.collection-card button { margin-top: auto; padding: 12px 6px; font-size: 11px; letter-spacing: .3px; }
+.collection-card label { display: grid; gap: 8px; }
+.collection-card select { width: 100%; padding: 10px 4px; color: #edf6ff; background: #102335; border: 1px solid #537d95; }
+.collection-heading { margin-top: 28px; font: 700 24px 'Barlow Condensed', sans-serif; }
+.collection-save { border-top: 1px solid #506d8255; margin-top: 28px; padding-top: 20px; }
+.collection-save button, .collection-import { display: block; margin: 16px 0; }
+.collection-import input { display: block; margin-top: 10px; max-width: 100%; }
+.collection-save p, .collection-save label, #import-preview { font-size: 13px; line-height: 1.6; }
+#hub-panel summary { cursor: pointer; color: #9bdef0; font-size: 13px; }
+#collection-notice:not(:empty) { padding: 14px; border-left: 3px solid #8ee5f3; background: #8ee5f310; }
+#hub-panel .collection-error { padding: 14px; border: 1px solid #e8bc68; color: #ffdf9c; background: #372b17; }
+.recruit-box { padding: 24px; border: 1px solid #8ee5f344; border-radius: 8px; margin: 20px 0; text-align: center; background: radial-gradient(at top, #29607766, transparent); }
+.recruit-box strong { display: block; font-size: 34px; }
+.recruit-box small { font-size: 12px; letter-spacing: 2px; }
+.recruit-box > span { display: block; margin-top: 10px; color: #c2cfe4; font-size: 13px; }
+.recruit-reveal { display: grid; justify-items: center; gap: 8px; padding: 22px; background: radial-gradient(#62cffb44, transparent 75%); animation: recruit-reveal .45s ease-out; }
+.recruit-reveal img { width: 120px; height: 120px; object-fit: contain; }
+.recruit-reveal strong { font-size: 24px; }
+.save-warning { position: fixed; bottom: 8px; left: 50%; transform: translateX(-50%); z-index: 100; max-width: calc(100vw - 20px); width: 700px; padding: 12px; border: 1px solid #e8bc68; background: #372b17; color: #ffdf9c; font-size: 13px; }
+@keyframes recruit-reveal { from { transform: scale(.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .recruit-reveal { animation: none; } }
+@media (max-width: 600px) { .hub-collection-grid { grid-template-columns: 1fr; } .collection-card img { width: 70px; height: 70px; } }
 .hub-team-slots label { display: grid; gap: 8px; font-size: 13px; color: #bdd8e8; }
 .hub-team-slots select { width: 100%; background: #122739; color: #eef6ff; padding: 12px; border: 1px solid #52738a; border-radius: 5px; }
 @media (max-width: 600px) { .hub-team-slots { grid-template-columns: 1fr; } }

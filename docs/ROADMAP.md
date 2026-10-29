@@ -8,20 +8,12 @@ Trasladar todo lo aprovechable de TowerDefense_Marvel antes de nuevas funciones 
 
 - HUB en tercera persona, salto, cámara, controles táctiles y estaciones.
 - Archivo original: 105 héroes, 82 objetos, 49 enemigos y 11 mapas; consulta de niveles, objetos, evoluciones y sinergias.
-- Equipo configurable de seis entre los 105 héroes durante la migración.
+- Colección real: elección inicial original, reclutamiento sin duplicados, tienda progresiva y un objeto por héroe. Equipo persistente de uno a seis personajes desbloqueados.
 - Combate con clases originales, proyectiles, estados, auras, sinergias, mejoras 1–100, siete prioridades, terreno, movimiento y retiro.
 - Base Avengers con ruta, objetivos y 100 oleadas. Supervivencia original sobre ese mapa.
-- Marcas separadas del prototipo. Estado de partida y elección de equipo todavía temporales.
+- Perfil 3D aislado: niveles, equipo, prioridades, objetos, créditos y progreso generado por la misión. Exportación e importación explícita de respaldos 3D/2D v9 con validación y copia anterior. Las oleadas y posiciones en curso no se reanudan.
 
-## Próximo: colección, inventario y progresión
-
-- Integrar perfil original en guardado 3D independiente y versionado.
-- Importación explícita de partidas 2D, validada y con copia recuperable.
-- Colección, reclutamiento, tienda y equipamiento de un objeto por héroe con costes y garantías originales.
-- Persistir niveles, evoluciones, equipo, créditos y progreso de mapas conforme al original.
-- Sustituir la selección temporal de 105 héroes por la colección real sin perder datos del usuario.
-
-## Después: campaña y sistemas transversales
+## Próximo: campaña y sistemas transversales
 
 - Los otros diez mapas, terrenos, rutas, desbloqueos y mecánicas de misión.
 - Operación diaria, Boss Rush, draft y extracción de supervivencia.

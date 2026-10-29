@@ -20,13 +20,15 @@ export const STEP = 1 / 60;
 // Original coordinates, seconds and classes stay inside core. Three.js consumes
 // read-only projections; moving a mesh can never change an attack or its target.
 export class CombatGame {
-  constructor(mode = "story", { seed = 12345, teamIds = DEFAULT_TEAM } = {}) {
+  constructor(mode = "story", { seed = 12345, teamIds = DEFAULT_TEAM, collection = null } = {}) {
     this.mode = mode;
     this.seed = seed;
     this.teamIds = [...teamIds];
+    this.collection = collection;
     this.reset();
   }
   reset() {
+    if (this.collection) this.teamIds = [...this.collection.state.activeTeamIds];
     this.events = []; this.time = 0; this.accumulator = 0; this.wave = 0; this.kills = 0;
     this.phase = "preparing"; this.paused = false; this.speed = 1; this.auto = false; this.betweenTimer = 1.6;
     this.nextId = 1; this.units = []; this.enemies = []; this.projectiles = [];
@@ -42,12 +44,15 @@ export class CombatGame {
       spawnEnemy: (config, source) => this.spawnEnemy(config, source),
       spawnProjectile: (x, y, target, config) => this.spawnProjectile(x, y, target, config),
     };
-    c.progression = new ProgressionManager(null);
-    c.progression.data = data; c.progression.game = c;
-    c.progression.state.unlockedHeroIds = [...this.teamIds];
-    c.progression.state.activeTeamIds = [...this.teamIds];
-    c.resourceManager = new ResourceManager(c, 20, this.mode === "infinite" ? 750 : 650);
-    c.progression.state.credits = c.resourceManager.credits;
+    c.progression = this.collection || new ProgressionManager(null);
+    c.resourceManager = new ResourceManager(c, 20, 650);
+    if (this.collection) this.collection.attach(c, data);
+    else {
+      c.progression.data = data; c.progression.game = c;
+      c.progression.state.unlockedHeroIds = [...this.teamIds];
+      c.progression.state.activeTeamIds = [...this.teamIds];
+      c.progression.state.credits = this.mode === "infinite" ? 750 : 650;
+    }
     c.teamSynergy = new TeamSynergySystem(c);
     c.tacticalActions = new TacticalActionSystem(c);
     c.projectilePool = new ObjectPool(() => new Projectile(0, 0, null), p => p.deactivate(), 768);
@@ -67,7 +72,7 @@ export class CombatGame {
     c.missionSystem = new MissionSystem(c);
     c.missionSystem.loadLevel(c.currentLevel);
     c.waveManager = new WaveManager(c, data.enemies);
-    if (this.mode === "infinite") c.waveManager.maxWaves = Number.MAX_SAFE_INTEGER;
+    c.modeSystem.configureRun();
     this.syncViews();
   }
   get cash() { return this.core.resourceManager.credits; }
@@ -87,6 +92,7 @@ export class CombatGame {
     if (!config) return null;
     const p = this.cell(point);
     const hero = new CombatHero(c.progression.applyHeroLevelStats(structuredClone(config)), p.x, p.y, c);
+    c.progression.applyHeroTargetingPriority(hero);
     c.progression.applyEquippedItem(hero);
     return hero;
   }
@@ -143,8 +149,13 @@ export class CombatGame {
   upgrade(id) {
     if (!["combat", "preparing"].includes(this.phase)) return false;
     const hero = this.core.heroes.find(h => h.uid === id);
-    if (!hero || !this.core.resourceManager.removeCredits(calculateHeroLevelCost(hero.level))) return false;
-    this.core.progression.setHeroLevel(hero.id, hero.level + 1, { save: false, sync: false });
+    if (!hero) return false;
+    const purchase = () => {
+      if (!this.core.resourceManager.removeCredits(calculateHeroLevelCost(hero.level))) return false;
+      this.core.progression.setHeroLevel(hero.id, hero.level + 1, { save: true, sync: false });
+      return true;
+    };
+    if (!(this.collection ? this.collection.transaction(purchase) : purchase())) return false;
     this.core.progression.applyHeroLevelStats(hero);
     this.events.push({ type: "upgrade", ...toWorld(hero), color: "#8ee5f3" });
     this.syncViews(); return true;
@@ -157,7 +168,7 @@ export class CombatGame {
   }
   cyclePriority(id) {
     const h = this.core.heroes.find(h => h.uid === id);
-    if (h) h.targetingPriority = getNextTargetingPriority(h.targetingPriority);
+    if (h) this.core.progression.setHeroTargetingPriority(h.id, getNextTargetingPriority(h.targetingPriority));
     this.syncViews();
   }
   spawnEnemy(config, source = null) {

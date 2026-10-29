@@ -14,20 +14,20 @@ Inventario verificado en código: 105 héroes, 105 evoluciones base, 82 objetos,
 
 | Área | Conservado | Integrado en la aplicación 3D | Pendiente |
 | --- | --- | --- | --- |
-| Héroes | 105 definiciones completas, habilidades, afinidades, retratos | Equipo de seis elegible entre los 105; kits originales ejecutados en combate | Colección real y modelos específicos completos |
-| Objetos | 82 definiciones, firmas y efectos | Consulta y vista previa de un objeto por héroe | Inventario, compra y equipo en partida |
-| Niveles y evoluciones | Curvas 1–100, costes, 105 evoluciones y transformaciones | Mejoras y evoluciones por nivel en combate; vista previa por objeto | Persistencia y equipamiento desde inventario |
-| Agrupaciones | 23 familias, 6 parejas y efectos | Efectos originales del equipo en combate; consulta en Archivo | Escuadrón persistente |
+| Héroes | 105 definiciones completas, habilidades, afinidades, retratos | Colección y equipo persistente de hasta seis desbloqueados; kits originales en combate | Modelos específicos completos |
+| Objetos | 82 definiciones, firmas y efectos | Inventario, tienda progresiva y equipo de un objeto por héroe aplicados al combate | Ampliar cobertura de combinaciones |
+| Niveles y evoluciones | Curvas 1–100, costes, 105 evoluciones y transformaciones | Mejoras persistentes y evoluciones por nivel; equipamiento desde inventario | Ampliar representación visual |
+| Agrupaciones | 23 familias, 6 parejas y efectos | Escuadrón persistente y efectos originales en combate; consulta en Archivo | Ampliar pruebas de combinaciones |
 | Enemigos y jefes | 30 normales, 19 jefes, comportamientos y resistencias | Spawn, invocaciones, barreras, estados y jefes del generador original | Resto de facciones/mapas y modelos propios |
 | Mapas y misiones | 11 definiciones, rutas, terreno, objetivos y textos | Base Avengers: ruta, terreno, objetivos y recompensas originales | Los otros diez mapas y sus mecánicas |
 | Oleadas | Generador, escalado, facciones y director de encuentros | 100 oleadas en historia; supervivencia original sin límite | Exponer elección de ramas tácticas y demás modos |
 | Combate | Habilidades, proyectiles, tipos, estados, efectos de área, auras y apoyo | Adaptador sin DOM/Three.js, proyecciones 3D, prioridades y acciones tácticas originales | Representación completa de zonas/dispositivos persistentes y balance de campaña completa |
-| Progresión | Guardado versionado, economía, maestrías, códice, contratos y logros | Snapshot y pruebas | Guardado 3D aislado e importación explícita de partidas 2D |
-| Tienda y modos | Reclutamiento, tienda progresiva, diaria, Boss Rush, supervivencia y draft | Campaña y supervivencia en Base Avengers | Tienda, diaria, Boss Rush, draft y extracción |
+| Progresión | Guardado versionado, economía, maestrías, códice, contratos y logros | Guardado 3D aislado, exportación e importación explícita 3D/2D v9 con respaldo | Paneles de maestrías, códice, contratos y logros |
+| Tienda y modos | Reclutamiento, tienda progresiva, diaria, Boss Rush, supervivencia y draft | Reclutamiento, tienda, campaña y supervivencia en Base Avengers | Diaria, Boss Rush, draft y extracción |
 | Arte | 245 retratos, iconos y miniaturas compartidos | Imágenes originales del catálogo | Animaciones, atlas y resto del arte; modelos 3D después de las reglas |
 | Interfaz/accesibilidad | Reglas y datos consultables | Catálogo adaptable, búsqueda, filtros, teclado, cierre por Escape | Portar el resto de las funciones de los paneles originales |
 
-Copiado, probado e integrado son estados distintos. La aplicación ejecuta ahora CombatGame, no el prototipo de seis ataques simplificados. La selección temporal permite probar seis de los 105 héroes y no representa desbloqueos permanentes. La sesión arranca con niveles 1 y créditos iniciales, y no guarda sus mejoras al salir. El catálogo sigue siendo una vista previa sin gasto ni escritura de perfiles.
+Copiado, probado e integrado son estados distintos. La aplicación ejecuta ahora CombatGame, no el prototipo de seis ataques simplificados. La colección real reemplaza a la selección temporal de 105 héroes. Equipo, niveles, objetos, prioridades y créditos se conservan entre sesiones. El catálogo sigue siendo una vista previa sin gasto ni escritura de perfiles.
 
 ## Arquitectura de esta entrega
 
@@ -44,11 +44,19 @@ Algunos módulos heredados todavía contienen métodos de renderizado Canvas. El
 - `src/game/combat.js`: coordina las clases originales en pasos fijos de 1/60 s y entrega vistas para el renderizador. Conserva coordenadas originales, orden de actualización, daño, temporizadores, recompensas, evolución, retirada y proyectiles emitidos.
 - `src/game/combat-data.js`: datos originales y conversión de 32 píxeles por unidad visual. La Base Avengers usa su cuadrícula, ruta normalizada y terrenos; los modelos no alteran sus reglas.
 - `src/render/battle-map.js` y `world.js`: escenario, proyectiles, rangos círculo/anillo/cruz/X, textos de daño, estados, barreras y señal de jefes. Los modelos siguen siendo provisionales.
-- En el HUB se pueden elegir seis héroes distintos. El combate admite una copia de cada uno, despliegue y movimiento gratuitos, retiro sin reembolso y mejoras hasta 100.
-- Historia usa 100 oleadas, 20 vidas y 650 créditos de sesión; supervivencia usa las reglas originales con 750 créditos y bonus cada cinco rondas.
-- Las marcas usan `ultimate-marvel-td-combat-v2`, aisladas del perfil del prototipo y del 2D. Niveles, inventario y progreso completo siguen siendo temporales hasta integrar su guardado.
+- En el HUB se eligen entre uno y seis héroes distintos de la colección desbloqueada. El combate admite una copia de cada uno, despliegue y movimiento gratuitos, retiro sin reembolso y mejoras hasta 100.
+- Historia usa 100 oleadas, 20 vidas y el saldo persistente; supervivencia usa las reglas originales con 750 créditos y bonus cada cinco rondas. Al ganar/gastar en supervivencia su saldo reemplaza al del perfil, igual que en el origen; salir sin movimientos de créditos conserva el saldo anterior.
+- Las marcas usan `ultimate-marvel-td-combat-v2`, aisladas del perfil del prototipo y del 2D. La colección usa ultimate-marvel-td-collection-v1 y no interpreta esas marcas como desbloqueos. Las oleadas y posiciones de partidas en curso no se reanudan.
 
 La validación compara 105 kits en niveles 1 y 50 contra un ejecutor independiente del bucle 2D, con las clases originales. Compara también los 82 objetos sobre Spider-Man nivel 50. Esto no cubre todas las combinaciones objeto/héroe ni demuestra balance de campaña completa. Las pruebas de navegador completan una oleada real, arrancan la siguiente y usan escenarios preparados para las pantallas finales.
+
+## Colección e intercambio de perfiles
+
+`src/game/progression.js` adapta el guardado y su contexto sin DOM. Las reglas siguen en las clases originales. La selección inicial ofrece Black Widow, Hawkeye y Korg, con 1.200 créditos. El reclutamiento cuesta 500 inicialmente, aumenta con `ceil(coste × 1,12)`, excluye héroes obtenidos y aplica la garantía tras cuatro comunes. Las probabilidades visibles suman los pesos por héroe restante, no porcentajes fijos por rareza. La tienda ofrece los primeros tres objetos pendientes en el orden original. Transferir un objeto lo retira del portador anterior.
+
+`src/ui/collection.js` ofrece equipo, inventario, reclutamiento y tienda. Exporta un sobre 3D versión 1 con estado original v9. Importa ese formato o el exportado por el 2D v9, muestra un resumen y exige pulsar Aplicar. Valida antes de mutar y respalda el perfil anterior en la clave de colección con sufijo `-backup`. Una escritura fallida conserva el perfil actual; un guardado local ilegible se mantiene intacto y sólo permite progreso temporal hasta importar un archivo válido. Los archivos de otras versiones no se reinterpretan silenciosamente.
+
+Las pruebas nuevas comparan las 104 compras restantes contra ShopSystem original, garantizan escritura completa por compra/mejora y verifican transferencias, efectos en combate, persistencia, aislamiento de claves, importación y fallos de almacenamiento. Se conservan campos de sistemas pendientes al importar; eso no declara sus paneles ni todos sus modos como integrados.
 
 ## Orden de continuación
 
@@ -63,7 +71,7 @@ El laboratorio informa daño, activaciones, bajas, fugas, enemigos pendientes, v
 ### Próximos pasos
 
 1. **Ampliar cobertura de combate.** El adaptador y las comparaciones básicas están integrados. Ampliar escenarios de combinaciones, transiciones de objetos, balance sostenido y visuales de zonas/dispositivos, manteniendo la referencia original.
-2. **Colección y progresión.** Conectar ProgressionManager, ResourceManager y ShopSystem. Mantener un único objeto por héroe, costes y garantías originales. Importar guardados de forma explícita, validada y con copia recuperable; no escribir sobre el guardado 2D ni reinterpretar el perfil mínimo del prototipo como una colección completa.
+2. **Colección y progresión: integrada.** ProgressionManager, ResourceManager y ShopSystem ejecutan las reglas originales. Continúan pendientes los paneles de sistemas transversales y la progresión de los otros mapas.
 3. **Campaña.** Usar las 11 rutas y terrenos, WaveManager, EncounterDirector y MissionSystem. Validar 100 oleadas, objetivos, estrellas y jefes con las reglas originales. Primero Base Avengers y luego el resto, sin inventar mapas sustitutivos.
 4. **Modos y sistemas transversales.** Integrar diaria, Boss Rush, supervivencia, draft, replays, maestrías, códice, contratos y logros. Portar sus controles y estados necesarios.
 5. **Presentación.** Completar avatar/cámara de misión, animaciones y modelos después de comprobar las reglas. Traits y grades nuevos quedan pendientes de definición del usuario.
@@ -80,4 +88,4 @@ El importador lee el commit fijado, no los archivos modificados de la carpeta or
 
 Las 2.526 pruebas heredadas de lógica pasan. Se añaden verificaciones de integridad, catálogo completo, 525 combinaciones héroe/nivel, los 82 objetos en la vista previa, evoluciones, transformaciones, apoyo y agrupaciones. Las pruebas excluidas se registran en el manifiesto: corresponden a existencia de audio/atlas/sprites que no se trasladaron en esta fase. No se modificaron las expectativas de las pruebas originales para hacerlas pasar.
 
-El navegador verifica archivo, imágenes, cierre de panel, disposición móvil, equipo de 105 héroes, colocación, movimiento, mejora, retiro, primeras oleadas originales, jefes y resultados. El prototipo ya no se usa en la aplicación; sus pruebas se conservan como referencia.
+El navegador verifica archivo, imágenes, cierre de panel, disposición móvil, colección, reclutamiento, inventario, persistencia tras recarga, importación con respaldo, exportación, equipo de héroes desbloqueados, colocación, movimiento, mejora, retiro, primeras oleadas originales, jefes y resultados. El prototipo ya no se usa en la aplicación; sus pruebas se conservan como referencia.

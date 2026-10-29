@@ -1,14 +1,15 @@
 import { HubWorld } from "../render/hub.js";
 import { HUB_STATIONS } from "../game/hub.js";
-import { HEROES, DEFAULT_TEAM, HERO_BY_ID } from "../game/combat-data.js";
+import { HERO_BY_ID } from "../game/combat-data.js";
 import "./hub.css";
+import { CollectionPanel } from "./collection.js";
 
 export class Hub {
-  constructor(profile, startMission, portraits) {
+  constructor(profile, startMission, portraits, collection) {
     this.profile = profile;
     this.startMission = startMission;
     this.portraits = portraits;
-    this.teamIds = [...DEFAULT_TEAM];
+    this.collection = collection;
     this.element = document.createElement("section");
     this.element.id = "hub";
     this.element.innerHTML = `
@@ -48,9 +49,21 @@ export class Hub {
       };
       b.onpointerup = b.onpointercancel = b.onlostpointercapture = () => this.world.keys.delete(b.dataset.move);
     });
+    this.collectionPanel = new CollectionPanel(this.element.querySelector("#hub-panel"), collection, () => this.refreshCollection());
+    this.saveWarning = document.createElement("div");
+    this.saveWarning.className = "save-warning";
+    this.saveWarning.setAttribute("role", "alert");
+    document.body.append(this.saveWarning);
+    collection.onStatus = message => { this.saveWarning.textContent = message; this.saveWarning.hidden = !message; };
+    collection.onStatus(collection.status);
     this.show();
   }
+  get teamIds() { return this.collection.state.activeTeamIds; }
+  refreshCollection() {
+    this.element.querySelector("#hub-squad").textContent = `COLECCIÓN · ${this.collection.state.unlockedHeroIds.length}/105`;
+  }
   show() {
+    this.refreshCollection();
     this.element.hidden = false;
     this.world.active = true;
     this.world.releaseInput();
@@ -64,21 +77,19 @@ export class Hub {
     this.world.releaseInput();
   }
   open(id) {
+    if (["story", "infinite", "squad", "summon"].includes(id) && !this.collection.state.unlockedHeroIds.length) id = "starter";
+    const needsTeam = ["story", "infinite"].includes(id) && !this.teamIds.length;
+    if (needsTeam) id = "squad";
     const station = HUB_STATIONS.find(s => s.id === id);
     const panel = this.element.querySelector("#hub-panel");
     const mission = id === "story" || id === "infinite";
     if (mission) {
       const infinite = id === "infinite";
-      panel.innerHTML = `<div class="hub-kicker">${infinite ? "SUPERVIVENCIA ORIGINAL" : "HISTORIA · CAPÍTULO 01"}</div><h2>${infinite ? "Sin retirada." : "Defensa de la Base Avengers"}</h2><p>${infinite ? "Resistí con las reglas de supervivencia originales: oleadas sin límite y bonus cada cinco rondas." : "Defendé la base frente a la legión de Ultrón. Las 100 oleadas, los jefes y las habilidades usan las reglas del juego anterior."}</p><div class="hub-mission-details"><span>ESCENARIO<strong>Base Avengers</strong></span><span>OLEADAS<strong>${infinite ? "Sin límite" : "100"}</strong></span><span>ESCUADRÓN<strong>6 héroes</strong></span></div><p>${this.teamIds.map(id => HERO_BY_ID[id].name).join(" · ")}</p><p class="hub-note">Despliegue gratis, una unidad por héroe, mejoras hasta nivel 100. Cambiá el equipo desde ESCUADRÓN. Los 105 héroes están disponibles para probar el combate durante la migración; la colección y el inventario persistentes siguen pendientes. Los niveles y créditos de esta partida se reinician al salir.</p><button id="hub-launch" class="primary">${infinite ? "ENTRAR A INFINITO" : "INICIAR HISTORIA"} →</button>`;
+      panel.innerHTML = `<div class="hub-kicker">${infinite ? "SUPERVIVENCIA ORIGINAL" : "HISTORIA · CAPÍTULO 01"}</div><h2>${infinite ? "Sin retirada." : "Defensa de la Base Avengers"}</h2><p>${infinite ? "Resistí con las reglas de supervivencia originales: oleadas sin límite y bonus cada cinco rondas." : "Defendé la base frente a la legión de Ultrón. Las 100 oleadas, los jefes y las habilidades usan las reglas del juego anterior."}</p><div class="hub-mission-details"><span>ESCENARIO<strong>Base Avengers</strong></span><span>OLEADAS<strong>${infinite ? "Sin límite" : "100"}</strong></span><span>ESCUADRÓN<strong>${this.teamIds.length} héroes</strong></span></div><p>${this.teamIds.map(id => HERO_BY_ID[id].name).join(" · ")}</p><p class="hub-note">Despliegue gratis, una unidad por héroe, mejoras hasta nivel 100. Tu colección, niveles, objetos y saldo se guardan en este navegador. Prepará tu equipo desde COLECCIÓN. ${infinite ? "Regla original del 2D: comenzás con 750 créditos. Al ganar o gastar, ese saldo reemplaza al del perfil. Podés exportar tu perfil desde Colección antes de entrar." : `Entrás con tu saldo actual: ${this.collection.getCredits().toLocaleString("es-AR")} créditos.`}</p><button id="hub-launch" class="primary">${infinite ? "ENTRAR A INFINITO" : "INICIAR HISTORIA"} →</button>`;
       panel.querySelector("#hub-launch").onclick = () => this.startMission(infinite ? "infinite" : "story", this.teamIds);
-    } else if (id === "squad") {
-      panel.innerHTML = `<div class="hub-kicker">TU ESCUADRÓN</div><h2>Preparación de combate</h2><p>Elegí seis héroes distintos entre los 105 originales. Sus habilidades y sinergias se aplican en batalla. La selección está disponible durante la migración; todavía no representa una colección desbloqueada.</p><div class="hub-team-slots">${this.teamIds.map((id, i) => `<label>Posición ${i + 1}<select data-team-slot="${i}">${HEROES.map(h => `<option value="${h.id}" ${h.id === id ? "selected" : ""}>${h.name} · ${h.category}</option>`).join("")}</select></label>`).join("")}</div><p id="team-error" role="status"></p><button id="save-team" class="primary">APLICAR ESCUADRÓN</button><p class="hub-note">La elección se conserva mientras esta página esté abierta. Cada héroe puede desplegarse una vez; podés moverlo o retirarlo sin coste.</p>`;
-      panel.querySelector("#save-team").onclick = () => {
-        const ids = [...panel.querySelectorAll("[data-team-slot]")].map(select => select.value);
-        if (new Set(ids).size !== 6) { panel.querySelector("#team-error").textContent = "Elegí seis héroes diferentes."; return; }
-        this.teamIds = ids;
-        panel.querySelector("#team-error").textContent = "Escuadrón listo para la próxima misión.";
-      };
+    } else if (["squad", "summon", "starter"].includes(id)) {
+      this.collectionPanel.notice = needsTeam ? "Elegí al menos un héroe para entrar a una misión." : "";
+      this.collectionPanel.render(id);
     } else {
       panel.innerHTML = `<div class="hub-kicker">${station.name}</div><h2>${station.subtitle}</h2><p>${id === "summon" ? "Este será el lugar para invocar personajes y ampliar tu colección." : id === "traits" ? "Este laboratorio estará dedicado a los traits de tus unidades." : "Acá vas a gestionar los grades de tus unidades."}</p><div class="hub-pending">ZONA EN PREPARACIÓN</div><p class="hub-note">El espacio ya está ubicado en el HUB. Este sistema todavía no está implementado; sus reglas de progresión están pendientes de definición.</p>`;
     }

@@ -15,12 +15,17 @@ npm run dev
 
 Abrir **http://127.0.0.1:5173/**. En Windows también se puede usar Jugar.cmd.
 
-1. Abrir **ESCUADRÓN** en el HUB y elegir seis héroes distintos entre los 105 originales.
-2. Entrar a **HISTORIA** o **INFINITO**. Ambos usan por ahora la Base Avengers.
-3. Colocar héroes en terrenos compatibles y dentro del alcance de la ruta; iniciar la oleada.
-4. Mejorar, reposicionar o retirar unidades desde su panel.
+1. Abrir **COLECCIÓN** en el HUB y elegir Black Widow, Hawkeye o Korg como héroe inicial. El perfil empieza con 1.200 créditos.
+2. Reclutar héroes, comprar objetos y equipar uno por héroe. Armar un equipo de uno a seis personajes desbloqueados.
+3. Entrar a **HISTORIA** o **INFINITO**. Ambos usan por ahora la Base Avengers.
+4. Colocar héroes en terrenos compatibles y dentro del alcance de la ruta; iniciar la oleada.
+5. Mejorar, reposicionar o retirar unidades desde su panel.
 
-Los 105 héroes están disponibles para probar el combate durante la migración; no representan una colección desbloqueada ni invocaciones. El equipo elegido dura mientras la página esté abierta. Niveles, créditos y progreso de la partida se reinician al salir. Las marcas de combate se guardan aparte del prototipo y del 2D.
+La colección, el equipo, los niveles, las prioridades de ataque, los objetos y el saldo del perfil se guardan en este navegador. Las oleadas y posiciones de una partida en curso no se reanudan después de cerrar. El Archivo permite consultar y ensayar los 105 héroes sin alterar la colección.
+
+En **Colección → Guardado y traslado de perfil** se puede exportar el perfil 3D o importar un respaldo 3D/2D (versión 9 del origen). La importación muestra un resumen antes de aplicarse y guarda una copia anterior descargable. No se toca la clave de guardado del 2D ni la del prototipo. Un guardado ilegible se conserva intacto y un error de almacenamiento se muestra en pantalla; el progreso temporal se puede exportar.
+
+El reclutamiento original no da duplicados: cuesta 500 inicialmente, sube un 12% por compra y garantiza una rareza superior después de cuatro comunes consecutivos si quedan disponibles. La tienda muestra los tres objetos más accesibles que faltan.
 
 ## Combate integrado
 
@@ -28,7 +33,7 @@ Los 105 héroes están disponibles para probar el combate durante la migración;
 - Ruta y terrenos de Base Avengers. Despliegue gratuito, una unidad por héroe, movimiento gratuito y retiro sin reembolso.
 - Mejoras 1–100 con costes y curvas originales, evoluciones por nivel y siete prioridades: Primero, Último, Fuerte, Débil, Rápido, Sigilo y Jefe.
 - Campaña de 100 oleadas con composiciones originales, invocadores, modificadores, minibosses cada 25 y Thanos final. La base tiene 20 vidas; un jefe que llega al final causa derrota inmediata.
-- Supervivencia original: sin límite, inicio con 750 créditos y bonus cada cinco rondas. Historia comienza con 650 créditos en esta sesión de combate.
+- Supervivencia original: sin límite, inicio con 750 créditos y bonus cada cinco rondas. Historia usa el saldo del perfil. Como en el 2D, ganar o gastar en Infinito sustituye el saldo del perfil por el de esa partida; salir antes de cualquier movimiento de créditos conserva el saldo previo. La entrada al modo explica esta regla.
 - Recompensas, objetivos de Base Avengers y estadísticas de daño. Pausa, velocidades 1×/2×/3× y avance automático con tiempo simulado.
 - Proyectiles 3D, cifras de daño, anillos de impacto/estado, aviso de preparación de jefes, barras de vida, vuelo y sigilo.
 - **ARCHIVO 2D**: 105 héroes, 82 objetos, 49 enemigos y 11 mapas; vistas previas de niveles, objetos, evoluciones y sinergias.
@@ -36,7 +41,7 @@ Los 105 héroes están disponibles para probar el combate durante la migración;
 
 ## Pendiente
 
-El inventario y guardado completo del 2D, compra/equipamiento, los otros diez mapas y los modos diaria/Boss Rush/draft aún no tienen flujo jugable. Los efectos de objetos existen y se verifican en el adaptador, pero no hay interfaz para equiparlos en la partida.
+Los otros diez mapas, los modos diaria/Boss Rush/draft, la extracción de supervivencia y los paneles de maestrías, códice, contratos y logros aún no tienen flujo jugable. Sus datos de perfil se conservan al importar, pero esto no implica que sus funciones estén integradas.
 
 El combate conserva cámara táctica. Los modelos son provisionales: seis siluetas específicas y representaciones básicas para el resto. Faltan modelos y animaciones propios de todo el catálogo y la representación completa de dispositivos y zonas persistentes. Traits y grades esperan las reglas del usuario.
 
@@ -66,7 +71,7 @@ npm run test:browser
 
 Check ejecuta pruebas de simulación/adaptadores, integridad de archivos, las 2.526 pruebas heredadas y compilación. La comparación con un ejecutor independiente de las clases 2D verifica los 105 kits en niveles 1 y 50 y los 82 objetos sobre Spider-Man nivel 50. También se comprueban terreno, movimiento, economía, tiempos y estados finales.
 
-Las pruebas de navegador recorren HUB, archivo, selección de equipo, controles, primeras oleadas reales, móvil y guardado aislado. Las pantallas de victoria/derrota usan escenarios preparados; no representan una prueba de balance de las 100 oleadas con todos los equipos. Las capturas quedan en artifacts/, fuera de Git.
+Las pruebas de navegador recorren HUB, archivo, elección inicial, reclutamiento, compra, equipamiento, recarga persistente, exportación, importación validada con respaldo, selección de equipo, controles, primeras oleadas reales, móvil y recuperación de guardados dañados. Las pantallas de victoria/derrota usan escenarios preparados; no representan una prueba de balance de las 100 oleadas con todos los equipos. Las capturas quedan en artifacts/, fuera de Git.
 
 ```sh
 npm run build
@@ -81,6 +86,8 @@ Dist funciona en servidor estático y en subdirectorios. Abrir el HTML por file:
 src/legacy/              Origen 2D intacto, pruebas y manifiesto de integridad
 src/game/combat.js       Adaptador original sin DOM ni Three.js
 src/game/combat-data.js  Datos y conversión de coordenadas
+src/game/progression.js  Perfil persistente, adaptador del ProgressionManager original
+src/ui/collection.js     Colección, equipo, tienda y traslado de perfiles
 src/render/world.js     Cámara, modelos, proyectiles, estados y efectos
 src/render/battle-map.js Ruta y terrenos originales dibujados en 3D
 src/ui/hub.js            HUB y selección del equipo
