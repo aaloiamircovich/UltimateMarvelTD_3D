@@ -39,7 +39,13 @@ El reclutamiento original no da duplicados: cuesta 500 inicialmente, sube un 12%
 - **ARCHIVO 2D**: 105 héroes, 82 objetos, 49 enemigos y 11 mapas; vistas previas de niveles, objetos, evoluciones y sinergias.
 - **Ensayo de combate**, dentro de cada ficha: laboratorio numérico de 15 segundos con héroe, nivel, objeto, compañeros y cualquiera de los 49 enemigos. Conserva el laboratorio incorporado en la otra computadora; no modifica perfiles ni partidas.
 
-## Pendiente
+## Herramientas de arte 3D
+
+Blender de Microsoft Store ya se puede automatizar mediante `npm run art -- doctor`, `fixture` e `inspect`. El conector de Meshy se configura con una clave local y permite generar desde imagen, consultar, descargar y crear el esqueleto. Instrucciones: [ARTE_3D.md](docs/ARTE_3D.md).
+
+El [Estudio de modelos](http://127.0.0.1:5173/art-studio.html) permite revisar GLB, materiales y animaciones. Son herramientas de autoría; todavía no reemplazan los modelos provisionales de batalla. La generación real con Meshy espera una clave válida.
+
+## Pendiente de juego
 
 Los otros diez mapas, los modos diaria/Boss Rush/draft, la extracción de supervivencia y los paneles de maestrías, códice, contratos y logros aún no tienen flujo jugable. Sus datos de perfil se conservan al importar, pero esto no implica que sus funciones estén integradas.
 

@@ -23,6 +23,8 @@ Trasladar todo lo aprovechable de TowerDefense_Marvel antes de nuevas funciones 
 
 ## Presentación y extensiones del HUB
 
+- Preparación solicitada por el usuario: Blender Store automatizado, conector Meshy y visor de GLB listos. Conexión real de Meshy pendiente de clave; todavía no hay un héroe nuevo terminado. Ver [ARTE_3D.md](ARTE_3D.md).
+
 - Modelos GLB chibi y animaciones propios de cada héroe/enemigo.
 - Avatar y cámara de tercera persona en misiones; el combate actual es táctico.
 - Más detalle de escenarios después de conservar sus rutas y reglas. Manhattan continúa siendo una actividad prevista del HUB.

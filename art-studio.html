@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+  <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Estudio 3D · Ultimate Marvel TD</title></head>
+  <body>
+    <main class="studio">
+      <section class="viewport" id="viewport" aria-label="Vista del modelo 3D"><div class="viewer-title"><span>ULTIMATE MARVEL TD</span><h1>Estudio de modelos</h1><p>Arrastrá para girar · Rueda para acercar</p></div></section>
+      <aside><span class="kicker">PREPARACIÓN DE PERSONAJES</span><h2>Del modelo al juego.</h2><p>Revisá la silueta, los materiales y las animaciones de un archivo GLB exportado desde Blender o Meshy.</p>
+        <label class="file-label">ABRIR MODELO GLB<input id="model-file" type="file" accept=".glb"></label>
+        <p id="status" role="status">Elegí un archivo para empezar.</p>
+        <dl id="model-stats"></dl>
+        <label class="control">Animación<select id="animation" disabled><option>Sin animaciones</option></select></label>
+        <div class="buttons"><button id="play" disabled>Pausar</button><button id="frame">Centrar cámara</button></div>
+        <label class="check"><input id="wireframe" type="checkbox"> Ver malla</label>
+        <label class="check"><input id="grid" type="checkbox" checked> Ver cuadrícula</label>
+        <p class="note">Guía inicial: 1.500–3.000 triángulos por héroe, hasta 30 huesos. La calidad y el rendimiento se revisan juntos antes de incorporar cada personaje.</p>
+        <a href="./">← Volver al juego</a>
+      </aside>
+    </main>
+    <script type="module" src="/src/tools/model-studio.js"></script>
+  </body>
+</html>

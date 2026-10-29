@@ -1,0 +1,25 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #091424; color: #ecf5ff; font-family: system-ui, sans-serif; }
+.studio { display: grid; grid-template-columns: minmax(0, 1fr) 350px; min-height: 100dvh; }
+.viewport { position: relative; min-height: 600px; }
+canvas { display: block; width: 100%; height: 100%; }
+.viewer-title { position: absolute; top: 32px; left: 32px; pointer-events: none; z-index: 1; }
+.viewer-title span, .kicker { font-size: 10px; letter-spacing: 3px; color: #7ed7e8; }
+h1 { margin: 12px 0; font-size: clamp(24px, 3vw, 42px); }
+.viewer-title p { color: #90aabd; font-size: 12px; }
+aside { padding: 32px 26px; border-left: 1px solid #294154; background: #112235; }
+h2 { font-size: 29px; line-height: 1.1; }
+aside p { color: #adc1d2; font-size: 14px; line-height: 1.6; }
+.file-label { display: block; margin: 30px 0 12px; font-size: 12px; color: #8ce4eb; font-weight: 700; }
+input[type="file"] { display: block; margin-top: 12px; max-width: 100%; font-size: 12px; }
+input::file-selector-button, button, select { padding: 11px; border: 1px solid #517087; border-radius: 5px; background: #173148; color: #edf9ff; }
+input::file-selector-button, button { cursor: pointer; }
+.control { display: grid; gap: 12px; margin-top: 24px; font-size: 13px; }
+.buttons { display: flex; gap: 8px; margin: 12px 0 20px; }
+.check { display: block; margin-top: 16px; font-size: 13px; }
+.note { border-top: 1px solid #2c4358; padding-top: 22px; margin-top: 30px; font-size: 12px; }
+a { color: #8ce4eb; font-size: 13px; }
+dl { display: grid; grid-template-columns: 1fr auto; gap: 8px; font-size: 13px; }
+dt { color: #94adbf; } dd { margin: 0; }
+#status[data-state="error"] { color: #ffc17e; }
+@media (max-width: 750px) { .studio { grid-template-columns: 1fr; } .viewport { height: 55dvh; min-height: 340px; } aside { border-left: 0; border-top: 1px solid #294154; } .viewer-title { top: 16px; left: 20px; } }

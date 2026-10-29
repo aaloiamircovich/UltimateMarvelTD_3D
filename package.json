@@ -10,7 +10,8 @@
     "test": "node --test test/*.test.js",
     "test:legacy": "node scripts/test-legacy.mjs",
     "import:legacy": "node scripts/import-legacy.mjs",
-    "test:browser": "node scripts/browser-smoke.mjs",
+    "art": "node scripts/art-tools.mjs",
+    "test:browser": "node scripts/browser-smoke.mjs && node scripts/art-studio-smoke.mjs",
     "check": "npm test && npm run test:legacy && npm run build"
   },
   "engines": {

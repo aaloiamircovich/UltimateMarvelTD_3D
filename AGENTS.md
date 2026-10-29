@@ -11,3 +11,4 @@
 - `.codex/skills/ultimate_hero_td_engine.md` contiene la guía de arquitectura y dirección visual del usuario.
 - Dirección confirmada: personaje propio en tercera persona y HUB como inicio del juego; desde allí acceder a invocaciones, historia, infinito, traits y grades. Manhattan es una actividad del HUB.
 - El usuario quiere describir sus propias reglas de traits y grades. No implementar la propuesta de traits pasivos aleatorios y grades C–S con rerolls como si estuviera aprobada. Ver `docs/ROADMAP.md`.
+- El usuario pidió mejorar sustancialmente el modelado y autorizó preparar herramientas/APIs y operar la computadora. Usar Blender de Microsoft Store por su alias, comprobado con `npm run art -- doctor`. Ver `docs/ARTE_3D.md`; credenciales sólo en `.env.local`, nunca en el frontend o Git. Distinguir pruebas de herramientas, referencias, modelos terminados e integración jugable.

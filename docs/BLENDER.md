@@ -1,5 +1,7 @@
 # Base chibi y material toon en Blender
 
+La automatización actual usa Blender 5.2.3 LTS de Microsoft Store. Ver [ARTE_3D.md](ARTE_3D.md) para comprobar instalación, exportar/inspeccionar GLB y conectar Meshy. El script descrito a continuación se conserva como base histórica de autoría.
+
 El generador [chibi_toon.py](../scripts/blender/chibi_toon.py) adapta el script aportado por el usuario. Crea un maniquí modular de seis piezas, un material rojo de tres tonos, contorno negro mediante Solidify invertido, una luz solar y una cámara ortográfica. Requiere Blender 4.2 o posterior con EEVEE; la ejecución y el aspecto deben verificarse en la versión instalada.
 
 ## Ejecutar
