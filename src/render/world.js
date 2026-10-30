@@ -1,4 +1,6 @@
 import * as THREE from "three";
+import { assetEvents, releaseHero } from "./hero-assets.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 import { HERO_BY_ID, ENEMIES, PIXELS_PER_UNIT } from "../game/combat-data.js";
@@ -24,6 +26,14 @@ export class World {
     this.renderer.domElement.tabIndex = 0;
     container.append(this.renderer.domElement);
     this.container = container;
+    const assetStatus = document.createElement("div");
+    assetStatus.setAttribute("role", "status");
+    Object.assign(assetStatus.style, { position: "absolute", bottom: "8px", left: "12px", color: "#d7efff", background: "#102030dd", padding: "4px 8px", pointerEvents: "none", fontSize: "12px" });
+    assetStatus.hidden = true; container.append(assetStatus);
+    assetEvents.addEventListener("status", event => { assetStatus.hidden = false; assetStatus.textContent = event.detail; });
+    const room = new RoomEnvironment(), pmrem = new THREE.PMREMGenerator(this.renderer);
+    this.environment = pmrem.fromScene(room, .04);
+    this.scene.environment = this.environment.texture; room.dispose(); pmrem.dispose();
     this.camera = new THREE.PerspectiveCamera(42, 1, 0.1, 200);
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true;
@@ -210,7 +220,7 @@ export class World {
   setPreview(heroId, point, game, selectedUnit, movingId = null) {
     if (point) point = game.snap(point);
     if (this.ghostId !== heroId) {
-      if (this.ghost) { this.scene.remove(this.ghost); this.ghost.traverse(o => { if (o.isMesh) o.geometry.dispose(); }); }
+      if (this.ghost) { releaseHero(this.ghost); }
       this.ghost = heroId ? heroModel(HERO_BY_ID[heroId]) : null;
       this.ghostId = heroId;
       if (this.ghost) { this.ghost.scale.setScalar(.55); this.scene.add(this.ghost); }
@@ -329,6 +339,7 @@ export class World {
       const mesh = this.units.get(u.id);
       mesh.position.set(u.x, 0.14, u.z);
       mesh.rotation.y = u.angle;
+      mesh.userData.updatePose?.(game.time < (u.lastShotTime ?? -Infinity) + .3);
       mesh.userData.body.rotation.z = u.stunned ? .2 : 0;
       if (!this.labels.has(u.id)) this.labels.set(u.id, this.label(HERO_BY_ID[u.heroId].name, u.x, 1.65, u.z, HERO_BY_ID[u.heroId].color, 1.7));
       this.labels.get(u.id).visible = true;

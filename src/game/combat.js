@@ -183,7 +183,10 @@ export class CombatGame {
     const p = this.core.projectilePool.acquire(p => p.reset(x, y, target, config));
     p.viewId = this.nextId++;
     this.core.projectiles.push(p);
-    if (config.attacker) config.attacker.angle = Math.atan2(target.x - x, target.y - y);
+    if (config.attacker) {
+      config.attacker.angle = Math.atan2(target.x - x, target.y - y);
+      config.attacker.lastShotTime = this.time;
+    }
     return p;
   }
   startWave() {
@@ -251,7 +254,7 @@ export class CombatGame {
   }
   syncViews() {
     this.units = this.core.heroes.map(h => ({ id: h.uid, heroId: h.id, ...toWorld(h), level: h.level,
-      damageDealt: h.combatStats.damageDealt, priority: h.targetingPriority, angle: h.angle || 0,
+      damageDealt: h.combatStats.damageDealt, priority: h.targetingPriority, angle: h.angle || 0, lastShotTime: h.lastShotTime,
       stunned: h.stunTimer > 0, pattern: h.rangePattern }));
     this.enemies = this.core.enemies.filter(e => e.isAlive && !e.hasReachedEnd).map(e => ({ id: e.viewId,
       kind: e.config.id, ...toWorld(e), hp: e.hp, maxHp: e.maxHp, speed: e.speed / PIXELS_PER_UNIT,

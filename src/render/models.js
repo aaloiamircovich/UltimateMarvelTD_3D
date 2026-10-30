@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { attachIronMan } from "./hero-assets.js";
 
 const materials = new Map();
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
@@ -36,7 +37,7 @@ export const ball = (parent, color, pos, size, glow) =>
 export const cylinder = (parent, color, pos, size, glow) =>
   part(parent, cylinderGeometry, color, pos, size, glow);
 
-export function heroModel(hero, pedestal = true) {
+export function heroModel(hero, pedestal = true, detailed = true) {
   const root = new THREE.Group();
   const body = new THREE.Group();
   root.add(body);
@@ -174,6 +175,7 @@ export function heroModel(hero, pedestal = true) {
     box(body, "#d7dfb3", [0, 1.79, 0.37], [0.3, 0.06, 0.035]);
     body.scale.set(1.12, 1.12, 1.12);
   }
+  if (detailed && hero.id === "iron_man") void attachIronMan(root);
   return root;
 }
 
@@ -226,7 +228,7 @@ export function makePortraits(heroes) {
   camera.lookAt(0, 1.3, 0);
   const portraits = {};
   for (const hero of heroes) {
-    const model = heroModel(hero, false);
+    const model = heroModel(hero, false, false);
     scene.add(model);
     renderer.render(scene, camera);
     portraits[hero.id] = renderer.domElement.toDataURL("image/png");

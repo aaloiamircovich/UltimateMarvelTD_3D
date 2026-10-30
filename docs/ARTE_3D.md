@@ -113,3 +113,11 @@ Los archivos `.blend` editables y variantes se conservan durante la autorÃ­a. SÃ
 - `npm run test:browser`: juego completo y visor con el GLB exportado por Blender, carga errÃ³nea, controles y pantalla mÃ³vil.
 
 Una prueba con respuestas simuladas no valida saldo, acceso ni resultados de una cuenta real. La cuenta fue validada mediante consulta de saldo y una generaciÃ³n/rigging reales; conservar las credenciales Ãºnicamente en `.env.local`.
+
+## Mark VII en combate
+
+La unidad desplegada y la vista previa utilizan la armadura de la referencia. Comparten geometría, material y texturas, pero tienen esqueletos independientes. Si falla la descarga, aparece un aviso y se conserva la figura provisional. Volver a seleccionar permite reintentar. Los retratos siguen siendo provisionales.
+
+La pose de reposo y el apuntado del brazo derecho se calculan sobre el rig: durante 0,3 segundos de simulación después de un proyectil original, apunta hacia delante (+Z). Esto respeta pausa y velocidad sin alterar alcance, daño ni cadencia. Es una primera pose procedural, todavía no una animación de ataque pulida; el proyectil conserva su origen de simulación. Quedan pendientes transición suave, repulsor en la palma, clips de habilidades y optimización de las texturas 2K/11,7 MB. No se consumieron créditos adicionales de Meshy.
+
+El Estudio incluye **Ver Iron Man Mark VII** para abrirlo sin buscar archivos. Las pruebas de navegador verifican el modelo real (3.095 triángulos, 24 huesos), la independencia de esqueletos y los recursos compartidos, además de despliegue, retirada, reposicionamiento y combate.

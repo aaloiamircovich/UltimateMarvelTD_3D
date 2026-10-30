@@ -3,6 +3,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import "./model-studio.css";
+import { ironManUrl } from "../render/hero-assets.js";
 
 const $ = id => document.getElementById(id);
 const viewport = $("viewport"), status = $("status");
@@ -84,6 +85,15 @@ $("model-file").onchange = async e => {
     }
     status.dataset.state = "ready"; status.textContent = `${file.name} · listo para revisar${triangles > 3000 || bones > 30 ? ". Supera la guía inicial de geometría o huesos; requiere revisión de rendimiento." : "."}`;
   } catch (error) { if (current === requestId) { status.dataset.state = "error"; status.textContent = `No se pudo abrir: ${error.message}`; } }
+};
+$("open-iron-man").onclick = async () => {
+  $("open-iron-man").disabled = true;
+  try {
+    const response = await fetch(ironManUrl);
+    if (!response.ok) throw Error("No se pudo descargar Mark VII.");
+    await $("model-file").onchange({ target: { files: [new File([await response.blob()], "Iron-Man-Mark-VII.glb")] } });
+  } catch (error) { status.dataset.state = "error"; status.textContent = error.message; }
+  finally { $("open-iron-man").disabled = false; }
 };
 $("animation").onchange = () => { mixer?.stopAllAction(); const clip = clips[Number($("animation").value)]; if (clip) mixer.clipAction(clip).reset().play(); };
 $("play").onclick = () => { playing = !playing; $("play").textContent = playing ? "Pausar" : "Reproducir"; };

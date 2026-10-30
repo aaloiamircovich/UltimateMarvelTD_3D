@@ -14,6 +14,9 @@ try {
   page.on("pageerror", e => errors.push(e.message));
   page.on("request", request => { if (/^https?:/.test(request.url()) && !request.url().startsWith("http://127.0.0.1:5174/")) external.push(request.url()); });
   await page.goto("http://127.0.0.1:5174/art-studio.html");
+  await page.locator('#open-iron-man').click();
+  await page.locator('#status[data-state="ready"]').waitFor();
+  assert.match(await page.locator('#model-stats').textContent(), /Huesos24/);
   await page.locator("#model-file").setInputFiles(resolve("test/fixtures/blender-probe.glb"));
   await page.locator('#status[data-state="ready"]').waitFor();
   assert.match(await page.locator("#animation").textContent(), /Idle/);

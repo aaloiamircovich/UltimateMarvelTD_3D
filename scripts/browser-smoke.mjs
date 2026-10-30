@@ -203,6 +203,28 @@ try {
   assert.equal(await page.evaluate(() => window.__TD.game.units.length),0);
   await pick(-4,-3.875);
   await page.waitForFunction(() => window.__TD.game.units.length===1);
+  await page.waitForFunction(() => [...window.__TD.world.units.values()][0]?.userData.asset === "iron-man-mark-vii-v1");
+  const modelCheck = await page.evaluate(async () => {
+    const { world } = window.__TD, live = [...world.units.values()][0];
+    const { heroModel } = await import('/src/render/models.js');
+    const { HERO_BY_ID } = await import('/src/game/combat-data.js');
+    const { releaseHero, attachIronMan } = await import('/src/render/hero-assets.js');
+    const other = heroModel(HERO_BY_ID.iron_man, true, false);
+    await attachIronMan(other);
+    let a, b; live.traverse(n => { if(n.isSkinnedMesh) a=n; }); other.traverse(n => { if(n.isSkinnedMesh) b=n; });
+    const before = a.skeleton.bones.map(n => n.quaternion.toArray());
+    other.userData.updatePose(true);
+    const result = { bones: a.skeleton.bones.length, triangles: a.geometry.index.count/3,
+      sharedGeometry: a.geometry === b.geometry, sharedMaterial: a.material === b.material,
+      separateSkeleton: a.skeleton !== b.skeleton,
+      unaffected: JSON.stringify(before) === JSON.stringify(a.skeleton.bones.map(n => n.quaternion.toArray())) };
+    releaseHero(other);
+    world.camera.zoom = 4; world.camera.updateProjectionMatrix(); world.controls.target.copy(live.position);
+    return result;
+  });
+  assert.deepEqual(modelCheck, { bones:24, triangles:3095, sharedGeometry:true, sharedMaterial:true, separateSkeleton:true, unaffected:true });
+  await page.screenshot({path:'artifacts/iron-man-in-combat.png'});
+  await page.evaluate(() => { window.__TD.world.resetCamera(); window.__TD.world.resize(); });
   assert.equal(await page.evaluate(() => window.__TD.game.cash),650);
   await page.locator('#upgrade').click();
   assert.equal(await page.evaluate(() => window.__TD.game.units[0].level),2);
