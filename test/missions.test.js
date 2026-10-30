@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { getMission, missionAccess } from "../src/game/missions.js";
+import { getMission, missionAccess, missionEndpoints } from "../src/game/missions.js";
 import { Collection } from "../src/game/progression.js";
 import { CombatGame } from "../src/game/combat.js";
 
@@ -16,7 +16,7 @@ test("Manhattan preserves original manual terrain, forced grass cells and indepe
   m.terrain[0][0] = 99; m.level.name = "changed";
   assert.equal(getMission("level_2").terrain[0][0], 0);
   assert.equal(getMission("level_2").level.name, "Calles de Nueva York");
-  assert.throws(() => getMission("level_3"), /no integrada/);
+  assert.throws(() => getMission("level_4"), /no integrada/);
 });
 
 test("25 original stars unlock Manhattan; wave rewards and objectives persist per map", () => {
@@ -43,4 +43,41 @@ test("25 original stars unlock Manhattan; wave rewards and objectives persist pe
   assert.deepEqual(loaded.getMapProgress("level_1").missionObjectives,[]);
   assert.deepEqual(loaded.getMapProgress("level_2").missionObjectives,["ny_control"]);
   city.reset(); assert.equal(city.core.currentLevel.id,"level_2");
+});
+
+
+test("Wakanda keeps exact endpoints, hard difficulty, terrain and 50-star access", () => {
+  const m = getMission("level_3");
+  assert.equal(m.difficulty, "hard");
+  assert.deepEqual(m.path, m.level.path);
+  assert.deepEqual(missionEndpoints(m), { start:{x:80,y:592}, end:{x:368,y:560} });
+  assert.equal(m.level.mission.mechanic.type, "manual_assault");
+  const legend = { W:0,G:1,S:11,P:2,M:3,B:5,X:5 };
+  assert.deepEqual(m.terrain, m.level.rendering.terrainRows.map(row => [...row].map(c => legend[c])));
+  assert.match(missionAccess("level_3", {getTotalStars:()=>49}), /50/);
+  assert.equal(missionAccess("level_3", {getTotalStars:()=>50}), null);
+  const g = new CombatGame("story", {missionId:"level_3"});
+  assert.equal(g.core.currentLevelIndex,2);
+  assert.equal(g.core.difficulty,"hard");
+  g.startWave();
+  for(let i=0;i<120 && !g.enemies.length;i++) g.update(1/60);
+  assert.ok(g.enemies.length > 0);
+  // Enemy's original exact-path travel adds 24 pixels of goal overshoot.
+  assert.deepEqual(g.core.path, m.path);
+  assert.deepEqual(g.core.enemies[0].path, [...m.path, {x:368,y:584}]);
+  assert.equal(g.core.missionSystem.state.vegetation,0);
+});
+
+test("Wakanda original kill and boss objectives pay once and stay isolated", () => {
+  const g = new CombatGame("story", {missionId:"level_3"});
+  const p = g.core.progression, mission = g.core.missionSystem;
+  for(let i=0;i<89;i++) mission.onEnemyDefeated({isBoss:false});
+  mission.onWaveFinished();
+  assert.deepEqual(p.getMapProgress("level_3").missionObjectives,[]);
+  const before=p.getCredits();
+  mission.onEnemyDefeated({isBoss:true}); mission.onWaveFinished();
+  assert.equal(p.getCredits(),before+600);
+  assert.deepEqual(p.getMapProgress("level_3").missionObjectives,["wakanda_route_hold","wakanda_boss"]);
+  mission.onWaveFinished(); assert.equal(p.getCredits(),before+600);
+  assert.deepEqual(p.getMapProgress("level_2").missionObjectives,[]);
 });

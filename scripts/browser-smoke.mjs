@@ -338,6 +338,22 @@ try {
   await page.waitForFunction(() => window.__TD.game.enemies.length > 0);
   await page.locator('#return-hub').click(); await page.locator('#confirm-hub').click();
   await page.locator('[data-station="story"]').click();
+  await page.locator('#mission-select').selectOption('level_3');
+  await page.locator('#hub-launch').click();
+  await page.waitForFunction(() => window.__TD.world.mapId === 'level_3');
+  assert.match(await page.locator('.mission-panel h1').textContent(),/Birnin Zana/);
+  assert.match(await page.locator('.difficulty').textContent(),/Difícil/);
+  const endpoints = await page.evaluate(() => {
+    const {world, game} = window.__TD;
+    return {start: [world.portal.position.x,world.portal.position.z], end:[world.shield.position.x,world.shield.position.z], count:game.core.path.length};
+  });
+  assert.deepEqual(endpoints, {start:[-10,9.125],end:[-1,8.125],count:6});
+  await page.screenshot({path:'artifacts/wakanda-campaign.png'});
+  await page.locator('#start-wave').click();
+  await page.waitForFunction(() => window.__TD.game.enemies.length > 0);
+  assert.equal(await page.evaluate(() => window.__TD.game.core.currentLevel.id),'level_3');
+  await page.locator('#return-hub').click(); await page.locator('#confirm-hub').click();
+  await page.locator('[data-station="story"]').click();
   await page.locator('#mission-select').selectOption('level_1');
   await page.locator('#hub-launch').click();
   await page.waitForFunction(() => window.__TD.world.mapId === 'level_1');
