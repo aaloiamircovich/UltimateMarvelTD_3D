@@ -1,3 +1,4 @@
+import { DeviceRenderer } from "./devices.js";
 import * as THREE from "three";
 import { muzzleWeight } from "./repulsor-motion.js";
 import { assetEvents, releaseHero } from "./hero-assets.js";
@@ -72,6 +73,7 @@ export class World {
     const rim = new THREE.DirectionalLight("#77bfff", 1.8);
     rim.position.set(15, 15, -18);
     this.scene.add(rim);
+    this.devices = new DeviceRenderer(this.scene);
     this.units = new Map();
     this.enemies = new Map();
     this.enemyPools = new Map();
@@ -228,6 +230,7 @@ export class World {
     this.renderer.domElement.setAttribute("aria-label", `Mapa 3D: ${getMission(id).level.name}. Seleccioná un héroe y una zona libre para desplegarlo.`);
   }
   setPreview(heroId, point, game, selectedUnit, movingId = null) {
+    this.deviceOwnerId = selectedUnit?.id ?? null;
     if (point) point = game.snap(point);
     if (this.ghostId !== heroId) {
       if (this.ghost) { releaseHero(this.ghost); }
@@ -298,7 +301,7 @@ export class World {
       effect.radius = event.worldRadius || (event.kind === "slam" ? 2.4 : .65);
     } else {
       const points = [
-        new THREE.Vector3(event.from.x, 1.5, event.from.z),
+        this.devices.beamOrigin(event) || new THREE.Vector3(event.from.x, 1.5, event.from.z),
         ...(event.chain || [event.to]).map(
           (p) => new THREE.Vector3(p.x, 1, p.z),
         ),
@@ -451,10 +454,12 @@ export class World {
     }
     this.portal.rotation.z = game.time * 0.3;
     this.shield.material.opacity = 0.18 + Math.sin(game.time * 2) * 0.07;
+    this.devices.update(game.devices || [], this.deviceOwnerId, game.time);
     this.controls.update();
     this.renderer.render(this.scene, this.camera);
   }
   clear() {
+    this.devices.clear();
     for (const mesh of this.units.values()) { this.scene.remove(mesh); this.heroPool.set(mesh.userData.heroId, mesh); }
     for (const label of this.labels.values()) { this.scene.remove(label); label.material.map.dispose(); label.material.dispose(); }
     this.labels.clear();

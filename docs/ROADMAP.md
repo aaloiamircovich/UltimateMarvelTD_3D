@@ -18,7 +18,7 @@ Trasladar todo lo aprovechable de TowerDefense_Marvel antes de nuevas funciones 
 - Los otros siete mapas, terrenos, rutas, desbloqueos y mecánicas de misión. Base Avengers, Manhattan, Wakanda y Sanctum ya se seleccionan desde el HUB; requieren respectivamente 0, 25, 50 y 75 estrellas totales. Sanctum conserva sus runas y zonas reservadas.
 - Operación diaria, Boss Rush, draft y extracción de supervivencia.
 - Controles y persistencia de maestrías, códice, contratos, logros y replays.
-- Completar visuales de dispositivos y zonas persistentes; ampliar pruebas de combinaciones.
+- Torreta de Rocket y mina de Peni representadas, con alcance sólo al seleccionar al dueño. Ver [DISPOSITIVOS_3D.md](DISPOSITIVOS_3D.md). Completar las demás zonas persistentes y ampliar pruebas de combinaciones.
 - Validar balance de campañas completas con equipos legales y progreso persistente.
 
 ## Presentación y extensiones del HUB

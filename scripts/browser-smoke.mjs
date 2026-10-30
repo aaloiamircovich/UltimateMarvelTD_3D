@@ -307,6 +307,7 @@ try {
   // exercise result UI. This does not claim a balanced level-1 campaign victory.
   await page.evaluate(() => {const g=window.__TD.game;g.core.waveManager.currentWave=100;g.startWave();g.update(1/60);});
   await page.waitForFunction(() => window.__TD.game.enemies.some(e=>e.isBoss));
+  await page.waitForFunction(() => /Thanos/i.test(document.querySelector('#boss-hud').textContent));
   await page.screenshot({path:'artifacts/combat-boss.png'});
   assert.match(await page.locator('#boss-hud').textContent(),/Thanos/i);
   await page.evaluate(() => {const g=window.__TD.game;for(const e of g.core.enemies)e.takeDamage(1e12,{ignoreArmor:true});g.update(1/60);g.update(1/60);});
@@ -373,6 +374,54 @@ try {
   await page.waitForFunction(() => window.__TD.world.mapId === 'level_1');
   assert.equal(await page.evaluate(() => window.__TD.game.core.currentLevel.id),'level_1');
   assert.equal(await page.evaluate(() => window.__TD.game.enemies.length),0);
+  assert.deepEqual(errors,[]);
+  // Isolated, legal-team fixture exercises original device creation and the
+  // actual World renderer without granting heroes or changing the user's save.
+  const deviceChecks=await page.evaluate(async()=>{
+    const {CombatGame}=await import('/src/game/combat.js');
+    const {World}=await import('/src/render/world.js');
+    const {toWorld}=await import('/src/game/combat-data.js');
+    const g=new CombatGame('story',{teamIds:['rocket_raccoon','peni_parker']});
+    for(const id of g.teamIds) {
+      outer:for(let y=0;y<19;y++) for(let x=0;x<25;x++) {
+        const p=toWorld({x:x*32+16,y:y*32+16});
+        if(!g.placementError(id,p.x,p.z)){g.deploy(id,p.x,p.z);break outer;}
+      }
+    }
+    for(const h of g.core.heroes) {
+      const e=g.spawnEnemy(g.core.enemyDatabase.normal.hydra_soldier);e.x=h.x+20;e.y=h.y;
+      h.abilitySystem.fieldDevice.update(8,[e]);
+    }
+    g.syncViews();
+    const host=document.createElement('div');host.id='device-fixture';
+    Object.assign(host.style,{position:'fixed',inset:'0',zIndex:10000,width:'100vw',height:'100vh'});document.body.append(host);
+    const w=new World(host,()=>{},()=>{});w.camera.zoom=2.5;w.camera.updateProjectionMatrix();
+    w.controls.target.set(g.units[1].x,0,g.units[1].z);
+    w.setPreview(null,null,g,null);w.render(g,0);
+    const objects=[...w.devices.objects.values()];
+    const alwaysVisible=objects.every(o=>o.visible),hiddenRings=objects.every(o=>!o.userData.rings.visible);
+    const peni=g.units.find(u=>u.heroId==='peni_parker');w.setPreview(null,null,g,peni);w.render(g,0);
+    const mine=w.devices.objects.get(peni.id);
+    const selectedMine=mine.userData.rings.visible && mine.userData.rings.geometry.drawRange.count>0;
+    const frozen=mine.userData.lamp.scale.x;g.paused=true;g.update(.2);w.render(g,.2);
+    const paused=frozen===mine.userData.lamp.scale.x;
+    window.__deviceFixture={g,w,host,peni};
+    return {alwaysVisible,hiddenRings,selectedMine,paused,states:objects.map(o=>o.userData.state)};
+  });
+  assert.deepEqual(deviceChecks,{alwaysVisible:true,hiddenRings:true,selectedMine:true,paused:true,states:['Torreta activa','Armando mina']});
+  await page.screenshot({path:'artifacts/field-devices.png'});
+  const cleaned=await page.evaluate(()=>{
+    const {g,w,host,peni}=window.__deviceFixture;
+    const h=g.core.heroes.find(h=>h.uid===peni.id);h.abilitySystem.fieldDevice.update(1,[]);g.syncViews();w.render(g,0);
+    const ready=w.devices.objects.get(peni.id).userData.state==='Mina preparada';
+    w.setPreview(null,null,g,null);w.render(g,0);
+    const deselected=[...w.devices.objects.values()].every(o=>o.visible&&!o.userData.rings.visible);
+    for(const h of [...g.core.heroes]) g.sell(h.uid);w.render(g,0);
+    const removed=w.devices.objects.size===0;
+    w.clear();w.observer.disconnect();w.renderer.dispose();w.renderer.forceContextLoss();host.remove();
+    delete window.__deviceFixture;return {ready,deselected,removed};
+  });
+  assert.deepEqual(cleaned,{ready:true,deselected:true,removed:true});
   assert.deepEqual(errors,[]);
   await page.close();
   const recovery = await browser.newPage({viewport:{width:1000,height:800}});

@@ -18,6 +18,8 @@ import { SOURCE, DEFAULT_TEAM, PIXELS_PER_UNIT, toWorld, toRules } from "./comba
 
 import { getMission, missionAccess } from "./missions.js";
 
+import { deviceViews } from "./device-views.js";
+
 export const STEP = 1 / 60;
 // Original coordinates, seconds and classes stay inside core. Three.js consumes
 // read-only projections; moving a mesh can never change an attack or its target.
@@ -262,6 +264,7 @@ export class CombatGame {
     c.projectiles = c.projectiles.filter(p => { if (p.isActive) return true; c.projectilePool.release(p); return false; });
   }
   syncViews() {
+    this.devices = deviceViews(this.core.heroes);
     this.units = this.core.heroes.map(h => ({ id: h.uid, heroId: h.id, ...toWorld(h), level: h.level,
       damageDealt: h.combatStats.damageDealt, priority: h.targetingPriority, angle: h.angle || 0, lastShotTime: h.lastShotTime,
       stunned: h.stunTimer > 0, pattern: h.rangePattern }));
