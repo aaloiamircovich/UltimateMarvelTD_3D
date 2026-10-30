@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { muzzleWeight } from "./repulsor-motion.js";
 import { assetEvents, releaseHero } from "./hero-assets.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
@@ -339,13 +340,14 @@ export class World {
       const mesh = this.units.get(u.id);
       mesh.position.set(u.x, 0.14, u.z);
       mesh.rotation.y = u.angle;
-      mesh.userData.updatePose?.(game.time < (u.lastShotTime ?? -Infinity) + .3);
+
       mesh.userData.body.rotation.z = u.stunned ? .2 : 0;
       if (!this.labels.has(u.id)) this.labels.set(u.id, this.label(HERO_BY_ID[u.heroId].name, u.x, 1.65, u.z, HERO_BY_ID[u.heroId].color, 1.7));
       this.labels.get(u.id).visible = true;
       this.labels.get(u.id).position.set(u.x, 1.65, u.z);
       mesh.userData.body.position.y =
         0.25 + Math.sin(game.time * 2 + u.id) * 0.025;
+      mesh.userData.animateCombat?.(game.time, u.lastShotTime, u.stunned);
     }
     const activeEnemies = new Set(game.enemies.map((e) => e.id));
     for (const [id, mesh] of this.enemies)
@@ -402,9 +404,19 @@ export class World {
     for (const p of game.projectiles) {
       if (!this.projectiles.has(p.id)) {
         const mesh = this.projectilePool.pop() || new THREE.Mesh(new THREE.SphereGeometry(.075, 6, 6), new THREE.MeshBasicMaterial());
+        mesh.userData.muzzleOffset = null;
+        const shooter = this.units.get(p.attackerId);
+        if (shooter?.userData.muzzlePosition && p.origin) {
+          mesh.userData.muzzleOffset = shooter.userData.muzzlePosition().sub(new THREE.Vector3(p.origin.x, .85, p.origin.z));
+        }
         mesh.visible = true; mesh.material.color.set(p.color || "#8ee5f3"); this.scene.add(mesh); this.projectiles.set(p.id, mesh);
       }
-      this.projectiles.get(p.id).position.set(p.x, .85, p.z);
+      const mesh = this.projectiles.get(p.id);
+      mesh.position.set(p.x, .85, p.z);
+      if (mesh.userData.muzzleOffset && p.origin) {
+        const travelled = Math.hypot(p.x - p.origin.x, p.z - p.origin.z);
+        mesh.position.addScaledVector(mesh.userData.muzzleOffset, muzzleWeight(travelled, p.distance));
+      }
     }
     for (let i = this.combatTexts.length - 1; i >= 0; i--) {
       const sprite = this.combatTexts[i], elapsed = dt * (game.paused ? 0 : game.speed);

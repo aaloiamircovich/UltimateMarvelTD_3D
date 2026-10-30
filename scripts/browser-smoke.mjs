@@ -218,11 +218,20 @@ try {
       sharedGeometry: a.geometry === b.geometry, sharedMaterial: a.material === b.material,
       separateSkeleton: a.skeleton !== b.skeleton,
       unaffected: JSON.stringify(before) === JSON.stringify(a.skeleton.bones.map(n => n.quaternion.toArray())) };
+    other.userData.animateCombat(1, 1);
+    other.userData.animateCombat(1.1, 1);
+    const raised = b.skeleton.bones.map(n => n.quaternion.toArray());
+    const muzzle = other.userData.muzzlePosition();
+    other.userData.animateCombat(1.1, 1);
+    result.pausedPose = JSON.stringify(raised) === JSON.stringify(b.skeleton.bones.map(n => n.quaternion.toArray()));
+    result.finiteMuzzle = muzzle.toArray().every(Number.isFinite);
+    other.userData.animateCombat(1.8, 1);
+    result.recoveredPose = JSON.stringify(raised) !== JSON.stringify(b.skeleton.bones.map(n => n.quaternion.toArray()));
     releaseHero(other);
     world.camera.zoom = 4; world.camera.updateProjectionMatrix(); world.controls.target.copy(live.position);
     return result;
   });
-  assert.deepEqual(modelCheck, { bones:24, triangles:3095, sharedGeometry:true, sharedMaterial:true, separateSkeleton:true, unaffected:true });
+  assert.deepEqual(modelCheck, { bones:24, triangles:3095, sharedGeometry:true, sharedMaterial:true, separateSkeleton:true, unaffected:true, pausedPose:true, finiteMuzzle:true, recoveredPose:true });
   await page.screenshot({path:'artifacts/iron-man-in-combat.png'});
   await page.evaluate(() => { window.__TD.world.resetCamera(); window.__TD.world.resize(); });
   assert.equal(await page.evaluate(() => window.__TD.game.cash),650);

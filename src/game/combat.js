@@ -182,6 +182,8 @@ export class CombatGame {
   spawnProjectile(x, y, target, config) {
     const p = this.core.projectilePool.acquire(p => p.reset(x, y, target, config));
     p.viewId = this.nextId++;
+    p.visualOrigin = toWorld({ x, y });
+    p.visualDistance = Math.hypot(target.x - x, target.y - y) / PIXELS_PER_UNIT;
     this.core.projectiles.push(p);
     if (config.attacker) {
       config.attacker.angle = Math.atan2(target.x - x, target.y - y);
@@ -260,7 +262,7 @@ export class CombatGame {
       kind: e.config.id, ...toWorld(e), hp: e.hp, maxHp: e.maxHp, speed: e.speed / PIXELS_PER_UNIT,
       angle: e.angle || 0, isBoss: e.isBoss, name: e.name, flying: e.flying, stealth: e.stealth,
       barrier: e.behavior.barrier, debuffs: e.debuffs.map(d => d.type), telegraph: e.telegraph }));
-    this.projectiles = this.core.projectiles.filter(p => p.isActive).map(p => ({ id: p.viewId, ...toWorld(p), color: p.color, style: p.visualStyle }));
+    this.projectiles = this.core.projectiles.filter(p => p.isActive).map(p => ({ id: p.viewId, ...toWorld(p), color: p.color, style: p.visualStyle, attackerId: p.attacker?.uid, origin: p.visualOrigin, distance: p.visualDistance }));
   }
   drainEvents() { return this.events.splice(0); }
   wavePreview() {
