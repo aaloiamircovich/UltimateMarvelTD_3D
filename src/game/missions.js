@@ -1,9 +1,10 @@
 import levels from "../legacy/data/levels.json" with { type: "json" };
+import { sanctumTerrain } from "./maps/sanctum-terrain.js";
 import manhattan from "./maps/manhattan.json" with { type: "json" };
 import { normalizeLevelPath } from "../legacy/src/utils/PathUtils.js";
 import { getFixedDifficultyKey, getLevelUnlockRequirement, isLevelUnlockedByStars } from "../legacy/src/utils/LevelProgression.js";
 
-export const PLAYABLE_MISSIONS = ["level_1", "level_2", "level_3"];
+export const PLAYABLE_MISSIONS = ["level_1", "level_2", "level_3", "level_4"];
 const legend = { W: 0, G: 1, S: 11, P: 2, M: 3, B: 5, X: 5 };
 export function missionAccess(id, collection) {
   const index = levels.findIndex(level => level.id === id);
@@ -23,7 +24,8 @@ export function missionEndpoints(mission) {
 export function getMission(id = "level_1") {
   if (!PLAYABLE_MISSIONS.includes(id)) throw Error("Misión no integrada");
   const index = levels.findIndex(level => level.id === id), level = structuredClone(levels[index]);
+  const path = normalizeLevelPath(level, 800, 600);
   const terrain = id === "level_2" ? structuredClone(manhattan.rows)
-    : level.rendering.terrainRows.map(row => [...row].map(key => legend[key] ?? 1));
-  return { level, index, terrain, path: normalizeLevelPath(level, 800, 600), difficulty: getFixedDifficultyKey(level) };
+    : id === "level_4" ? sanctumTerrain(path) : level.rendering.terrainRows.map(row => [...row].map(key => legend[key] ?? 1));
+  return { level, index, terrain, path, gridSize: level.rendering?.tileSize || 40, difficulty: getFixedDifficultyKey(level) };
 }

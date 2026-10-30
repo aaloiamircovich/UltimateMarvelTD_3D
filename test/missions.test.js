@@ -16,7 +16,7 @@ test("Manhattan preserves original manual terrain, forced grass cells and indepe
   m.terrain[0][0] = 99; m.level.name = "changed";
   assert.equal(getMission("level_2").terrain[0][0], 0);
   assert.equal(getMission("level_2").level.name, "Calles de Nueva York");
-  assert.throws(() => getMission("level_4"), /no integrada/);
+  assert.throws(() => getMission("level_5"), /no integrada/);
 });
 
 test("25 original stars unlock Manhattan; wave rewards and objectives persist per map", () => {
@@ -80,4 +80,37 @@ test("Wakanda original kill and boss objectives pay once and stay isolated", () 
   assert.deepEqual(p.getMapProgress("level_3").missionObjectives,["wakanda_route_hold","wakanda_boss"]);
   mission.onWaveFinished(); assert.equal(p.getCredits(),before+600);
   assert.deepEqual(p.getMapProgress("level_2").missionObjectives,[]);
+});
+
+
+test("Sanctum preserves generated 40px terrain and 75-star access", async () => {
+  const {default:fixture} = await import("./fixtures/sanctum-terrain.json", {with:{type:"json"}});
+  const m=getMission("level_4");
+  assert.equal(m.gridSize,40); assert.equal(m.difficulty,"hard");
+  assert.deepEqual(m.terrain,fixture.rows);
+  assert.match(missionAccess("level_4",{getTotalStars:()=>74}),/75/);
+  assert.equal(missionAccess("level_4",{getTotalStars:()=>75}),null);
+  const g=new CombatGame("story",{missionId:"level_4"});
+  assert.equal(g.core.gridSize,40);
+  assert.match(g.placementError("iron_man",-5,.625),/reservada/);
+});
+
+test("Sanctum wards mark at most four nearby enemies and expire outside the zone", () => {
+  const g=new CombatGame("story",{missionId:"level_4"});
+  const enemies=Array.from({length:6},()=>g.spawnEnemy(g.core.enemyDatabase.normal.hydra_soldier));
+  enemies.forEach(e=>{e.x=240;e.y=320;}); enemies[5].x=400;
+  g.core.missionSystem.update(1/60);
+  for(const e of enemies.slice(0,4)) assert.equal(e.getDamageTakenMultiplier(),1.12);
+  assert.equal(enemies[4].getDamageTakenMultiplier(),1);
+  assert.equal(enemies[5].getDamageTakenMultiplier(),1);
+  enemies[0].x=400; enemies[0].y=400;
+  enemies[0].update(.5);
+  assert.equal(enemies[0].getDamageTakenMultiplier(),1);
+  const p=g.core.progression, before=p.getCredits();
+  for(let i=0;i<59;i++) g.core.missionSystem.onEnemyDefeated({isBoss:false});
+  g.core.missionSystem.onEnemyDefeated({isBoss:true});
+  g.core.missionSystem.onWaveFinished();
+  assert.equal(p.getCredits(),before+660);
+  g.core.missionSystem.onWaveFinished(); assert.equal(p.getCredits(),before+660);
+  assert.deepEqual(p.getMapProgress("level_3").missionObjectives,[]);
 });

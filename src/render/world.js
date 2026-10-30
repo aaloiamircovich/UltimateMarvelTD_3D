@@ -243,6 +243,7 @@ export class World {
       const valid = !game.placementError(heroId, point.x, point.z, movingId);
       this.placementTile.material.color.set(valid ? "#74f5c6" : "#ff546a");
       this.placementTile.position.set(point.x, .3, point.z);
+      this.placementTile.scale.setScalar(game.core.gridSize / PIXELS_PER_UNIT);
       const hero = game.preview(heroId, point), stats = hero.getEffectiveStats();
       this.showRange(point.x, point.z, stats.range / PIXELS_PER_UNIT, valid ? "#7df5dc" : "#ff6574", hero.rangePattern, stats.rangeGeometryScale);
     } else if (selectedUnit) {

@@ -19,7 +19,7 @@ Inventario verificado en código: 105 héroes, 105 evoluciones base, 82 objetos,
 | Niveles y evoluciones | Curvas 1–100, costes, 105 evoluciones y transformaciones | Mejoras persistentes y evoluciones por nivel; equipamiento desde inventario | Ampliar representación visual |
 | Agrupaciones | 23 familias, 6 parejas y efectos | Escuadrón persistente y efectos originales en combate; consulta en Archivo | Ampliar pruebas de combinaciones |
 | Enemigos y jefes | 30 normales, 19 jefes, comportamientos y resistencias | Spawn, invocaciones, barreras, estados y jefes del generador original | Resto de facciones/mapas y modelos propios |
-| Mapas y misiones | 11 definiciones, rutas, terreno, objetivos y textos | Base Avengers, Manhattan y Wakanda: selector, rutas, terrenos, objetivos, recompensas y acceso por estrellas originales | Los otros ocho mapas y sus mecánicas |
+| Mapas y misiones | 11 definiciones, rutas, terreno, objetivos y textos | Base Avengers, Manhattan, Wakanda y Sanctum: selector, rutas, terrenos, objetivos, recompensas y acceso por estrellas originales | Los otros siete mapas y sus mecánicas |
 | Oleadas | Generador, escalado, facciones y director de encuentros | 100 oleadas en historia; supervivencia original sin límite | Exponer elección de ramas tácticas y demás modos |
 | Combate | Habilidades, proyectiles, tipos, estados, efectos de área, auras y apoyo | Adaptador sin DOM/Three.js, proyecciones 3D, prioridades y acciones tácticas originales | Representación completa de zonas/dispositivos persistentes y balance de campaña completa |
 | Progresión | Guardado versionado, economía, maestrías, códice, contratos y logros | Guardado 3D aislado, exportación e importación explícita 3D/2D v9 con respaldo | Paneles de maestrías, códice, contratos y logros |
@@ -98,7 +98,7 @@ El HUB permite elegir Base Avengers o Calles de Nueva York (Manhattan), tanto en
 
 Manhattan no trae `terrainRows` en levels.json. `src/game/maps/manhattan.json` conserva la cuadrícula numérica derivada de `ManhattanManualMap.js` mediante las reglas de `PixelMapRenderer.js:getTerrainForManualTile`, ambos del commit de origen fijado. Se respetan especialmente las celdas forzadas a pasto 108–112 y 264–275. No se leyó el contenido de trabajo sin publicar del repositorio 2D y no se modificó el snapshot.
 
-El render conserva dos escenarios en caché y alterna únicamente el activo; ruta y terreno corresponden a la misión lógica. La escenografía de Manhattan sigue siendo provisional. Las pruebas verifican acceso a 24/25 estrellas, cuadrícula y excepciones, recompensas y objetivos aislados por mapa, guardado, selector móvil y transición Base–Manhattan–Base. No demuestran todavía el balance de las 100 oleadas completas de Manhattan.
+El render conserva en caché los escenarios visitados y muestra únicamente el activo; ruta y terreno corresponden a la misión lógica. La escenografía de Manhattan sigue siendo provisional. Las pruebas verifican acceso a 24/25 estrellas, cuadrícula y excepciones, recompensas y objetivos aislados por mapa, guardado, selector móvil y transición Base–Manhattan–Base. No demuestran todavía el balance de las 100 oleadas completas de Manhattan.
 
 ## Campaña: Wakanda
 
@@ -107,3 +107,11 @@ Reino de Wakanda (`level_3`) está disponible desde el HUB con 50 estrellas tota
 La mecánica publicada es `manual_assault`: no se añadieron cambios de ruta ni vegetación activa. Los objetivos originales requieren 90 bajas y un jefe, con recompensas de 280 y 320, pagadas una sola vez por perfil. El render utiliza una paleta provisional de agua, roca púrpura y corredor dorado; todavía no es el escenario artístico terminado.
 
 Pruebas: acceso a 49/50 estrellas, dificultad, terreno y ruta exactos, extensión original de recorrido, activación y no duplicación de objetivos, entrada a Wakanda desde el HUB, extremos visibles y vuelta a Base Avengers sin enemigos anteriores. No implica validación de balance de 100 oleadas completas.
+
+## Campaña: Sanctum Sanctorum
+
+`level_4` requiere 75 estrellas totales y usa dificultad difícil. Su terreno no viene en JSON: `src/game/maps/sanctum-terrain.js` adapta las funciones `generateLevelMap`, `seededNoise` y `paintPathTiles` de GameLoop del commit de origen. Se conservan las celdas de 40 píxeles, cuadrícula 20×15, ruido determinista y camino pintado. La prueba compara todas las celdas con un fixture obtenido ejecutando esos métodos originales. La conversión a escena sigue siendo 32 píxeles por unidad; sólo cambia el tamaño de las celdas y la vista previa de colocación.
+
+MissionSystem conserva las dos runas de radio 58: marcan hasta cuatro enemigos cercanos por runa durante 0,4 segundos con potencia 0,12. El render muestra sus radios y nombres. La colocación y el movimiento consultan `getPlacementBlock` original, que reserva radio + 16 alrededor de cada runa. Los objetivos son 60 bajas y un jefe; las recompensas originales de 300 y 360 no se duplican.
+
+Validado: terreno completo, desbloqueo 74/75, colocación reservada, límite de objetivos de la marca, expiración, recompensas y aislamiento, entrada/salida del mapa y radios visibles. Escenografía provisional; no se afirma balance de las 100 oleadas completas.

@@ -40,7 +40,7 @@ export class CombatGame {
     const data = structuredClone(SOURCE);
     const c = this.core = {
       heroes: [], enemies: [], projectiles: [], path: mission.path,
-      currentLevel: mission.level, gridSize: mission.level.rendering.tileSize,
+      currentLevel: mission.level, gridSize: mission.gridSize,
       terrainMap: mission.terrain, currentLevelIndex: mission.index, difficulty: mission.difficulty,
       activeTeam: this.teamIds.map(id => data.heroes[id]).filter(Boolean),
       heroDatabase: data.heroes, enemyDatabase: data.enemies, levelsData: data.levels,
@@ -108,6 +108,8 @@ export class CombatGame {
     const c = this.core, p = this.cell({ x, z });
     const terrain = c.terrainMap[Math.floor(p.y / c.gridSize)]?.[Math.floor(p.x / c.gridSize)];
     if (terrain === undefined) return "Fuera del mapa";
+    const reserved = c.missionSystem.getPlacementBlock(Math.floor(p.x/c.gridSize), Math.floor(p.y/c.gridSize));
+    if (reserved) return reserved;
     const hero = this.preview(heroId, { x, z }), stats = hero.getEffectiveStats();
     if (!canPlaceOnTerrain(hero, terrain)) return `Requiere ${getAllowedTerrainLabels(hero.allowedTerrains)}; esta celda es ${getTerrainLabel(terrain)}`;
     if (!movingId && c.heroes.some(h => h.id === heroId)) return "Este héroe ya está desplegado";

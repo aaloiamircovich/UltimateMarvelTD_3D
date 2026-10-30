@@ -354,6 +354,20 @@ try {
   assert.equal(await page.evaluate(() => window.__TD.game.core.currentLevel.id),'level_3');
   await page.locator('#return-hub').click(); await page.locator('#confirm-hub').click();
   await page.locator('[data-station="story"]').click();
+  await page.locator('#mission-select').selectOption('level_4');
+  await page.locator('#hub-launch').click();
+  await page.waitForFunction(() => window.__TD.world.mapId === 'level_4');
+  assert.match(await page.locator('.mission-panel h1').textContent(),/Tres Puertas/);
+  const wards=await page.evaluate(()=>{
+    const {world,game}=window.__TD;
+    return {grid:game.core.gridSize, zones:world.mapGroup.children.filter(n=>n.name==='mission-zone').map(n=>[n.position.x,n.position.z,n.userData.radius])};
+  });
+  assert.deepEqual(wards,{grid:40,zones:[[-5,.625,1.8125],[5,-.625,1.8125]]});
+  await page.screenshot({path:'artifacts/sanctum-campaign.png'});
+  await page.locator('#start-wave').click();
+  await page.waitForFunction(()=>window.__TD.game.enemies.length>0);
+  await page.locator('#return-hub').click(); await page.locator('#confirm-hub').click();
+  await page.locator('[data-station="story"]').click();
   await page.locator('#mission-select').selectOption('level_1');
   await page.locator('#hub-launch').click();
   await page.waitForFunction(() => window.__TD.world.mapId === 'level_1');

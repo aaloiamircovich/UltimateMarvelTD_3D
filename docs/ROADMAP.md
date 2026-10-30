@@ -15,7 +15,7 @@ Trasladar todo lo aprovechable de TowerDefense_Marvel antes de nuevas funciones 
 
 ## Próximo: campaña y sistemas transversales
 
-- Los otros ocho mapas, terrenos, rutas, desbloqueos y mecánicas de misión. Base Avengers, Manhattan y Wakanda ya se seleccionan desde el HUB; Manhattan requiere 25 estrellas totales y Wakanda, 50.
+- Los otros siete mapas, terrenos, rutas, desbloqueos y mecánicas de misión. Base Avengers, Manhattan, Wakanda y Sanctum ya se seleccionan desde el HUB; requieren respectivamente 0, 25, 50 y 75 estrellas totales. Sanctum conserva sus runas y zonas reservadas.
 - Operación diaria, Boss Rush, draft y extracción de supervivencia.
 - Controles y persistencia de maestrías, códice, contratos, logros y replays.
 - Completar visuales de dispositivos y zonas persistentes; ampliar pruebas de combinaciones.
