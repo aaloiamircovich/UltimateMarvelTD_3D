@@ -6,7 +6,7 @@ El usuario autorizó preparar Blender y las APIs necesarias para mejorar el mode
 
 - Blender **5.2.3 LTS de Microsoft Store**, instalado por el usuario: automatización, creación de `.blend`, exportación GLB con esqueleto y animación, importación y render CPU comprobados.
 - Visor local: **http://127.0.0.1:5173/art-studio.html**. Abre GLB desde el equipo, muestra geometría, materiales y animaciones; permite girar, centrar, pausar, elegir clips y ver la malla. También se incluye en la compilación estática.
-- Conector Meshy: creación desde imagen, consulta, descarga, rigging, animaciones básicas devueltas por rigging y consulta de saldo implementados. **Falta configurar y validar una clave real.** Las pruebas de contrato usan respuestas simuladas; todavía no se generó un personaje con esta API.
+- Conector Meshy: creación desde imagen, consulta, descarga, rigging, animaciones básicas devueltas por rigging y consulta de saldo implementados. **Conexión real validada.** Se generó Iron Man Mark VII desde la referencia del usuario y se descargaron modelo, esqueleto y clips de caminar/correr. Ver `art/models/iron-man-mark-vii-v1/README.md`. Las pruebas automatizadas de contrato siguen usando respuestas simuladas.
 - Generación de referencias: la herramienta integrada de imágenes está disponible sin una clave OpenAI del proyecto. El intento de referencia de Iron Man fue rechazado por esa herramienta; no se produjo ni se guardó una imagen. Se puede usar una referencia elegida por el usuario para el flujo de autoría.
 - No se instalaron conectores comunitarios ni se contrataron planes. Tripo queda como alternativa si se necesita comparar resultados; no es necesario configurar dos proveedores para comenzar.
 
@@ -112,4 +112,4 @@ Los archivos `.blend` editables y variantes se conservan durante la autoría. S�
 - `npm run check`: contratos simulados de API, aislamiento de credenciales, validación GLB y pruebas del juego.
 - `npm run test:browser`: juego completo y visor con el GLB exportado por Blender, carga errónea, controles y pantalla móvil.
 
-Una prueba con respuestas simuladas no valida saldo, acceso ni resultados de una cuenta real. Esas comprobaciones quedan pendientes hasta configurar `MESHY_API_KEY`.
+Una prueba con respuestas simuladas no valida saldo, acceso ni resultados de una cuenta real. La cuenta fue validada mediante consulta de saldo y una generación/rigging reales; conservar las credenciales únicamente en `.env.local`.

@@ -43,7 +43,7 @@ El reclutamiento original no da duplicados: cuesta 500 inicialmente, sube un 12%
 
 Blender de Microsoft Store ya se puede automatizar mediante `npm run art -- doctor`, `fixture` e `inspect`. El conector de Meshy se configura con una clave local y permite generar desde imagen, consultar, descargar y crear el esqueleto. Instrucciones: [ARTE_3D.md](docs/ARTE_3D.md).
 
-El [Estudio de modelos](http://127.0.0.1:5173/art-studio.html) permite revisar GLB, materiales y animaciones. Son herramientas de autoría; todavía no reemplazan los modelos provisionales de batalla. La generación real con Meshy espera una clave válida.
+El [Estudio de modelos](http://127.0.0.1:5173/art-studio.html) permite revisar GLB, materiales y animaciones. Son herramientas de autoría; todavía no reemplazan los modelos provisionales de batalla. La conexión Meshy ya se validó con un primer Iron Man Mark VII; sus assets están en `art/models/iron-man-mark-vii-v1/`, todavía pendientes de integrar al combate.
 
 ## Pendiente de juego
 
