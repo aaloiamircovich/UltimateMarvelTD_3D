@@ -19,7 +19,7 @@ Inventario verificado en código: 105 héroes, 105 evoluciones base, 82 objetos,
 | Niveles y evoluciones | Curvas 1–100, costes, 105 evoluciones y transformaciones | Mejoras persistentes y evoluciones por nivel; equipamiento desde inventario | Ampliar representación visual |
 | Agrupaciones | 23 familias, 6 parejas y efectos | Escuadrón persistente y efectos originales en combate; consulta en Archivo | Ampliar pruebas de combinaciones |
 | Enemigos y jefes | 30 normales, 19 jefes, comportamientos y resistencias | Spawn, invocaciones, barreras, estados y jefes del generador original | Resto de facciones/mapas y modelos propios |
-| Mapas y misiones | 11 definiciones, rutas, terreno, objetivos y textos | Base Avengers: ruta, terreno, objetivos y recompensas originales | Los otros diez mapas y sus mecánicas |
+| Mapas y misiones | 11 definiciones, rutas, terreno, objetivos y textos | Base Avengers y Manhattan: selector, rutas, terrenos, objetivos, recompensas y acceso por estrellas originales | Los otros nueve mapas y sus mecánicas |
 | Oleadas | Generador, escalado, facciones y director de encuentros | 100 oleadas en historia; supervivencia original sin límite | Exponer elección de ramas tácticas y demás modos |
 | Combate | Habilidades, proyectiles, tipos, estados, efectos de área, auras y apoyo | Adaptador sin DOM/Three.js, proyecciones 3D, prioridades y acciones tácticas originales | Representación completa de zonas/dispositivos persistentes y balance de campaña completa |
 | Progresión | Guardado versionado, economía, maestrías, códice, contratos y logros | Guardado 3D aislado, exportación e importación explícita 3D/2D v9 con respaldo | Paneles de maestrías, códice, contratos y logros |
@@ -89,3 +89,13 @@ El importador lee el commit fijado, no los archivos modificados de la carpeta or
 Las 2.526 pruebas heredadas de lógica pasan. Se añaden verificaciones de integridad, catálogo completo, 525 combinaciones héroe/nivel, los 82 objetos en la vista previa, evoluciones, transformaciones, apoyo y agrupaciones. Las pruebas excluidas se registran en el manifiesto: corresponden a existencia de audio/atlas/sprites que no se trasladaron en esta fase. No se modificaron las expectativas de las pruebas originales para hacerlas pasar.
 
 El navegador verifica archivo, imágenes, cierre de panel, disposición móvil, colección, reclutamiento, inventario, persistencia tras recarga, importación con respaldo, exportación, equipo de héroes desbloqueados, colocación, movimiento, mejora, retiro, primeras oleadas originales, jefes y resultados. El prototipo ya no se usa en la aplicación; sus pruebas se conservan como referencia.
+
+## Campaña: segunda misión
+
+El HUB permite elegir Base Avengers o Calles de Nueva York (Manhattan), tanto en historia como en supervivencia. Manhattan requiere 25 estrellas totales según `LevelProgression.js`. La comprobación se aplica en el selector y al iniciar/reiniciar la simulación con colección. Los otros nueve mapas todavía no se ofrecen como jugables.
+
+`src/game/missions.js` construye una misión independiente con ruta, terreno, índice y dificultad. Se corrigió la dificultad fija del adaptador: los dos mapas usan `easy`, como determina el original, en lugar de `normal`. La supervivencia sigue sin generar estrellas de campaña. Las marcas visibles de historia se consultan por mapa; el récord de supervivencia continúa siendo global, como antes.
+
+Manhattan no trae `terrainRows` en levels.json. `src/game/maps/manhattan.json` conserva la cuadrícula numérica derivada de `ManhattanManualMap.js` mediante las reglas de `PixelMapRenderer.js:getTerrainForManualTile`, ambos del commit de origen fijado. Se respetan especialmente las celdas forzadas a pasto 108–112 y 264–275. No se leyó el contenido de trabajo sin publicar del repositorio 2D y no se modificó el snapshot.
+
+El render conserva dos escenarios en caché y alterna únicamente el activo; ruta y terreno corresponden a la misión lógica. La escenografía de Manhattan sigue siendo provisional. Las pruebas verifican acceso a 24/25 estrellas, cuadrícula y excepciones, recompensas y objetivos aislados por mapa, guardado, selector móvil y transición Base–Manhattan–Base. No demuestran todavía el balance de las 100 oleadas completas de Manhattan.

@@ -16,6 +16,7 @@ import {
 } from "./game/combat-data.js";
 import { CombatGame as Game } from "./game/combat.js";
 import { loadProfile, saveProfile } from "./game/profile.js";
+import { missionAccess } from "./game/missions.js";
 import { Collection } from "./game/progression.js";
 import { World } from "./render/world.js";
 import { formatEffectSummary } from "./legacy/src/systems/TeamSynergySystem.js";
@@ -372,7 +373,10 @@ function restart() {
   world.resetCamera();
   toast("Nueva misión. Reuní a tu escuadrón.");
 }
-function startMission(mode, teamIds = DEFAULT_TEAM) {
+function startMission(mode, teamIds = DEFAULT_TEAM, missionId = "level_1") {
+  const error = missionAccess(missionId, collection);
+  if (error) { toast(error); return; }
+  game.missionId = missionId;
   game.teamIds = [...teamIds];
   roster = teamIds.map(id => HERO_BY_ID[id]);
   renderRoster();
@@ -381,12 +385,18 @@ function startMission(mode, teamIds = DEFAULT_TEAM) {
   $("app").hidden = false;
   game.mode = mode;
   restart();
+  world.buildMap(missionId);
   world.resize();
-  document.querySelector(".operation-header").innerHTML = `<span class="live-dot"></span> ${mode === "infinite" ? "RESISTENCIA INFINITA" : "BASE AVENGERS"} <span class="alpha">ALPHA 0.3</span>`;
-  document.querySelector(".mission-panel .eyebrow").textContent = mode === "infinite" ? "MODO INFINITO" : "MODO HISTORIA · 01";
+  const level = game.core.currentLevel;
+  document.querySelector(".mission-panel h1").textContent = level.mission.operation;
+  document.querySelector(".mission-copy").textContent = level.description;
+  document.querySelector(".mission-tags span").textContent = level.theme.label;
+  document.querySelector(".mission-tags .difficulty").textContent = level.difficulty;
+  document.querySelector(".operation-header").innerHTML = `<span class="live-dot"></span> ${mode === "infinite" ? "RESISTENCIA INFINITA" : level.theme.label.toUpperCase()} <span class="alpha">ALPHA 0.3</span>`;
+  document.querySelector(".mission-panel .eyebrow").textContent = mode === "infinite" ? "MODO INFINITO" : `MODO HISTORIA · ${game.core.currentLevelIndex + 1}`;
   document.querySelector(".objective div span").textContent = mode === "infinite" ? "Resistí hasta que caiga la base" : "Sobreviví a las 100 oleadas";
   $("wave-dots").hidden = mode === "infinite";
-  $("best-wave").textContent = `${mode === "infinite" ? profile.bestInfinite : profile.bestWave} OLEADAS`;
+  $("best-wave").textContent = `${mode === "infinite" ? profile.bestInfinite : collection.getMapProgress(missionId).bestWave} OLEADAS`;
 }
 function returnToHub() {
   $("modal").close();
@@ -459,7 +469,7 @@ function processEvents() {
         const victory = game.phase === "victory";
         if (victory) profile.victories++;
         showModal(
-          `<div class="end-emblem ${victory ? "" : "defeat"}">${icon(victory ? "trophy" : "shield")}</div><div class="eyebrow">${victory ? "MISIÓN CUMPLIDA" : "SEÑAL PERDIDA"}</div><h2>${victory ? "La Base Avengers está a salvo." : "La ciudad volverá a levantarse."}</h2><p class="modal-note">${victory ? "La invasión fue detenida. Los Vengadores siguen en pie." : "Mejorá tus unidades y combiná daño con control para detener la próxima invasión."}</p><div class="profile-stats"><span>Oleadas superadas<b>${cleared}/${game.mode === "infinite" ? "∞" : "100"}</b></span><span>Eliminaciones<b>${game.kills}</b></span><span>Base restante<b>${game.health}/${game.maxHealth}</b></span></div><button id="play-again" class="primary">${icon("reset")} VOLVER A JUGAR</button>`,
+          `<div class="end-emblem ${victory ? "" : "defeat"}">${icon(victory ? "trophy" : "shield")}</div><div class="eyebrow">${victory ? "MISIÓN CUMPLIDA" : "SEÑAL PERDIDA"}</div><h2>${victory ? (game.missionId === "level_1" ? "La Base Avengers está a salvo." : "Manhattan está a salvo.") : "La ciudad volverá a levantarse."}</h2><p class="modal-note">${victory ? "La invasión fue detenida. Los Vengadores siguen en pie." : "Mejorá tus unidades y combiná daño con control para detener la próxima invasión."}</p><div class="profile-stats"><span>Oleadas superadas<b>${cleared}/${game.mode === "infinite" ? "∞" : "100"}</b></span><span>Eliminaciones<b>${game.kills}</b></span><span>Base restante<b>${game.health}/${game.maxHealth}</b></span></div><button id="play-again" class="primary">${icon("reset")} VOLVER A JUGAR</button>`,
           "end",
         );
         $("play-again").onclick = restart;
@@ -474,7 +484,7 @@ function processEvents() {
         $("modal-content").append(back);
       }
       persist();
-      $("best-wave").textContent = `${profile[recordKey]} OLEADAS`;
+      $("best-wave").textContent = `${game.mode === "infinite" ? profile.bestInfinite : collection.getMapProgress(game.missionId).bestWave} OLEADAS`;
     }
   }
 }

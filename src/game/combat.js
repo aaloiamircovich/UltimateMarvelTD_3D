@@ -14,29 +14,34 @@ import { calculateHeroLevelCost } from "../legacy/src/utils/HeroLevel.js";
 import { getNextTargetingPriority } from "../legacy/src/utils/TargetingPriority.js";
 import { canPlaceOnTerrain, getTerrainLabel, getAllowedTerrainLabels } from "../legacy/src/utils/TerrainRules.js";
 import { isPointInRangePattern } from "../legacy/src/utils/RangePattern.js";
-import { SOURCE, DEFAULT_TEAM, BATTLE_LEVEL, BATTLE_PATH, TERRAIN_MAP, PIXELS_PER_UNIT, toWorld, toRules } from "./combat-data.js";
+import { SOURCE, DEFAULT_TEAM, PIXELS_PER_UNIT, toWorld, toRules } from "./combat-data.js";
+
+import { getMission, missionAccess } from "./missions.js";
 
 export const STEP = 1 / 60;
 // Original coordinates, seconds and classes stay inside core. Three.js consumes
 // read-only projections; moving a mesh can never change an attack or its target.
 export class CombatGame {
-  constructor(mode = "story", { seed = 12345, teamIds = DEFAULT_TEAM, collection = null } = {}) {
+  constructor(mode = "story", { seed = 12345, teamIds = DEFAULT_TEAM, collection = null, missionId = "level_1" } = {}) {
     this.mode = mode;
+    this.missionId = missionId;
     this.seed = seed;
     this.teamIds = [...teamIds];
     this.collection = collection;
     this.reset();
   }
   reset() {
+    const mission = getMission(this.missionId);
+    if (this.collection && missionAccess(this.missionId, this.collection)) throw Error(missionAccess(this.missionId, this.collection));
     if (this.collection) this.teamIds = [...this.collection.state.activeTeamIds];
     this.events = []; this.time = 0; this.accumulator = 0; this.wave = 0; this.kills = 0;
     this.phase = "preparing"; this.paused = false; this.speed = 1; this.auto = false; this.betweenTimer = 1.6;
     this.nextId = 1; this.units = []; this.enemies = []; this.projectiles = [];
     const data = structuredClone(SOURCE);
     const c = this.core = {
-      heroes: [], enemies: [], projectiles: [], path: structuredClone(BATTLE_PATH),
-      currentLevel: structuredClone(BATTLE_LEVEL), gridSize: BATTLE_LEVEL.rendering.tileSize,
-      terrainMap: TERRAIN_MAP.map(row => [...row]), currentLevelIndex: 0, difficulty: "normal",
+      heroes: [], enemies: [], projectiles: [], path: mission.path,
+      currentLevel: mission.level, gridSize: mission.level.rendering.tileSize,
+      terrainMap: mission.terrain, currentLevelIndex: mission.index, difficulty: mission.difficulty,
       activeTeam: this.teamIds.map(id => data.heroes[id]).filter(Boolean),
       heroDatabase: data.heroes, enemyDatabase: data.enemies, levelsData: data.levels,
       completedWaves: [], stars: 0, isGameOver: false, random: new RandomSource(this.seed),

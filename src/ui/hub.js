@@ -2,6 +2,7 @@ import { HubWorld } from "../render/hub.js";
 import { HUB_STATIONS } from "../game/hub.js";
 import { HERO_BY_ID } from "../game/combat-data.js";
 import "./hub.css";
+import { missionOptions } from "../game/missions.js";
 import { CollectionPanel } from "./collection.js";
 
 export class Hub {
@@ -86,7 +87,25 @@ export class Hub {
     if (mission) {
       const infinite = id === "infinite";
       panel.innerHTML = `<div class="hub-kicker">${infinite ? "SUPERVIVENCIA ORIGINAL" : "HISTORIA · CAPÍTULO 01"}</div><h2>${infinite ? "Sin retirada." : "Defensa de la Base Avengers"}</h2><p>${infinite ? "Resistí con las reglas de supervivencia originales: oleadas sin límite y bonus cada cinco rondas." : "Defendé la base frente a la legión de Ultrón. Las 100 oleadas, los jefes y las habilidades usan las reglas del juego anterior."}</p><div class="hub-mission-details"><span>ESCENARIO<strong>Base Avengers</strong></span><span>OLEADAS<strong>${infinite ? "Sin límite" : "100"}</strong></span><span>ESCUADRÓN<strong>${this.teamIds.length} héroes</strong></span></div><p>${this.teamIds.map(id => HERO_BY_ID[id].name).join(" · ")}</p><p class="hub-note">Despliegue gratis, una unidad por héroe, mejoras hasta nivel 100. Tu colección, niveles, objetos y saldo se guardan en este navegador. Prepará tu equipo desde COLECCIÓN. ${infinite ? "Regla original del 2D: comenzás con 750 créditos. Al ganar o gastar, ese saldo reemplaza al del perfil. Podés exportar tu perfil desde Colección antes de entrar." : `Entrás con tu saldo actual: ${this.collection.getCredits().toLocaleString("es-AR")} créditos.`}</p><button id="hub-launch" class="primary">${infinite ? "ENTRAR A INFINITO" : "INICIAR HISTORIA"} →</button>`;
-      panel.querySelector("#hub-launch").onclick = () => this.startMission(infinite ? "infinite" : "story", this.teamIds);
+      const options = missionOptions(this.collection);
+      const selector = document.createElement("select"); selector.id = "mission-select";
+      selector.setAttribute("aria-label", "Misión de campaña");
+      for (const level of options) selector.add(new Option(`${level.name}${level.error ? " · Bloqueada" : ""}`, level.id));
+      const label = document.createElement("label"); label.textContent = "ELEGÍ LA MISIÓN "; label.append(selector);
+      panel.prepend(label);
+      const progress = document.createElement("p"); progress.id = "mission-access"; progress.setAttribute("role", "status");
+      panel.querySelector("#hub-launch").before(progress);
+      const refresh = () => {
+        const level = options.find(l => l.id === selector.value);
+        panel.querySelector("h2").textContent = level.mission.operation;
+        panel.querySelector("h2 + p").textContent = level.mission.briefing;
+        panel.querySelector(".hub-kicker").textContent = infinite ? "SUPERVIVENCIA ORIGINAL" : "CAMPAÑA ORIGINAL";
+        panel.querySelector(".hub-mission-details strong").textContent = level.theme.label;
+        progress.textContent = level.error || `Mejor oleada: ${level.progress.bestWave}/100 · Estrellas del mapa: ${level.progress.stars} · Total: ${this.collection.getTotalStars()}`;
+        panel.querySelector("#hub-launch").disabled = !!level.error;
+      };
+      selector.onchange = refresh; refresh();
+      panel.querySelector("#hub-launch").onclick = () => this.startMission(infinite ? "infinite" : "story", this.teamIds, selector.value);
     } else if (["squad", "summon", "starter"].includes(id)) {
       this.collectionPanel.notice = needsTeam ? "Elegí al menos un héroe para entrar a una misión." : "";
       this.collectionPanel.render(id);

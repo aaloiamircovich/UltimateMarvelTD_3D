@@ -318,6 +318,32 @@ try {
   assert.ok(await page.evaluate(() => JSON.parse(localStorage.getItem('ultimate-marvel-td-combat-v2')).victories>=1));
   assert.deepEqual(missingLegacyAssets,[]);
   assert.deepEqual(errors,[]);
+  // The preceding terminal fixture earned campaign stars. Use the real selector
+  // to enter Manhattan, then verify scene/mission isolation when returning.
+  await page.locator('#play-again').click();
+  await page.locator('#return-hub').click();
+  await page.locator('[data-station="story"]').click();
+  await page.locator('#mission-select').selectOption('level_2');
+  assert.equal(await page.locator('#hub-launch').isEnabled(), true);
+  await page.setViewportSize({width:390,height:844});
+  assert.ok(await page.locator('#hub-dialog').evaluate(d => d.scrollWidth <= d.clientWidth));
+  await page.screenshot({path:'artifacts/campaign-selector-mobile.png'});
+  await page.setViewportSize({width:1600,height:1000});
+  await page.locator('#hub-launch').click();
+  await page.waitForFunction(() => window.__TD.world.mapId === 'level_2');
+  assert.equal(await page.evaluate(() => window.__TD.game.core.currentLevel.id),'level_2');
+  assert.match(await page.locator('.mission-panel h1').textContent(),/Manhattan/);
+  await page.screenshot({path:'artifacts/manhattan-campaign.png'});
+  await page.locator('#start-wave').click();
+  await page.waitForFunction(() => window.__TD.game.enemies.length > 0);
+  await page.locator('#return-hub').click(); await page.locator('#confirm-hub').click();
+  await page.locator('[data-station="story"]').click();
+  await page.locator('#mission-select').selectOption('level_1');
+  await page.locator('#hub-launch').click();
+  await page.waitForFunction(() => window.__TD.world.mapId === 'level_1');
+  assert.equal(await page.evaluate(() => window.__TD.game.core.currentLevel.id),'level_1');
+  assert.equal(await page.evaluate(() => window.__TD.game.enemies.length),0);
+  assert.deepEqual(errors,[]);
   await page.close();
   const recovery = await browser.newPage({viewport:{width:1000,height:800}});
   recovery.on('pageerror', error => errors.push(error.message));

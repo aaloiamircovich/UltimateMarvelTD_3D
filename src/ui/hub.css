@@ -107,3 +107,6 @@
 .hub-team-slots label { display: grid; gap: 8px; font-size: 13px; color: #bdd8e8; }
 .hub-team-slots select { width: 100%; background: #122739; color: #eef6ff; padding: 12px; border: 1px solid #52738a; border-radius: 5px; }
 @media (max-width: 600px) { .hub-team-slots { grid-template-columns: 1fr; } }
+
+#mission-select { display: block; width: 100%; min-width: 0; margin: 8px 0 20px; padding: 12px; background: #122739; color: #eef6ff; border: 1px solid #52738a; border-radius: 5px; }
+#mission-access { color: #f4ce82; }

@@ -15,7 +15,7 @@ Trasladar todo lo aprovechable de TowerDefense_Marvel antes de nuevas funciones 
 
 ## Próximo: campaña y sistemas transversales
 
-- Los otros diez mapas, terrenos, rutas, desbloqueos y mecánicas de misión.
+- Los otros nueve mapas, terrenos, rutas, desbloqueos y mecánicas de misión. Base Avengers y Manhattan ya se seleccionan desde el HUB; Manhattan requiere 25 estrellas totales.
 - Operación diaria, Boss Rush, draft y extracción de supervivencia.
 - Controles y persistencia de maestrías, códice, contratos, logros y replays.
 - Completar visuales de dispositivos y zonas persistentes; ampliar pruebas de combinaciones.
@@ -23,7 +23,7 @@ Trasladar todo lo aprovechable de TowerDefense_Marvel antes de nuevas funciones 
 
 ## Presentación y extensiones del HUB
 
-- Preparación solicitada por el usuario: Blender Store automatizado, conector Meshy y visor de GLB listos. Conexión real de Meshy validada; primer candidato Iron Man Mark VII con esqueleto y clips de caminar/correr, pendiente de ataque e integración jugable. Ver [ARTE_3D.md](ARTE_3D.md).
+- Preparación solicitada por el usuario: Blender Store automatizado, conector Meshy y visor de GLB listos. Conexión real de Meshy validada; primer candidato Iron Man Mark VII con esqueleto y clips de caminar/correr, integrado en combate con apuntado procedural y repulsor en la palma. Ver [ARTE_3D.md](ARTE_3D.md).
 
 - Modelos GLB chibi y animaciones propios de cada héroe/enemigo.
 - Avatar y cámara de tercera persona en misiones; el combate actual es táctico.

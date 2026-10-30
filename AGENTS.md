@@ -13,3 +13,5 @@
 - Dirección confirmada: personaje propio en tercera persona y HUB como inicio del juego; desde allí acceder a invocaciones, historia, infinito, traits y grades. Manhattan es una actividad del HUB.
 - El usuario quiere describir sus propias reglas de traits y grades. No implementar la propuesta de traits pasivos aleatorios y grades C–S con rerolls como si estuviera aprobada. Ver `docs/ROADMAP.md`.
 - El usuario pidió mejorar sustancialmente el modelado y autorizó preparar herramientas/APIs y operar la computadora. Usar Blender de Microsoft Store por su alias, comprobado con `npm run art -- doctor`. Ver `docs/ARTE_3D.md`; credenciales sólo en `.env.local`, nunca en el frontend o Git. Distinguir pruebas de herramientas, referencias, modelos terminados e integración jugable.
+
+- Ante dudas reales de diseño durante la implementación, el usuario pide una entrevista breve: aplicar `ultimate-td-grill-me`, una decisión por vez. Consultar primero el código y las reglas originales; no inventar preguntas sobre decisiones ya confirmadas.

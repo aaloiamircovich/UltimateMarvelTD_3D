@@ -5,6 +5,7 @@ import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 import { HERO_BY_ID, ENEMIES, PIXELS_PER_UNIT } from "../game/combat-data.js";
+import { getMission } from "../game/missions.js";
 import { buildBattleMap } from "./battle-map.js";
 import { heroModel, enemyModel } from "./models.js";
 
@@ -217,7 +218,15 @@ export class World {
     this.scene.add(sprite);
     return sprite;
   }
-  buildMap() { buildBattleMap(this); }
+  buildMap(id = "level_1") {
+    this.mapCache ||= new Map();
+    if (!this.mapCache.has(id)) this.mapCache.set(id, buildBattleMap(this, getMission(id)));
+    if (this.mapGroup) this.scene.remove(this.mapGroup);
+    const map = this.mapCache.get(id);
+    this.mapGroup = map.group; this.portal = map.portal; this.shield = map.shield;
+    this.scene.add(this.mapGroup); this.mapId = id;
+    this.renderer.domElement.setAttribute("aria-label", `Mapa 3D: ${getMission(id).level.name}. Seleccioná un héroe y una zona libre para desplegarlo.`);
+  }
   setPreview(heroId, point, game, selectedUnit, movingId = null) {
     if (point) point = game.snap(point);
     if (this.ghostId !== heroId) {
@@ -319,6 +328,7 @@ export class World {
     return { mesh, ring };
   }
   render(game, dt) {
+    if (this.mapId !== game.missionId) this.buildMap(game.missionId);
     const activeUnits = new Set(game.units.map((u) => u.id));
     for (const [id, mesh] of this.units)
       if (!activeUnits.has(id)) {
