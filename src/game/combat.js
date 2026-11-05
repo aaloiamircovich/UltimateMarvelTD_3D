@@ -195,7 +195,14 @@ export class CombatGame {
     p.visualDistance = Math.hypot(target.x - x, target.y - y) / PIXELS_PER_UNIT;
     this.core.projectiles.push(p);
     if (config.attacker) {
-      config.attacker.angle = Math.atan2(target.x - x, target.y - y);
+    p.blasterSide = undefined;
+      const angle = Math.atan2(target.x - x, target.y - y);
+      if (config.attacker.id === "star_lord" && config.visualStyle === "blaster") {
+        p.blasterSide = config.secondaryEntity ? "left" : "right";
+        config.attacker.blasterShots = { ...config.attacker.blasterShots,
+          [p.blasterSide]: { time: this.time, angle, color: config.color } };
+      }
+      if (p.blasterSide !== "left") config.attacker.angle = angle;
       config.attacker.lastShotTime = this.time;
     }
     return p;
@@ -266,13 +273,13 @@ export class CombatGame {
   syncViews() {
     this.devices = deviceViews(this.core.heroes);
     this.units = this.core.heroes.map(h => ({ id: h.uid, heroId: h.id, ...toWorld(h), level: h.level,
-      damageDealt: h.combatStats.damageDealt, priority: h.targetingPriority, angle: h.angle || 0, lastShotTime: h.lastShotTime,
+      damageDealt: h.combatStats.damageDealt, priority: h.targetingPriority, angle: h.angle || 0, blasterShots: h.blasterShots, lastShotTime: h.lastShotTime,
       stunned: h.stunTimer > 0, pattern: h.rangePattern }));
     this.enemies = this.core.enemies.filter(e => e.isAlive && !e.hasReachedEnd).map(e => ({ id: e.viewId,
       kind: e.config.id, ...toWorld(e), hp: e.hp, maxHp: e.maxHp, speed: e.speed / PIXELS_PER_UNIT,
       angle: e.angle || 0, isBoss: e.isBoss, name: e.name, flying: e.flying, stealth: e.stealth,
       barrier: e.behavior.barrier, debuffs: e.debuffs.map(d => d.type), telegraph: e.telegraph }));
-    this.projectiles = this.core.projectiles.filter(p => p.isActive).map(p => ({ id: p.viewId, ...toWorld(p), color: p.color, style: p.visualStyle, attackerId: p.attacker?.uid, origin: p.visualOrigin, distance: p.visualDistance }));
+    this.projectiles = this.core.projectiles.filter(p => p.isActive).map(p => ({ id: p.viewId, ...toWorld(p), color: p.color, style: p.visualStyle, blasterSide: p.blasterSide, attackerId: p.attacker?.uid, origin: p.visualOrigin, distance: p.visualDistance }));
   }
   drainEvents() { return this.events.splice(0); }
   wavePreview() {

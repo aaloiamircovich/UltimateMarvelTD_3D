@@ -30,11 +30,38 @@ alloy = material('Aleación clara', (.48,.53,.62), .72)
 graphite = material('Grafito', (.034,.042,.055), .55)
 plasma = material('Plasma violeta', (.72,.038,.55), .24)
 weapons = []
+sockets = []
 for side, name in [(1,'LeftHand'),(-1,'RightHand')]:
     bone = rig.data.bones[name]
     wrist = rig.matrix_world @ bone.head_local
     axis = (rig.matrix_world @ bone.tail_local - wrist).normalized()
     grip = wrist + axis * .075
+    # El rig tiene un solo hueso por mano. Dar forma al extremo de la
+    # manopla en reposo; los pesos y los clips siguen usando ese mismo hueso.
+    inverse = body.matrix_world.inverted()
+    hand_group = body.vertex_groups[name].index
+    for vertex in body.data.vertices:
+        if not any(g.group == hand_group and g.weight > .5 for g in vertex.groups):
+            continue
+        point = body.matrix_world @ vertex.co
+        length = (point-wrist).dot(axis)
+        curl = min(1, max(0, (length-.055)/.09))
+        if curl:
+            point -= axis * max(0, length-.065) * .72
+            point.x -= side * .023 * curl
+            point.y -= .014 * curl
+            vertex.co = inverse @ point
+    socket = bpy.data.objects.new('Muzzle_'+name, None)
+    bpy.context.scene.collection.objects.link(socket)
+    socket.parent = rig
+    socket.parent_type = 'BONE'
+    socket.parent_bone = name
+    bpy.context.view_layer.update()
+    transform = socket.matrix_world.copy()
+    transform.identity()
+    transform.translation = grip + Vector((0,-.222,.06))
+    socket.matrix_world = transform
+    sockets.append(socket)
     pieces = []
     def block(label, offset, size, mat, bevel=.004, angle=0):
         bpy.ops.mesh.primitive_cube_add(size=1, location=grip+Vector(offset))
@@ -86,7 +113,7 @@ for filename, label in [('walk','Caminar'),('run','Correr')]:
     for o in imported:bpy.data.objects.remove(o,do_unlink=True)
 
 bpy.ops.object.select_all(action='DESELECT')
-for o in [rig,body,*weapons]:o.select_set(True)
+for o in [rig,body,*weapons,*sockets]:o.select_set(True)
 bpy.context.view_layer.objects.active=rig
 bpy.ops.export_scene.gltf(filepath=str(OUT/'model.glb'), export_format='GLB',
     use_selection=True, export_animation_mode='NLA_TRACKS', export_yup=True)

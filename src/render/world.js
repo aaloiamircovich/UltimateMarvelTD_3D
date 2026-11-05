@@ -361,7 +361,7 @@ export class World {
       this.labels.get(u.id).position.set(u.x, 1.65, u.z);
       mesh.userData.body.position.y =
         0.25 + Math.sin(game.time * 2 + u.id) * 0.025;
-      mesh.userData.animateCombat?.(game.time, u.lastShotTime, u.stunned);
+      mesh.userData.animateCombat?.(game.time, u.lastShotTime, u.stunned, u.blasterShots);
     }
     const activeEnemies = new Set(game.enemies.map((e) => e.id));
     for (const [id, mesh] of this.enemies)
@@ -421,7 +421,7 @@ export class World {
         mesh.userData.muzzleOffset = null;
         const shooter = this.units.get(p.attackerId);
         if (shooter?.userData.muzzlePosition && p.origin) {
-          mesh.userData.muzzleOffset = shooter.userData.muzzlePosition().sub(new THREE.Vector3(p.origin.x, .85, p.origin.z));
+          mesh.userData.muzzleOffset = shooter.userData.muzzlePosition(undefined,p.blasterSide).sub(new THREE.Vector3(p.origin.x, .85, p.origin.z));
         }
         mesh.visible = true; mesh.material.color.set(p.color || "#8ee5f3"); this.scene.add(mesh); this.projectiles.set(p.id, mesh);
       }

@@ -1,3 +1,4 @@
+import { checkStarLord } from "./star-lord-smoke.mjs";
 import { chromium } from "@playwright/test";
 import { createServer } from "vite";
 import { mkdir } from "node:fs/promises";
@@ -439,3 +440,4 @@ try {
   await browser.close();
   await server.close();
 }
+  await checkStarLord(recovery);
