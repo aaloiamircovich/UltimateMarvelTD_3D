@@ -194,8 +194,8 @@ export class CombatGame {
     p.visualOrigin = toWorld({ x, y });
     p.visualDistance = Math.hypot(target.x - x, target.y - y) / PIXELS_PER_UNIT;
     this.core.projectiles.push(p);
-    if (config.attacker) {
     p.blasterSide = undefined;
+    if (config.attacker) {
       const angle = Math.atan2(target.x - x, target.y - y);
       if (config.attacker.id === "star_lord" && config.visualStyle === "blaster") {
         p.blasterSide = config.secondaryEntity ? "left" : "right";
