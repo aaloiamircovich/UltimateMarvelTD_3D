@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { attachStarLord } from "./star-lord.js";
-import { attachIronMan, attachSpiderMan } from "./hero-assets.js";
+import { attachHulk, attachIronMan, attachSpiderMan } from "./hero-assets.js";
 
 const materials = new Map();
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
@@ -176,6 +176,7 @@ export function heroModel(hero, pedestal = true, detailed = true) {
     box(body, "#d7dfb3", [0, 1.79, 0.37], [0.3, 0.06, 0.035]);
     body.scale.set(1.12, 1.12, 1.12);
   }
+  if (detailed && hulk) void attachHulk(root);
   if (detailed && hero.id === "star_lord") void attachStarLord(root);
   if (detailed && hero.id === "spiderman") void attachSpiderMan(root);
   if (detailed && hero.id === "iron_man") void attachIronMan(root);

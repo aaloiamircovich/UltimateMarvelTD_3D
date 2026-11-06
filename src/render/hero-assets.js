@@ -31,26 +31,55 @@ export const loadIronMan = () => loadAsset(markVII);
 export const attachIronMan = root => attachWristShooter(root, markVII);
 export const attachSpiderMan = root => attachWristShooter(root, spiderMan);
 
+function mountCharacter(root, gltf, asset, height) {
+  const model = clone(gltf.scene);
+  model.traverse(node => {
+    if (node.isSkinnedMesh) { node.skeleton.pose(); node.frustumCulled = false; }
+    if (node.isMesh) { node.castShadow = true; node.receiveShadow = true; }
+  });
+  model.updateMatrixWorld(true);
+  const bounds = new THREE.Box3().setFromObject(model, true);
+  const size = bounds.getSize(new THREE.Vector3()), center = bounds.getCenter(new THREE.Vector3());
+  const normalized = new THREE.Group(), placement = new THREE.Group();
+  normalized.scale.setScalar(height / size.y);
+  placement.position.set(-center.x, -bounds.min.y, -center.z);
+  normalized.add(placement); placement.add(model);
+  root.userData.body.clear(); root.userData.body.add(normalized);
+  root.userData.asset = asset.id;
+  return model;
+}
+
+const hulkAsset = { id: "hulk-v1", name: "Hulk",
+  url: new URL("../../art/models/hulk-v1/model.glb", import.meta.url).href };
+
+export async function attachHulk(root) {
+  try {
+    const gltf = await loadAsset(hulkAsset);
+    if (root.userData.released) return;
+    const model = mountCharacter(root, gltf, hulkAsset, 3.05);
+    root.userData.body.scale.setScalar(1);
+    const clip = THREE.AnimationClip.findByName(gltf.animations, "Golpe");
+    const mixer = new THREE.AnimationMixer(model);
+    const action = mixer.clipAction(clip);
+    action.setLoop(THREE.LoopOnce, 1);
+    action.clampWhenFinished = true;
+    action.play();
+    action.paused = true;
+    root.userData.animateCombat = (time, lastShot, stunned) => {
+      const age = time - (lastShot ?? -Infinity);
+      action.time = !stunned && age >= 0 && age < clip.duration ? age : 0;
+      mixer.update(0);
+    };
+  } catch { /* El aviso de carga mantiene disponible el modelo provisional. */ }
+}
+
 // Both rigs fire from the right arm. Cloned skeletons keep poses independent.
 async function attachWristShooter(root, asset) {
   try {
     const gltf = await loadAsset(asset);
     const web = asset === spiderMan;
     if (root.userData.released) return;
-    const model = clone(gltf.scene);
-    model.traverse(node => {
-      if (node.isSkinnedMesh) { node.skeleton.pose(); node.frustumCulled = false; }
-      if (node.isMesh) { node.castShadow = true; node.receiveShadow = true; }
-    });
-    model.updateMatrixWorld(true);
-    const bounds = new THREE.Box3().setFromObject(model, true);
-    const size = bounds.getSize(new THREE.Vector3()), center = bounds.getCenter(new THREE.Vector3());
-    const normalized = new THREE.Group(), placement = new THREE.Group();
-    normalized.scale.setScalar(2.4 / size.y);
-    placement.position.set(-center.x, -bounds.min.y, -center.z);
-    normalized.add(placement); placement.add(model);
-    root.userData.body.clear(); root.userData.body.add(normalized);
-    root.userData.asset = asset.id;
+    const model = mountCharacter(root, gltf, asset, 2.4);
     const arms = ["LeftArm", "RightArm", "LeftForeArm", "RightForeArm"].map(name => model.getObjectByName(name));
     const up = new THREE.Vector3(0, 1, 0), inverse = new THREE.Quaternion();
     const forward = new THREE.Vector3(0, 0, 1);
