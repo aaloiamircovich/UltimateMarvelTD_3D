@@ -301,7 +301,8 @@ export class World {
       effect.radius = event.worldRadius || (event.kind === "slam" ? 2.4 : .65);
     } else {
       const points = [
-        this.devices.beamOrigin(event) || new THREE.Vector3(event.from.x, 1.5, event.from.z),
+        this.units.get(event.sourceUnitId)?.userData.muzzlePosition?.() ||
+          this.devices.beamOrigin(event) || new THREE.Vector3(event.from.x, 1.5, event.from.z),
         ...(event.chain || [event.to]).map(
           (p) => new THREE.Vector3(p.x, 1, p.z),
         ),

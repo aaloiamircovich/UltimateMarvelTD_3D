@@ -52,13 +52,21 @@ function mountCharacter(root, gltf, asset, height) {
 const hulkAsset = { id: "hulk-v1", name: "Hulk",
   url: new URL("../../art/models/hulk-v1/model.glb", import.meta.url).href };
 
-export async function attachHulk(root) {
+const thorAsset = { id: "thor-v1", name: "Thor",
+  url: new URL("../../art/models/thor-v1/model.glb", import.meta.url).href };
+
+export const attachHulk = root => attachAnimatedAttacker(root, hulkAsset, 3.05, "Golpe");
+export const attachThor = root => attachAnimatedAttacker(root, thorAsset, 2.55, "Descarga");
+
+async function attachAnimatedAttacker(root, asset, height, animation) {
   try {
-    const gltf = await loadAsset(hulkAsset);
+    const gltf = await loadAsset(asset);
     if (root.userData.released) return;
-    const model = mountCharacter(root, gltf, hulkAsset, 3.05);
+    const model = mountCharacter(root, gltf, asset, height);
     root.userData.body.scale.setScalar(1);
-    const clip = THREE.AnimationClip.findByName(gltf.animations, "Golpe");
+    const emitter = model.getObjectByName("Mjolnir");
+    if (emitter) root.userData.muzzlePosition = (out = new THREE.Vector3()) => emitter.getWorldPosition(out);
+    const clip = THREE.AnimationClip.findByName(gltf.animations, animation);
     const mixer = new THREE.AnimationMixer(model);
     const action = mixer.clipAction(clip);
     action.setLoop(THREE.LoopOnce, 1);

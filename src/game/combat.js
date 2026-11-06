@@ -66,7 +66,7 @@ export class CombatGame {
     const ring = (x, y, options = {}) => this.events.push({ type: "impact", ...toWorld({ x, y }), radius: (options.radius || 20) / PIXELS_PER_UNIT, ...options, worldRadius: (options.radius || 20) / PIXELS_PER_UNIT });
     c.vfx = {
       addRing: ring, addBurst: ring,
-      addBeam: (from, to, options = {}) => this.events.push({ type: "attack", from: toWorld(from), to: toWorld(to), ...options }),
+      addBeam: (from, to, options = {}) => this.events.push({ type: "attack", sourceUnitId: from.id === "thor" ? from.uid : undefined, from: toWorld(from), to: toWorld(to), ...options }),
       addFloatingText: (x, y, value, options = {}) => this.events.push({ type: "text", ...toWorld({ x, y }), value, color: options.color }),
     };
     c.uiManager = {
