@@ -1,3 +1,4 @@
+import { checkMisterFantastic } from "./mister-fantastic-smoke.mjs";
 import { checkStarLord } from "./star-lord-smoke.mjs";
 import { chromium } from "@playwright/test";
 import { createServer } from "vite";
@@ -434,6 +435,7 @@ try {
   await recovery.locator('[data-starter="korg"]').click();
   assert.equal(await recovery.evaluate(key => localStorage.getItem(key),collectionKey),'{broken');
   await checkStarLord(recovery);
+  await checkMisterFantastic(recovery);
   await recovery.close();
   assert.deepEqual(errors,[]);
   console.log('Browser smoke passed: archive, HUB, persistent collection, recruitment, equipment, validated 2D import, export, owned-hero team selection, original terrain/placement/upgrade/reposition/withdrawal, projectiles, real wave rewards, pause/speed/auto, mobile layout, bosses, terminal fixtures and isolated records.');

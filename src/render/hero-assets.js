@@ -31,12 +31,14 @@ export const loadIronMan = () => loadAsset(markVII);
 export const attachIronMan = root => attachWristShooter(root, markVII);
 export const attachSpiderMan = root => attachWristShooter(root, spiderMan);
 
-function mountCharacter(root, gltf, asset, height) {
+function mountCharacter(root, gltf, asset, height, initializePose) {
   const model = clone(gltf.scene);
   model.traverse(node => {
     if (node.isSkinnedMesh) { node.skeleton.pose(); node.frustumCulled = false; }
     if (node.isMesh) { node.castShadow = true; node.receiveShadow = true; }
   });
+  // Animated assets must be measured in their displayed pose, including root transforms.
+  initializePose?.(model);
   model.updateMatrixWorld(true);
   const bounds = new THREE.Box3().setFromObject(model, true);
   const size = bounds.getSize(new THREE.Vector3()), center = bounds.getCenter(new THREE.Vector3());
@@ -47,6 +49,28 @@ function mountCharacter(root, gltf, asset, height) {
   root.userData.body.clear(); root.userData.body.add(normalized);
   root.userData.asset = asset.id;
   return model;
+}
+
+const reedAsset = { id: "mister-fantastic-v1", name: "Mr. Fantastic",
+  url: new URL("../../art/models/mister-fantastic-v1/model.glb", import.meta.url).href };
+
+export async function attachMisterFantastic(root) {
+  try {
+    const gltf = await loadAsset(reedAsset);
+    if (root.userData.released) return;
+    const clip = THREE.AnimationClip.findByName(gltf.animations, "Guardia");
+    let mixer;
+    mountCharacter(root, gltf, reedAsset, 2.43, model => {
+      if (!clip) return;
+      mixer = new THREE.AnimationMixer(model);
+      mixer.clipAction(clip).play();
+      mixer.setTime(0);
+    });
+    root.userData.body.scale.setScalar(1);
+    if (mixer) {
+      root.userData.animateCombat = (time, _shot, stunned) => mixer.setTime(stunned ? 0 : time % clip.duration);
+    }
+  } catch { /* loadAsset informa el error mientras se mantiene el modelo provisional. */ }
 }
 
 const hulkAsset = { id: "hulk-v1", name: "Hulk",
