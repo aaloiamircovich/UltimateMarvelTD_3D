@@ -54,13 +54,19 @@ function mountCharacter(root, gltf, asset, height, initializePose) {
 const reedAsset = { id: "mister-fantastic-v1", name: "Mr. Fantastic",
   url: new URL("../../art/models/mister-fantastic-v1/model.glb", import.meta.url).href };
 
-export async function attachMisterFantastic(root) {
+const sueAsset = { id: "invisible-woman-v1", name: "Invisible Woman",
+  url: new URL("../../art/models/invisible-woman-v1/model.glb", import.meta.url).href };
+
+export const attachMisterFantastic = root => attachSupportGuard(root, reedAsset, 2.43);
+export const attachInvisibleWoman = root => attachSupportGuard(root, sueAsset, 2.36);
+
+async function attachSupportGuard(root, asset, height) {
   try {
-    const gltf = await loadAsset(reedAsset);
+    const gltf = await loadAsset(asset);
     if (root.userData.released) return;
     const clip = THREE.AnimationClip.findByName(gltf.animations, "Guardia");
     let mixer;
-    mountCharacter(root, gltf, reedAsset, 2.43, model => {
+    mountCharacter(root, gltf, asset, height, model => {
       if (!clip) return;
       mixer = new THREE.AnimationMixer(model);
       mixer.clipAction(clip).play();
