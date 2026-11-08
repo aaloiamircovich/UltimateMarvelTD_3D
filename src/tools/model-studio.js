@@ -96,6 +96,15 @@ $("open-iron-man").onclick = async () => {
   finally { $("open-iron-man").disabled = false; }
 };
 $("animation").onchange = () => { mixer?.stopAllAction(); const clip = clips[Number($("animation").value)]; if (clip) mixer.clipAction(clip).reset().play(); };
+$("open-the-thing").onclick = async () => {
+  $("open-the-thing").disabled = true;
+  try {
+    const response = await fetch(new URL("../../art/models/the-thing-v1/model.glb", import.meta.url).href);
+    if (!response.ok) throw Error("No se pudo descargar The Thing.");
+    await $("model-file").onchange({ target: { files: [new File([await response.blob()], "The-Thing-estudio.glb")] } });
+  } catch (error) { status.dataset.state = "error"; status.textContent = error.message; }
+  finally { $("open-the-thing").disabled = false; }
+};
 $("play").onclick = () => { playing = !playing; $("play").textContent = playing ? "Pausar" : "Reproducir"; };
 $("frame").onclick = frame;
 $("wireframe").onchange = wireframe;

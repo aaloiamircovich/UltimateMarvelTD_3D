@@ -17,6 +17,13 @@ try {
   await page.locator('#open-iron-man').click();
   await page.locator('#status[data-state="ready"]').waitFor();
   assert.match(await page.locator('#model-stats').textContent(), /Huesos24/);
+  await page.locator('#open-the-thing').click();
+  await page.waitForFunction(() => document.querySelector('#status').dataset.state === 'ready'
+    && document.querySelector('#status').textContent.includes('The-Thing-estudio.glb'));
+  assert.match(await page.locator('#model-stats').textContent(), /Huesos7/);
+  assert.match(await page.locator('#animation').textContent(), /Golpe/);
+  await page.locator('#play').click();
+  await page.screenshot({ path: 'artifacts/the-thing-studio.png' });
   await page.locator("#model-file").setInputFiles(resolve("test/fixtures/blender-probe.glb"));
   await page.locator('#status[data-state="ready"]').waitFor();
   assert.match(await page.locator("#animation").textContent(), /Idle/);
