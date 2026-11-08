@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { clone } from "three/addons/utils/SkeletonUtils.js";
 import { followPose, shotEnvelope } from "./repulsor-motion.js";
+import { attachTorchFlames } from "./torch-flames.js";
 
 const flashGeometry = new THREE.SphereGeometry(1, 12, 8);
 const flashMaterial = new THREE.MeshBasicMaterial({ color: "#c9fbff", toneMapped: false });
@@ -81,6 +82,39 @@ async function attachSupportGuard(root, asset, height) {
 
 const hulkAsset = { id: "hulk-v1", name: "Hulk",
   url: new URL("../../art/models/hulk-v1/model.glb", import.meta.url).href };
+
+const torchAsset = { id: "human-torch-v1", name: "Human Torch",
+  url: new URL("../../art/models/human-torch-v1/model.glb", import.meta.url).href };
+
+export async function attachHumanTorch(root) {
+  try {
+    const gltf = await loadAsset(torchAsset);
+    if (root.userData.released) return;
+    const clip = THREE.AnimationClip.findByName(gltf.animations, "Lanzamiento");
+    let mixer, action;
+    const model = mountCharacter(root, gltf, torchAsset, 2.43, model => {
+      mixer = new THREE.AnimationMixer(model);
+      action = mixer.clipAction(clip);
+      action.setLoop(THREE.LoopOnce, 1); action.clampWhenFinished = true;
+      action.play(); action.paused = true; action.time = clip.duration;
+      mixer.update(0);
+    });
+    root.userData.body.scale.setScalar(1);
+    const hand = model.getObjectByName("RightHand");
+    root.userData.muzzlePosition = (out = new THREE.Vector3()) => {
+      root.updateWorldMatrix(true, true);
+      return hand.getWorldPosition(out);
+    };
+    const flames = attachTorchFlames(root, model);
+    root.userData.animateCombat = (time, lastShot, stunned) => {
+      const age = time - (lastShot ?? -Infinity);
+      action.time = !stunned && age >= 0 && age < clip.duration ? age : clip.duration;
+      mixer.update(0);
+      flames(time, shotEnvelope(age), stunned);
+    };
+    root.userData.animateCombat(0, -Infinity, false);
+  } catch { /* El modelo provisional y el aviso de carga siguen disponibles. */ }
+}
 
 const thorAsset = { id: "thor-v1", name: "Thor",
   url: new URL("../../art/models/thor-v1/model.glb", import.meta.url).href };
@@ -192,6 +226,7 @@ async function attachWristShooter(root, asset) {
 
 export function releaseHero(root) {
   root.userData.released = true;
+  root.userData.disposeEffects?.();
   root.traverse(node => node.skeleton?.dispose());
   root.removeFromParent();
 }
