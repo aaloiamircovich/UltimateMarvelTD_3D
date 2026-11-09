@@ -4,7 +4,7 @@ Objetivo confirmado: completar el roster original. El asistente elige el siguien
 
 El estado «Integrado» indica un modelo específico disponible en combate; no implica que todos los detalles, animaciones de habilidades o variantes estén terminados. Los modelos de Blender actuales requieren más pulido que los de Meshy.
 
-Próxima referencia a solicitar después de Capitán América: **Hawkeye (Ojo de Halcón)**, cuerpo entero, con arco y carcaj visibles.
+Próxima referencia a solicitar: **Black Panther (Pantera Negra)**, cuerpo entero, con máscara, manos y pies visibles.
 
 | Personaje | ID original | Estado del modelo |
 | --- | --- | --- |
@@ -14,7 +14,7 @@ Próxima referencia a solicitar después de Capitán América: **Hawkeye (Ojo de
 | Thor | `thor` | Integrado · Blender |
 | Hulk | `hulk` | Integrado · Blender |
 | Black Widow | `black_widow` | Referencias guardadas; modelo pendiente |
-| Hawkeye | `hawkeye` | Pendiente |
+| Hawkeye | `hawkeye` | Integrado · Meshy + arco de Blender |
 | Black Panther | `black_panther` | Pendiente |
 | Doctor Strange | `doctor_strange` | Pendiente |
 | Captain Marvel | `captain_marvel` | Pendiente |

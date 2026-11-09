@@ -150,6 +150,33 @@ export async function attachAdamWarlock(root) {
   } catch { /* Se mantiene la figura provisional si falla la carga. */ }
 }
 
+const hawkeyeAsset = { id: "hawkeye-v1", name: "Hawkeye",
+  url: new URL("../../art/models/hawkeye-v1/model.glb", import.meta.url).href };
+
+export async function attachHawkeye(root) {
+  try {
+    const gltf = await loadAsset(hawkeyeAsset);
+    if (root.userData.released) return;
+    const clip = THREE.AnimationClip.findByName(gltf.animations, "Disparo");
+    let mixer, action;
+    const model = mountCharacter(root, gltf, hawkeyeAsset, 2.45, model => {
+      mixer = new THREE.AnimationMixer(model); action = mixer.clipAction(clip);
+      action.setLoop(THREE.LoopOnce, 1); action.clampWhenFinished = true;
+      action.play(); action.paused = true; action.time = clip.duration; mixer.update(0);
+    });
+    root.userData.body.scale.setScalar(1);
+    const hand = model.getObjectByName("RightHand");
+    root.userData.muzzlePosition = (out = new THREE.Vector3()) => {
+      root.updateWorldMatrix(true, true); return hand.getWorldPosition(out);
+    };
+    root.userData.animateCombat = (time, lastShot, stunned) => {
+      const age = time - (lastShot ?? -Infinity);
+      action.time = !stunned && age >= 0 && age < clip.duration ? age : clip.duration;
+      mixer.update(0);
+    };
+  } catch { /* Se mantiene la figura provisional si falla la carga. */ }
+}
+
 export const attachHulk = root => attachAnimatedAttacker(root, hulkAsset, 3.05, "Golpe");
 export const attachThor = root => attachAnimatedAttacker(root, thorAsset, 2.55, "Descarga");
 
