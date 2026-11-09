@@ -119,6 +119,33 @@ export async function attachHumanTorch(root) {
 const thorAsset = { id: "thor-v1", name: "Thor",
   url: new URL("../../art/models/thor-v1/model.glb", import.meta.url).href };
 
+const adamAsset = { id: "adam-warlock-v1", name: "Adam Warlock",
+  url: new URL("../../art/models/adam-warlock-v1/model.glb", import.meta.url).href };
+
+export async function attachAdamWarlock(root) {
+  try {
+    const gltf = await loadAsset(adamAsset);
+    if (root.userData.released) return;
+    const clip = THREE.AnimationClip.findByName(gltf.animations, "Canalizacion");
+    let mixer, action;
+    const model = mountCharacter(root, gltf, adamAsset, 2.55, model => {
+      mixer = new THREE.AnimationMixer(model); action = mixer.clipAction(clip);
+      action.setLoop(THREE.LoopOnce, 1); action.clampWhenFinished = true;
+      action.play(); action.paused = true; action.time = clip.duration; mixer.update(0);
+    });
+    root.userData.body.scale.setScalar(1);
+    const hand = model.getObjectByName("LeftHand");
+    root.userData.muzzlePosition = (out = new THREE.Vector3()) => {
+      root.updateWorldMatrix(true, true); return hand.getWorldPosition(out);
+    };
+    root.userData.animateCombat = (time, lastShot, stunned) => {
+      const age = time - (lastShot ?? -Infinity);
+      action.time = !stunned && age >= 0 && age < clip.duration ? age : clip.duration;
+      mixer.update(0);
+    };
+  } catch { /* Se mantiene la figura provisional si falla la carga. */ }
+}
+
 export const attachHulk = root => attachAnimatedAttacker(root, hulkAsset, 3.05, "Golpe");
 export const attachThor = root => attachAnimatedAttacker(root, thorAsset, 2.55, "Descarga");
 
