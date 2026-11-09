@@ -1,0 +1,41 @@
+{
+  "archivo": "model.glb",
+  "blender": "5.2.3 LTS",
+  "mallas": 1,
+  "triangulos": 3132,
+  "huesos": 24,
+  "materiales": 1,
+  "animaciones": [
+    "Guardia"
+  ],
+  "dimensiones": [
+    0.9091464281082153,
+    0.5029467344284058,
+    1.7999999523162842
+  ],
+  "minimo": [
+    -0.3774019777774811,
+    -0.2514150142669678,
+    -1.977292782839868e-07
+  ],
+  "texturas": [
+    {
+      "nombre": "Image_0",
+      "ancho": 2048,
+      "alto": 2048
+    },
+    {
+      "nombre": "Image_1",
+      "ancho": 2048,
+      "alto": 2048
+    },
+    {
+      "nombre": "normal",
+      "ancho": 2048,
+      "alto": 2048
+    }
+  ],
+  "observaciones": [
+    "Supera el presupuesto inicial de 3.000 triángulos por héroe; revisar LOD y rendimiento."
+  ]
+}

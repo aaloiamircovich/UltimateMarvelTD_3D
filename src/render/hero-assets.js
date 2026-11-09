@@ -58,8 +58,12 @@ const reedAsset = { id: "mister-fantastic-v1", name: "Mr. Fantastic",
 const sueAsset = { id: "invisible-woman-v1", name: "Invisible Woman",
   url: new URL("../../art/models/invisible-woman-v1/model.glb", import.meta.url).href };
 
+const captainAsset = { id: "captain-america-v1", name: "Capitán América",
+  url: new URL("../../art/models/captain-america-v1/model.glb", import.meta.url).href };
+
 export const attachMisterFantastic = root => attachSupportGuard(root, reedAsset, 2.43);
 export const attachInvisibleWoman = root => attachSupportGuard(root, sueAsset, 2.36);
+export const attachCaptainAmerica = root => attachSupportGuard(root, captainAsset, 2.50);
 
 async function attachSupportGuard(root, asset, height) {
   try {

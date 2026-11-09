@@ -15,4 +15,4 @@
 - El usuario pidió mejorar sustancialmente el modelado y autorizó preparar herramientas/APIs y operar la computadora. Usar Blender de Microsoft Store por su alias, comprobado con `npm run art -- doctor`. Ver `docs/ARTE_3D.md`; credenciales sólo en `.env.local`, nunca en el frontend o Git. Distinguir pruebas de herramientas, referencias, modelos terminados e integración jugable.
 
 - Ante dudas reales de diseño durante la implementación, el usuario pide una entrevista breve: aplicar `ultimate-td-grill-me`, una decisión por vez. Consultar primero el código y las reglas originales; no inventar preguntas sobre decisiones ya confirmadas.
-- Al terminar un personaje, pedir al usuario el nombre y la imagen de referencia del siguiente.
+- El usuario quiere completar el roster original. Al terminar un personaje, elegir y nombrar el siguiente héroe pendiente del catálogo y pedir su imagen de cuerpo entero; no devolver al usuario la elección del siguiente nombre.

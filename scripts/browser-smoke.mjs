@@ -1,3 +1,4 @@
+import { checkCaptainAmerica } from "./captain-america-smoke.mjs";
 import { checkAdamWarlock } from "./adam-warlock-smoke.mjs";
 import { checkHumanTorch } from "./human-torch-smoke.mjs";
 import { checkInvisibleWoman } from "./invisible-woman-smoke.mjs";
@@ -442,6 +443,7 @@ try {
   await checkInvisibleWoman(recovery);
   await checkHumanTorch(recovery);
   await checkAdamWarlock(recovery);
+  await checkCaptainAmerica(recovery);
   await recovery.close();
   assert.deepEqual(errors,[]);
   console.log('Browser smoke passed: archive, HUB, persistent collection, recruitment, equipment, validated 2D import, export, owned-hero team selection, original terrain/placement/upgrade/reposition/withdrawal, projectiles, real wave rewards, pause/speed/auto, mobile layout, bosses, terminal fixtures and isolated records.');
