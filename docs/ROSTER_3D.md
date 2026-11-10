@@ -32,7 +32,7 @@ Próxima referencia a solicitar: **Black Panther (Pantera Negra)**, cuerpo enter
 | Moon Knight | `moon_knight` | Pendiente |
 | She-Hulk | `she_hulk` | Pendiente |
 | Jean Grey | `jean_grey` | Pendiente |
-| Cyclops | `cyclops` | Pendiente |
+| Cyclops | `cyclops` | Modelo Meshy con esqueleto; pendiente de pulido e integración |
 | Storm | `storm` | Pendiente |
 | Silver Surfer | `silver_surfer` | Pendiente |
 | Blade | `blade` | Pendiente |
