@@ -1,0 +1,25 @@
+{
+  "archivo": "model.glb",
+  "blender": "5.2.3 LTS",
+  "mallas": 1,
+  "triangulos": 3964,
+  "huesos": 16,
+  "materiales": 5,
+  "animaciones": [
+    "Guardia"
+  ],
+  "dimensiones": [
+    0.9585853815078735,
+    0.296999454498291,
+    1.7420001029968262
+  ],
+  "minimo": [
+    -0.47907644510269165,
+    -0.16999946534633636,
+    0.023999948054552078
+  ],
+  "texturas": [],
+  "observaciones": [
+    "Supera el presupuesto inicial de 3.000 triángulos por héroe; revisar LOD y rendimiento."
+  ]
+}

@@ -15,7 +15,7 @@ Próxima referencia a solicitar: **Black Panther (Pantera Negra)**, cuerpo enter
 | Hulk | `hulk` | Integrado · Blender |
 | Black Widow | `black_widow` | Referencias guardadas; modelo pendiente |
 | Hawkeye | `hawkeye` | Integrado · Meshy + arco de Blender |
-| Black Panther | `black_panther` | Pendiente |
+| Black Panther | `black_panther` | Vista previa estilizada · Blender; sin integrar |
 | Doctor Strange | `doctor_strange` | Pendiente |
 | Captain Marvel | `captain_marvel` | Pendiente |
 | Wolverine | `wolverine` | Pendiente |

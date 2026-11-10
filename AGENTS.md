@@ -16,3 +16,5 @@
 
 - Ante dudas reales de diseño durante la implementación, el usuario pide una entrevista breve: aplicar `ultimate-td-grill-me`, una decisión por vez. Consultar primero el código y las reglas originales; no inventar preguntas sobre decisiones ya confirmadas.
 - El usuario quiere completar el roster original. Al terminar un personaje, elegir y nombrar el siguiente héroe pendiente del catálogo y pedir su imagen de cuerpo entero; no devolver al usuario la elección del siguiente nombre.
+
+- Si Meshy rechaza una referencia, el usuario autorizó crear automáticamente una versión estilizada en Blender, sin pedir otra imagen ni confirmar ese cambio de herramienta. Informar el origen real del modelo y sus limitaciones.
