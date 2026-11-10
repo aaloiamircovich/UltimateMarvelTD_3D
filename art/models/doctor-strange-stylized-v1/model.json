@@ -1,0 +1,25 @@
+{
+  "archivo": "model.glb",
+  "blender": "5.2.3 LTS",
+  "mallas": 1,
+  "triangulos": 4900,
+  "huesos": 7,
+  "materiales": 12,
+  "animaciones": [
+    "Conjuro"
+  ],
+  "dimensiones": [
+    0.9070001840591431,
+    0.5359355807304382,
+    1.8900020122528076
+  ],
+  "minimo": [
+    -0.48100000619888306,
+    -0.2029355764389038,
+    0.013997930102050304
+  ],
+  "texturas": [],
+  "observaciones": [
+    "Supera el presupuesto inicial de 3.000 triángulos por héroe; revisar LOD y rendimiento."
+  ]
+}
