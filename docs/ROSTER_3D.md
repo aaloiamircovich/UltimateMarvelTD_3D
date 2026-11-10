@@ -18,7 +18,7 @@ Próxima referencia a solicitar: **Black Panther (Pantera Negra)**, cuerpo enter
 | Black Panther | `black_panther` | Vista previa estilizada · Blender; sin integrar |
 | Doctor Strange | `doctor_strange` | Prototipo Blender; pendiente de pulido e integración |
 | Captain Marvel | `captain_marvel` | Pendiente |
-| Wolverine | `wolverine` | Pendiente |
+| Wolverine | `wolverine` | Modelo Meshy con esqueleto; pendiente de integración |
 | Daredevil | `daredevil` | Pendiente |
 | Ant-Man | `ant_man` | Pendiente |
 | Star-Lord | `star_lord` | Integrado · Meshy |
